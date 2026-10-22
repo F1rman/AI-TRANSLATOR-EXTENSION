@@ -1,0 +1,262 @@
+import type { ApiError, PageFrameState, Settings } from '../shared/protocol';
+
+const COPY = {
+  uk: {
+    name: 'AI Translator', translate: 'Перекласти', loading: 'Перекладаємо…', copy: 'Копіювати', copied: 'Скопійовано', close: 'Закрити',
+    stop: 'Зупинити', restore: 'Оригінал', retry: 'Продовжити', signIn: 'Увійти з Google', ready: 'Сторінку перекладено',
+    watching: 'Новий текст перекладатиметься автоматично', paused: 'Переклад призупинено', blocks: 'блоків', failed: 'з помилкою',
+    auth: 'Увійди з Google, щоб почати переклад.', quota: 'Денний ліміт вичерпано. Він оновиться о 00:00 UTC.',
+    network: 'Не вдалося з’єднатися. Перевір інтернет і продовж переклад.', long: 'Виділи до 20 000 символів для одного перекладу.',
+    invalid: 'AI повернув неповний переклад. Спробуй ще раз.',
+    rate: 'Сервіс тимчасово зайнятий. Спробуй трохи пізніше.',
+    generic: 'Не вдалося перекласти. Спробуй ще раз.',
+  },
+  en: {
+    name: 'AI Translator', translate: 'Translate', loading: 'Translating…', copy: 'Copy', copied: 'Copied', close: 'Close',
+    stop: 'Stop', restore: 'Original', retry: 'Continue', signIn: 'Sign in with Google', ready: 'Page translated',
+    watching: 'New text will be translated automatically', paused: 'Translation paused', blocks: 'blocks', failed: 'failed',
+    auth: 'Sign in with Google to start translating.', quota: 'Your daily limit is used up. It resets at 00:00 UTC.',
+    network: 'Could not connect. Check your connection and continue.', long: 'Select up to 20,000 characters for one translation.',
+    invalid: 'The AI returned an incomplete translation. Please try again.',
+    rate: 'The service is busy. Please try again shortly.',
+    generic: 'Could not translate. Please try again.',
+  },
+};
+
+export function errorText(error: ApiError, language: Settings['uiLanguage']): string {
+  const t = COPY[language];
+  if (['AUTH_REQUIRED', 'UNAUTHENTICATED', 'TOKEN_EXPIRED'].includes(error.code)) return t.auth;
+  if (error.code === 'QUOTA_EXCEEDED') return t.quota;
+  if (error.code === 'TEXT_TOO_LONG') return t.long;
+  if (error.code === 'INVALID_TRANSLATION') return t.invalid;
+  if (['CONCURRENCY_LIMIT', 'UPSTREAM_RATE_LIMIT'].includes(error.code)) return t.rate;
+  if (['NETWORK_ERROR', 'SERVICE_UNAVAILABLE', 'UPSTREAM_TIMEOUT', 'UPSTREAM_UNAVAILABLE'].includes(error.code)) return t.network;
+  return t.generic;
+}
+
+const css = `
+:host { all: initial !important; color-scheme: light; --bg:#fffdfa; --fg:#27241f; --muted:#746e64; --line:#e8e1d6; --soft:#f5f1e9; --accent:#b16d12; --highlight:#f7bc55; font:13px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+* { box-sizing:border-box; }
+[data-theme=dark] { color-scheme:dark; --bg:#211f1b; --fg:#f4f0e8; --muted:#b5aea1; --line:#464036; --soft:#302c25; --accent:#ffd18a; --highlight:#d99028; }
+@media (prefers-color-scheme:dark) { [data-theme=system] { color-scheme:dark; --bg:#211f1b; --fg:#f4f0e8; --muted:#b5aea1; --line:#464036; --soft:#302c25; --accent:#ffd18a; --highlight:#d99028; } }
+.card { background:var(--bg); color:var(--fg); border:1px solid var(--line); box-shadow:0 12px 48px #0002,0 2px 10px #0001; border-radius:18px; font:13px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+.toolbar { position:fixed; z-index:2147483647; width:min(324px,calc(100vw - 24px)); right:20px; bottom:20px; padding:16px; }
+.headline { display:flex; align-items:center; gap:9px; font-weight:650; letter-spacing:-.15px; font-size:14px; }
+.mark { display:grid; place-items:center; flex:none; width:28px; height:28px; border-radius:9px; background:var(--highlight); color:#302211; font-size:16px; font-weight:750; }
+.state { margin:12px 0 2px; font-weight:600; font-size:13px; }
+.detail { font-size:12px; line-height:1.5; color:var(--muted); overflow-wrap:anywhere; }
+.progress { height:5px; margin:12px 0; background:var(--soft); border-radius:5px; overflow:hidden; }
+.progress span { display:block; height:100%; background:var(--highlight); border-radius:5px; transition:width .2s; }
+.actions { display:flex; flex-wrap:wrap; gap:7px; margin-top:12px; }
+button { appearance:none; cursor:pointer; border:1px solid var(--line); border-radius:9px; color:var(--fg); background:var(--soft); padding:7px 11px; font:600 12px/1.3 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; transition:filter .15s; }
+button:hover { filter:brightness(.95); } button:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+button:disabled { opacity:.55; cursor:default; } button.primary { background:var(--highlight); color:#302211; border-color:transparent; }
+button.close { margin-left:auto; border:0; background:transparent; padding:2px 5px; font-size:20px; line-height:1; font-weight:400; color:var(--muted); }
+.chip { position:fixed; z-index:2147483647; display:flex; align-items:center; gap:6px; box-shadow:0 4px 16px #0002; padding:8px 11px; background:var(--bg); color:var(--fg); border:1px solid var(--line); border-radius:11px; font-weight:650; }
+.chip .mark { width:23px; height:23px; font-size:14px; border-radius:7px; }
+.bubble { position:fixed; z-index:2147483647; width:min(370px,calc(100vw - 24px)); padding:16px; }
+.translation { margin-top:13px; white-space:pre-wrap; overflow-wrap:anywhere; max-height:min(340px,55vh); overflow:auto; font-size:14px; line-height:1.65; user-select:text; }
+.error { color:var(--accent); }
+.pending { display:flex; gap:8px; align-items:center; color:var(--muted); padding:10px 0 4px; }
+.spinner { width:13px; height:13px; border-radius:50%; border:2px solid var(--line); border-top-color:var(--accent); animation:spin .8s linear infinite; }
+@keyframes spin { to { transform:rotate(360deg); } }
+@media (prefers-reduced-motion:reduce) { * { animation:none!important; transition:none!important; } }
+[hidden] { display:none!important; }
+`;
+
+function element<K extends keyof HTMLElementTagNameMap>(tag: K, className?: string, text?: string): HTMLElementTagNameMap[K] {
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  if (text !== undefined) node.textContent = text;
+  return node;
+}
+
+function button(label: string, onClick: () => void, primary = false): HTMLButtonElement {
+  const node = element('button', primary ? 'primary' : undefined, label);
+  node.type = 'button';
+  node.addEventListener('click', onClick);
+  return node;
+}
+
+interface Actions {
+  stop: () => void;
+  restore: () => void;
+  retry: () => void;
+  login: () => void;
+  closeSelection: () => void;
+}
+
+export class ContentUI {
+  readonly host: HTMLDivElement;
+  private container: HTMLDivElement;
+  private toolbar?: HTMLDivElement;
+  private chip?: HTMLButtonElement;
+  private bubble?: HTMLDivElement;
+  private anchor?: DOMRect;
+  private lastState?: PageFrameState;
+  private lastError?: ApiError;
+  private selectionRetry?: () => void;
+  private selectionText = '';
+  private selectionError?: ApiError;
+  private selectionLoading = false;
+
+  constructor(private settings: Settings, private readonly actions: Actions) {
+    this.host = element('div');
+    this.host.setAttribute('data-ai-translator-ui', '');
+    this.host.style.setProperty('all', 'initial', 'important');
+    this.host.style.setProperty('position', 'static', 'important');
+    this.host.style.setProperty('z-index', '2147483647', 'important');
+    const shadow = this.host.attachShadow({ mode: 'closed' });
+    const style = element('style');
+    style.textContent = css;
+    this.container = element('div');
+    this.container.dataset.theme = settings.theme;
+    shadow.append(style, this.container);
+    (document.documentElement || document).appendChild(this.host);
+    // Keep interacting with extension controls from altering the page's current selection.
+    shadow.addEventListener('pointerdown', (event) => {
+      if ((event.target as Element | null)?.closest('button')) event.preventDefault();
+    });
+  }
+
+  setSettings(settings: Settings): void {
+    this.settings = settings;
+    this.container.dataset.theme = settings.theme;
+    if (this.lastState) this.showToolbar(this.lastState, this.lastError);
+    if (this.bubble) this.renderSelection();
+  }
+
+  owns(event: Event): boolean { return event.composedPath().includes(this.host); }
+
+  showToolbar(state: PageFrameState, error?: ApiError): void {
+    this.lastState = state;
+    this.lastError = error;
+    if (state.status === 'idle') { this.toolbar?.remove(); this.toolbar = undefined; return; }
+    const t = COPY[this.settings.uiLanguage];
+    const card = element('div', 'card toolbar');
+    card.setAttribute('role', 'region');
+    card.setAttribute('aria-label', t.name);
+    const head = element('div', 'headline');
+    head.append(element('span', 'mark', '文'), element('span', undefined, t.name));
+    const title = element('div', 'state', state.status === 'translating' ? t.loading : state.status === 'translated' ? t.ready : t.paused);
+    const detail = element('div', 'detail', error ? errorText(error, this.settings.uiLanguage) : state.message || (state.status === 'translated' ? t.watching : `${state.completed} / ${state.total} ${t.blocks}${state.failed ? ` · ${state.failed} ${t.failed}` : ''}`));
+    title.setAttribute('aria-live', 'polite');
+    const progress = element('div', 'progress');
+    progress.setAttribute('role', 'progressbar');
+    progress.setAttribute('aria-valuemin', '0');
+    progress.setAttribute('aria-valuemax', String(state.total));
+    progress.setAttribute('aria-valuenow', String(state.completed));
+    const bar = element('span');
+    bar.style.width = `${state.total ? Math.min(100, state.completed / state.total * 100) : 0}%`;
+    progress.append(bar);
+    const actions = element('div', 'actions');
+    if (state.status === 'translating' || state.status === 'translated') actions.append(button(t.stop, this.actions.stop));
+    else actions.append(button(error && ['AUTH_REQUIRED', 'UNAUTHENTICATED'].includes(error.code) ? t.signIn : t.retry, error && ['AUTH_REQUIRED', 'UNAUTHENTICATED'].includes(error.code) ? this.actions.login : this.actions.retry, true));
+    actions.append(button(t.restore, this.actions.restore));
+    card.append(head, title, detail, progress, actions);
+    this.toolbar?.replaceWith(card);
+    if (!this.toolbar) this.container.append(card);
+    this.toolbar = card;
+  }
+
+  showSelectionIcon(rect: DOMRect, onClick: () => void): void {
+    this.hideSelection();
+    this.anchor = rect;
+    const t = COPY[this.settings.uiLanguage];
+    this.chip = button('', onClick);
+    this.chip.className = 'chip';
+    this.chip.setAttribute('aria-label', t.translate);
+    this.chip.append(element('span', 'mark', '文'), element('span', undefined, t.translate));
+    this.container.append(this.chip);
+    this.position(this.chip, rect);
+  }
+
+  showSelection(rect: DOMRect, retry: () => void): void {
+    this.chip?.remove();
+    this.chip = undefined;
+    this.anchor = rect;
+    this.selectionRetry = retry;
+    this.selectionText = '';
+    this.selectionError = undefined;
+    this.selectionLoading = true;
+    this.renderSelection();
+  }
+
+  selectionResult(text: string): void {
+    this.selectionLoading = false;
+    this.selectionError = undefined;
+    this.selectionText = text;
+    this.renderSelection();
+  }
+
+  selectionFailure(error: ApiError): void {
+    this.selectionLoading = false;
+    this.selectionError = error;
+    this.renderSelection();
+  }
+
+  hideSelection(): void {
+    this.chip?.remove();
+    this.bubble?.remove();
+    this.chip = undefined;
+    this.bubble = undefined;
+  }
+
+  private renderSelection(): void {
+    const t = COPY[this.settings.uiLanguage];
+    const card = element('div', 'card bubble');
+    card.setAttribute('role', 'dialog');
+    card.setAttribute('aria-label', t.name);
+    const head = element('div', 'headline');
+    const close = button('×', () => { this.actions.closeSelection(); this.hideSelection(); });
+    close.className = 'close';
+    close.setAttribute('aria-label', t.close);
+    head.append(element('span', 'mark', '文'), element('span', undefined, t.name), close);
+    card.append(head);
+    if (this.selectionLoading) {
+      const pending = element('div', 'pending');
+      pending.append(element('span', 'spinner'), element('span', undefined, t.loading));
+      pending.setAttribute('role', 'status');
+      card.append(pending);
+    } else if (this.selectionError) {
+      const message = element('div', 'translation error', errorText(this.selectionError, this.settings.uiLanguage));
+      message.setAttribute('role', 'alert');
+      const actions = element('div', 'actions');
+      const auth = ['AUTH_REQUIRED', 'UNAUTHENTICATED'].includes(this.selectionError.code);
+      actions.append(button(auth ? t.signIn : t.retry, auth ? this.actions.login : () => this.selectionRetry?.(), true));
+      card.append(message, actions);
+    } else {
+      const translation = element('div', 'translation', this.selectionText);
+      translation.dir = 'auto';
+      translation.setAttribute('aria-live', 'polite');
+      const actions = element('div', 'actions');
+      const copy = button(t.copy, () => {
+        const write = navigator.clipboard?.writeText(this.selectionText) ?? Promise.reject(new Error('Clipboard unavailable'));
+        void write.then(() => { copy.textContent = t.copied; }).catch(() => {
+          // Users can still select the result on pages that disable clipboard access.
+          const selection = document.getSelection();
+          const range = document.createRange();
+          range.selectNodeContents(translation);
+          selection?.removeAllRanges();
+          selection?.addRange(range);
+        });
+      });
+      actions.append(copy);
+      card.append(translation, actions);
+    }
+    this.bubble?.replaceWith(card);
+    if (!this.bubble) this.container.append(card);
+    this.bubble = card;
+    this.position(card, this.anchor ?? new DOMRect(innerWidth / 2, 60, 0, 0));
+  }
+
+  private position(node: HTMLElement, anchor: DOMRect): void {
+    const width = node.getBoundingClientRect().width || 280;
+    const height = node.getBoundingClientRect().height || 50;
+    const left = Math.min(Math.max(12, anchor.left), Math.max(12, innerWidth - width - 12));
+    const below = anchor.bottom + 9;
+    const top = below + height < innerHeight - 12 ? below : Math.max(12, Math.min(anchor.top - height - 9, innerHeight - height - 12));
+    node.style.left = `${left}px`;
+    node.style.top = `${top}px`;
+  }
+}

@@ -1,0 +1,58 @@
+export type Theme = 'system' | 'light' | 'dark';
+export type UiLanguage = 'uk' | 'en';
+export interface Settings {
+  sourceLanguage: string;
+  targetLanguage: string;
+  selectionMode: 'icon' | 'instant' | 'disabled';
+  uiLanguage: UiLanguage;
+  theme: Theme;
+}
+export const DEFAULT_SETTINGS: Settings = {
+  sourceLanguage: 'auto', targetLanguage: 'Ukrainian', selectionMode: 'icon',
+  uiLanguage: 'uk', theme: 'system',
+};
+export interface ApiError { code: string; message: string }
+export type Result<T> = { ok: true; data: T } | { ok: false; error: ApiError };
+export interface User { uid: string; name: string | null; email: string | null; picture: string | null }
+export interface AuthState { user: User | null; configured: boolean }
+export interface Quota {
+  dailyCharacters: number; usedCharacters: number; reservedCharacters: number;
+  remainingCharacters: number; resetsAt: string;
+}
+export interface Account { user: User; quota: Quota; limits: { maxSegments: number; maxCharactersPerJob: number; maxConcurrentJobs: number } }
+export interface Segment { id: string; text: string }
+export interface CreateJob {
+  sourceLanguage: string; targetLanguage: string; segments: Segment[]; idempotencyKey: string;
+}
+export interface Job {
+  id: string; status: 'queued' | 'running' | 'completed' | 'failed' | 'cancelled';
+  translations?: Segment[]; error?: ApiError; quota?: Quota;
+}
+export type PageStatus = 'idle' | 'translating' | 'translated' | 'paused' | 'error';
+export interface PageFrameState {
+  sessionId: string; status: PageStatus; total: number; completed: number; failed: number; message?: string;
+}
+export interface PageState extends PageFrameState { tabId?: number; sourceLanguage?: string; targetLanguage?: string }
+export interface PageCommand {
+  type: 'page:command';
+  payload: { action: 'start' | 'stop' | 'restore' | 'status'; sessionId: string; sourceLanguage: string; targetLanguage: string };
+}
+export type RuntimeRequest =
+  | { type: 'settings:get' }
+  | { type: 'settings:set'; payload: Partial<Settings> }
+  | { type: 'auth:get' | 'auth:login' | 'auth:logout' | 'account:get' }
+  | { type: 'translation:submit'; payload: CreateJob }
+  | { type: 'translation:get' | 'translation:cancel'; payload: { id: string } }
+  | { type: 'page:start'; payload?: { tabId?: number; sourceLanguage?: string; targetLanguage?: string } }
+  | { type: 'page:stop' | 'page:restore' | 'page:status'; payload?: { tabId?: number } }
+  | { type: 'page:report'; payload: PageFrameState }
+  | { type: 'selection:translate'; payload: { text: string } };
+export class ExtensionError extends Error {
+  code: string;
+  constructor(error: ApiError) { super(error.message); this.name = 'ExtensionError'; this.code = error.code; }
+}
+export async function send<T>(request: RuntimeRequest): Promise<T> {
+  const result = await chrome.runtime.sendMessage(request) as Result<T>;
+  if (!result?.ok) throw new ExtensionError(result?.error || { code: 'NO_RESPONSE', message: 'The extension did not respond.' });
+  return result.data;
+}

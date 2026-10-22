@@ -1,0 +1,10 @@
+.git/
+.env*
+**/.env*
+**/node_modules/
+**/.venv/
+**/__pycache__/
+*adminsdk*.json
+*.pem
+2.0.18_0/
+artifacts/

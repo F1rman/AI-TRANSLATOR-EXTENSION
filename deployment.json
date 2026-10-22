@@ -1,0 +1,9 @@
+{
+  "projectId": "ai-translator-ext",
+  "region": "europe-west1",
+  "apiBaseUrl": "https://ai-translator-api-1060412514800.europe-west1.run.app",
+  "hostingUrl": "https://ai-translator-ext.web.app",
+  "firebaseAppId": "1:1060412514800:web:c02c6ef48ae7066d94bd35",
+  "service": "ai-translator-api",
+  "queue": "translation-jobs"
+}

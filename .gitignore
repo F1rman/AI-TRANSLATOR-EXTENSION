@@ -1,0 +1,24 @@
+# Local credentials and configuration
+.env
+.env.*
+!.env.example
+*adminsdk*.json
+*service-account*.json
+*.pem
+*.key
+.credentials/
+
+# Dependencies and generated artifacts
+node_modules/
+dist/
+artifacts/
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.pyc
+*.egg-info/
+.DS_Store
+
+# Original packaged extension is a local reference, not application source.
+2.0.18_0/

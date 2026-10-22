@@ -1,0 +1,31 @@
+export const messages = {
+  uk: {
+    translate: 'Перекласти', settings: 'Налаштування', heading: 'Розумійте кожне слово.', intro: 'Точний переклад. У вашому контексті.',
+    text: 'Текст', page: 'Сторінка', from: 'З мови', to: 'На мову', auto: 'Автовизначення', input: 'Введіть або вставте текст…',
+    output: 'Тут з’явиться переклад', outputHint: 'Трохи більше розуміння — одним кліком.', translating: 'Перекладаємо…', copied: 'Скопійовано', copy: 'Копіювати', clear: 'Очистити',
+    signIn: 'Увійти з Google', welcome: 'Ваш світ. Без мовних меж.', loginHint: 'Увійдіть, щоб перекладати текст і сторінки за допомогою AI.',
+    setup: 'Вхід через Google ще не активовано для цієї збірки.',
+    quota: 'Символів сьогодні', remaining: 'Залишилось', powered: 'ПЕРЕКЛАД ІЗ РОЗУМІННЯМ', prefs: 'Ваш простір перекладу', prefsHint: 'Налаштуйте AI Translator під свій ритм.',
+    languageTitle: 'Мови перекладу', languageHint: 'Оберіть мову зі списку або введіть будь-яку іншу.',
+    selectTitle: 'Коли ви виділяєте текст', selectHint: 'Вирішіть, як AI Translator допомагатиме під час читання.',
+    icon: 'Показувати іконку', iconHint: 'Переклад з’явиться після натискання.', instant: 'Перекладати одразу', instantHint: 'Виділений текст одразу надсилається на переклад.', disabled: 'Лише вручну', disabledHint: 'Використовуйте панель або контекстне меню.',
+    appearance: 'Зовнішній вигляд', appearanceHint: 'Світлий, темний або як у вашій системі.', light: 'Світлий', dark: 'Темний', system: 'Системний',
+    interface: 'Мова інтерфейсу', account: 'Акаунт', accountHint: 'Денний ліміт допомагає залишати сервіс доступним.', signOut: 'Вийти', saved: 'Зміни збережено', privacy: 'Текст надсилається лише для запитаного перекладу.',
+    pageTitle: 'Уся сторінка. Ваша мова.', pageHint: 'Перекладіть текст на поточній вкладці, зберігши її вигляд.', pageStart: 'Перекласти сторінку', restore: 'Показати оригінал', pause: 'Зупинити', pageDone: 'Сторінку перекладено', pagePaused: 'Переклад зупинено', progress: 'фрагментів', pagePrivacy: 'Текст сторінки буде надіслано до AI. Поля вводу та паролі не перекладаються.', tryAgain: 'Спробувати ще', error: 'Не вдалося перекласти', retryHint: 'Перевірте підключення та спробуйте ще раз.', appearanceNav: 'Вигляд', preferencesNav: 'Параметри', textLong: 'До 4 000 символів за один переклад.', quotaEmpty: 'Денний ліміт вичерпано. Спробуйте завтра.',
+  },
+  en: {
+    translate: 'Translate', settings: 'Settings', heading: 'Understand every word.', intro: 'Thoughtful translation. In your context.',
+    text: 'Text', page: 'Webpage', from: 'Translate from', to: 'Translate to', auto: 'Detect language', input: 'Type or paste your text…',
+    output: 'Your translation appears here', outputHint: 'A little more understanding. One click away.', translating: 'Translating…', copied: 'Copied', copy: 'Copy translation', clear: 'Clear text',
+    signIn: 'Continue with Google', welcome: 'Your world. Without language barriers.', loginHint: 'Sign in to translate text and webpages with AI.',
+    setup: 'Google sign-in has not been activated for this build.',
+    quota: 'Characters today', remaining: 'Remaining', powered: 'TRANSLATION WITH UNDERSTANDING', prefs: 'Your translation space', prefsHint: 'Make AI Translator work at your pace.',
+    languageTitle: 'Translation languages', languageHint: 'Choose from the list or enter any other language.',
+    selectTitle: 'When you select text', selectHint: 'Choose how AI Translator helps as you read.',
+    icon: 'Show a translate icon', iconHint: 'Translate after you click the icon.', instant: 'Translate immediately', instantHint: 'Selected text is immediately sent for translation.', disabled: 'Translate manually', disabledHint: 'Use the popup or context menu.',
+    appearance: 'Appearance', appearanceHint: 'Light, dark, or in sync with your system.', light: 'Light', dark: 'Dark', system: 'System',
+    interface: 'Interface language', account: 'Account', accountHint: 'A daily limit keeps the service available for everyone.', signOut: 'Sign out', saved: 'Changes saved', privacy: 'Text is sent only for the translation you request.',
+    pageTitle: 'The whole page. In your language.', pageHint: 'Translate the current tab while preserving its layout.', pageStart: 'Translate this page', restore: 'Show original', pause: 'Stop translating', pageDone: 'Page translated', pagePaused: 'Translation paused', progress: 'segments', pagePrivacy: 'Page text will be sent to AI. Input fields and passwords are excluded.', tryAgain: 'Try again', error: 'Unable to translate', retryHint: 'Check your connection and try again.', appearanceNav: 'Appearance', preferencesNav: 'Preferences', textLong: 'Up to 4,000 characters per translation.', quotaEmpty: 'Your daily limit is reached. Please try tomorrow.',
+  },
+};
+export type Dictionary = typeof messages.en;
