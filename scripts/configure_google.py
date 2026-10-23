@@ -1,4 +1,4 @@
-"""Bind the owner's Chrome OAuth client after the Store draft has a stable ID."""
+"""Authorize the Store extension without replacing Firebase's Google web client."""
 import argparse
 import re
 from cloud_support import api, PROJECT
@@ -16,16 +16,21 @@ if __name__ == '__main__':
     base = f'https://identitytoolkit.googleapis.com/admin/v2/projects/{PROJECT}'
     provider = base+'/defaultSupportedIdpConfigs/google.com'
     try:
-        api(provider)
+        google = api(provider)
     except RuntimeError as error:
         if '404' not in str(error):
             raise
-        api(base+'/defaultSupportedIdpConfigs?idpId=google.com','POST',
-            {'enabled':True,'clientId':args.client_id})
-    else:
-        api(provider+'?updateMask=enabled,clientId','PATCH',
-            {'enabled':True,'clientId':args.client_id})
+        raise SystemExit('Enable Google in Firebase Authentication first; keep its Web application OAuth client. '
+                         'The Chrome Extension OAuth client belongs in the extension manifest.') from None
+    if not google.get('clientId'):
+        raise SystemExit('Configure the Google provider Web application client in Firebase Authentication first.')
+    # Firebase's provider client and chrome.identity's extension client have distinct roles.
+    # Never overwrite the provider's existing clientId/clientSecret with a Chrome client.
+    if not google.get('enabled'):
+        api(provider+'?updateMask=enabled','PATCH',{'enabled':True})
     config = api(base+'/config')
     domains = list(dict.fromkeys(config.get('authorizedDomains', []) + [f'chrome-extension://{args.extension_id}']))
-    api(base+'/config?updateMask=authorizedDomains','PATCH',{'authorizedDomains':domains})
-    print('Google provider and extension origin configured. Rebuild the extension with its OAuth client and Store public key.')
+    if domains != config.get('authorizedDomains', []):
+        api(base+'/config?updateMask=authorizedDomains','PATCH',{'authorizedDomains':domains})
+    print('Google provider preserved; extension origin authorized. '
+          'Set VITE_GOOGLE_CLIENT_ID to the Chrome Extension client and rebuild with the Store public key.')

@@ -6,7 +6,7 @@ Manifest V3 розширення: переклад виділення, введ�
 
 - Код розширення та сервера реалізований. Сервер, Firestore, Cloud Tasks, Firebase Auth і публічні сторінки налаштовані у **`ai-translator-ext`**.
 - Джерело перекладів — наявний `https://balubenko-ai.web.app/api/generate`. Токен доступний лише серверу через Secret Manager.
-- **Google-вхід очікує Store ID та OAuth Client ID.** Без цих значень збірка показує повідомлення про неактивований вхід; Google provider також потрібно прив'язати до клієнта. Як завершити — [docs/GOOGLE_SIGN_IN.md](docs/GOOGLE_SIGN_IN.md).
+- **Google-вхід очікує Store ID та OAuth Client ID типу Chrome Extension.** Брендинг підтверджений, Google provider Firebase ввімкнений. Для збірки потрібно створити чернетку Store та окремий Chrome Extension OAuth-клієнт; наявний Web application клієнт Firebase зберігається. Як завершити — [docs/GOOGLE_SIGN_IN.md](docs/GOOGLE_SIGN_IN.md).
 - ZIP з суфіксом `-draft` призначений для створення чернетки Store. Це ще не фінальна збірка з робочим входом. На модерацію нічого не надсилалося.
 
 ## Встановлення локально
