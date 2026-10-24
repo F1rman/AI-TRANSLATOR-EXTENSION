@@ -1,0 +1,166 @@
+{
+  "id": "gbefmodhlophhakmoecijeppjblibmie",
+  "name": "Linguist - web page translator",
+  "rating": 4.37,
+  "ratingCount": 373,
+  "users": 200000,
+  "category": "productivity/communication",
+  "summary": "Web page translation, text translation, dictionary, history, custom translators, all you need to break language barriers",
+  "icon": "https://lh3.googleusercontent.com/LDtMJ5BKIwyseZqz9wiCgoZ6UIBCbFPwOCP1vLkBJlkhq5W64ZefQFDcWlqt722eisN-nUnOgU93OlXpUyrnxkoRdg",
+  "smallPromo": "https://lh3.googleusercontent.com/of6lxYQBEWCtHMmfT81R_v9utoUsf1HVqQXDldbhq_OEllTMoKPhwT3TbCF2qQC-qTIb5q3rgPryWUor4GMmSZ-PAw",
+  "hasMarquee": false,
+  "url": "https://chromewebstore.google.com/detail/gbefmodhlophhakmoecijeppjblibmie",
+  "description": "Translate web pages, highlighted text, Netflix subtitles, private messages, speak the text, and save important translations to your personal dictionary to learn words in over 130 languages.\n\nEncountering unfamiliar words while reading an online article? Just select text on the page and click the button to translate it. You can speak the translated and original text, and save the translation to your dictionary.\n\nIf you need to input text and translate it, you can just click the Linguist button to open the pop-up window.\n\nFull-page translation\nWith Linguist, you can conveniently translate entire web pages with just one click. All you need to do is select \"Translate page\" from the context menu on any webpage, and it will be instantly translated into your preferred language.\n\nMake your own personal knowledge base with Linguist!\nAny translated text is saved in the history, and you can add your favorite translations to your dictionary. You can search for translations in both your dictionary and history, and even filter your translations by language. The dictionary feature is available even when you are offline, making it an ideal tool for language learners or travelers who require constant access to their word lists.\n\nOffline translation and privacy\nLinguist can translate texts even without the internet - a feature that no other extension has. The offline translator allows you to translate texts on your device without sending any private messages over the internet, ensuring your privacy. Simply enable the feature on the options page to maintain your privacy while translating work emails and personal messages.\n\nCustomize Linguist as you wish\nUnlike other browser extensions, Linguist is not just a wrapper over the Google Translator Widget; it's a complete and independent translation system. This is why Linguist is not limited in what features may be implemented. Linguist is the leading extension for translating pages. Join Linguist and start using the most advanced features now and always stay at the forefront of technological progress in the future.\n\nYou have complete control over your data and how Linguist works for you:\n\n- Control web pages auto-translation by language and domain name\n- Choose a service that will translate your texts\n  - You may use popular services like Google, Yandex, Bing, DeepL, Reverso\n  - You may use an offline translator that will translate texts on your device (not sent to the internet at all)\n  - You may use custom translator modules to use your own translation service. Read more: https://github.com/translate-tools/linguist/blob/master/docs/CustomTranslator.md\n- Choose a service to speak texts\n- Customize the user interface and available features\n\nPrivacy\nLinguist is free, open-source, and never collects your personal data.\n\nIf you want to report a bug, suggest a feature, or donate, visit GitHub: https://github.com/translate-tools/linguist",
+  "screenshots": [
+    "https://lh3.googleusercontent.com/QaDsmdm2okkcVezdql9MzNPMTEIJOw2mLgvhbP5ESWnQvyJtpAuSLVR1LAaeIwZ71jRoxynPlX8Rqz8_P945U-l9mA",
+    "https://lh3.googleusercontent.com/TjYM64GgjviV4ewiwTSWY3N11VEMHFyCzF8ehZTezHS1VNblTksdL_196smZsFShNvF8WFXnBorhKNw8lA5ZS6G57uc",
+    "https://lh3.googleusercontent.com/mbVvHfnMz5WK0BN7-6jgX6N906vgdDUKOjgXQQSjw3EqedMEJUIb3mTHn313fKS14c0Jd4w3UHksOkRw7WGjlWsi0w",
+    "https://lh3.googleusercontent.com/jWd4wEjWsk-Tm0kJfLDiMNOVde_--D9TWKzbAd496hwZnjXzbU8eRpeQYtE3iIVrFjEFZzwNdQWhTDOWrVW-RwXr6g",
+    "https://lh3.googleusercontent.com/j3RtmUVHO0wypGEQE5VvqxxWZEuva1R8xV1sw2DKIH_mMcybViFUKSN5n553QuP8SxKq7gKuwmylw2IL6wjEXwi_"
+  ],
+  "marquee": null,
+  "version": "7.1.0",
+  "updated": "2026-08-08",
+  "size": "4.06MiB",
+  "languages": [
+    "Deutsch",
+    "English",
+    "Filipino",
+    "Indonesia",
+    "Kiswahili",
+    "Melayu",
+    "Nederlands",
+    "Tiếng Việt",
+    "Türkçe",
+    "azərbaycan",
+    "català",
+    "dansk",
+    "eesti",
+    "español",
+    "français",
+    "hrvatski",
+    "italiano",
+    "latviešu",
+    "lietuvių",
+    "magyar",
+    "norsk",
+    "o‘zbek",
+    "polski",
+    "română",
+    "shqip",
+    "slovenčina",
+    "slovenščina",
+    "suomi",
+    "svenska",
+    "čeština",
+    "Ελληνικά",
+    "български",
+    "русский",
+    "српски",
+    "українська",
+    "հայերեն",
+    "עברית",
+    "العربية",
+    "فارسی",
+    "नेपाली",
+    "मराठी",
+    "हिन्दी",
+    "অসমীয়া",
+    "বাংলা",
+    "ਪੰਜਾਬੀ",
+    "ગુજરાતી",
+    "ଓଡ଼ିଆ",
+    "தமிழ்",
+    "తెలుగు",
+    "ಕನ್ನಡ",
+    "മലയാളം",
+    "සිංහල",
+    "ไทย",
+    "မြန်မာ",
+    "አማርኛ",
+    "日本語",
+    "한국어"
+  ],
+  "related": [
+    {
+      "id": "gjfljooinclelkhmgegielehekdbmigm",
+      "name": "Web Translate",
+      "users": 20000
+    },
+    {
+      "id": "jdanedhdmcbkheljojpdcnonnbdbohng",
+      "name": "autoTranslate - Translate web & PDF, Dictionary",
+      "users": 30000
+    },
+    {
+      "id": "pbeheebcldakpkohnellphloljkaanfa",
+      "name": "MarketApp P2P",
+      "users": 400000
+    },
+    {
+      "id": "lbkdhahlblnfljniopojjappcnbnpdok",
+      "name": "Website Translator",
+      "users": 10000
+    },
+    {
+      "id": "ibplnjkanclpjokhdolnendpplpjiace",
+      "name": "Simple Translate",
+      "users": 200000
+    },
+    {
+      "id": "pfpolingmjapeepkjhnimfaofmlhhfbf",
+      "name": "VRubel - VPN for YouTube from 1₽ per day",
+      "users": 300000
+    },
+    {
+      "id": "gfgpkepllngchpmcippidfhmbhlljhoo",
+      "name": "XTranslate",
+      "users": 50000
+    },
+    {
+      "id": "khpkadmigccakicajloljbckokgnknkp",
+      "name": "Открывашка",
+      "users": 70000
+    },
+    {
+      "id": "elpmkbbdldhoiggkjfpgibmjioncklbn",
+      "name": "Translate for Chrome -Translator, Dictionary",
+      "users": 500000
+    },
+    {
+      "id": "gaidoampbkcknofoejhnhbhbhhifgdop",
+      "name": "Censor Tracker – Proxy for Privacy & Security",
+      "users": 300000
+    },
+    {
+      "id": "gkkkcomfmldkigajkmljnbpiajbpbgdg",
+      "name": "TWP - Translate Web Pages",
+      "users": 100000
+    },
+    {
+      "id": "pfoflbejajgbpkmllhogfpnekjiempip",
+      "name": "Translator - Select to Translate",
+      "users": 60000
+    }
+  ],
+  "retrievedAt": "2026-10-23T20:34:18.013Z",
+  "hl": "en",
+  "files": {
+    "screenshots": [
+      "screenshots/1.png",
+      "screenshots/2.png",
+      "screenshots/3.png",
+      "screenshots/4.png",
+      "screenshots/5.png"
+    ],
+    "icon": "icon.png",
+    "smallPromo": "promo-440x280.png",
+    "marquee": null
+  },
+  "errors": [],
+  "researchNotes": {
+    "angle": "All-purpose page/text translator with dictionary, history and offline translation.",
+    "weakness": "Broad feature suite and long description: opportunity for focused AI page-reading messaging, not a demonstrated feature gap.",
+    "date": "2026-10-23"
+  }
+}

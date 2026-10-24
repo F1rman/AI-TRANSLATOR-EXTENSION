@@ -1,0 +1,46 @@
+{
+  "appName": {
+    "message": "Webpage Translator – AI Translator",
+    "description": "Recommended English Chrome Web Store name; retain AI Translator brand."
+  },
+  "appDescription": {
+    "message": "Read pages in your language with a webpage translator. Translate selected text and show the original when needed.",
+    "description": "Recommended English short description, maximum 132 characters."
+  },
+  "reviewPrompt": {
+    "message": "Enjoying AI Translator? Rate it on the Chrome Web Store"
+  },
+  "reviewRate": {
+    "message": "★ Rate"
+  },
+  "reviewDismiss": {
+    "message": "Dismiss review request"
+  },
+  "welcomeTitle": {
+    "message": "Welcome to AI Translator"
+  },
+  "welcomeIntro": {
+    "message": "Translate selected text and webpage text, then show the original when you need it."
+  },
+  "welcomePin": {
+    "message": "Pin AI Translator to the toolbar and open it."
+  },
+  "welcomeSignIn": {
+    "message": "Sign in with Google and choose your translation languages."
+  },
+  "welcomeFirstResult": {
+    "message": "Select text and click the translate icon, paste text into the popup, or start webpage translation."
+  },
+  "welcomeAllowance": {
+    "message": "Free access includes 20,000 source characters per Google account each day. Your allowance resets at 00:00 UTC."
+  },
+  "welcomePrivacy": {
+    "message": "Requested text is sent for AI processing. Active page translation also processes new page text; instant-selection mode sends selected text automatically."
+  },
+  "welcomeOpenSettings": {
+    "message": "Open preferences"
+  },
+  "welcomeReadPrivacy": {
+    "message": "Read the privacy policy"
+  }
+}

@@ -1,0 +1,62 @@
+📣 Top-rated AI translation extension [Immersive Translate], supporting webpage, PDF, eBook, video subtitle, image, and manga translation! ⭐⭐⭐⭐⭐
+
+📣 A trusted translation tool for over 30 million users worldwide. Recommended by major mainstream browsers and awarded Chrome's Best Extension of 2024.
+
+📣 Dual-certified with ISO/IEC 27001 (Information Security Management) and ISO/IEC 27701 (Privacy Information Management). Fully compliant with EU GDPR and Japan APPI privacy requirements, utilizing SSL/TLS encrypted transmission to safeguard your data security and privacy.
+
+💻 Key Features:
+
+📰 Webpage Translation
+
+* 🚀 Smart Bilingual Reading: Intelligently identifies the main content area for bilingual webpage translation, minimizing intrusiveness on the original page. This delivers a superior reading experience for foreign websites, hence the name [Immersive Translate].
+* 🚀 Deep Website Optimization: Deeply customized for mainstream platforms. Enjoy seamless and highly efficient translation on Google Search, social media platforms like Twitter, Reddit, and Facebook, as well as top news websites.
+* 🚀 Hover Translation: Simply hover your mouse over any paragraph on any webpage, and the translation will appear immediately below it. Paragraphs are treated as the smallest unit to preserve context, helping you truly understand and learn foreign languages.
+* 🚀 Select-to-Translate: In the AI era, text selection translation is no longer a simple dictionary lookup; it analyzes context to provide the most accurate word explanations for your current reading.
+* 🚀 Input Box Translation: Type in your native language in any webpage's input box, press the spacebar three times, and instantly translate your text into your target language. Instantly unlock cross-language Google searches and real-time bilingual chat experiences in tools like ChatGPT.
+
+📋 Document Translation (Supports downloading in bilingual or single-language versions)
+
+* 🚀 PDF Translation (Retains Original Formatting): The advanced version supports complex formula recognition, table recognition, and image OCR within PDFs to maximize layout preservation. Perfect for translating foreign literature, academic papers, product manuals, and more.
+* 🚀 One-Click Formats: Also supports one-click translation for EPUB eBooks, TXT documents, HTML files, and subtitle files (ASS/SRT).
+
+🎞 Bilingual Video Subtitle Translation
+
+* 🚀 Mainstream Video Platforms: Automatic bilingual subtitle translation for major online video sites (YouTube, Netflix, etc.). Break down language barriers with one click and connect with global cultures and ideas.
+* 🚀 Online Video Meetings: Fully compatible with Google Meet, Zoom, Microsoft Teams, and other online conferencing platforms.
+
+⚔️ Manga Translation
+
+* 🚀 Online Manga Support: Supports targeted online manga sites, helping non-native fans seamlessly read raw Japanese, Korean, and Western comics, allowing you to catch the latest chapters instantly without language barriers.
+
+🏞️ Image Translation
+
+* 🚀 Direct Web Image Translation: Say goodbye to saving and uploading. Simply right-click on web images to translate them directly without interrupting your browsing. Also supports uploading local images for translation.
+
+👨🏻‍🔬 [Immersive Translate] Exclusive AI Features
+
+* 🚀 AI Expert: Set specific industry roles for the AI to deliver highly professional translations for specialized fields.
+* 🚀 AI Glossary: Create custom glossaries to ensure the AI translates specific terminology consistently, further boosting translation accuracy.
+* 🚀 AI Smart Context Translation: The system grasps the full text context and professional terminology before translating, providing you with an incredibly accurate translation experience. (Beta Phase)
+
+🔒 Privacy-First Security Design
+
+Immersive Translate consistently adheres to a privacy-first product philosophy. We are officially recommended by major browsers and awarded Chrome's Best Extension of 2024. Over 30 million users worldwide use our tool with complete peace of mind.
+
+* 🛡️ Clear Content Retention Rules: Webpage translation content is processed according to your chosen service; features requiring temporary file retention will clearly state the processing purpose and deletion rules.
+* 🛡️ Not Used for AI Training: Within the scope of applicable official translation services, translated content is never used for model training. See our Trust Center for applicability details regarding third-party services and custom APIs.
+* 🛡️ Encrypted Translation Requests: All translation requests are transmitted through encrypted channels to protect your content during transfer.
+
+We do not collect personal information unrelated to translation, nor do we sell or share your data.
+
+💡 Other Features
+
+* 🚀 Cross-Platform Support: Enjoy the same immersive translation experience on major desktop browsers and mobile devices. Use our dedicated mobile app or easily browse social media like Twitter and Reddit bilingually via iOS Safari and select Android browsers.
+* 🚀 Extensive Engine Support: Currently integrates with over 20 global mainstream machine translation services and cutting-edge AI large language models. Freely utilize DeepL, OpenAI, Gemini, and Claude for precise translation across various scenarios.
+
+📧 Contact Us
+
+* 🚀 If you have any questions or suggestions while using the extension, feel free to contact our customer support team:
+
+  Email: support@immersivetranslate.com
+
+❤️ The original intention of the Immersive Translate extension: We hope to help everyone break down language barriers and effortlessly, joyfully, and elegantly access the wealth of foreign language information on the internet. ❤️

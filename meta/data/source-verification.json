@@ -1,0 +1,38 @@
+{
+  "checkedOn": "2026-10-23",
+  "sources": [
+    {
+      "url": "https://developer.chrome.com/docs/webstore/images",
+      "verified": [
+        "Store screenshots1280x800 or640x400,fullbleedsquarecorners",
+        "Smalltile440x280",
+        "Marquee1400x560",
+        "Icon128PNG"
+      ]
+    },
+    {
+      "url": "https://developer.chrome.com/docs/extensions/reference/api/i18n#locales",
+      "verified": [
+        "Chrome lists55 supportedlocale codes matching skill baseline",
+        "Manifest default_locale required with_locales",
+        "Manifest __MSG_ keys enable localized metadata"
+      ]
+    },
+    {
+      "url": "https://developer.chrome.com/docs/webstore/program-policies/listing-requirements",
+      "verified": [
+        "Metadata must be accurate",
+        "No irrelevant/excessivekeywordlists or unnaturalkeywordrepetition",
+        "No fabricatedratings,testimonials or awards"
+      ]
+    }
+  ],
+  "constraints": {
+    "workspaceWrites": "meta/ only",
+    "publish": false,
+    "extensionId": "aieamemimbcbbnmakifejomadhegogge",
+    "publicationState": "draft, not publicly inspectable as live listing",
+    "translateModeRequested": false,
+    "authLiveTest": "pending actual GoogleChrome user sign-in"
+  }
+}

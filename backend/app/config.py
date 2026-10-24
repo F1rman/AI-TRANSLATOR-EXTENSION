@@ -7,6 +7,8 @@ class Settings:
     mode: str = "firestore"
     project_id: str = ""
     upstream_url: str = "https://balubenko-ai.web.app/api/generate"
+    upstream_image_url: str = ""
+    image_bucket: str = ""
     api_access_token: str = field(default="", repr=False)
     backend_base_url: str = ""
     task_project: str = ""
@@ -20,6 +22,10 @@ class Settings:
     max_concurrent_jobs: int = 2
     job_ttl_seconds: int = 86_400
     lease_seconds: int = 120
+    image_lease_seconds: int = 600
+    daily_images: int = 5
+    max_image_bytes: int = 10 * 1024 * 1024
+    max_image_pixels: int = 20_000_000
     allow_dev_auth: bool = False
 
     @classmethod
@@ -36,6 +42,8 @@ class Settings:
             mode=os.environ.get("BACKEND_MODE", "firestore"),
             project_id=project,
             upstream_url=os.environ.get("UPSTREAM_API_URL", cls.upstream_url),
+            upstream_image_url=os.environ.get("UPSTREAM_IMAGE_API_URL", ""),
+            image_bucket=os.environ.get("IMAGE_BUCKET", ""),
             api_access_token=os.environ.get("API_ACCESS_TOKEN", "").strip(),
             backend_base_url=base_url,
             task_project=os.environ.get("TASK_QUEUE_PROJECT", project),
@@ -49,6 +57,8 @@ class Settings:
             max_concurrent_jobs=number("MAX_CONCURRENT_JOBS", 2),
             job_ttl_seconds=number("JOB_TTL_SECONDS", 86_400),
             lease_seconds=number("JOB_LEASE_SECONDS", 120),
+            image_lease_seconds=number("IMAGE_JOB_LEASE_SECONDS", 600),
+            daily_images=number("DAILY_IMAGE_LIMIT", 5),
             allow_dev_auth=os.environ.get("ALLOW_DEV_AUTH", "false").lower() == "true",
         )
         if settings.mode not in {"firestore", "memory"}:
@@ -63,10 +73,12 @@ class Settings:
                 "TASK_QUEUE_PROJECT": settings.task_project,
                 "TASK_SERVICE_ACCOUNT": settings.task_service_account,
                 "TASK_AUDIENCE": settings.task_audience,
+                "IMAGE_BUCKET": settings.image_bucket,
+                "UPSTREAM_IMAGE_API_URL": settings.upstream_image_url,
             }
             for name, value in required.items():
                 if not value:
                     raise RuntimeError(f"{name} is required")
-            if not settings.backend_base_url.startswith("https://") or not settings.upstream_url.startswith("https://"):
+            if any(not url.startswith("https://") for url in (settings.backend_base_url, settings.upstream_url, settings.upstream_image_url)):
                 raise RuntimeError("Production service URLs must use HTTPS")
         return settings

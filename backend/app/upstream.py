@@ -1,7 +1,11 @@
 import json
+import logging
+from time import perf_counter
 import httpx
 
 from .models import ApiError
+
+log = logging.getLogger("translator")
 
 
 def translation_prompt(payload):
@@ -60,16 +64,19 @@ class HttpUpstream:
     async def translate(self, payload):
         if not self.settings.api_access_token:
             raise ApiError("UPSTREAM_UNAVAILABLE", "The translation provider is not configured.", 503)
+        started = perf_counter()
         try:
             response = await self.client.post(
                 self.settings.upstream_url,
                 headers={"Authorization": f"Bearer {self.settings.api_access_token}", "Content-Type": "application/json"},
-                json={"prompt": translation_prompt(payload)},
+                json={"prompt": translation_prompt(payload), "profile": "translation"},
             )
         except httpx.TimeoutException:
             raise ApiError("UPSTREAM_TIMEOUT", "The translation provider timed out. Please try again.", 504) from None
         except httpx.RequestError:
             raise ApiError("UPSTREAM_UNAVAILABLE", "The translation provider is temporarily unavailable.", 502) from None
+        finally:
+            log.info("translation_timing stage=ai kind=text duration_ms=%.1f", (perf_counter() - started) * 1000)
         if response.status_code == 429:
             raise ApiError("UPSTREAM_RATE_LIMIT", "The translation provider is busy. Please try again shortly.", 429, 30)
         if response.status_code == 504:
@@ -82,6 +89,34 @@ class HttpUpstream:
         except (ValueError, TypeError, KeyError):
             raise ApiError("INVALID_TRANSLATION", "The AI returned an invalid translation. Please try again.", 502) from None
         return parse_translations(text, payload["segments"])
+
+    async def translate_image(self, data, mime_type, payload):
+        if not self.settings.api_access_token or not self.settings.upstream_image_url:
+            raise ApiError("UPSTREAM_UNAVAILABLE", "The image translation provider is not configured.", 503)
+        started = perf_counter()
+        try:
+            response = await self.client.post(
+                self.settings.upstream_image_url,
+                headers={"Authorization": f"Bearer {self.settings.api_access_token}"},
+                files={"file": ("image", data, mime_type)},
+                data={"sourceLanguage": payload["sourceLanguage"], "targetLanguage": payload["targetLanguage"]},
+                timeout=httpx.Timeout(330.0, connect=15.0),
+            )
+        except httpx.TimeoutException:
+            raise ApiError("UPSTREAM_TIMEOUT", "The image translation provider timed out. Please try again.", 504) from None
+        except httpx.RequestError:
+            raise ApiError("UPSTREAM_UNAVAILABLE", "The image translation provider is temporarily unavailable.", 502) from None
+        finally:
+            log.info("translation_timing stage=ai kind=image duration_ms=%.1f", (perf_counter() - started) * 1000)
+        if response.status_code == 429:
+            raise ApiError("UPSTREAM_RATE_LIMIT", "The translation provider is busy. Please try again shortly.", 429, 30)
+        if response.status_code == 504:
+            raise ApiError("UPSTREAM_TIMEOUT", "The image translation provider timed out. Please try again.", 504)
+        if response.status_code != 200:
+            raise ApiError("UPSTREAM_UNAVAILABLE", "The image translation provider is temporarily unavailable.", 502)
+        if response.headers.get("content-type", "").split(";")[0] != "image/png" or len(response.content) > 40 * 1024 * 1024:
+            raise ApiError("INVALID_TRANSLATION", "The AI returned an invalid image. Please try again.", 502)
+        return response.content
 
     async def close(self):
         await self.client.aclose()

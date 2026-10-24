@@ -1,0 +1,141 @@
+{
+  "id": "ibplnjkanclpjokhdolnendpplpjiace",
+  "name": "Simple Translate",
+  "rating": 4.03,
+  "ratingCount": 478,
+  "users": 200000,
+  "category": "productivity/tools",
+  "summary": "Quickly translate selected or typed text on web pages. Supports Google Translate and DeepL API.",
+  "icon": "https://lh3.googleusercontent.com/raXVd3563vuvNxGpZ9elq3Z5kmLIO5jzR_DxyGcgt-o6ArW1oylCobsHSbyt9LOn6u13NP_Q39G-Zo0Mq-V8TAkwV7I",
+  "smallPromo": "https://lh3.googleusercontent.com/hkVgLQTjElM081f1lxczCFlnyUcA3TXPRvLObdjhVLDMCBnN5bPA0Ko8I64avqs9d-7zCDH_FsOydfBDb0Gj6qXcJA",
+  "hasMarquee": false,
+  "url": "https://chromewebstore.google.com/detail/ibplnjkanclpjokhdolnendpplpjiace",
+  "description": "When you select text, the translation button pops up and the translation is displayed instantly.\nIf you enable \"Do not display the button if translation is not required\" option, you will not get frustrated by the button appearing when it is not necessary.\n\nIn the toolbar popup, translate the input text in real time.\nIf you enable \"Automatically switch to the second language\" option, you can do : When English is input, it is translated into Japanese, and when Japanese is input, it is translated into English.\n\nYou can also translate from the context menu.\nYou can select \"Translate this page\", \"Translate selected text\", and \"Translate selected link\" from the menu on the page or tab.\n\nSupports Google Translate and DeepL API.\n\nFirefox version: https://addons.mozilla.org/en/firefox/addon/simple-translate/\nEdge version: https://microsoftedge.microsoft.com/addons/detail/cllnohpbfenopiakdcjmjcbaeapmkcdl",
+  "screenshots": [
+    "https://lh3.googleusercontent.com/3IcfDhzXiTk9_EwlQUucIucJbuKc7Dj0pRZfB9OQmsQU8a3dWjS43IK5KX9BWa1NYOgoK3O5wiaxv2pLeL2mSt9l",
+    "https://lh3.googleusercontent.com/2B8cfY_VeVx_fCL-Cx4VE33ANSNSf40ZXwC3fQPK23j0dhWD5mBCQKk-ABHsPjTwMjyjaLFqHkBigZ4B89l7ILKl",
+    "https://lh3.googleusercontent.com/10qr-f4ANA5pyg03W9yWDe8jNu0sbtwqv8TnCWYvQz8EPLUrrKP3bPBMa8PTheelxfyekwcdwbmuZVpkYKE8362h",
+    "https://lh3.googleusercontent.com/nPOmN5NvSi8A-f35M-ssK4KluHcMrLIFtuE5APRC_W134oY7J1fcifkjt7FhkRyuzeXGuCSx68z62YgXyapxlUwN",
+    "https://lh3.googleusercontent.com/UHdMfp4urucD8yRwr4ZlfXlMmczug91KX6W9Fe3pm4yE7mHhK52JjFDjJPgz65YLAjw7XDdfo1-chckU8CmI_rJ-bg"
+  ],
+  "marquee": null,
+  "version": "3.1.0",
+  "updated": "2026-08-25",
+  "size": "414KiB",
+  "languages": [
+    "Deutsch",
+    "English",
+    "Filipino",
+    "Indonesia",
+    "Nederlands",
+    "Tiếng Việt",
+    "Türkçe",
+    "català",
+    "dansk",
+    "español",
+    "français",
+    "italiano",
+    "magyar",
+    "norsk",
+    "polski",
+    "română",
+    "suomi",
+    "svenska",
+    "čeština",
+    "Ελληνικά",
+    "български",
+    "русский",
+    "српски",
+    "українська",
+    "עברית",
+    "اردو",
+    "العربية",
+    "සිංහල",
+    "中文（中国）",
+    "中文（台灣）",
+    "日本語",
+    "한국어"
+  ],
+  "related": [
+    {
+      "id": "pnpdnibdembnnlaiibkeandepjajegoi",
+      "name": "Translator",
+      "users": 60000
+    },
+    {
+      "id": "gobpkdmjnhpopmpddhmhmbhkiienpfdo",
+      "name": "Quick Translate",
+      "users": 20000
+    },
+    {
+      "id": "ihmgiclibbndffejedjimfjmfoabpcke",
+      "name": "Mate Translate – translator, dictionary",
+      "users": 400000
+    },
+    {
+      "id": "lpoljgbmkbhhdpihhcfpkekfncjibobh",
+      "name": "Translate Selected Text, PDF & Dictionary – AI Vocabulary Builder",
+      "users": 5000
+    },
+    {
+      "id": "bebmphofpgkhclocdbgomhnjcpelbenh",
+      "name": "Translator, Dictionary - Accurate Translate",
+      "users": 100000
+    },
+    {
+      "id": "fbimffnjoeobhjhochngikepgfejjmgj",
+      "name": "Translate Selected Text",
+      "users": 100000
+    },
+    {
+      "id": "elpmkbbdldhoiggkjfpgibmjioncklbn",
+      "name": "Translate for Chrome -Translator, Dictionary",
+      "users": 500000
+    },
+    {
+      "id": "gpdfpljioapjogbnlpmganakfjcemifk",
+      "name": "Quick Translate: Reading & writing translator",
+      "users": 6000
+    },
+    {
+      "id": "pfoflbejajgbpkmllhogfpnekjiempip",
+      "name": "Translator - Select to Translate",
+      "users": 60000
+    },
+    {
+      "id": "mnlohknjofogcljbcknkakphddjpijak",
+      "name": "Translate - Translator, Dictionary, TTS",
+      "users": 100000
+    },
+    {
+      "id": "gjfljooinclelkhmgegielehekdbmigm",
+      "name": "Web Translate",
+      "users": 20000
+    },
+    {
+      "id": "bcefgmhpbmghjcenbklchobmogjhaagl",
+      "name": "Popup View for Google™ Translate",
+      "users": 7000
+    }
+  ],
+  "retrievedAt": "2026-10-23T20:34:21.212Z",
+  "hl": "en",
+  "files": {
+    "screenshots": [
+      "screenshots/1.png",
+      "screenshots/2.png",
+      "screenshots/3.png",
+      "screenshots/4.png",
+      "screenshots/5.png"
+    ],
+    "icon": "icon.png",
+    "smallPromo": "promo-440x280.png",
+    "marquee": null
+  },
+  "errors": [],
+  "researchNotes": {
+    "angle": "Selection button, popup and context menu; Google Translate/DeepL API support.",
+    "weakness": "4.03/5 from478 ratings; listing is brief and engine-focused. Own AI engine/context and restore workflow deserve more explicit evidence in visuals.",
+    "date": "2026-10-23"
+  }
+}

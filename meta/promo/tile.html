@@ -1,0 +1,85 @@
+<!doctype html>
+<!--
+  Promo tile template. Copy to meta/promo/tile.html, then edit only the marked
+  parts. Render both sizes from the same file:
+    node <skill>/scripts/render-html.mjs --url meta/promo/tile.html --out meta/promo/small-440x280.png --width 440 --height 280
+    node <skill>/scripts/render-html.mjs --url meta/promo/tile.html --out meta/promo/marquee-1400x560.png --width 1400 --height 560
+  Sizes are in vh so type stays huge at both sizes. Layouts: body class
+  "split" (words + symbol card), "mark" (symbol above name, centred).
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+
+<style>
+  :root {
+    /* EDIT: take the accent from the extension icon. */
+    --accent: #A27725;
+    --accent-2: #D49422;
+    --ink: #263027;
+    --bg: #FFFEFA;
+    --bg-2: #F5F3ED;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 100vw; height: 100vh; overflow: hidden; }
+  body {
+    font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    background: linear-gradient(120deg, var(--bg) 45%, var(--bg-2));
+    display: flex; align-items: center;
+    padding: 8vh 6vh;
+    gap: 6vh;
+  }
+  .words { flex: 1 1 auto; min-width: 0; }
+  h1 {
+    font-weight: 900;
+    font-size: 18vh;
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+  }
+  h1 em { font-style: normal; color: var(--accent); }
+  .pill {
+    display: inline-flex; align-items: center; gap: 2.5vh;
+    margin-top: 6vh; padding: 3.5vh 6vh;
+    border-radius: 99vh;
+    background: var(--accent); color: #fff;
+    font-weight: 800; font-size: 8.5vh;
+  }
+  .pill svg { width: 8vh; height: 8vh; }
+  .card {
+    flex: 0 0 auto;
+    width: 40vh; height: 40vh;
+    border-radius: 7vh;
+    background: #fff;
+    box-shadow: none;
+    display: grid; place-items: center;
+  }
+  .card svg { width: 80%; height: 80%; }
+
+  body.mark { flex-direction: column; justify-content: center; gap: 4vh; background: var(--bg); }
+  body.mark .card { order: -1; box-shadow: none; background: transparent; width: 46vh; height: 46vh; }
+  body.mark .card svg { width: 100%; height: 100%; }
+  body.mark .words { flex: 0 0 auto; width: 100%; }
+  body.mark h1 { font-weight: 700; font-size: 16vh; text-align: center; }
+  body.mark h1 br { display: none; }
+  body.mark .pill { display: none; }
+</style>
+</head>
+<!-- EDIT: class="split" or class="mark". -->
+<body class="split">
+  <div class="words"><h1>Translate<br><em>Web Pages</em></h1></div><div class="card"><svg viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M20 29h36M38 19v10M28 29c3 17 15 25 28 30M51 29c-4 17-17 26-31 31" stroke="#263027" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M56 79 70 43l14 36M61 67h18" stroke="#263027" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M78 16v12m-6-6h12" stroke="#D49422" stroke-width="4" stroke-linecap="round"/></svg></div>
+<script>
+  // Keep the words as large as the frame allows: shrink only until nothing is
+  // clipped, so long translations stay whole instead of overflowing the card.
+  document.fonts.ready.then(() => {
+    const h1 = document.querySelector('h1');
+    const words = document.querySelector('.words');
+    let size = parseFloat(getComputedStyle(h1).fontSize);
+    const overflows = () => h1.scrollWidth > words.clientWidth + 1
+      || document.body.scrollHeight > innerHeight + 1;
+    while (overflows() && size > 8) h1.style.fontSize = `${size *= 0.96}px`;
+  });
+</script>
+</body>
+</html>

@@ -39,7 +39,8 @@ async def test_transport_uses_private_token_and_one_fixed_prompt_request():
         calls.append(request)
         assert request.headers["Authorization"] == "Bearer test-private-token"
         data = json.loads(request.content)
-        assert set(data) == {"prompt"}
+        assert set(data) == {"prompt", "profile"}
+        assert data["profile"] == "translation"
         assert '"sourceLanguage":"auto"' in data["prompt"]
         assert '"id":"one"' in data["prompt"]
         return httpx.Response(200, json={"text": '{"translations":[{"id":"one","text":"Привіт"}]}', "model": "model"})
@@ -83,5 +84,44 @@ async def test_transport_timeout_without_retry():
         with pytest.raises(ApiError, match="UPSTREAM_TIMEOUT"):
             await upstream.translate({"segments": SEGMENTS})
         assert len(calls) == 1
+    finally:
+        await upstream.close()
+
+
+async def test_image_transport_multipart_fixed_url_private_token_and_long_timeout():
+    calls = []
+    async def transport(request):
+        calls.append(request)
+        assert str(request.url) == "https://upstream.run.app/api/translate-image"
+        assert request.headers["Authorization"] == "Bearer test-token"
+        assert request.headers["content-type"].startswith("multipart/form-data; boundary=")
+        assert b'name="sourceLanguage"' in request.content
+        assert b'name="targetLanguage"' in request.content
+        assert b'name="file"' in request.content
+        assert request.extensions["timeout"]["read"] == 330
+        assert request.extensions["timeout"]["connect"] == 15
+        return httpx.Response(200, content=b"png-image", headers={"Content-Type": "image/png"})
+    config = Settings(api_access_token="test-token", upstream_image_url="https://upstream.run.app/api/translate-image")
+    upstream = HttpUpstream(config, httpx.AsyncClient(transport=httpx.MockTransport(transport)))
+    try:
+        assert await upstream.translate_image(b"source", "image/png", {"sourceLanguage": "auto", "targetLanguage": "uk"}) == b"png-image"
+        assert len(calls) == 1
+    finally:
+        await upstream.close()
+
+
+@pytest.mark.parametrize("status,expected", [(429, "UPSTREAM_RATE_LIMIT"), (504, "UPSTREAM_TIMEOUT"),
+    (401, "UPSTREAM_UNAVAILABLE"), (502, "UPSTREAM_UNAVAILABLE"), (200, "INVALID_TRANSLATION")])
+async def test_image_transport_errors_sanitized_and_not_retried(status, expected):
+    calls = []
+    async def transport(request):
+        calls.append(request)
+        return httpx.Response(status, json={"detail": "provider-private-detail"})
+    config = Settings(api_access_token="test-token", upstream_image_url="https://upstream.run.app/api/translate-image")
+    upstream = HttpUpstream(config, httpx.AsyncClient(transport=httpx.MockTransport(transport)))
+    try:
+        with pytest.raises(ApiError, match=expected) as caught:
+            await upstream.translate_image(b"source", "image/png", {"sourceLanguage": "auto", "targetLanguage": "uk"})
+        assert "provider-private-detail" not in caught.value.message and len(calls) == 1
     finally:
         await upstream.close()

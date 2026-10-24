@@ -1,4 +1,5 @@
 import type { ApiError, CreateJob, Job, Result, RuntimeRequest, Segment } from '../shared/protocol';
+import { pollTranslationJob } from '../shared/polling';
 
 export class ContentError extends Error {
   constructor(readonly code: string, message: string) { super(message); this.name = 'ContentError'; }
@@ -18,7 +19,7 @@ export async function request<T>(message: RuntimeRequest): Promise<T> {
 export function abortError(): DOMException { return new DOMException('Cancelled', 'AbortError'); }
 export function isAborted(error: unknown): boolean { return error instanceof DOMException && error.name === 'AbortError'; }
 export function errorDetails(error: unknown): ApiError {
-  return { code: error instanceof ContentError ? error.code : 'NETWORK_ERROR', message: error instanceof Error ? error.message : 'Translation failed.' };
+  return { code: error instanceof Error && 'code' in error ? String(error.code) : 'NETWORK_ERROR', message: error instanceof Error ? error.message : 'Translation failed.' };
 }
 
 export function wait(ms: number, signal: AbortSignal): Promise<void> {
@@ -38,6 +39,7 @@ export async function translateJob(
   signal: AbortSignal,
 ): Promise<Segment[]> {
   const payload: CreateJob = { ...input, idempotencyKey: crypto.randomUUID() };
+  const started = Date.now();
   let id: string | undefined;
   const cancel = () => { if (id) void request({ type: 'translation:cancel', payload: { id } }).catch(() => undefined); };
   signal.addEventListener('abort', cancel, { once: true });
@@ -60,19 +62,7 @@ export async function translateJob(
         else throw error;
       }
     }
-    failures = 0;
-    while (job.status === 'queued' || job.status === 'running') {
-      await wait(1_400, signal);
-      if (Date.now() > deadline) throw new ContentError('UPSTREAM_TIMEOUT', 'Translation took too long. Please retry.');
-      try {
-        job = await request<Job>({ type: 'translation:get', payload: { id: job.id } });
-        failures = 0;
-      } catch (error) {
-        const { code } = errorDetails(error);
-        if (TRANSIENT.has(code) && failures++ < 4) await wait(Math.min(1_000 * 2 ** failures, 10_000), signal);
-        else throw error;
-      }
-    }
+    job = await pollTranslationJob(job, (jobId) => request<Job>({ type: 'translation:get', payload: { id: jobId } }), { segments: input.segments, signal, deadline });
     if (signal.aborted) throw abortError();
     if (job.status !== 'completed') throw new ContentError(job.error?.code ?? 'TRANSLATION_FAILED', job.error?.message ?? 'Translation could not be completed.');
     const translations = job.translations;
@@ -80,6 +70,7 @@ export async function translateJob(
     if (!translations || translations.length !== requested.size || new Set(translations.map(({ id: segmentId }) => segmentId)).size !== requested.size || translations.some((segment) => !requested.has(segment.id) || typeof segment.text !== 'string' || !segment.text.trim())) {
       throw new ContentError('INVALID_TRANSLATION', 'The server returned an incomplete translation.');
     }
+    void request({ type: 'translation:displayed', payload: { id: job.id, elapsedMs: Date.now() - started } }).catch(() => undefined);
     return translations;
   } catch (error) {
     // Release reservations when polling is abandoned, including an expired browser session.

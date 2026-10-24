@@ -1,0 +1,31 @@
+This extension allows you to translate the text selection using Google Translate whenever you want.
+
+When the extension is installed select some text from a website, right click and select to which language you want to translate the selected text.
+
+** FAQ: **
+Q: Why choose this extension and not another one?
+A: I designed this extension so that it didn't prompt the user for permissions. This way the final user knows that the extension doesn't have the permission to access the content of web pages and monitor the user activity on the Internet (other extensions of this type prompt for this permission). This extension has access only to the content of the selected text when the user clicks the extension context menu and it is used to create a Google Translate app with the text autocompleted.
+
+You can configure from the options page which languages you want to show in the context menu.
+
+** Open Source **
+This extension is now open sourced! You can check out the source code, contribute, and fill in bugs in the GitHub repository: https://github.com/avm99963/translateselectedtext
+
+** Bugs **
+Please, report any bugs or feature suggestions here: https://github.com/avm99963/translateselectedtext/issues
+
+** Note **
+Google Translate is a trademark of Google Inc. Use of this trademark is subject to Google Permissions.
+
+** Beta version**
+As this extension has so many users I've decided to upload a Beta version of the extension to the Chrome Web Store so I can test it before uploading any update to the stable version! This way I can make sure the stable version of the extension is 100% bug-free.
+
+If you want to test the bleeding edge of this extension before everybody else, join the Google Group and download the extension (there may be bugs, you've been warned):
+* Google Group: https://groups.google.com/forum/#!forum/gtranslator-beta
+* Translate Selected Text (Beta): https://chrome.google.com/webstore/detail/translate-selected-text-b/pckjhlclhnnhdadoockkhgfkceeljnkg
+
+** Changelog **
+Changelog available in the following website: https://github.com/avm99963/translateselectedtext/wiki/Changelog
+
+** Credits **
+https://github.com/avm99963/translateselectedtext/wiki/Credits

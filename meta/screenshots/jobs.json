@@ -1,0 +1,32 @@
+[
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=Translate+text+with+AI&em=with+AI&layout=",
+    "out": "meta/screenshots/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Select+text.+Get+the+meaning.&em=Get+the+meaning.&layout=wide",
+    "out": "meta/screenshots/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=Translate+pages.+Keep+the+layout.&em=Keep+the+layout.&layout=wide",
+    "out": "meta/screenshots/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flanguages-options.png&cap=Choose+your+translation+languages&em=your+translation+languages&layout=settings",
+    "out": "meta/screenshots/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-dark.png&cap=Read+in+light+or+dark&em=light+or+dark&layout=wide+dark",
+    "out": "meta/screenshots/5.png",
+    "width": 1280,
+    "height": 800
+  }
+]

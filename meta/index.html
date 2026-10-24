@@ -1,0 +1,1219 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Translator · Store kit</title>
+<style>
+:root { --bg:#f6f7f9; --card:#fff; --ink:#1f2328; --muted:#5f6368; --line:#e1e4e8; --accent:#1a73e8; --accent-bg:#e8f0fe;
+  --on-accent:#fff; --ok:#137333; --ok-bg:#e6f4ea; --warn:#b06000; --warn-bg:#fef3e0; --bad:#c5221f; --bad-bg:#fce8e6; --mark:#fde68a; }
+@media (prefers-color-scheme: dark) { :root { --bg:#131417; --card:#1d1f23; --ink:#e8eaed; --muted:#9aa0a6; --line:#33363b; --accent:#8ab4f8; --accent-bg:#1f2a3d; --on-accent:#131417;
+  --ok:#81c995; --ok-bg:#1e3326; --warn:#fdd663; --warn-bg:#3a3020; --bad:#f28b82; --bad-bg:#3c2220; --mark:#7c5e10; } }
+* { box-sizing: border-box; }
+html { scroll-padding-top: 70px; }
+body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif; }
+header { position:sticky; top:0; z-index:5; background:var(--card); border-bottom:1px solid var(--line); }
+.top { display:flex; align-items:baseline; gap:12px; padding:14px 24px 4px; flex-wrap:wrap; }
+.top h1 { font-size:18px; margin:0; } .top small { color:var(--muted); }
+nav { display:flex; gap:2px; overflow-x:auto; padding:0 16px; scrollbar-width:none; }
+nav a { padding:10px 12px; color:var(--muted); text-decoration:none; white-space:nowrap; border-bottom:2px solid transparent; font-weight:500; }
+nav a[aria-current] { color:var(--accent); border-color:var(--accent); }
+main { padding:24px; max-width:1360px; margin:0 auto; }
+section[data-tab] { display:none; } section[data-tab].on { display:block; }
+h2 { font-size:17px; margin:28px 0 12px; } h3 { font-size:15px; margin:0 0 10px; }
+a { color:var(--accent); }
+.muted, small { color:var(--muted); } small { font-size:12.5px; }
+mark { background:var(--mark); color:inherit; border-radius:3px; padding:0 2px; }
+.row { display:flex; align-items:center; gap:10px; flex-wrap:wrap; } .spacer { flex:1; }
+button, .button { font:inherit; font-size:13px; font-weight:600; padding:5px 12px; border-radius:7px; border:1px solid var(--line); background:var(--card); color:var(--ink); cursor:pointer; text-decoration:none; display:inline-block; }
+button:hover, .button:hover { border-color:var(--accent); color:var(--accent); }
+button.primary { background:var(--accent); border-color:var(--accent); color:var(--on-accent); }
+button.primary kbd { border-color:currentColor; }
+button:disabled { opacity:.45; cursor:default; }
+button.copied { background:var(--ok-bg); color:var(--ok); border-color:var(--ok); }
+.chip { display:inline-block; font-size:12px; font-weight:600; padding:1px 8px; border-radius:99px; background:var(--line); color:var(--ink); white-space:nowrap; }
+.chip.done { background:var(--ok-bg); color:var(--ok); } .chip.owner { background:var(--warn-bg); color:var(--warn); }
+.chip.blocked { background:var(--bad-bg); color:var(--bad); } .chip.rec { background:var(--accent-bg); color:var(--accent); }
+.chip.hi { background:var(--accent); color:var(--on-accent); }
+.banner { background:var(--warn-bg); color:var(--warn); padding:10px 14px; border-radius:10px; margin-bottom:14px; font-weight:500; }
+.warn { color:var(--warn); } .no, .over { color:var(--bad); }
+.scroll { overflow-x:auto; background:var(--card); border:1px solid var(--line); border-radius:12px; }
+table { border-collapse:collapse; width:100%; } table.wide { min-width:1280px; }
+th, td { padding:9px 12px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+tbody tr:last-child td { border-bottom:0; }
+th { font-size:12px; color:var(--muted); font-weight:600; white-space:nowrap; }
+td.num { text-align:center; white-space:nowrap; } th.w-name { min-width:220px; } th.w-sum { min-width:300px; }
+tr.own td, tr.chosen td { background:var(--accent-bg); } tr.own td:first-child, tr.chosen td:first-child { box-shadow:inset 4px 0 var(--accent); }
+tr.dim td { color:var(--muted); }
+td .copy { margin:2px 4px 2px 0; } td.actions { white-space:nowrap; }
+.icon { width:32px; height:32px; flex:none; vertical-align:middle; margin-right:8px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:16px; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+.card.own, .detail.own { outline:3px solid var(--accent); outline-offset:-3px; }
+.tile { aspect-ratio:440/280; background:var(--line); } .tile img { width:100%; height:100%; object-fit:cover; display:block; }
+.missing { display:grid; place-items:center; height:100%; color:var(--muted); font-size:13px; }
+.cardmeta { display:flex; gap:10px; padding:10px 12px; } .cardmeta .icon { margin:0; }
+.name { font-weight:600; font-size:14px; line-height:1.3; } .stats { color:var(--muted); font-size:12px; }
+.detail, .field { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin-bottom:14px; }
+.detail h3 { display:flex; align-items:center; }
+.shots { display:flex; gap:10px; overflow-x:auto; padding-bottom:4px; } .shots img { height:150px; border-radius:6px; border:1px solid var(--line); display:block; }
+.field p { margin:8px 0 4px; white-space:pre-wrap; } .warnbox { border-color:var(--bad); }
+pre { white-space:pre-wrap; font:13px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace; background:var(--bg); padding:12px; border-radius:8px; max-height:460px; overflow:auto; margin:8px 0; }
+summary { cursor:pointer; color:var(--muted); margin-top:8px; }
+.figs { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:16px; } .figs.wide { grid-template-columns:minmax(0,960px); }
+.iconrow { display:flex; gap:22px; align-items:center; flex-wrap:wrap; background:#f1f3f4; border-radius:12px; padding:18px 22px; }
+.iconrow img { width:64px; height:64px; } .iconrow .ours { outline:3px solid #1a73e8; outline-offset:6px; border-radius:12px; }
+.iconrow.dark { background:#202124; } .iconrow.small img { width:24px; height:24px; } .iconrow.small .ours { outline-offset:3px; }
+figure { margin:0; background:var(--card); border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+figure img, .zoom img { width:100%; display:block; }
+figcaption { display:flex; align-items:center; gap:8px; padding:8px 12px; font-size:13px; flex-wrap:wrap; } figcaption .button { margin-left:auto; }
+.desc { display:grid; grid-template-columns:260px 1fr; gap:20px; align-items:start; }
+.desc aside { position:sticky; top:96px; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px; max-height:calc(100vh - 120px); display:flex; flex-direction:column; }
+.desc input { font:inherit; padding:7px 10px; border:1px solid var(--line); border-radius:8px; background:var(--bg); color:var(--ink); }
+.progress { font-size:12.5px; color:var(--muted); padding:8px 4px; }
+.desc ul { list-style:none; margin:0; padding:0; overflow:auto; }
+.desc li button { width:100%; display:flex; gap:8px; align-items:center; border:0; border-radius:8px; padding:7px 8px; font-weight:500; text-align:left; background:none; }
+.desc li button[aria-current] { background:var(--accent-bg); color:var(--accent); }
+.desc li .tick { width:16px; color:var(--ok); } .desc li small { margin-left:auto; }
+.desc li button.missing-desc { opacity:.5; }
+.charline { display:flex; gap:14px; flex-wrap:wrap; font-size:12.5px; color:var(--muted); margin-top:6px; }
+.why { color:var(--ink); } .found { font-size:13.5px; color:var(--muted); }
+.steps { margin:8px 0; padding-left:20px; } .steps li { margin:4px 0; }
+.tick { position:relative; width:22px; height:22px; flex:none; cursor:pointer; }
+.tick input { position:absolute; opacity:0; inset:0; margin:0; cursor:pointer; }
+.tick span { position:absolute; inset:0; border:2px solid var(--line); border-radius:6px; background:var(--card); }
+.tick input:checked + span { background:var(--ok); border-color:var(--ok); }
+.tick input:checked + span::after { content:'✓'; color:var(--card); position:absolute; inset:0; display:grid; place-items:center; font-size:14px; font-weight:700; }
+.tick input:focus-visible + span { outline:2px solid var(--accent); outline-offset:2px; }
+.subnav { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:6px; }
+.subnav a { padding:5px 12px; border:1px solid var(--line); border-radius:99px; background:var(--card); text-decoration:none; font-size:13.5px; color:var(--ink); }
+.part { padding-top:6px; } .part + .part { margin-top:26px; border-top:1px solid var(--line); padding-top:10px; }
+.part-title { font-size:20px; margin:16px 0 8px; }
+.top mark { font-size:13px; } .tcount { font-size:14px; color:var(--muted); } .tcount b { color:var(--ink); font-size:18px; }
+.tlist { background:var(--card); border:1px solid var(--line); border-radius:12px; }
+.trow { display:grid; grid-template-columns:22px 26px minmax(0,1fr) 76px auto; gap:12px; align-items:center; padding:12px 14px; border-bottom:1px solid var(--line); }
+.trow:last-child { border:0; }
+.trow .rank { color:var(--muted); font-weight:600; text-align:center; }
+.tmain { display:grid; min-width:0; } .tmain small { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; } .tmain small.bad { color:var(--bad); }
+.tact { display:flex; align-items:center; gap:8px; flex-wrap:wrap; min-width:0; } .tact .val { flex:1; min-width:160px; font-weight:500; }
+.trow.done .tmain b { text-decoration:line-through; color:var(--muted); } .trow.done { background:var(--bg); }
+.trow.auto .tick span { opacity:.8; }
+.livestat { font-size:13px; color:var(--muted); text-decoration:none; } .livestat:hover { color:var(--accent); }
+.current.live summary { margin:0; list-style:none; cursor:pointer; } .current.live summary span { font-size:12.5px; color:var(--muted); }
+.current.live pre { width:100%; font-family:inherit; font-size:14px; } .current.live { display:block; }
+.trow .go { justify-self:end; white-space:nowrap; }
+.current { display:flex; gap:10px; align-items:baseline; flex-wrap:wrap; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin-bottom:10px; }
+.current span { font-size:12.5px; color:var(--muted); } .current b { font-weight:600; }
+.part.flash { animation: flash 1.2s ease-out; } @keyframes flash { from { background:var(--accent-bg); } to { background:transparent; } }
+.part { border-radius:10px; }
+.thumb img { height:44px; border-radius:4px; border:1px solid var(--line); display:block; }
+.icons { display:flex; gap:8px; align-items:center; } .icons img { width:28px; height:28px; } .icons .ours { outline:2px solid var(--accent); outline-offset:3px; border-radius:6px; }
+.lightbox { position:fixed; inset:0; background:rgba(0,0,0,.85); display:grid; place-items:center; z-index:20; cursor:zoom-out; padding:24px; }
+.lightbox img { max-width:100%; max-height:100%; border-radius:6px; }
+.toast { position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:var(--ink); color:var(--card); padding:8px 16px; border-radius:99px; font-size:14px; opacity:0; transition:opacity .2s; pointer-events:none; }
+.toast.show { opacity:1; }
+kbd { font:12px ui-monospace,monospace; border:1px solid var(--line); border-bottom-width:2px; border-radius:4px; padding:0 5px; }
+@media (max-width: 760px) {
+  main { padding:16px; } .top { padding:12px 16px 2px; }
+  .trow { grid-template-columns:22px minmax(0,1fr) auto auto; } .trow .rank { display:none; }
+  .desc { grid-template-columns:1fr; } .desc aside { position:static; max-height:260px; }
+}</style></head>
+<body>
+<header>
+  <div class="top"><h1>AI Translator</h1><mark>webpage translator</mark><span class="spacer"></span><span class="tcount"><b data-tasks-done>0</b>/10</span></div>
+  <nav><a href="#tasks">Tasks</a><a href="#listing">Listing</a><a href="#images">Images</a><a href="#extension">In-extension</a><a href="#competitors">Competitors · 8</a><a href="#keywords">Keywords</a><a href="#store">Store form</a></nav>
+</header>
+<main><section data-tab="tasks"><div class="tlist"><div class="trow" data-row="name">
+    <label class="tick"><input type="checkbox" data-t="name"><span></span></label>
+    <span class="rank">1</span>
+    <div class="tmain"><b>SEO name</b><small class="bad">AI Translator</small></div>
+    <span class="chip hi">High</span>
+    <a class="button go" href="#listing/name">Open →</a>
+  </div><div class="trow" data-row="short">
+    <label class="tick"><input type="checkbox" data-t="short"><span></span></label>
+    <span class="rank">2</span>
+    <div class="tmain"><b>SEO short description</b><small class="bad">Translate selected text and whole webpages with AI. Restore originals in one click.</small></div>
+    <span class="chip hi">High</span>
+    <a class="button go" href="#listing/short">Open →</a>
+  </div><div class="trow" data-row="description">
+    <label class="tick"><input type="checkbox" data-t="description"><span></span></label>
+    <span class="rank">3</span>
+    <div class="tmain"><b>SEO full description</b><small class="">EN ready · keyword ×3</small></div>
+    <span class="chip hi">High</span>
+    <a class="button go" href="#listing/descriptions/en">Open →</a>
+  </div><div class="trow" data-row="locales">
+    <label class="tick"><input type="checkbox" data-t="locales"><span></span></label>
+    <span class="rank">4</span>
+    <div class="tmain"><b>Full description × 55 locales</b><small class="bad">1/55 written</small></div>
+    <span class="chip hi">High</span>
+    <a class="button go" href="#listing/descriptions">Open →</a>
+  </div><div class="trow" data-row="tile">
+    <label class="tick"><input type="checkbox" data-t="tile"><span></span></label>
+    <span class="rank">5</span>
+    <div class="tmain"><b>Promo tile</b><small class="">3 ready</small></div>
+    <span class="chip hi">High</span>
+    <a class="button go" href="#images/promo">Open →</a>
+  </div><div class="trow" data-row="screenshots">
+    <label class="tick"><input type="checkbox" data-t="screenshots"><span></span></label>
+    <span class="rank">6</span>
+    <div class="tmain"><b>Screenshots</b><small class="">5/5 ready</small></div>
+    <span class="chip rec">Medium</span>
+    <a class="button go" href="#images/screenshots">Open →</a>
+  </div><div class="trow" data-row="icon">
+    <label class="tick"><input type="checkbox" data-t="icon"><span></span></label>
+    <span class="rank">7</span>
+    <div class="tmain"><b>Icon</b><small class="bad">Icon stands out</small></div>
+    <span class="chip rec">Medium</span>
+    <a class="button go" href="#images/icon">Open →</a>
+  </div><div class="trow" data-row="localized-shots">
+    <label class="tick"><input type="checkbox" data-t="localized-shots"><span></span></label>
+    <span class="rank">8</span>
+    <div class="tmain"><b>Localized screenshots</b><small class="bad">0/55</small></div>
+    <span class="chip ">Low</span>
+    <a class="button go" href="#images/localized">Open →</a>
+  </div><div class="trow" data-row="review">
+    <label class="tick"><input type="checkbox" data-t="review"><span></span></label>
+    <span class="rank">9</span>
+    <div class="tmain"><b>Review ask</b><small class="bad">not in code</small></div>
+    <span class="chip ">Low</span>
+    <a class="button go" href="#extension/review">Open →</a>
+  </div><div class="trow" data-row="welcome">
+    <label class="tick"><input type="checkbox" data-t="welcome"><span></span></label>
+    <span class="rank">10</span>
+    <div class="tmain"><b>Welcome page on install</b><small class="bad">not in code</small></div>
+    <span class="chip ">Low</span>
+    <a class="button go" href="#extension/welcome">Open →</a>
+  </div></div></section>
+<section data-tab="listing"><div class="subnav"><a href="#listing/name">Name</a><a href="#listing/short">Short description</a><a href="#listing/descriptions">Full description</a></div>
+    <section class="part" id="part-listing-name"><h2 class="part-title">Name</h2><div class="current"><span>Current</span><b>AI Translator</b><small>13/75</small><span class="chip blocked">keyword ✗</span></div><div class="scroll"><table><tbody><tr class="chosen">
+    <td class="num">1</td><td><mark>Webpage Translator</mark> – AI Translator <span class="chip rec">Recommended</span> </td>
+    <td class="num ">34/75</td><td><small>webpage translator</small></td>
+    <td class="actions"><button class="copy" type="button" data-copy="c1">Copy</button><template id="c1">Webpage Translator – AI Translator</template></td></tr><tr class="">
+    <td class="num">2</td><td>AI Translator – <mark>Webpage Translator</mark> </td>
+    <td class="num ">34/75</td><td><small>webpage translator</small></td>
+    <td class="actions"><button class="copy" type="button" data-copy="c2">Copy</button><template id="c2">AI Translator – Webpage Translator</template></td></tr><tr class="">
+    <td class="num">3</td><td><mark>Webpage Translator</mark>: Read with AI Translator </td>
+    <td class="num ">43/75</td><td><small>webpage translator</small></td>
+    <td class="actions"><button class="copy" type="button" data-copy="c3">Copy</button><template id="c3">Webpage Translator: Read with AI Translator</template></td></tr><tr class="">
+    <td class="num">4</td><td>AI Translator: <mark>Webpage Translator</mark> &amp; Selected Text </td>
+    <td class="num ">49/75</td><td><small>webpage translator</small></td>
+    <td class="actions"><button class="copy" type="button" data-copy="c4">Copy</button><template id="c4">AI Translator: Webpage Translator &amp; Selected Text</template></td></tr><tr class="">
+    <td class="num">5</td><td>AI Translator </td>
+    <td class="num ">13/75</td><td><small>ai translator</small></td>
+    <td class="actions"><button class="copy" type="button" data-copy="c5">Copy</button><template id="c5">AI Translator</template></td></tr></tbody></table></div></section><section class="part" id="part-listing-short"><h2 class="part-title">Short description</h2><div class="current"><span>Current</span><b>Translate selected text and whole webpages with AI. Restore originals in one click.</b><small>83/132</small><span class="chip blocked">keyword ✗</span></div><div class="scroll"><table><tbody><tr class="">
+    <td class="num">1</td><td>Use an AI <mark>webpage translator</mark> for text and pages. Translate selected text, follow new page text, and restore originals. </td>
+    <td class="num ">118/132</td><td><small>webpage translator</small></td>
+    <td class="actions"><button class="copy" type="button" data-copy="c6">Copy</button><template id="c6">Use an AI webpage translator for text and pages. Translate selected text, follow new page text, and restore originals.</template></td></tr><tr class="chosen">
+    <td class="num">2</td><td>Read pages in your language with a <mark>webpage translator</mark>. Translate selected text and show the original when needed. <span class="chip rec">Recommended</span> </td>
+    <td class="num ">113/132</td><td><small>webpage translator</small></td>
+    <td class="actions"><button class="copy" type="button" data-copy="c7">Copy</button><template id="c7">Read pages in your language with a webpage translator. Translate selected text and show the original when needed.</template></td></tr><tr class="">
+    <td class="num">3</td><td>Translate text and pages with a <mark>webpage translator</mark> powered by AI. Keep links and page structure, then restore originals. </td>
+    <td class="num ">120/132</td><td><small>webpage translator</small></td>
+    <td class="actions"><button class="copy" type="button" data-copy="c8">Copy</button><template id="c8">Translate text and pages with a webpage translator powered by AI. Keep links and page structure, then restore originals.</template></td></tr><tr class="">
+    <td class="num">4</td><td>Read with an AI <mark>webpage translator</mark>. Translate text and pages with a 20,000-character daily allowance per Google account. </td>
+    <td class="num ">120/132</td><td><small>webpage translator</small></td>
+    <td class="actions"><button class="copy" type="button" data-copy="c9">Copy</button><template id="c9">Read with an AI webpage translator. Translate text and pages with a 20,000-character daily allowance per Google account.</template></td></tr><tr class="">
+    <td class="num">5</td><td>A <mark>webpage translator</mark> for text and pages. Sign in with Google, choose a language, and show the original when you need it. </td>
+    <td class="num ">120/132</td><td><small>webpage translator</small></td>
+    <td class="actions"><button class="copy" type="button" data-copy="c10">Copy</button><template id="c10">A webpage translator for text and pages. Sign in with Google, choose a language, and show the original when you need it.</template></td></tr></tbody></table></div></section><section class="part" id="part-listing-descriptions"><h2 class="part-title">Full description</h2><div class="desc">
+      <aside><input type="search" placeholder="Language" data-locale-filter aria-label="Find a language">
+        <div class="progress"><span data-done-count>0</span>/1 pasted</div><ul data-locale-list></ul></aside>
+      <article data-locale-view></article></div></section></section>
+<section data-tab="images"><div class="subnav"><a href="#images/promo">Promo tiles</a><a href="#images/screenshots">Screenshots</a><a href="#images/icon">Icon</a><a href="#images/localized">Localized screenshots</a></div>
+    <section class="part" id="part-images-promo"><h2 class="part-title">Promo tiles</h2><div class="figs"><figure><a class="zoom" href="promo/small-440x280.png" data-zoom><img src="promo/small-440x280.png" alt="" loading="lazy"></a><figcaption>small-440x280.png<a class="button" href="promo/small-440x280.png" download>↓</a></figcaption></figure><figure><a class="zoom" href="promo/small-440x280-b.png" data-zoom><img src="promo/small-440x280-b.png" alt="" loading="lazy"></a><figcaption>small-440x280-b.png<a class="button" href="promo/small-440x280-b.png" download>↓</a></figcaption></figure><figure><a class="zoom" href="promo/small-440x280-c.png" data-zoom><img src="promo/small-440x280-c.png" alt="" loading="lazy"></a><figcaption>small-440x280-c.png<a class="button" href="promo/small-440x280-c.png" download>↓</a></figcaption></figure></div><div class="figs wide"><figure><a class="zoom" href="promo/marquee-1400x560.png" data-zoom><img src="promo/marquee-1400x560.png" alt="" loading="lazy"></a><figcaption>marquee-1400x560.png<a class="button" href="promo/marquee-1400x560.png" download>↓</a></figcaption></figure></div></section><section class="part" id="part-images-screenshots"><h2 class="part-title">Screenshots</h2><div class="figs"><figure><a class="zoom" href="screenshots/1.png" data-zoom><img src="screenshots/1.png" alt="" loading="lazy"></a><figcaption>1<a class="button" href="screenshots/1.png" download>↓</a></figcaption></figure><figure><a class="zoom" href="screenshots/2.png" data-zoom><img src="screenshots/2.png" alt="" loading="lazy"></a><figcaption>2<a class="button" href="screenshots/2.png" download>↓</a></figcaption></figure><figure><a class="zoom" href="screenshots/3.png" data-zoom><img src="screenshots/3.png" alt="" loading="lazy"></a><figcaption>3<a class="button" href="screenshots/3.png" download>↓</a></figcaption></figure><figure><a class="zoom" href="screenshots/4.png" data-zoom><img src="screenshots/4.png" alt="" loading="lazy"></a><figcaption>4<a class="button" href="screenshots/4.png" download>↓</a></figcaption></figure><figure><a class="zoom" href="screenshots/5.png" data-zoom><img src="screenshots/5.png" alt="" loading="lazy"></a><figcaption>5<a class="button" href="screenshots/5.png" download>↓</a></figcaption></figure></div></section><section class="part" id="part-images-icon"><h2 class="part-title">Icon</h2><div class="current"><b>Icon stands out</b><small>Forest green and gold stand apart from the blue, cyan and magenta translation icons captured from competitors. The bold sparkle remains visible in the actual 16 px bitmap on a dark toolbar, though the small dot is subtle and the symbol signals AI more clearly than translation. The 128 px source artwork reaches the canvas edges (128×128 bounds); it lacks the desired centered 96×96 artwork plus 16 px transparent margin. Keep the existing extension untouched; optional padding proposal prompt is in icon/prompt.md.</small></div><div class="iconrow "><img src="../extension/dist/icons/128.png" alt="" loading="lazy" class="ours"><img src="competitors/hbblhboakojbegilahlbppmmkogdgehp/icon.png" alt="" loading="lazy"><img src="competitors/gbefmodhlophhakmoecijeppjblibmie/icon.png" alt="" loading="lazy"><img src="competitors/hkelkkhcmkhbpkenoogdeomannakpilk/icon.png" alt="" loading="lazy"><img src="competitors/noofnfniimcnghnkonpdlhlaeaocidbi/icon.png" alt="" loading="lazy"><img src="competitors/ibplnjkanclpjokhdolnendpplpjiace/icon.png" alt="" loading="lazy"><img src="competitors/cofdbpoegempjloogbagkncekinflcnj/icon.png" alt="" loading="lazy"><img src="competitors/bpoadfkcbjbfhfodiogcnhhhpibjhbnh/icon.png" alt="" loading="lazy"><img src="competitors/fbimffnjoeobhjhochngikepgfejjmgj/icon.png" alt="" loading="lazy"></div><p></p><div class="iconrow small dark"><img src="../extension/dist/icons/128.png" alt="" loading="lazy" class="ours"><img src="competitors/hbblhboakojbegilahlbppmmkogdgehp/icon.png" alt="" loading="lazy"><img src="competitors/gbefmodhlophhakmoecijeppjblibmie/icon.png" alt="" loading="lazy"><img src="competitors/hkelkkhcmkhbpkenoogdeomannakpilk/icon.png" alt="" loading="lazy"><img src="competitors/noofnfniimcnghnkonpdlhlaeaocidbi/icon.png" alt="" loading="lazy"><img src="competitors/ibplnjkanclpjokhdolnendpplpjiace/icon.png" alt="" loading="lazy"><img src="competitors/cofdbpoegempjloogbagkncekinflcnj/icon.png" alt="" loading="lazy"><img src="competitors/bpoadfkcbjbfhfodiogcnhhhpibjhbnh/icon.png" alt="" loading="lazy"><img src="competitors/fbimffnjoeobhjhochngikepgfejjmgj/icon.png" alt="" loading="lazy"></div></section><section class="part" id="part-images-localized"><h2 class="part-title">Localized screenshots</h2><div class="current"><b>0/55</b><small>meta/screenshots/&lt;locale&gt;/</small></div></section></section>
+<section data-tab="extension"><div class="subnav"><a href="#extension/review">Review ask</a><a href="#extension/welcome">Welcome page on install</a></div>
+    <section class="part" id="part-extension-review"><h2 class="part-title">Review ask</h2><div class="current"><span class="chip blocked">missing</span><b>not in code</b></div><div class="row"><span class="spacer"></span><button class="copy" type="button" data-copy="c11">Copy code</button><template id="c11">// Proposed changes only. Nothing below is applied to extension/.
+// extension/src/background.ts — add beside withSession().
+// Reuses the existing Job type and serializes extension-local updates.
+type ReviewState = {
+  successes: number;
+  completedJobIds: string[];
+  state: &#39;counting&#39; | &#39;later&#39; | &#39;done&#39;;
+  dismissals: number;
+  laterUntil?: number;
+};
+const REVIEW_KEY = &#39;marketingReviewV1&#39;;
+let reviewTransaction: Promise&lt;unknown&gt; = Promise.resolve();
+function updateReview&lt;T&gt;(fn: (value: ReviewState) =&gt; T | Promise&lt;T&gt;): Promise&lt;T&gt; {
+  const next = reviewTransaction.then(async () =&gt; {
+    const saved = (await chrome.storage.local.get(REVIEW_KEY))[REVIEW_KEY] as ReviewState | undefined;
+    const state = saved ?? { successes: 0, completedJobIds: [], state: &#39;counting&#39;, dismissals: 0 };
+    const result = await fn(state);
+    await chrome.storage.local.set({ [REVIEW_KEY]: state });
+    return result;
+  });
+  reviewTransaction = next.catch(() =&gt; undefined);
+  return next;
+}
+async function recordTranslationSuccess(job: Job): Promise&lt;void&gt; {
+  if (job.status !== &#39;completed&#39; || !job.translations?.length ||
+      job.translations.some((part) =&gt; typeof part.text !== &#39;string&#39; || !part.text.trim())) return;
+  await updateReview((review) =&gt; {
+    if (review.state === &#39;done&#39; || review.successes &gt;= 5 || review.completedJobIds.includes(job.id)) return;
+    review.completedJobIds.push(job.id); // At most five IDs are retained; never store translation text.
+    review.successes++;
+  });
+}
+async function dismissReview(): Promise&lt;void&gt; {
+  await updateReview((review) =&gt; {
+    review.dismissals++;
+    if (review.dismissals &gt;= 2) review.state = &#39;done&#39;;
+    else { review.state = &#39;later&#39;; review.laterUntil = Date.now() + 14 * 24 * 60 * 60 * 1000; }
+  });
+}
+async function rateReview(): Promise&lt;void&gt; {
+  await chrome.tabs.create({
+    url: `https://chromewebstore.google.com/detail/${chrome.runtime.id}/reviews`,
+  });
+  await updateReview((review) =&gt; { review.state = &#39;done&#39;; });
+}
+
+// Existing handle(), combined translation:get / translation:cancel branch:
+// Keep await ownJob(...) and the existing api&lt;Job&gt;(...) call intact.
+// Immediately before its existing `return job;`, insert:
+if (request.type === &#39;translation:get&#39;) await recordTranslationSuccess(job);
+// This counts a real completed backend result, never clicks, queued/running requests,
+// failures, or cancellations. A page batch counts once even when polled repeatedly.
+// Existing submitJob(): AFTER the withSession(...) owner-state write and
+// immediately before its existing return job, also insert:
+await recordTranslationSuccess(job);
+// POST can already return a completed job on an idempotent retry. The callers
+// skip GET polling in that case, so both paths must record confirmed success.
+// The same job ID is counted at most once across both paths.
+
+// extension/src/shared/protocol.ts — extend RuntimeRequest with:
+// | { type: &#39;review:rate&#39; | &#39;review:dismiss&#39; }
+// Existing handle() — add before default:
+// case &#39;review:rate&#39;: return rateReview();
+// case &#39;review:dismiss&#39;: return dismissReview();
+// Also reject these two message types when sender.tab is present: only the
+// packaged popup may dismiss or launch the review page, not content scripts.
+
+// extension/src/ui/main.tsx — local ReviewCard component; render once at the
+// bottom of the popup before support-links, outside result and progress cards.
+function ReviewCard({ busy, error, signedIn }: { busy: boolean; error: string; signedIn: boolean }) {
+  const [eligible, setEligible] = useState(false);
+  useEffect(() =&gt; {
+    let alive = true;
+    const check = async () =&gt; {
+      const record = (await chrome.storage.local.get(&#39;marketingReviewV1&#39;)).marketingReviewV1 as ReviewState | undefined;
+      const page = await send&lt;PageState&gt;({ type: &#39;page:status&#39; });
+      const idle = page.status === &#39;idle&#39; || page.status === &#39;translated&#39;;
+      const due = record &amp;&amp; record.successes &gt;= 5 &amp;&amp; record.state !== &#39;done&#39; &amp;&amp;
+        (record.state !== &#39;later&#39; || Date.now() &gt;= (record.laterUntil ?? 0));
+      if (alive) setEligible(Boolean(signedIn &amp;&amp; !busy &amp;&amp; !error &amp;&amp; idle &amp;&amp; due));
+    };
+    void check().catch(() =&gt; { if (alive) setEligible(false); });
+    const timer = setInterval(() =&gt; { void check().catch(() =&gt; setEligible(false)); }, 1200);
+    return () =&gt; { alive = false; clearInterval(timer); };
+  }, [busy, error, signedIn]);
+  if (!eligible) return null;
+  const t = (key: string) =&gt; chrome.i18n.getMessage(key);
+  return &lt;div className=&quot;review-card&quot;&gt;
+    &lt;span&gt;{t(&#39;reviewPrompt&#39;)}&lt;/span&gt;
+    &lt;button onClick={() =&gt; { void send({ type: &#39;review:rate&#39; }).then(() =&gt; setEligible(false)); }}&gt;{t(&#39;reviewRate&#39;)}&lt;/button&gt;
+    &lt;button aria-label={t(&#39;reviewDismiss&#39;)} onClick={() =&gt; { void send({ type: &#39;review:dismiss&#39; }).then(() =&gt; setEligible(false)); }}&gt;×&lt;/button&gt;
+  &lt;/div&gt;;
+}
+// &lt;ReviewCard busy={busy || authBusy} error={error} signedIn={Boolean(auth.user)}/&gt;
+// Use one compact line/card consistent with existing popup CSS. No modal,
+// badge, notification, reward, star filtering, or satisfaction gate.
+// Share/import ReviewState into the UI or repeat the type as appropriate.
+// The locale draft in meta/locales/en/messages.json supplies the three strings.
+// Apply the separate manifest locale recommendation before using chrome.i18n.
+</template></div><pre>// Proposed changes only. Nothing below is applied to extension/.
+// extension/src/background.ts — add beside withSession().
+// Reuses the existing Job type and serializes extension-local updates.
+type ReviewState = {
+  successes: number;
+  completedJobIds: string[];
+  state: &#39;counting&#39; | &#39;later&#39; | &#39;done&#39;;
+  dismissals: number;
+  laterUntil?: number;
+};
+const REVIEW_KEY = &#39;marketingReviewV1&#39;;
+let reviewTransaction: Promise&lt;unknown&gt; = Promise.resolve();
+function updateReview&lt;T&gt;(fn: (value: ReviewState) =&gt; T | Promise&lt;T&gt;): Promise&lt;T&gt; {
+  const next = reviewTransaction.then(async () =&gt; {
+    const saved = (await chrome.storage.local.get(REVIEW_KEY))[REVIEW_KEY] as ReviewState | undefined;
+    const state = saved ?? { successes: 0, completedJobIds: [], state: &#39;counting&#39;, dismissals: 0 };
+    const result = await fn(state);
+    await chrome.storage.local.set({ [REVIEW_KEY]: state });
+    return result;
+  });
+  reviewTransaction = next.catch(() =&gt; undefined);
+  return next;
+}
+async function recordTranslationSuccess(job: Job): Promise&lt;void&gt; {
+  if (job.status !== &#39;completed&#39; || !job.translations?.length ||
+      job.translations.some((part) =&gt; typeof part.text !== &#39;string&#39; || !part.text.trim())) return;
+  await updateReview((review) =&gt; {
+    if (review.state === &#39;done&#39; || review.successes &gt;= 5 || review.completedJobIds.includes(job.id)) return;
+    review.completedJobIds.push(job.id); // At most five IDs are retained; never store translation text.
+    review.successes++;
+  });
+}
+async function dismissReview(): Promise&lt;void&gt; {
+  await updateReview((review) =&gt; {
+    review.dismissals++;
+    if (review.dismissals &gt;= 2) review.state = &#39;done&#39;;
+    else { review.state = &#39;later&#39;; review.laterUntil = Date.now() + 14 * 24 * 60 * 60 * 1000; }
+  });
+}
+async function rateReview(): Promise&lt;void&gt; {
+  await chrome.tabs.create({
+    url: `https://chromewebstore.google.com/detail/${chrome.runtime.id}/reviews`,
+  });
+  await updateReview((review) =&gt; { review.state = &#39;done&#39;; });
+}
+
+// Existing handle(), combined translation:get / translation:cancel branch:
+// Keep await ownJob(...) and the existing api&lt;Job&gt;(...) call intact.
+// Immediately before its existing `return job;`, insert:
+if (request.type === &#39;translation:get&#39;) await recordTranslationSuccess(job);
+// This counts a real completed backend result, never clicks, queued/running requests,
+// failures, or cancellations. A page batch counts once even when polled repeatedly.
+// Existing submitJob(): AFTER the withSession(...) owner-state write and
+// immediately before its existing return job, also insert:
+await recordTranslationSuccess(job);
+// POST can already return a completed job on an idempotent retry. The callers
+// skip GET polling in that case, so both paths must record confirmed success.
+// The same job ID is counted at most once across both paths.
+
+// extension/src/shared/protocol.ts — extend RuntimeRequest with:
+// | { type: &#39;review:rate&#39; | &#39;review:dismiss&#39; }
+// Existing handle() — add before default:
+// case &#39;review:rate&#39;: return rateReview();
+// case &#39;review:dismiss&#39;: return dismissReview();
+// Also reject these two message types when sender.tab is present: only the
+// packaged popup may dismiss or launch the review page, not content scripts.
+
+// extension/src/ui/main.tsx — local ReviewCard component; render once at the
+// bottom of the popup before support-links, outside result and progress cards.
+function ReviewCard({ busy, error, signedIn }: { busy: boolean; error: string; signedIn: boolean }) {
+  const [eligible, setEligible] = useState(false);
+  useEffect(() =&gt; {
+    let alive = true;
+    const check = async () =&gt; {
+      const record = (await chrome.storage.local.get(&#39;marketingReviewV1&#39;)).marketingReviewV1 as ReviewState | undefined;
+      const page = await send&lt;PageState&gt;({ type: &#39;page:status&#39; });
+      const idle = page.status === &#39;idle&#39; || page.status === &#39;translated&#39;;
+      const due = record &amp;&amp; record.successes &gt;= 5 &amp;&amp; record.state !== &#39;done&#39; &amp;&amp;
+        (record.state !== &#39;later&#39; || Date.now() &gt;= (record.laterUntil ?? 0));
+      if (alive) setEligible(Boolean(signedIn &amp;&amp; !busy &amp;&amp; !error &amp;&amp; idle &amp;&amp; due));
+    };
+    void check().catch(() =&gt; { if (alive) setEligible(false); });
+    const timer = setInterval(() =&gt; { void check().catch(() =&gt; setEligible(false)); }, 1200);
+    return () =&gt; { alive = false; clearInterval(timer); };
+  }, [busy, error, signedIn]);
+  if (!eligible) return null;
+  const t = (key: string) =&gt; chrome.i18n.getMessage(key);
+  return &lt;div className=&quot;review-card&quot;&gt;
+    &lt;span&gt;{t(&#39;reviewPrompt&#39;)}&lt;/span&gt;
+    &lt;button onClick={() =&gt; { void send({ type: &#39;review:rate&#39; }).then(() =&gt; setEligible(false)); }}&gt;{t(&#39;reviewRate&#39;)}&lt;/button&gt;
+    &lt;button aria-label={t(&#39;reviewDismiss&#39;)} onClick={() =&gt; { void send({ type: &#39;review:dismiss&#39; }).then(() =&gt; setEligible(false)); }}&gt;×&lt;/button&gt;
+  &lt;/div&gt;;
+}
+// &lt;ReviewCard busy={busy || authBusy} error={error} signedIn={Boolean(auth.user)}/&gt;
+// Use one compact line/card consistent with existing popup CSS. No modal,
+// badge, notification, reward, star filtering, or satisfaction gate.
+// Share/import ReviewState into the UI or repeat the type as appropriate.
+// The locale draft in meta/locales/en/messages.json supplies the three strings.
+// Apply the separate manifest locale recommendation before using chrome.i18n.
+</pre></section><section class="part" id="part-extension-welcome"><h2 class="part-title">Welcome page on install</h2><div class="current"><span class="chip blocked">missing</span><b>not in code</b></div><div class="row"><span class="spacer"></span><button class="copy" type="button" data-copy="c12">Copy code</button><template id="c12">// Proposed changes only. Existing source remains unchanged.
+// extension/src/background.ts — REPLACE its current onInstalled listener,
+// do not add a second listener. Keep onStartup/createMenus behavior unchanged.
+chrome.runtime.onInstalled.addListener((details) =&gt; {
+  void createMenus();
+  if (details.reason === chrome.runtime.OnInstalledReason.INSTALL) {
+    void chrome.tabs.create({ url: chrome.runtime.getURL(&#39;welcome.html&#39;) });
+  }
+});
+
+// New extension/welcome.html (packaged and bundled locally):
+// &lt;!doctype html&gt;
+// &lt;html lang=&quot;en&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;&lt;title&gt;AI Translator&lt;/title&gt;&lt;/head&gt;
+// &lt;body&gt;&lt;main&gt;
+// &lt;h1 data-i18n=&quot;welcomeTitle&quot;&gt;&lt;/h1&gt;&lt;p data-i18n=&quot;welcomeIntro&quot;&gt;&lt;/p&gt;
+// &lt;ol&gt;&lt;li data-i18n=&quot;welcomePin&quot;&gt;&lt;/li&gt;&lt;li data-i18n=&quot;welcomeSignIn&quot;&gt;&lt;/li&gt;&lt;li data-i18n=&quot;welcomeFirstResult&quot;&gt;&lt;/li&gt;&lt;/ol&gt;
+// &lt;p data-i18n=&quot;welcomeAllowance&quot;&gt;&lt;/p&gt;&lt;p data-i18n=&quot;welcomePrivacy&quot;&gt;&lt;/p&gt;
+// &lt;button id=&quot;preferences&quot; data-i18n=&quot;welcomeOpenSettings&quot;&gt;&lt;/button&gt;
+// &lt;a href=&quot;https://ai-translator-ext.web.app/privacy&quot; data-i18n=&quot;welcomeReadPrivacy&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;&lt;/a&gt;
+// &lt;/main&gt;&lt;script type=&quot;module&quot; src=&quot;/src/welcome.ts&quot;&gt;&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;
+
+// New extension/src/welcome.ts:
+for (const element of document.querySelectorAll&lt;HTMLElement&gt;(&#39;[data-i18n]&#39;)) {
+  element.textContent = chrome.i18n.getMessage(element.dataset.i18n!);
+}
+document.documentElement.lang = chrome.i18n.getUILanguage();
+document.title = chrome.i18n.getMessage(&#39;welcomeTitle&#39;);
+document.getElementById(&#39;preferences&#39;)?.addEventListener(&#39;click&#39;, () =&gt; {
+  void chrome.runtime.openOptionsPage();
+});
+
+// extension/vite.config.ts — add the local welcome page to the existing
+// build.rollupOptions.input object:
+// welcome: resolve(import.meta.dirname, &#39;welcome.html&#39;)
+// Apply the manifest-locale recommendation first, then rebuild.
+// Use the existing local brand artwork and matching local styles; no remote
+// scripts, fonts, tracking, uninstall URL, or extra permissions are needed.
+// English welcome strings are drafted in meta/locales/en/messages.json.
+// This page does not request site access or start translation automatically.
+</template></div><pre>// Proposed changes only. Existing source remains unchanged.
+// extension/src/background.ts — REPLACE its current onInstalled listener,
+// do not add a second listener. Keep onStartup/createMenus behavior unchanged.
+chrome.runtime.onInstalled.addListener((details) =&gt; {
+  void createMenus();
+  if (details.reason === chrome.runtime.OnInstalledReason.INSTALL) {
+    void chrome.tabs.create({ url: chrome.runtime.getURL(&#39;welcome.html&#39;) });
+  }
+});
+
+// New extension/welcome.html (packaged and bundled locally):
+// &lt;!doctype html&gt;
+// &lt;html lang=&quot;en&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;&lt;title&gt;AI Translator&lt;/title&gt;&lt;/head&gt;
+// &lt;body&gt;&lt;main&gt;
+// &lt;h1 data-i18n=&quot;welcomeTitle&quot;&gt;&lt;/h1&gt;&lt;p data-i18n=&quot;welcomeIntro&quot;&gt;&lt;/p&gt;
+// &lt;ol&gt;&lt;li data-i18n=&quot;welcomePin&quot;&gt;&lt;/li&gt;&lt;li data-i18n=&quot;welcomeSignIn&quot;&gt;&lt;/li&gt;&lt;li data-i18n=&quot;welcomeFirstResult&quot;&gt;&lt;/li&gt;&lt;/ol&gt;
+// &lt;p data-i18n=&quot;welcomeAllowance&quot;&gt;&lt;/p&gt;&lt;p data-i18n=&quot;welcomePrivacy&quot;&gt;&lt;/p&gt;
+// &lt;button id=&quot;preferences&quot; data-i18n=&quot;welcomeOpenSettings&quot;&gt;&lt;/button&gt;
+// &lt;a href=&quot;https://ai-translator-ext.web.app/privacy&quot; data-i18n=&quot;welcomeReadPrivacy&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;&lt;/a&gt;
+// &lt;/main&gt;&lt;script type=&quot;module&quot; src=&quot;/src/welcome.ts&quot;&gt;&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;
+
+// New extension/src/welcome.ts:
+for (const element of document.querySelectorAll&lt;HTMLElement&gt;(&#39;[data-i18n]&#39;)) {
+  element.textContent = chrome.i18n.getMessage(element.dataset.i18n!);
+}
+document.documentElement.lang = chrome.i18n.getUILanguage();
+document.title = chrome.i18n.getMessage(&#39;welcomeTitle&#39;);
+document.getElementById(&#39;preferences&#39;)?.addEventListener(&#39;click&#39;, () =&gt; {
+  void chrome.runtime.openOptionsPage();
+});
+
+// extension/vite.config.ts — add the local welcome page to the existing
+// build.rollupOptions.input object:
+// welcome: resolve(import.meta.dirname, &#39;welcome.html&#39;)
+// Apply the manifest-locale recommendation first, then rebuild.
+// Use the existing local brand artwork and matching local styles; no remote
+// scripts, fonts, tracking, uninstall URL, or extra permissions are needed.
+// English welcome strings are drafted in meta/locales/en/messages.json.
+// This page does not request site access or start translation automatically.
+</pre></section></section>
+<section data-tab="competitors"><div class="grid"><article class="card own">
+    <div class="tile"><img src="promo/small-440x280.png" alt="" loading="lazy"></div>
+    <div class="cardmeta"><img src="../extension/dist/icons/128.png" alt="" loading="lazy" class="icon">
+      <div><div class="name">AI Translator</div><div class="stats">Yours</div></div></div>
+  </article><article class="card">
+    <div class="tile"><img src="competitors/hbblhboakojbegilahlbppmmkogdgehp/promo-440x280.png" alt="" loading="lazy"></div>
+    <div class="cardmeta"><img src="competitors/hbblhboakojbegilahlbppmmkogdgehp/icon.png" alt="" loading="lazy" class="icon">
+      <div><div class="name">AI Translator</div><div class="stats">★ 2.7 (10) · 4k</div></div></div>
+  </article><article class="card">
+    <div class="tile"><img src="competitors/gbefmodhlophhakmoecijeppjblibmie/promo-440x280.png" alt="" loading="lazy"></div>
+    <div class="cardmeta"><img src="competitors/gbefmodhlophhakmoecijeppjblibmie/icon.png" alt="" loading="lazy" class="icon">
+      <div><div class="name">Linguist - web page translator</div><div class="stats">★ 4.37 (373) · 200k</div></div></div>
+  </article><article class="card">
+    <div class="tile"><img src="competitors/hkelkkhcmkhbpkenoogdeomannakpilk/promo-440x280.png" alt="" loading="lazy"></div>
+    <div class="cardmeta"><img src="competitors/hkelkkhcmkhbpkenoogdeomannakpilk/icon.png" alt="" loading="lazy" class="icon">
+      <div><div class="name">AI Translator - Smart AI Translation (Hover, Select, Context Menu)</div><div class="stats">★ 5 (9) · 530</div></div></div>
+  </article><article class="card">
+    <div class="tile"><img src="competitors/noofnfniimcnghnkonpdlhlaeaocidbi/promo-440x280.png" alt="" loading="lazy"></div>
+    <div class="cardmeta"><img src="competitors/noofnfniimcnghnkonpdlhlaeaocidbi/icon.png" alt="" loading="lazy" class="icon">
+      <div><div class="name">DeepTranslate - Full Page &amp; Bilingual Translator &amp; AI-Powered Translation</div><div class="stats">★ 3.85 (488) · 70k</div></div></div>
+  </article><article class="card">
+    <div class="tile"><img src="competitors/ibplnjkanclpjokhdolnendpplpjiace/promo-440x280.png" alt="" loading="lazy"></div>
+    <div class="cardmeta"><img src="competitors/ibplnjkanclpjokhdolnendpplpjiace/icon.png" alt="" loading="lazy" class="icon">
+      <div><div class="name">Simple Translate</div><div class="stats">★ 4.03 (478) · 200k</div></div></div>
+  </article><article class="card">
+    <div class="tile"><img src="competitors/cofdbpoegempjloogbagkncekinflcnj/promo-440x280.png" alt="" loading="lazy"></div>
+    <div class="cardmeta"><img src="competitors/cofdbpoegempjloogbagkncekinflcnj/icon.png" alt="" loading="lazy" class="icon">
+      <div><div class="name">DeepL: translate and write with AI</div><div class="stats">★ 4.52 (13k) · 4M</div></div></div>
+  </article><article class="card">
+    <div class="tile"><img src="competitors/bpoadfkcbjbfhfodiogcnhhhpibjhbnh/promo-440x280.png" alt="" loading="lazy"></div>
+    <div class="cardmeta"><img src="competitors/bpoadfkcbjbfhfodiogcnhhhpibjhbnh/icon.png" alt="" loading="lazy" class="icon">
+      <div><div class="name">Immersive Translate: AI Web, PDF &amp; Video Translator</div><div class="stats">★ 4.55 (3k) · 3M</div></div></div>
+  </article><article class="card">
+    <div class="tile"><img src="competitors/fbimffnjoeobhjhochngikepgfejjmgj/promo-440x280.png" alt="" loading="lazy"></div>
+    <div class="cardmeta"><img src="competitors/fbimffnjoeobhjhochngikepgfejjmgj/icon.png" alt="" loading="lazy" class="icon">
+      <div><div class="name">Translate Selected Text</div><div class="stats">★ 4.15 (772) · 100k</div></div></div>
+  </article></div>
+    <h2>Table</h2><div class="scroll"><table class="wide"><thead><tr><th></th><th class="w-name">Name</th><th class="w-sum">Short description</th><th>Users</th><th>Rating</th><th>Langs</th><th>Shots</th><th>Tile</th><th>Marquee</th><th>Version</th><th>KW in name</th><th>KW in desc</th></tr></thead><tbody><tr class="own">
+    <td><img src="../extension/dist/icons/128.png" alt="" loading="lazy" class="icon"></td>
+    <td><b>AI Translator</b><br><small>13/75</small></td>
+    <td>Translate selected text and whole webpages with AI. Restore originals in one click.<br><small>83/132</small></td>
+    <td class="num">—</td>
+    <td class="num">—</td>
+    <td class="num">0</td><td class="num">5</td>
+    <td class="num">✓</td><td class="num">✓</td>
+    <td>1.1.0<br><small></small></td>
+    <td class="num">—</td><td class="num">3</td></tr><tr class="">
+    <td><img src="competitors/hbblhboakojbegilahlbppmmkogdgehp/icon.png" alt="" loading="lazy" class="icon"></td>
+    <td><a href="https://chromewebstore.google.com/detail/hbblhboakojbegilahlbppmmkogdgehp" target="_blank" rel="noopener">AI Translator</a><br><small>13/75</small></td>
+    <td>Translate selected text into 38 languages with AI. Select text on any page or use the popup. An AI Anyone product.<br><small>114/132</small></td>
+    <td class="num">4k</td>
+    <td class="num">2.7<br><small>10</small></td>
+    <td class="num">1</td><td class="num">2</td>
+    <td class="num">✓</td><td class="num"><span class="no">✗</span></td>
+    <td>4.6<br><small>2026-04-18</small></td>
+    <td class="num">—</td><td class="num">0</td></tr><tr class="">
+    <td><img src="competitors/gbefmodhlophhakmoecijeppjblibmie/icon.png" alt="" loading="lazy" class="icon"></td>
+    <td><a href="https://chromewebstore.google.com/detail/gbefmodhlophhakmoecijeppjblibmie" target="_blank" rel="noopener">Linguist - web page translator</a><br><small>30/75</small></td>
+    <td>Web page translation, text translation, dictionary, history, custom translators, all you need to break language barriers<br><small>120/132</small></td>
+    <td class="num">200k</td>
+    <td class="num">4.37<br><small>373</small></td>
+    <td class="num">57</td><td class="num">5</td>
+    <td class="num">✓</td><td class="num"><span class="no">✗</span></td>
+    <td>7.1.0<br><small>2026-08-08</small></td>
+    <td class="num">—</td><td class="num">0</td></tr><tr class="">
+    <td><img src="competitors/hkelkkhcmkhbpkenoogdeomannakpilk/icon.png" alt="" loading="lazy" class="icon"></td>
+    <td><a href="https://chromewebstore.google.com/detail/hkelkkhcmkhbpkenoogdeomannakpilk" target="_blank" rel="noopener">AI Translator - Smart AI Translation (Hover, Select, Context Menu)</a><br><small>66/75</small></td>
+    <td>Instant AI translator. Hover, select, or translate the whole page bilingually. 50+ languages, dark mode, side panel.<br><small>116/132</small></td>
+    <td class="num">530</td>
+    <td class="num">5<br><small>9</small></td>
+    <td class="num">20</td><td class="num">5</td>
+    <td class="num">✓</td><td class="num">✓</td>
+    <td>1.5.1<br><small>2026-09-13</small></td>
+    <td class="num">—</td><td class="num">0</td></tr><tr class="">
+    <td><img src="competitors/noofnfniimcnghnkonpdlhlaeaocidbi/icon.png" alt="" loading="lazy" class="icon"></td>
+    <td><a href="https://chromewebstore.google.com/detail/noofnfniimcnghnkonpdlhlaeaocidbi" target="_blank" rel="noopener">DeepTranslate - Full Page &amp; Bilingual Translator &amp; AI-Powered Translation</a><br><small>73/75</small></td>
+    <td>Translate web pages effortlessly with Google Translate and OpenAI. Supports quick text translation and PDF imports for translation.<br><small>131/132</small></td>
+    <td class="num">70k</td>
+    <td class="num">3.85<br><small>488</small></td>
+    <td class="num">11</td><td class="num">5</td>
+    <td class="num">✓</td><td class="num">✓</td>
+    <td>1.7.9<br><small>2026-10-20</small></td>
+    <td class="num">—</td><td class="num">0</td></tr><tr class="">
+    <td><img src="competitors/ibplnjkanclpjokhdolnendpplpjiace/icon.png" alt="" loading="lazy" class="icon"></td>
+    <td><a href="https://chromewebstore.google.com/detail/ibplnjkanclpjokhdolnendpplpjiace" target="_blank" rel="noopener">Simple Translate</a><br><small>16/75</small></td>
+    <td>Quickly translate selected or typed text on web pages. Supports Google Translate and DeepL API.<br><small>95/132</small></td>
+    <td class="num">200k</td>
+    <td class="num">4.03<br><small>478</small></td>
+    <td class="num">32</td><td class="num">5</td>
+    <td class="num">✓</td><td class="num"><span class="no">✗</span></td>
+    <td>3.1.0<br><small>2026-08-25</small></td>
+    <td class="num">—</td><td class="num">0</td></tr><tr class="">
+    <td><img src="competitors/cofdbpoegempjloogbagkncekinflcnj/icon.png" alt="" loading="lazy" class="icon"></td>
+    <td><a href="https://chromewebstore.google.com/detail/cofdbpoegempjloogbagkncekinflcnj" target="_blank" rel="noopener">DeepL: translate and write with AI</a><br><small>34/75</small></td>
+    <td>Translate while you read and write with DeepL Translate, the world’s most accurate translator.<br><small>94/132</small></td>
+    <td class="num">4M</td>
+    <td class="num">4.52<br><small>13k</small></td>
+    <td class="num">19</td><td class="num">3</td>
+    <td class="num">✓</td><td class="num"><span class="no">✗</span></td>
+    <td>1.104.2<br><small>2026-10-19</small></td>
+    <td class="num">—</td><td class="num">0</td></tr><tr class="">
+    <td><img src="competitors/bpoadfkcbjbfhfodiogcnhhhpibjhbnh/icon.png" alt="" loading="lazy" class="icon"></td>
+    <td><a href="https://chromewebstore.google.com/detail/bpoadfkcbjbfhfodiogcnhhhpibjhbnh" target="_blank" rel="noopener">Immersive Translate: AI Web, PDF &amp; Video Translator</a><br><small>51/75</small></td>
+    <td>Free Translate Website, Translate PDF &amp; Epub eBook, Translate Video Subtitles in Bilingual<br><small>90/132</small></td>
+    <td class="num">3M</td>
+    <td class="num">4.55<br><small>3k</small></td>
+    <td class="num">21</td><td class="num">4</td>
+    <td class="num">✓</td><td class="num">✓</td>
+    <td>1.34.2<br><small>2026-10-20</small></td>
+    <td class="num">—</td><td class="num">0</td></tr><tr class="">
+    <td><img src="competitors/fbimffnjoeobhjhochngikepgfejjmgj/icon.png" alt="" loading="lazy" class="icon"></td>
+    <td><a href="https://chromewebstore.google.com/detail/fbimffnjoeobhjhochngikepgfejjmgj" target="_blank" rel="noopener">Translate Selected Text</a><br><small>23/75</small></td>
+    <td>Translate selected text with Google Translate<br><small>45/132</small></td>
+    <td class="num">100k</td>
+    <td class="num">4.15<br><small>772</small></td>
+    <td class="num">31</td><td class="num">3</td>
+    <td class="num">✓</td><td class="num">✓</td>
+    <td>3.0.0-stable<br><small>2024-06-02</small></td>
+    <td class="num">—</td><td class="num">0</td></tr></tbody></table></div>
+    <h2>Screenshots & descriptions</h2><section class="detail own">
+    <h3><img src="../extension/dist/icons/128.png" alt="" loading="lazy" class="icon">AI Translator</h3>
+    <div class="shots"><a class="zoom" href="screenshots/1.png" data-zoom><img src="screenshots/1.png" alt="" loading="lazy"></a><a class="zoom" href="screenshots/2.png" data-zoom><img src="screenshots/2.png" alt="" loading="lazy"></a><a class="zoom" href="screenshots/3.png" data-zoom><img src="screenshots/3.png" alt="" loading="lazy"></a><a class="zoom" href="screenshots/4.png" data-zoom><img src="screenshots/4.png" alt="" loading="lazy"></a><a class="zoom" href="screenshots/5.png" data-zoom><img src="screenshots/5.png" alt="" loading="lazy"></a></div>
+    <details><summary>Description · 3347</summary><pre><mark>Webpage Translator</mark> – AI Translator helps you read articles, understand product information, and work with text in another language. Translate selections or webpage text in place, then show the original when you need it.
+
+✨ WHAT IT DOES
+• Pro: right-click a static website image to create and download a PNG with translated text. Pro is granted manually and includes five images per UTC day.
+• Translate selected text in a small result bubble without leaving the page.
+• Type or paste text into the popup and copy the translation.
+• Replace eligible webpage text with a translation while preserving links and page structure.
+• Translate newly appearing text while page translation is active, including text added as you scroll.
+• Stop page translation or restore the original text with the page controls.
+• Choose a language from the list or enter another language name. Use automatic source-language detection when needed.
+• Choose icon, instant-selection, or manual translation, plus light, dark, or system appearance. The interface is available in English and Ukrainian.
+
+🚀 HOW TO USE
+1. Pin AI Translator to the toolbar, open it, and sign in with Google.
+2. Choose your translation languages. Leave the source on Detect language if you are unsure.
+3. Select text and click the translation icon, paste text into the popup, or choose Webpage and start page translation. Use Show original to return to the source text.
+
+🎯 WHO IT&#39;S FOR
+Read foreign-language articles and compare the translation with the original.
+Understand product details or instructions while staying on the page.
+Use a <mark>webpage translator</mark> alongside your language studies or daily work.
+
+🔒 PRIVACY
+Requested text and, for Pro image translation, the selected image are sent to the translation server and processed through an AI provider using OpenAI. When page translation is active, eligible new page text is also sent. The optional instant-selection mode sends selected text automatically.
+
+Preferences stay in Chrome. Originals used for restoration stay in the page&#39;s memory. Server jobs temporarily store source text and results; Pro originals and translated images are stored privately with authenticated owner access; records are marked to expire after 24 hours, and automatic deletion may happen later. Google sign-in and daily usage counters support your account and allowance. There is no translation-history feature.
+
+❓ FAQ
+Does the <mark>webpage translator</mark> work everywhere?
+It works with eligible text on regular websites. Browser settings pages, the Chrome Web Store, PDF documents and canvas text are not supported. Whole-page translation skips images. Pro image translation separately supports public static PNG/JPEG/WebP images up to 10 MB and 20 megapixels. Form fields, editable areas, hidden content, and code blocks are skipped. Website behavior and AI language coverage can affect results.
+
+What is included?
+Free access includes 20,000 source characters per Google account each day, resetting at 00:00 UTC. The popup accepts up to 4,000 characters per request. Long pages can use the remaining daily allowance. AI translations can contain errors, and image editing can alter small visual details. Check the result before use.
+
+Privacy: https://ai-translator-ext.web.app/privacy
+Support: https://ai-translator-ext.web.app/support
+Contact: balubenko.ink@gmail.com
+</pre></details></section><section class="detail">
+    <h3><img src="competitors/hbblhboakojbegilahlbppmmkogdgehp/icon.png" alt="" loading="lazy" class="icon">AI Translator</h3>
+    <div class="shots"><a class="zoom" href="competitors/hbblhboakojbegilahlbppmmkogdgehp/screenshots/1.png" data-zoom><img src="competitors/hbblhboakojbegilahlbppmmkogdgehp/screenshots/1.png" alt="" loading="lazy"></a><a class="zoom" href="competitors/hbblhboakojbegilahlbppmmkogdgehp/screenshots/2.png" data-zoom><img src="competitors/hbblhboakojbegilahlbppmmkogdgehp/screenshots/2.png" alt="" loading="lazy"></a></div>
+    <details><summary>Description · 1608</summary><pre>Introducing the AI Translator extension - the ultimate tool for seamless communication and understanding. With cutting-edge AI technology, our extension translates text in real-time, providing accurate and natural translations in over 100 languages. Whether you&#39;re traveling abroad, doing business with international clients, or simply trying to understand a foreign language text, our extension has got you covered.
+
+Our extension is designed with SEO in mind, ensuring that your online content is easily discoverable by search engines. Whether you&#39;re a blogger, marketer, or content creator, our extension helps you reach a global audience, while eliminating language barriers. With our extension, you can optimize your content for multiple languages and target new audiences with ease.
+
+But that&#39;s not all - our extension is also the perfect companion for our AI Anyone extension. With AI Anyone, you can talk to anyone, dead or alive, with realistic and natural conversations. Whether you want to have a chat with Einstein, Shakespeare, or your deceased loved one, AI Anyone makes it possible. And with the AI Language Translator Extension, you can have those conversations in any language.
+
+Don&#39;t let language barriers hold you back from reaching your full potential - with the AI Language Translator Extension, the world is your oyster. And with the added capability of AI Anyone, the possibilities are endless. Our extensions are completely free, with no hidden costs or subscription fees, so download them today and experience the power of AI-based language translation and conversation for yourself.</pre></details></section><section class="detail">
+    <h3><img src="competitors/gbefmodhlophhakmoecijeppjblibmie/icon.png" alt="" loading="lazy" class="icon">Linguist - web page translator</h3>
+    <div class="shots"><a class="zoom" href="competitors/gbefmodhlophhakmoecijeppjblibmie/screenshots/1.png" data-zoom><img src="competitors/gbefmodhlophhakmoecijeppjblibmie/screenshots/1.png" alt="" loading="lazy"></a><a class="zoom" href="competitors/gbefmodhlophhakmoecijeppjblibmie/screenshots/2.png" data-zoom><img src="competitors/gbefmodhlophhakmoecijeppjblibmie/screenshots/2.png" alt="" loading="lazy"></a><a class="zoom" href="competitors/gbefmodhlophhakmoecijeppjblibmie/screenshots/3.png" data-zoom><img src="competitors/gbefmodhlophhakmoecijeppjblibmie/screenshots/3.png" alt="" loading="lazy"></a><a class="zoom" href="competitors/gbefmodhlophhakmoecijeppjblibmie/screenshots/4.png" data-zoom><img src="competitors/gbefmodhlophhakmoecijeppjblibmie/screenshots/4.png" alt="" loading="lazy"></a><a class="zoom" href="competitors/gbefmodhlophhakmoecijeppjblibmie/screenshots/5.png" data-zoom><img src="competitors/gbefmodhlophhakmoecijeppjblibmie/screenshots/5.png" alt="" loading="lazy"></a></div>
+    <details><summary>Description · 2912</summary><pre>Translate web pages, highlighted text, Netflix subtitles, private messages, speak the text, and save important translations to your personal dictionary to learn words in over 130 languages.
+
+Encountering unfamiliar words while reading an online article? Just select text on the page and click the button to translate it. You can speak the translated and original text, and save the translation to your dictionary.
+
+If you need to input text and translate it, you can just click the Linguist button to open the pop-up window.
+
+Full-page translation
+With Linguist, you can conveniently translate entire web pages with just one click. All you need to do is select &quot;Translate page&quot; from the context menu on any webpage, and it will be instantly translated into your preferred language.
+
+Make your own personal knowledge base with Linguist!
+Any translated text is saved in the history, and you can add your favorite translations to your dictionary. You can search for translations in both your dictionary and history, and even filter your translations by language. The dictionary feature is available even when you are offline, making it an ideal tool for language learners or travelers who require constant access to their word lists.
+
+Offline translation and privacy
+Linguist can translate texts even without the internet - a feature that no other extension has. The offline translator allows you to translate texts on your device without sending any private messages over the internet, ensuring your privacy. Simply enable the feature on the options page to maintain your privacy while translating work emails and personal messages.
+
+Customize Linguist as you wish
+Unlike other browser extensions, Linguist is not just a wrapper over the Google Translator Widget; it&#39;s a complete and independent translation system. This is why Linguist is not limited in what features may be implemented. Linguist is the leading extension for translating pages. Join Linguist and start using the most advanced features now and always stay at the forefront of technological progress in the future.
+
+You have complete control over your data and how Linguist works for you:
+
+- Control web pages auto-translation by language and domain name
+- Choose a service that will translate your texts
+  - You may use popular services like Google, Yandex, Bing, DeepL, Reverso
+  - You may use an offline translator that will translate texts on your device (not sent to the internet at all)
+  - You may use custom translator modules to use your own translation service. Read more: https://github.com/translate-tools/linguist/blob/master/docs/CustomTranslator.md
+- Choose a service to speak texts
+- Customize the user interface and available features
+
+Privacy
+Linguist is free, open-source, and never collects your personal data.
+
+If you want to report a bug, suggest a feature, or donate, visit GitHub: https://github.com/translate-tools/linguist</pre></details></section><section class="detail">
+    <h3><img src="competitors/hkelkkhcmkhbpkenoogdeomannakpilk/icon.png" alt="" loading="lazy" class="icon">AI Translator - Smart AI Translation (Hover, Select, Context Menu)</h3>
+    <div class="shots"><a class="zoom" href="competitors/hkelkkhcmkhbpkenoogdeomannakpilk/screenshots/1.png" data-zoom><img src="competitors/hkelkkhcmkhbpkenoogdeomannakpilk/screenshots/1.png" alt="" loading="lazy"></a><a class="zoom" href="competitors/hkelkkhcmkhbpkenoogdeomannakpilk/screenshots/2.png" data-zoom><img src="competitors/hkelkkhcmkhbpkenoogdeomannakpilk/screenshots/2.png" alt="" loading="lazy"></a><a class="zoom" href="competitors/hkelkkhcmkhbpkenoogdeomannakpilk/screenshots/3.png" data-zoom><img src="competitors/hkelkkhcmkhbpkenoogdeomannakpilk/screenshots/3.png" alt="" loading="lazy"></a><a class="zoom" href="competitors/hkelkkhcmkhbpkenoogdeomannakpilk/screenshots/4.png" data-zoom><img src="competitors/hkelkkhcmkhbpkenoogdeomannakpilk/screenshots/4.png" alt="" loading="lazy"></a><a class="zoom" href="competitors/hkelkkhcmkhbpkenoogdeomannakpilk/screenshots/5.png" data-zoom><img src="competitors/hkelkkhcmkhbpkenoogdeomannakpilk/screenshots/5.png" alt="" loading="lazy"></a></div>
+    <details><summary>Description · 1741</summary><pre>🌐 AI Translator - Smart, instant translation powered by the latest AI
+
+Want to read foreign articles, documentation, or any web content without leaving the page? AI Translator gives you accurate, context-aware translation in a single gesture. 🚀
+
+⚡ KEY FEATURES
+✅ Translate the whole page: bilingual mode keeps the original and puts the translation right under each paragraph, or replace the text in place. Menus, header and footer are left alone so the layout never breaks (turn on &quot;Translate the whole page&quot; if you want them too).
+✅ Text translator panel: open the side panel, paste up to 5000 characters, translate with Ctrl+Enter, swap languages, copy the result.
+✅ Hover to translate: move your mouse over any text for an instant tooltip translation.
+✅ Select to translate: highlight text, then click the floating icon for a full popup.
+✅ Right-click to translate: use the context menu on any selection.
+✅ Powered by the latest AI: high-quality, context-preserving translation, not word-by-word. The AI builds a glossary for each page so terminology stays consistent.
+✅ 50+ languages: Vietnamese, English, Chinese (Simplified &amp; Traditional), Japanese, Korean, Thai, Spanish, French, German, Russian, Arabic, and many more.
+✅ Interface in 21 languages, with right-to-left support for Arabic, Persian and Hebrew.
+✅ Dark mode and light mode.
+✅ Turn hover lookup off on any site you choose.
+
+📖 PERFECT FOR
+- Reading foreign articles, research papers and documentation
+- Learning a new language with the original text side by side
+- Following international news
+- Translating long pages without copying and pasting
+
+🔒 PRIVACY
+No account, no tracking. Your text is sent only when you ask for a translation, and translations are not stored.</pre></details></section><section class="detail">
+    <h3><img src="competitors/noofnfniimcnghnkonpdlhlaeaocidbi/icon.png" alt="" loading="lazy" class="icon">DeepTranslate - Full Page &amp; Bilingual Translator &amp; AI-Powered Translation</h3>
+    <div class="shots"><a class="zoom" href="competitors/noofnfniimcnghnkonpdlhlaeaocidbi/screenshots/1.jpg" data-zoom><img src="competitors/noofnfniimcnghnkonpdlhlaeaocidbi/screenshots/1.jpg" alt="" loading="lazy"></a><a class="zoom" href="competitors/noofnfniimcnghnkonpdlhlaeaocidbi/screenshots/2.jpg" data-zoom><img src="competitors/noofnfniimcnghnkonpdlhlaeaocidbi/screenshots/2.jpg" alt="" loading="lazy"></a><a class="zoom" href="competitors/noofnfniimcnghnkonpdlhlaeaocidbi/screenshots/3.jpg" data-zoom><img src="competitors/noofnfniimcnghnkonpdlhlaeaocidbi/screenshots/3.jpg" alt="" loading="lazy"></a><a class="zoom" href="competitors/noofnfniimcnghnkonpdlhlaeaocidbi/screenshots/4.jpg" data-zoom><img src="competitors/noofnfniimcnghnkonpdlhlaeaocidbi/screenshots/4.jpg" alt="" loading="lazy"></a><a class="zoom" href="competitors/noofnfniimcnghnkonpdlhlaeaocidbi/screenshots/5.jpg" data-zoom><img src="competitors/noofnfniimcnghnkonpdlhlaeaocidbi/screenshots/5.jpg" alt="" loading="lazy"></a></div>
+    <details><summary>Description · 2800</summary><pre>🔵 Why Choose DeepTranslate? 🔵  
+DeepTranslate integrates multiple translation engines into a simple, easy-to-use tool, providing comprehensive language support and bilingual display. There&#39;s no need to switch between websites or apps—just one click allows you to translate and seamlessly toggle between the original text and translation. It supports popular services like Google Translate, OpenAI, and Microsoft Translator, making it ideal for translating websites, news, Gmail, WhatsApp Web, X, Twitter, Facebook, Google Scholar papers, and more.
+
+🔵 Why Use DeepTranslate? 🔵  
+DeepTranslate is not just a translation tool—it’s your multilingual world exploration assistant. Here are its key features:  
+1️⃣ Completely Free: Enjoy all features without a subscription.  
+2️⃣ Powerful Multilingual Support: Automatically detects and supports over 120 languages, including Chinese, English, Spanish, Japanese, and many others.  
+3️⃣ One-Click Web Translation: Translate entire web pages, from news sites to social media and academic papers, with a single click, and view them in bilingual mode.  
+4️⃣ Social Media Translation: Effortlessly translate posts, comments, and private messages on WhatsApp, X, Twitter, Facebook, and Instagram.  
+5️⃣ Academic Resource Translation: Quickly understand foreign academic papers on platforms like Google Scholar and PubMed.  
+6️⃣ Flexible Engine Switching: Switch between OpenAI, Google Translate, and Microsoft Translator for the best translation quality.  
+7️⃣ Convenient Text Translation: Access quick text translation anytime, anywhere.  
+8️⃣ User-Friendly Experience: Whether you’re a first-time user or an expert, enjoy a smooth and intuitive interface.
+
+🔵 Upcoming Features 🔵  
+We’re developing new features to make DeepTranslate seamless across various scenarios:  
+✅ Auto Video Subtitle Translation: Generate bilingual subtitles for platforms like YouTube and Vimeo, ensuring you understand every video.  
+✅ Floating Window: Translate quickly with a floating window, without delays.
+
+🔵 How Does DeepTranslate Stand Out? 🔵  
+1️⃣ All-in-One Platform Support: Whether browsing, reading academic papers, or interacting on social media, DeepTranslate offers comprehensive language support, eliminating the need for multiple tools.  
+2️⃣ Bilingual Learning Assistant: Improve your language skills with bilingual mode and multi-engine comparison for better understanding and memory retention.  
+3️⃣ Real-Time Updates &amp; Support: We focus on innovation and continuously enhance features through fast iterations and user feedback, ensuring access to the latest translation technology.
+
+📪 For any questions or suggestions, contact us at support@deeptranslate.ai. We look forward to your feedback and are committed to improving your DeepTranslate experience.</pre></details></section><section class="detail">
+    <h3><img src="competitors/ibplnjkanclpjokhdolnendpplpjiace/icon.png" alt="" loading="lazy" class="icon">Simple Translate</h3>
+    <div class="shots"><a class="zoom" href="competitors/ibplnjkanclpjokhdolnendpplpjiace/screenshots/1.png" data-zoom><img src="competitors/ibplnjkanclpjokhdolnendpplpjiace/screenshots/1.png" alt="" loading="lazy"></a><a class="zoom" href="competitors/ibplnjkanclpjokhdolnendpplpjiace/screenshots/2.png" data-zoom><img src="competitors/ibplnjkanclpjokhdolnendpplpjiace/screenshots/2.png" alt="" loading="lazy"></a><a class="zoom" href="competitors/ibplnjkanclpjokhdolnendpplpjiace/screenshots/3.png" data-zoom><img src="competitors/ibplnjkanclpjokhdolnendpplpjiace/screenshots/3.png" alt="" loading="lazy"></a><a class="zoom" href="competitors/ibplnjkanclpjokhdolnendpplpjiace/screenshots/4.png" data-zoom><img src="competitors/ibplnjkanclpjokhdolnendpplpjiace/screenshots/4.png" alt="" loading="lazy"></a><a class="zoom" href="competitors/ibplnjkanclpjokhdolnendpplpjiace/screenshots/5.png" data-zoom><img src="competitors/ibplnjkanclpjokhdolnendpplpjiace/screenshots/5.png" alt="" loading="lazy"></a></div>
+    <details><summary>Description · 907</summary><pre>When you select text, the translation button pops up and the translation is displayed instantly.
+If you enable &quot;Do not display the button if translation is not required&quot; option, you will not get frustrated by the button appearing when it is not necessary.
+
+In the toolbar popup, translate the input text in real time.
+If you enable &quot;Automatically switch to the second language&quot; option, you can do : When English is input, it is translated into Japanese, and when Japanese is input, it is translated into English.
+
+You can also translate from the context menu.
+You can select &quot;Translate this page&quot;, &quot;Translate selected text&quot;, and &quot;Translate selected link&quot; from the menu on the page or tab.
+
+Supports Google Translate and DeepL API.
+
+Firefox version: https://addons.mozilla.org/en/firefox/addon/simple-translate/
+Edge version: https://microsoftedge.microsoft.com/addons/detail/cllnohpbfenopiakdcjmjcbaeapmkcdl</pre></details></section><section class="detail">
+    <h3><img src="competitors/cofdbpoegempjloogbagkncekinflcnj/icon.png" alt="" loading="lazy" class="icon">DeepL: translate and write with AI</h3>
+    <div class="shots"><a class="zoom" href="competitors/cofdbpoegempjloogbagkncekinflcnj/screenshots/1.png" data-zoom><img src="competitors/cofdbpoegempjloogbagkncekinflcnj/screenshots/1.png" alt="" loading="lazy"></a><a class="zoom" href="competitors/cofdbpoegempjloogbagkncekinflcnj/screenshots/2.png" data-zoom><img src="competitors/cofdbpoegempjloogbagkncekinflcnj/screenshots/2.png" alt="" loading="lazy"></a><a class="zoom" href="competitors/cofdbpoegempjloogbagkncekinflcnj/screenshots/3.png" data-zoom><img src="competitors/cofdbpoegempjloogbagkncekinflcnj/screenshots/3.png" alt="" loading="lazy"></a></div>
+    <details><summary>Description · 3248</summary><pre>Stay informed, work smarter, and communicate globally without leaving your browser.
+
+Trusted by millions across the globe, DeepL’s Language AI delivers unmatched accuracy and fluency to help you scale faster and bring clarity and efficiency into your daily work. All of that, with the highest levels of data security.
+
+Easy to use, hard to beat!
+
+The DeepL extension integrates seamlessly into your workflows, eliminating manual and time-consuming tasks. 
+No more losing context by switching tabs or apps! 
+With just a few clicks or by using shortcuts you can customize, the DeepL extension helps you do the following:
+
+🌍 Translate while browsing 
+Do your research and stay up-to-date with information in the language of your choice. With the DeepL extension, you can: 
+
+- Translate sections on the go 
+- Translate entire pages (unlimited with DeepL Pro)
+- Automate page translation (only with DeepL Pro) 
+ 
+✍️ Get translation and writing assistance for emails and documents
+For your productivity, DeepL is integrated into Google Workspace with direct translation and writing assistance in Gmail, Google Docs, and Google Slides.
+
+Read and write emails, and create and edit various documents, including papers, presentations, and reports. Adapt your work instantly to your audience, objectives, and standards: 
+
+- Translate where you work, with possible alternatives and a dictionary
+- Get text corrections and suggestions for more clarity and adapt your writing style
+- Apply your company, domain, or client glossaries to your documents (with DeepL Pro)
+
+🚀 Translate and polish your comms on the spot
+DeepL is also integrated into content, messaging, and social media platforms—YouTube, WhatsApp, LinkedIn, and X.
+
+Stay in touch and exchange with your peers, partners and collaborators effectively, with instant translation and writing assistance:
+
+- Send clear replies tailored to your goals and audience
+- Engage with multilingual communities in a timely and relevant manner and extend your reach
+
+DeepL supports translation for 30+ languages and offers writing assistance for 5+ languages with an ever-growing language portfolio. 
+
+Key information
+
+🤝 Plans
+The free version of the DeepL extension comes with character limitations.
+In addition, some of our features, such as the glossary or the automated page translation, are only available to DeepL Pro and DeepL Write Pro users.
+
+Learn more about all the advantages of DeepL Pro and DeepL Write Pro and find your plan: deepl.com/pro
+
+🔐 Data security
+The security of your data is our top priority. Per our terms and conditions at deepl.com/en/pro-license, both DeepL Pro and DeepL Write Pro don’t store or use your content to enhance our service, unless you actively agree to it, allowing you to securely translate and refine content containing personal data. However, the free version of our service may use submitted content to improve the DeepL algorithms for all users. Therefore, users shouldn&#39;t process any confidential or personal data through the free version. Learn more about our robust security measures and commitment to privacy: deepl.com/pro-data-security
+
+Reimagine business communication with DeepL&#39;s Language AI platform
+Read more about our solutions: deepl.com/en/whydeepl</pre></details></section><section class="detail">
+    <h3><img src="competitors/bpoadfkcbjbfhfodiogcnhhhpibjhbnh/icon.png" alt="" loading="lazy" class="icon">Immersive Translate: AI Web, PDF &amp; Video Translator</h3>
+    <div class="shots"><a class="zoom" href="competitors/bpoadfkcbjbfhfodiogcnhhhpibjhbnh/screenshots/2.png" data-zoom><img src="competitors/bpoadfkcbjbfhfodiogcnhhhpibjhbnh/screenshots/2.png" alt="" loading="lazy"></a><a class="zoom" href="competitors/bpoadfkcbjbfhfodiogcnhhhpibjhbnh/screenshots/3.png" data-zoom><img src="competitors/bpoadfkcbjbfhfodiogcnhhhpibjhbnh/screenshots/3.png" alt="" loading="lazy"></a><a class="zoom" href="competitors/bpoadfkcbjbfhfodiogcnhhhpibjhbnh/screenshots/4.png" data-zoom><img src="competitors/bpoadfkcbjbfhfodiogcnhhhpibjhbnh/screenshots/4.png" alt="" loading="lazy"></a><a class="zoom" href="competitors/bpoadfkcbjbfhfodiogcnhhhpibjhbnh/screenshots/5.png" data-zoom><img src="competitors/bpoadfkcbjbfhfodiogcnhhhpibjhbnh/screenshots/5.png" alt="" loading="lazy"></a></div>
+    <details><summary>Description · 5706</summary><pre>📣 Top-rated AI translation extension [Immersive Translate], supporting webpage, PDF, eBook, video subtitle, image, and manga translation! ⭐⭐⭐⭐⭐
+
+📣 A trusted translation tool for over 30 million users worldwide. Recommended by major mainstream browsers and awarded Chrome&#39;s Best Extension of 2024.
+
+📣 Dual-certified with ISO/IEC 27001 (Information Security Management) and ISO/IEC 27701 (Privacy Information Management). Fully compliant with EU GDPR and Japan APPI privacy requirements, utilizing SSL/TLS encrypted transmission to safeguard your data security and privacy.
+
+💻 Key Features:
+
+📰 Webpage Translation
+
+* 🚀 Smart Bilingual Reading: Intelligently identifies the main content area for bilingual webpage translation, minimizing intrusiveness on the original page. This delivers a superior reading experience for foreign websites, hence the name [Immersive Translate].
+* 🚀 Deep Website Optimization: Deeply customized for mainstream platforms. Enjoy seamless and highly efficient translation on Google Search, social media platforms like Twitter, Reddit, and Facebook, as well as top news websites.
+* 🚀 Hover Translation: Simply hover your mouse over any paragraph on any webpage, and the translation will appear immediately below it. Paragraphs are treated as the smallest unit to preserve context, helping you truly understand and learn foreign languages.
+* 🚀 Select-to-Translate: In the AI era, text selection translation is no longer a simple dictionary lookup; it analyzes context to provide the most accurate word explanations for your current reading.
+* 🚀 Input Box Translation: Type in your native language in any webpage&#39;s input box, press the spacebar three times, and instantly translate your text into your target language. Instantly unlock cross-language Google searches and real-time bilingual chat experiences in tools like ChatGPT.
+
+📋 Document Translation (Supports downloading in bilingual or single-language versions)
+
+* 🚀 PDF Translation (Retains Original Formatting): The advanced version supports complex formula recognition, table recognition, and image OCR within PDFs to maximize layout preservation. Perfect for translating foreign literature, academic papers, product manuals, and more.
+* 🚀 One-Click Formats: Also supports one-click translation for EPUB eBooks, TXT documents, HTML files, and subtitle files (ASS/SRT).
+
+🎞 Bilingual Video Subtitle Translation
+
+* 🚀 Mainstream Video Platforms: Automatic bilingual subtitle translation for major online video sites (YouTube, Netflix, etc.). Break down language barriers with one click and connect with global cultures and ideas.
+* 🚀 Online Video Meetings: Fully compatible with Google Meet, Zoom, Microsoft Teams, and other online conferencing platforms.
+
+⚔️ Manga Translation
+
+* 🚀 Online Manga Support: Supports targeted online manga sites, helping non-native fans seamlessly read raw Japanese, Korean, and Western comics, allowing you to catch the latest chapters instantly without language barriers.
+
+🏞️ Image Translation
+
+* 🚀 Direct Web Image Translation: Say goodbye to saving and uploading. Simply right-click on web images to translate them directly without interrupting your browsing. Also supports uploading local images for translation.
+
+👨🏻‍🔬 [Immersive Translate] Exclusive AI Features
+
+* 🚀 AI Expert: Set specific industry roles for the AI to deliver highly professional translations for specialized fields.
+* 🚀 AI Glossary: Create custom glossaries to ensure the AI translates specific terminology consistently, further boosting translation accuracy.
+* 🚀 AI Smart Context Translation: The system grasps the full text context and professional terminology before translating, providing you with an incredibly accurate translation experience. (Beta Phase)
+
+🔒 Privacy-First Security Design
+
+Immersive Translate consistently adheres to a privacy-first product philosophy. We are officially recommended by major browsers and awarded Chrome&#39;s Best Extension of 2024. Over 30 million users worldwide use our tool with complete peace of mind.
+
+* 🛡️ Clear Content Retention Rules: Webpage translation content is processed according to your chosen service; features requiring temporary file retention will clearly state the processing purpose and deletion rules.
+* 🛡️ Not Used for AI Training: Within the scope of applicable official translation services, translated content is never used for model training. See our Trust Center for applicability details regarding third-party services and custom APIs.
+* 🛡️ Encrypted Translation Requests: All translation requests are transmitted through encrypted channels to protect your content during transfer.
+
+We do not collect personal information unrelated to translation, nor do we sell or share your data.
+
+💡 Other Features
+
+* 🚀 Cross-Platform Support: Enjoy the same immersive translation experience on major desktop browsers and mobile devices. Use our dedicated mobile app or easily browse social media like Twitter and Reddit bilingually via iOS Safari and select Android browsers.
+* 🚀 Extensive Engine Support: Currently integrates with over 20 global mainstream machine translation services and cutting-edge AI large language models. Freely utilize DeepL, OpenAI, Gemini, and Claude for precise translation across various scenarios.
+
+📧 Contact Us
+
+* 🚀 If you have any questions or suggestions while using the extension, feel free to contact our customer support team:
+
+  Email: support@immersivetranslate.com
+
+❤️ The original intention of the Immersive Translate extension: We hope to help everyone break down language barriers and effortlessly, joyfully, and elegantly access the wealth of foreign language information on the internet. ❤️</pre></details></section><section class="detail">
+    <h3><img src="competitors/fbimffnjoeobhjhochngikepgfejjmgj/icon.png" alt="" loading="lazy" class="icon">Translate Selected Text</h3>
+    <div class="shots"><a class="zoom" href="competitors/fbimffnjoeobhjhochngikepgfejjmgj/screenshots/1.png" data-zoom><img src="competitors/fbimffnjoeobhjhochngikepgfejjmgj/screenshots/1.png" alt="" loading="lazy"></a><a class="zoom" href="competitors/fbimffnjoeobhjhochngikepgfejjmgj/screenshots/2.png" data-zoom><img src="competitors/fbimffnjoeobhjhochngikepgfejjmgj/screenshots/2.png" alt="" loading="lazy"></a><a class="zoom" href="competitors/fbimffnjoeobhjhochngikepgfejjmgj/screenshots/3.png" data-zoom><img src="competitors/fbimffnjoeobhjhochngikepgfejjmgj/screenshots/3.png" alt="" loading="lazy"></a></div>
+    <details><summary>Description · 2191</summary><pre>This extension allows you to translate the text selection using Google Translate whenever you want.
+
+When the extension is installed select some text from a website, right click and select to which language you want to translate the selected text.
+
+** FAQ: **
+Q: Why choose this extension and not another one?
+A: I designed this extension so that it didn&#39;t prompt the user for permissions. This way the final user knows that the extension doesn&#39;t have the permission to access the content of web pages and monitor the user activity on the Internet (other extensions of this type prompt for this permission). This extension has access only to the content of the selected text when the user clicks the extension context menu and it is used to create a Google Translate app with the text autocompleted.
+
+You can configure from the options page which languages you want to show in the context menu.
+
+** Open Source **
+This extension is now open sourced! You can check out the source code, contribute, and fill in bugs in the GitHub repository: https://github.com/avm99963/translateselectedtext
+
+** Bugs **
+Please, report any bugs or feature suggestions here: https://github.com/avm99963/translateselectedtext/issues
+
+** Note **
+Google Translate is a trademark of Google Inc. Use of this trademark is subject to Google Permissions.
+
+** Beta version**
+As this extension has so many users I&#39;ve decided to upload a Beta version of the extension to the Chrome Web Store so I can test it before uploading any update to the stable version! This way I can make sure the stable version of the extension is 100% bug-free.
+
+If you want to test the bleeding edge of this extension before everybody else, join the Google Group and download the extension (there may be bugs, you&#39;ve been warned):
+* Google Group: https://groups.google.com/forum/#!forum/gtranslator-beta
+* Translate Selected Text (Beta): https://chrome.google.com/webstore/detail/translate-selected-text-b/pckjhlclhnnhdadoockkhgfkceeljnkg
+
+** Changelog **
+Changelog available in the following website: https://github.com/avm99963/translateselectedtext/wiki/Changelog
+
+** Credits **
+https://github.com/avm99963/translateselectedtext/wiki/Credits</pre></details></section></section>
+<section data-tab="keywords"><div class="scroll"><table><thead><tr><th>Phrase</th><th></th><th>Relevance</th><th>Demand</th><th>Competition</th><th>In top names</th><th>Top-10 users</th><th>You</th><th>Decision</th></tr></thead><tbody>
+    <tr class=""><td><mark>webpage translator</mark></td><td class="actions"><button class="copy" type="button" data-copy="c13">Copy</button><template id="c13">webpage translator</template></td>
+    <td class="num">3</td><td class="num">3</td><td class="num">0</td>
+    <td class="num">0</td><td class="num">3.4M</td>
+    <td class="num">&gt;10</td>
+    <td><span class="chip hi">primary</span></td></tr>
+    <tr class=""><td>ai translator</td><td class="actions"><button class="copy" type="button" data-copy="c14">Copy</button><template id="c14">ai translator</template></td>
+    <td class="num">3</td><td class="num">3</td><td class="num">2</td>
+    <td class="num">9</td><td class="num">7.4M</td>
+    <td class="num">&gt;10</td>
+    <td><span class="chip rec">secondary</span></td></tr>
+    <tr class=""><td>translate selected text</td><td class="actions"><button class="copy" type="button" data-copy="c15">Copy</button><template id="c15">translate selected text</template></td>
+    <td class="num">3</td><td class="num">3</td><td class="num">2</td>
+    <td class="num">2</td><td class="num">39.5M</td>
+    <td class="num">&gt;10</td>
+    <td><span class="chip rec">secondary</span></td></tr>
+    <tr class=""><td>full page translator</td><td class="actions"><button class="copy" type="button" data-copy="c16">Copy</button><template id="c16">full page translator</template></td>
+    <td class="num">3</td><td class="num">3</td><td class="num">2</td>
+    <td class="num">1</td><td class="num">46.5M</td>
+    <td class="num">&gt;10</td>
+    <td><span class="chip rec">secondary</span></td></tr>
+    <tr class=""><td>translate webpage</td><td class="actions"><button class="copy" type="button" data-copy="c17">Copy</button><template id="c17">translate webpage</template></td>
+    <td class="num">3</td><td class="num">3</td><td class="num">2</td>
+    <td class="num">1</td><td class="num">42.4M</td>
+    <td class="num">&gt;10</td>
+    <td><span class="chip rec">secondary</span></td></tr>
+    <tr class=""><td>page translator</td><td class="actions"><button class="copy" type="button" data-copy="c18">Copy</button><template id="c18">page translator</template></td>
+    <td class="num">3</td><td class="num">3</td><td class="num">2</td>
+    <td class="num">3</td><td class="num">46.4M</td>
+    <td class="num">&gt;10</td>
+    <td><span class="chip rec">description</span></td></tr>
+    <tr class=""><td>translate web page</td><td class="actions"><button class="copy" type="button" data-copy="c19">Copy</button><template id="c19">translate web page</template></td>
+    <td class="num">3</td><td class="num">3</td><td class="num">2</td>
+    <td class="num">0</td><td class="num">46.5M</td>
+    <td class="num">&gt;10</td>
+    <td><span class="chip rec">description</span></td></tr>
+    <tr class=""><td>text translator</td><td class="actions"><button class="copy" type="button" data-copy="c20">Copy</button><template id="c20">text translator</template></td>
+    <td class="num">2</td><td class="num">3</td><td class="num">2</td>
+    <td class="num">2</td><td class="num">42.4M</td>
+    <td class="num">&gt;10</td>
+    <td><span class="chip rec">description</span></td></tr>
+    <tr class=""><td>translation extension</td><td class="actions"><button class="copy" type="button" data-copy="c21">Copy</button><template id="c21">translation extension</template></td>
+    <td class="num">3</td><td class="num">3</td><td class="num">2</td>
+    <td class="num">0</td><td class="num">46.5M</td>
+    <td class="num">&gt;10</td>
+    <td><span class="chip rec">description</span></td></tr>
+    <tr class=""><td>translate page</td><td class="actions"><button class="copy" type="button" data-copy="c22">Copy</button><template id="c22">translate page</template></td>
+    <td class="num">3</td><td class="num">3</td><td class="num">2</td>
+    <td class="num">0</td><td class="num">46.6M</td>
+    <td class="num">&gt;10</td>
+    <td><span class="chip rec">description</span></td></tr>
+    <tr class=""><td>ai page translator</td><td class="actions"><button class="copy" type="button" data-copy="c23">Copy</button><template id="c23">ai page translator</template></td>
+    <td class="num">3</td><td class="num">3</td><td class="num">2</td>
+    <td class="num">1</td><td class="num">7.6M</td>
+    <td class="num">&gt;10</td>
+    <td><span class="chip rec">description</span></td></tr>
+    <tr class=""><td>ai website translator</td><td class="actions"><button class="copy" type="button" data-copy="c24">Copy</button><template id="c24">ai website translator</template></td>
+    <td class="num">3</td><td class="num">3</td><td class="num">2</td>
+    <td class="num">2</td><td class="num">7.5M</td>
+    <td class="num">&gt;10</td>
+    <td><span class="chip rec">description</span></td></tr>
+    <tr class=""><td>translate text</td><td class="actions"><button class="copy" type="button" data-copy="c25">Copy</button><template id="c25">translate text</template></td>
+    <td class="num">2</td><td class="num">3</td><td class="num">2</td>
+    <td class="num">3</td><td class="num">42.3M</td>
+    <td class="num">&gt;10</td>
+    <td><span class="chip rec">description</span></td></tr>
+    <tr class=""><td>chrome page translator</td><td class="actions"><button class="copy" type="button" data-copy="c26">Copy</button><template id="c26">chrome page translator</template></td>
+    <td class="num">3</td><td class="num">3</td><td class="num">2</td>
+    <td class="num">0</td><td class="num">46.5M</td>
+    <td class="num">&gt;10</td>
+    <td><span class="chip rec">description</span></td></tr>
+    <tr class=""><td>web page translator</td><td class="actions"><button class="copy" type="button" data-copy="c27">Copy</button><template id="c27">web page translator</template></td>
+    <td class="num">3</td><td class="num">3</td><td class="num">2</td>
+    <td class="num">1</td><td class="num">42.6M</td>
+    <td class="num">&gt;10</td>
+    <td><span class="chip rec">description</span></td></tr>
+    <tr class=""><td>translate selected text extension</td><td class="actions"><button class="copy" type="button" data-copy="c28">Copy</button><template id="c28">translate selected text extension</template></td>
+    <td class="num">3</td><td class="num">3</td><td class="num">2</td>
+    <td class="num">0</td><td class="num">39.5M</td>
+    <td class="num">&gt;10</td>
+    <td><span class="chip rec">description</span></td></tr>
+    <tr class=""><td>ai <mark>webpage translator</mark></td><td class="actions"><button class="copy" type="button" data-copy="c29">Copy</button><template id="c29">ai webpage translator</template></td>
+    <td class="num">3</td><td class="num">2</td><td class="num">0</td>
+    <td class="num">0</td><td class="num">3.5M</td>
+    <td class="num">&gt;10</td>
+    <td><span class="chip rec">description</span></td></tr>
+    <tr class=""><td>select to translate</td><td class="actions"><button class="copy" type="button" data-copy="c30">Copy</button><template id="c30">select to translate</template></td>
+    <td class="num">3</td><td class="num">2</td><td class="num">2</td>
+    <td class="num">4</td><td class="num">3.5M</td>
+    <td class="num">&gt;10</td>
+    <td><span class="chip rec">description</span></td></tr>
+    <tr class=""><td>context menu translator</td><td class="actions"><button class="copy" type="button" data-copy="c31">Copy</button><template id="c31">context menu translator</template></td>
+    <td class="num">3</td><td class="num">2</td><td class="num">2</td>
+    <td class="num">1</td><td class="num">922k</td>
+    <td class="num">&gt;10</td>
+    <td><span class="chip rec">description</span></td></tr>
+    <tr class="dim"><td>instant translator</td><td class="actions"><button class="copy" type="button" data-copy="c32">Copy</button><template id="c32">instant translator</template></td>
+    <td class="num">2</td><td class="num">3</td><td class="num">1</td>
+    <td class="num">3</td><td class="num">3.1M</td>
+    <td class="num">&gt;10</td>
+    <td><span class="chip blocked">rejected</span></td></tr></tbody></table></div></section>
+<section data-tab="store"><div class="field"><div class="row"><b>Category</b><span class="spacer"></span><button class="copy" type="button" data-copy="c33">Copy</button><template id="c33">Productivity → Tools</template></div><p>Productivity → Tools</p></div><div class="field"><div class="row"><b>Single purpose</b><span class="spacer"></span><button class="copy" type="button" data-copy="c34">Copy</button><template id="c34">Translate text entered, selected, or requested from a webpage, and text in a user-selected website image, into the chosen language. Page controls stop translation or restore original text; Pro image translation creates a downloadable translated PNG.</template></div><p>Translate text entered, selected, or requested from a webpage, and text in a user-selected website image, into the chosen language. Page controls stop translation or restore original text; Pro image translation creates a downloadable translated PNG.</p></div><div class="field"><div class="row"><b>activeTab</b><span class="spacer"></span><button class="copy" type="button" data-copy="c35">Copy</button><template id="c35">The popup reads the current tab&#39;s selected text after the user opens the extension, and targets the current tab for user-requested translation. The implementation uses chrome.tabs.query and chrome.scripting.executeScript in src/ui/main.tsx. This access is scoped to the current tab after a user gesture.</template></div><p>The popup reads the current tab&#39;s selected text after the user opens the extension, and targets the current tab for user-requested translation. The implementation uses chrome.tabs.query and chrome.scripting.executeScript in src/ui/main.tsx. This access is scoped to the current tab after a user gesture.</p></div><div class="field"><div class="row"><b>contextMenus</b><span class="spacer"></span><button class="copy" type="button" data-copy="c36">Copy</button><template id="c36">Adds Translate selection, Translate page, and Translate image — Pro commands to the browser context menu. User-requested image translation opens a packaged extension tab and creates a translated PNG after server-side Pro verification.</template></div><p>Adds Translate selection, Translate page, and Translate image — Pro commands to the browser context menu. User-requested image translation opens a packaged extension tab and creates a translated PNG after server-side Pro verification.</p></div><div class="field"><div class="row"><b>storage</b><span class="spacer"></span><button class="copy" type="button" data-copy="c37">Copy</button><template id="c37">Stores language, theme, interface, and selection-mode preferences locally. Session storage holds the popup&#39;s text draft and pending translation request, plus active page and job ownership state so reopening the popup or restarting the service worker can continue the requested work. These settings and runtime state require extension storage rather than website storage. Image intent metadata (selected HTTP(S) image URL, languages, idempotency key and job ID) is kept in session storage for recovery. Inline image bytes and embedded URL credentials are never stored there.</template></div><p>Stores language, theme, interface, and selection-mode preferences locally. Session storage holds the popup&#39;s text draft and pending translation request, plus active page and job ownership state so reopening the popup or restarting the service worker can continue the requested work. These settings and runtime state require extension storage rather than website storage. Image intent metadata (selected HTTP(S) image URL, languages, idempotency key and job ID) is kept in session storage for recovery. Inline image bytes and embedded URL credentials are never stored there.</p></div><div class="field"><div class="row"><b>scripting</b><span class="spacer"></span><button class="copy" type="button" data-copy="c38">Copy</button><template id="c38">Reads selected text from accessible frames when the user opens the popup. It also injects the packaged content.js into the requested tab if an existing tab does not yet have the content script. This enables the explicit current-tab translation action and needs chrome.scripting; no remote executable code is downloaded.</template></div><p>Reads selected text from accessible frames when the user opens the popup. It also injects the packaged content.js into the requested tab if an existing tab does not yet have the content script. This enables the explicit current-tab translation action and needs chrome.scripting; no remote executable code is downloaded.</p></div><div class="field"><div class="row"><b>identity</b><span class="spacer"></span><button class="copy" type="button" data-copy="c39">Copy</button><template id="c39">Uses chrome.identity.getAuthToken for Google sign-in, then signs in to Firebase with that credential. The verified account authorizes translations and its daily allowance. Cached tokens are cleared on sign-out. Only openid, email, and profile scopes are requested; the extension does not request access to Gmail, Drive, contacts, or other account content.</template></div><p>Uses chrome.identity.getAuthToken for Google sign-in, then signs in to Firebase with that credential. The verified account authorizes translations and its daily allowance. Cached tokens are cleared on sign-out. Only openid, email, and profile scopes are requested; the extension does not request access to Gmail, Drive, contacts, or other account content.</p></div><div class="field"><div class="row"><b>webNavigation</b><span class="spacer"></span><button class="copy" type="button" data-copy="c40">Copy</button><template id="c40">Enumerates frames for page translation and tracks document navigation so old translation jobs are cancelled when a tab or frame changes. New eligible frames can join an active page translation. History-state and fragment navigation end the previous translation session. The permission is used for document lifecycle and frame targeting, rather than collecting browsing history; activeTab does not provide these frame and navigation events.</template></div><p>Enumerates frames for page translation and tracks document navigation so old translation jobs are cancelled when a tab or frame changes. New eligible frames can join an active page translation. History-state and fragment navigation end the previous translation session. The permission is used for document lifecycle and frame targeting, rather than collecting browsing history; activeTab does not provide these frame and navigation events.</p></div><div class="field"><div class="row"><b>http://*/*</b><span class="spacer"></span><button class="copy" type="button" data-copy="c41">Copy</button><template id="c41">Runs the packaged content script on regular HTTP pages and their accessible HTTP frames so the selected-text icon is ready without opening the popup. When the user starts page translation, it reads eligible text, observes newly appearing text, replaces translated text, and restores originals. Translation is limited to the user&#39;s requested selection or active page session. A fixed site list would exclude the arbitrary websites the product translates; activeTab alone would require a manual activation flow and would not provide the current automatic selection-icon experience. Optional per-site access is a possible future design change, not the behavior of this package. Also downloads the image selected through Chrome’s image context menu without website cookies, after verifying Pro. The backend receives bounded file bytes rather than the website image URL.</template></div><p>Runs the packaged content script on regular HTTP pages and their accessible HTTP frames so the selected-text icon is ready without opening the popup. When the user starts page translation, it reads eligible text, observes newly appearing text, replaces translated text, and restores originals. Translation is limited to the user&#39;s requested selection or active page session. A fixed site list would exclude the arbitrary websites the product translates; activeTab alone would require a manual activation flow and would not provide the current automatic selection-icon experience. Optional per-site access is a possible future design change, not the behavior of this package. Also downloads the image selected through Chrome’s image context menu without website cookies, after verifying Pro. The backend receives bounded file bytes rather than the website image URL.</p></div><div class="field"><div class="row"><b>https://*/*</b><span class="spacer"></span><button class="copy" type="button" data-copy="c42">Copy</button><template id="c42">Provides the same selected-text and user-started page translation on regular HTTPS websites and accessible frames, including observing new text and restoring originals. It also permits the service worker&#39;s HTTPS calls to the translation backend and authentication services. Limiting this permission to the backend domain would prevent translating other websites. activeTab alone cannot supply the installed automatic selection icon on arbitrary pages before a toolbar or menu action; optional per-site access would be a different user flow. Also downloads the image selected through Chrome’s image context menu without website cookies, after verifying Pro. The backend receives bounded file bytes rather than the website image URL.</template></div><p>Provides the same selected-text and user-started page translation on regular HTTPS websites and accessible frames, including observing new text and restoring originals. It also permits the service worker&#39;s HTTPS calls to the translation backend and authentication services. Limiting this permission to the backend domain would prevent translating other websites. activeTab alone cannot supply the installed automatic selection icon on arbitrary pages before a toolbar or menu action; optional per-site access would be a different user flow. Also downloads the image selected through Chrome’s image context menu without website cookies, after verifying Pro. The backend receives bounded file bytes rather than the website image URL.</p></div></section></main>
+<script id="site-data" type="application/json">{"extensionName":"AI Translator","locales":[{"code":"am","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"ar","rtl":true,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"bg","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"bn","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"ca","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"cs","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"da","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"de","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"el","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"en","rtl":false,"inPackage":false,"hasDraft":true,"name":"Webpage Translator – AI Translator","nameSource":"draft","nameFallback":false,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"draft","summaryFallback":false,"description":"Webpage Translator – AI Translator helps you read articles, understand product information, and work with text in another language. Translate selections or webpage text in place, then show the original when you need it.\n\n✨ WHAT IT DOES\n• Pro: right-click a static website image to create and download a PNG with translated text. Pro is granted manually and includes five images per UTC day.\n• Translate selected text in a small result bubble without leaving the page.\n• Type or paste text into the popup and copy the translation.\n• Replace eligible webpage text with a translation while preserving links and page structure.\n• Translate newly appearing text while page translation is active, including text added as you scroll.\n• Stop page translation or restore the original text with the page controls.\n• Choose a language from the list or enter another language name. Use automatic source-language detection when needed.\n• Choose icon, instant-selection, or manual translation, plus light, dark, or system appearance. The interface is available in English and Ukrainian.\n\n🚀 HOW TO USE\n1. Pin AI Translator to the toolbar, open it, and sign in with Google.\n2. Choose your translation languages. Leave the source on Detect language if you are unsure.\n3. Select text and click the translation icon, paste text into the popup, or choose Webpage and start page translation. Use Show original to return to the source text.\n\n🎯 WHO IT'S FOR\nRead foreign-language articles and compare the translation with the original.\nUnderstand product details or instructions while staying on the page.\nUse a webpage translator alongside your language studies or daily work.\n\n🔒 PRIVACY\nRequested text and, for Pro image translation, the selected image are sent to the translation server and processed through an AI provider using OpenAI. When page translation is active, eligible new page text is also sent. The optional instant-selection mode sends selected text automatically.\n\nPreferences stay in Chrome. Originals used for restoration stay in the page's memory. Server jobs temporarily store source text and results; Pro originals and translated images are stored privately with authenticated owner access; records are marked to expire after 24 hours, and automatic deletion may happen later. Google sign-in and daily usage counters support your account and allowance. There is no translation-history feature.\n\n❓ FAQ\nDoes the webpage translator work everywhere?\nIt works with eligible text on regular websites. Browser settings pages, the Chrome Web Store, PDF documents and canvas text are not supported. Whole-page translation skips images. Pro image translation separately supports public static PNG/JPEG/WebP images up to 10 MB and 20 megapixels. Form fields, editable areas, hidden content, and code blocks are skipped. Website behavior and AI language coverage can affect results.\n\nWhat is included?\nFree access includes 20,000 source characters per Google account each day, resetting at 00:00 UTC. The popup accepts up to 4,000 characters per request. Long pages can use the remaining daily allowance. AI translations can contain errors, and image editing can alter small visual details. Check the result before use.\n\nPrivacy: https://ai-translator-ext.web.app/privacy\nSupport: https://ai-translator-ext.web.app/support\nContact: balubenko.ink@gmail.com\n","markdown":false,"keywordCount":3},{"code":"en_AU","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"en_GB","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"en_US","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"es","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"es_419","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"et","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"fa","rtl":true,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"fi","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"fil","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"fr","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"gu","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"he","rtl":true,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"hi","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"hr","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"hu","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"id","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"it","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"ja","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"kn","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"ko","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"lt","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"lv","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"ml","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"mr","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"ms","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"nl","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"no","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"pl","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"pt_BR","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"pt_PT","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"ro","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"ru","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"sk","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"sl","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"sr","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"sv","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"sw","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"ta","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"te","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"th","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"tr","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"uk","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"vi","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"zh_CN","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null},{"code":"zh_TW","rtl":false,"inPackage":false,"hasDraft":false,"name":"Webpage Translator – AI Translator","nameSource":"fallback","nameFallback":true,"summary":"Read pages in your language with a webpage translator. Translate selected text and show the original when needed.","summarySource":"fallback","summaryFallback":true,"description":null,"markdown":false,"keywordCount":null}]}</script>
+<script>
+const data = JSON.parse(document.getElementById('site-data').textContent);
+const store = {
+  get(key, fallback) { try { return JSON.parse(localStorage.getItem(key)) ?? fallback; } catch { return fallback; } },
+  set(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); } catch { /* private mode: marks just don't persist */ } },
+};
+const doneKey = 'meta-site:done:' + (data.extensionName || 'extension');
+let done = new Set(store.get(doneKey, []));
+const toast = Object.assign(document.createElement('div'), { className: 'toast' });
+document.body.append(toast);
+function say(text) { toast.textContent = text; toast.classList.add('show'); clearTimeout(say.t); say.t = setTimeout(() => toast.classList.remove('show'), 1400); }
+
+async function copyText(text) {
+  try { await navigator.clipboard.writeText(text); return true; } catch {
+    const area = Object.assign(document.createElement('textarea'), { value: text });
+    area.style.position = 'fixed'; area.style.opacity = '0';
+    document.body.append(area); area.select();
+    const ok = document.execCommand('copy'); area.remove(); return ok;
+  }
+}
+async function copyFrom(button, text) {
+  if (await copyText(text)) {
+    const label = button.textContent; button.classList.add('copied'); button.textContent = 'Copied';
+    setTimeout(() => { button.classList.remove('copied'); button.textContent = label; }, 1200);
+    return true;
+  }
+  say('Copy failed: select the text and copy it manually'); return false;
+}
+document.addEventListener('click', event => {
+  const button = event.target.closest('button[data-copy]');
+  if (button) copyFrom(button, document.getElementById(button.dataset.copy).content.textContent);
+  const zoom = event.target.closest('[data-zoom]');
+  if (zoom) {
+    event.preventDefault();
+    const box = Object.assign(document.createElement('div'), { className: 'lightbox' });
+    box.append(Object.assign(document.createElement('img'), { src: zoom.getAttribute('href') }));
+    box.addEventListener('click', () => box.remove());
+    document.body.append(box);
+  }
+});
+document.addEventListener('keydown', event => { if (event.key === 'Escape') document.querySelector('.lightbox')?.remove(); });
+
+const langName = code => {
+  const tag = code.replace('_', '-');
+  try { return new Intl.DisplayNames([tag], { type: 'language' }).of(tag) || code; } catch { return code; }
+};
+for (const el of document.querySelectorAll('[data-lang]')) el.textContent = langName(el.dataset.lang);
+
+// Tabs: #tab, #tab/part, or #listing/descriptions/<locale>. Switching never
+// depends on the URL changing: some previewers load the page as a data: URL
+// where hash navigation is blocked, so the view updates first.
+const tabs = [...document.querySelectorAll('section[data-tab]')].map(s => s.dataset.tab);
+const ALIAS = { plan: 'tasks', overview: 'tasks', checks: 'tasks', dashboard: 'store', descriptions: 'listing/descriptions', names: 'listing/name',
+  promo: 'images/promo', screenshots: 'images/screenshots', icon: 'images/icon', research: 'keywords' };
+function go(target) {
+  try { if (location.hash.slice(1) !== target) history.pushState(null, '', '#' + target); } catch { /* URL can't change here */ }
+  route(target);
+}
+document.addEventListener('click', event => {
+  const link = event.target.closest('a[href^="#"]');
+  if (!link) return;
+  event.preventDefault();
+  go(link.getAttribute('href').slice(1));
+});
+function route(target = location.hash.slice(1), scroll = true) {
+  const [first, ...rest] = target.split('/');
+  const parts = ALIAS[first] ? ALIAS[first].split('/').concat(rest) : [first, ...rest];
+  const current = tabs.includes(parts[0]) ? parts[0] : tabs[0];
+  for (const s of document.querySelectorAll('section[data-tab]')) s.classList.toggle('on', s.dataset.tab === current);
+  for (const a of document.querySelectorAll('nav a')) a.toggleAttribute('aria-current', a.getAttribute('href') === '#' + current);
+  if (current === 'listing') showLocale(parts[1] === 'descriptions' ? parts[2] : undefined);
+  const part = parts[1] && document.getElementById('part-' + current + '-' + parts[1]);
+  if (scroll) part ? part.scrollIntoView({ block: 'start' }) : window.scrollTo(0, 0);
+  if (part && scroll) { part.classList.remove('flash'); void part.offsetWidth; part.classList.add('flash'); }
+}
+
+// Task ticks: files decide the locked ones; the rest are the owner's, per browser.
+const taskKey = 'meta-site:tasks:' + (data.extensionName || 'extension');
+const ticked = new Set(store.get(taskKey, []));
+function paintTasks() {
+  let n = 0;
+  for (const box of document.querySelectorAll('[data-t]')) {
+    if (!box.disabled) box.checked = ticked.has(box.dataset.t);
+    box.closest('.trow').classList.toggle('done', box.checked);
+    if (box.checked) n++;
+  }
+  for (const el of document.querySelectorAll('[data-tasks-done]')) el.textContent = n;
+}
+document.addEventListener('change', event => {
+  const box = event.target.closest('[data-t]');
+  if (!box) return;
+  box.checked ? ticked.add(box.dataset.t) : ticked.delete(box.dataset.t);
+  store.set(taskKey, [...ticked]);
+  paintTasks();
+});
+paintTasks();
+
+// Descriptions: pick a locale, copy each field, "Copy & next" walks all 55.
+const locales = data.locales.filter(l => l.description || l.name);
+const list = document.querySelector('[data-locale-list]');
+const view = document.querySelector('[data-locale-view]');
+const filter = document.querySelector('[data-locale-filter]');
+let selected = null;
+function count() {
+  const total = locales.filter(l => l.description).length;
+  const n = locales.filter(l => l.description && done.has(l.code)).length;
+  for (const el of document.querySelectorAll('[data-done-count]')) el.textContent = n;
+  return total;
+}
+function renderList() {
+  if (!list) return;
+  const q = (filter.value || '').toLowerCase();
+  list.replaceChildren(...locales.filter(l => !q || l.code.toLowerCase().includes(q) || langName(l.code).toLowerCase().includes(q)).map(l => {
+    const li = document.createElement('li');
+    const b = document.createElement('button');
+    b.type = 'button';
+    if (!l.description) b.classList.add('missing-desc');
+    if (l.code === selected) b.setAttribute('aria-current', '');
+    b.innerHTML = '<span class="tick">' + (done.has(l.code) ? '✓' : '') + '</span><span></span><small></small>';
+    b.children[1].textContent = langName(l.code);
+    b.children[2].textContent = l.code;
+    b.addEventListener('click', () => go('listing/descriptions/' + l.code));
+    li.append(b); return li;
+  }));
+  count();
+}
+function fieldBox(label, text, limit, notes, rtl) {
+  const box = document.createElement('div');
+  box.className = 'field';
+  const head = document.createElement('div'); head.className = 'row';
+  const title = document.createElement('b'); title.textContent = label;
+  const spacer = document.createElement('span'); spacer.className = 'spacer';
+  head.append(title, spacer);
+  if (text) {
+    const b = document.createElement('button'); b.type = 'button'; b.className = 'copy'; b.textContent = 'Copy';
+    b.addEventListener('click', () => copyFrom(b, text));
+    head.append(b);
+  }
+  const body = document.createElement(label === 'Full description' ? 'pre' : 'p');
+  body.textContent = text || 'Missing';
+  // Only the store text runs right to left; labels and counts stay in page order.
+  body.dir = rtl ? 'rtl' : 'auto';
+  if (!text) body.className = 'warn';
+  const line = document.createElement('div'); line.className = 'charline';
+  const length = [...(text || '')].length;
+  line.innerHTML = '<span>' + length + (limit ? ' / ' + limit : '') + ' chars</span>' + notes.map(n => '<span class="' + (n.warn ? 'warn' : '') + '">' + n.text + '</span>').join('');
+  if (limit && length > limit) line.firstChild.className = 'over';
+  box.append(head, body, line);
+  return box;
+}
+function showLocale(code) {
+  if (!view) return;
+  const l = locales.find(x => x.code === code) || locales.find(x => x.code === 'en') || locales[0];
+  if (!l) return;
+  selected = l.code;
+  renderList();
+  const title = document.createElement('div'); title.className = 'row';
+  const h = document.createElement('h2'); h.style.margin = '0'; h.textContent = langName(l.code) + ' · ' + l.code;
+  const spacer = document.createElement('span'); spacer.className = 'spacer';
+  const mark = document.createElement('button'); mark.type = 'button';
+  const setMark = () => { mark.textContent = done.has(l.code) ? '✓ Pasted' : 'Mark as pasted'; };
+  setMark();
+  mark.addEventListener('click', () => { done.has(l.code) ? done.delete(l.code) : done.add(l.code); store.set(doneKey, [...done]); setMark(); renderList(); });
+  const next = document.createElement('button'); next.type = 'button'; next.className = 'primary';
+  next.innerHTML = 'Copy description &amp; next <kbd>N</kbd>';
+  next.disabled = !l.description;
+  next.addEventListener('click', async () => {
+    if (!(await copyFrom(next, l.description))) return;
+    done.add(l.code); store.set(doneKey, [...done]);
+    const withText = locales.filter(x => x.description);
+    const after = withText[(withText.findIndex(x => x.code === l.code) + 1) % withText.length];
+    say('Copied ' + langName(l.code) + (after ? ' · next: ' + langName(after.code) : ''));
+    go('listing/descriptions/' + after.code);
+  });
+  title.append(h, spacer, mark, next);
+  const notes = [];
+  if (l.keywordCount != null) notes.push({ text: 'keyword ×' + l.keywordCount, warn: l.keywordCount > 4 });
+  if (l.markdown) notes.push({ text: 'Markdown', warn: true });
+  const sourceNote = source => source === 'fallback' ? [{ text: 'not translated', warn: true }]
+    : source === 'draft' ? [{ text: 'draft', warn: false }] : [];
+  const nameNotes = sourceNote(l.nameSource);
+  const sumNotes = sourceNote(l.summarySource);
+  view.replaceChildren(title, fieldBox('Full description', l.description, null, notes, l.rtl), fieldBox('Name', l.name, 75, nameNotes, l.rtl), fieldBox('Short description', l.summary, 132, sumNotes, l.rtl));
+}
+filter?.addEventListener('input', renderList);
+document.addEventListener('keydown', event => {
+  if (event.target.matches('input, textarea') || !document.querySelector('section[data-tab="listing"].on')) return;
+  if (event.key === 'n' || event.key === 'N') view.querySelector('button.primary')?.click();
+  const withAny = locales;
+  const i = withAny.findIndex(x => x.code === selected);
+  if (event.key === 'ArrowDown' || event.key === 'j') { event.preventDefault(); go('listing/descriptions/' + withAny[Math.min(i + 1, withAny.length - 1)].code); }
+  if (event.key === 'ArrowUp' || event.key === 'k') { event.preventDefault(); go('listing/descriptions/' + withAny[Math.max(i - 1, 0)].code); }
+});
+window.addEventListener('popstate', () => route());
+count();
+// A link straight to a section scrolls there on load; a plain open stays at the top.
+route(undefined, location.hash.split('/').length > 1);
+</script>
+</body></html>

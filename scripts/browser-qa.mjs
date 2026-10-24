@@ -3,9 +3,11 @@ import { mkdtemp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
 
 const root = path.resolve(import.meta.dirname, '..');
 const dist = path.join(root, 'extension/dist');
+const manifest = JSON.parse(await readFile(path.join(dist, 'manifest.json'), 'utf8'));
 const artifacts = path.join(root, 'artifacts/screenshots');
 await mkdir(artifacts, { recursive: true });
 const profile = await mkdtemp(path.join(tmpdir(), 'ai-translator-qa-'));
@@ -18,11 +20,25 @@ const errors = [];
 try {
   const worker = context.serviceWorkers()[0] || await context.waitForEvent('serviceworker');
   const id = new URL(worker.url()).host;
+  if (manifest.key) {
+    const hash = createHash('sha256').update(Buffer.from(manifest.key, 'base64')).digest('hex').slice(0, 32);
+    const expectedId = [...hash].map(nibble => String.fromCharCode(97 + Number.parseInt(nibble, 16))).join('');
+    assert.equal(id, expectedId, 'Loaded Chrome extension must use the public-key-derived ID');
+    const deployment = JSON.parse(await readFile(path.join(root, 'deployment.json'), 'utf8'));
+    if (deployment.extensionId) assert.equal(id, deployment.extensionId, 'Unpacked extension ID must match the Store item');
+  }
   const page = await context.newPage();
   page.on('pageerror', error => errors.push(error.message));
   await page.goto(`chrome-extension://${id}/popup.html`);
   await page.locator('.popup-header').waitFor();
   await page.waitForFunction(() => document.querySelector('.setup-note') || document.querySelector('.google-button'));
+  const authState = await page.evaluate(async () => chrome.runtime.sendMessage({ type: 'auth:get' }));
+  assert.equal(authState.ok, true, 'Firebase authentication must initialize successfully');
+  assert.equal(authState.data.configured, Boolean(manifest.oauth2?.client_id));
+  if (authState.data.configured) {
+    assert.equal(await page.locator('.google-button').isEnabled(), true, 'Configured build must enable Google sign-in');
+    assert.equal(await page.locator('.setup-note').count(), 0);
+  }
   assert.match(await page.title(), /AI Translator/);
   await page.locator('.popup').screenshot({ path: path.join(artifacts, 'popup-signed-out.png') });
   await page.goto(`chrome-extension://${id}/options.html`);

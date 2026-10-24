@@ -1,0 +1,37 @@
+Webpage Translator – AI Translator helps you read articles, understand product information, and work with text in another language. Translate selections or webpage text in place, then show the original when you need it.
+
+✨ WHAT IT DOES
+• Pro: right-click a static website image to create and download a PNG with translated text. Pro is granted manually and includes five images per UTC day.
+• Translate selected text in a small result bubble without leaving the page.
+• Type or paste text into the popup and copy the translation.
+• Replace eligible webpage text with a translation while preserving links and page structure.
+• Translate newly appearing text while page translation is active, including text added as you scroll.
+• Stop page translation or restore the original text with the page controls.
+• Choose a language from the list or enter another language name. Use automatic source-language detection when needed.
+• Choose icon, instant-selection, or manual translation, plus light, dark, or system appearance. The interface is available in English and Ukrainian.
+
+🚀 HOW TO USE
+1. Pin AI Translator to the toolbar, open it, and sign in with Google.
+2. Choose your translation languages. Leave the source on Detect language if you are unsure.
+3. Select text and click the translation icon, paste text into the popup, or choose Webpage and start page translation. Use Show original to return to the source text.
+
+🎯 WHO IT'S FOR
+Read foreign-language articles and compare the translation with the original.
+Understand product details or instructions while staying on the page.
+Use a webpage translator alongside your language studies or daily work.
+
+🔒 PRIVACY
+Requested text and, for Pro image translation, the selected image are sent to the translation server and processed through an AI provider using OpenAI. When page translation is active, eligible new page text is also sent. The optional instant-selection mode sends selected text automatically.
+
+Preferences stay in Chrome. Originals used for restoration stay in the page's memory. Server jobs temporarily store source text and results; Pro originals and translated images are stored privately with authenticated owner access; records are marked to expire after 24 hours, and automatic deletion may happen later. Google sign-in and daily usage counters support your account and allowance. There is no translation-history feature.
+
+❓ FAQ
+Does the webpage translator work everywhere?
+It works with eligible text on regular websites. Browser settings pages, the Chrome Web Store, PDF documents and canvas text are not supported. Whole-page translation skips images. Pro image translation separately supports public static PNG/JPEG/WebP images up to 10 MB and 20 megapixels. Form fields, editable areas, hidden content, and code blocks are skipped. Website behavior and AI language coverage can affect results.
+
+What is included?
+Free access includes 20,000 source characters per Google account each day, resetting at 00:00 UTC. The popup accepts up to 4,000 characters per request. Long pages can use the remaining daily allowance. AI translations can contain errors, and image editing can alter small visual details. Check the result before use.
+
+Privacy: https://ai-translator-ext.web.app/privacy
+Support: https://ai-translator-ext.web.app/support
+Contact: balubenko.ink@gmail.com

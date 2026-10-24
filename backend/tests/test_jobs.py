@@ -19,7 +19,7 @@ class RecordingDispatcher:
         self.calls = []
         self.fail = False
 
-    async def enqueue(self, identifier, generation):
+    async def enqueue(self, identifier, generation, kind="text"):
         self.calls.append((identifier, generation))
         if self.fail:
             raise ConnectionError("private transport information")

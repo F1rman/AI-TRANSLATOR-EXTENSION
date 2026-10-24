@@ -1,0 +1,25 @@
+🔵 Why Choose DeepTranslate? 🔵  
+DeepTranslate integrates multiple translation engines into a simple, easy-to-use tool, providing comprehensive language support and bilingual display. There's no need to switch between websites or apps—just one click allows you to translate and seamlessly toggle between the original text and translation. It supports popular services like Google Translate, OpenAI, and Microsoft Translator, making it ideal for translating websites, news, Gmail, WhatsApp Web, X, Twitter, Facebook, Google Scholar papers, and more.
+
+🔵 Why Use DeepTranslate? 🔵  
+DeepTranslate is not just a translation tool—it’s your multilingual world exploration assistant. Here are its key features:  
+1️⃣ Completely Free: Enjoy all features without a subscription.  
+2️⃣ Powerful Multilingual Support: Automatically detects and supports over 120 languages, including Chinese, English, Spanish, Japanese, and many others.  
+3️⃣ One-Click Web Translation: Translate entire web pages, from news sites to social media and academic papers, with a single click, and view them in bilingual mode.  
+4️⃣ Social Media Translation: Effortlessly translate posts, comments, and private messages on WhatsApp, X, Twitter, Facebook, and Instagram.  
+5️⃣ Academic Resource Translation: Quickly understand foreign academic papers on platforms like Google Scholar and PubMed.  
+6️⃣ Flexible Engine Switching: Switch between OpenAI, Google Translate, and Microsoft Translator for the best translation quality.  
+7️⃣ Convenient Text Translation: Access quick text translation anytime, anywhere.  
+8️⃣ User-Friendly Experience: Whether you’re a first-time user or an expert, enjoy a smooth and intuitive interface.
+
+🔵 Upcoming Features 🔵  
+We’re developing new features to make DeepTranslate seamless across various scenarios:  
+✅ Auto Video Subtitle Translation: Generate bilingual subtitles for platforms like YouTube and Vimeo, ensuring you understand every video.  
+✅ Floating Window: Translate quickly with a floating window, without delays.
+
+🔵 How Does DeepTranslate Stand Out? 🔵  
+1️⃣ All-in-One Platform Support: Whether browsing, reading academic papers, or interacting on social media, DeepTranslate offers comprehensive language support, eliminating the need for multiple tools.  
+2️⃣ Bilingual Learning Assistant: Improve your language skills with bilingual mode and multi-engine comparison for better understanding and memory retention.  
+3️⃣ Real-Time Updates & Support: We focus on innovation and continuously enhance features through fast iterations and user feedback, ensuring access to the latest translation technology.
+
+📪 For any questions or suggestions, contact us at support@deeptranslate.ai. We look forward to your feedback and are committed to improving your DeepTranslate experience.

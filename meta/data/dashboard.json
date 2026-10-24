@@ -1,0 +1,112 @@
+{
+  "category": "Productivity → Tools",
+  "categoryEvidence": "4 of the 8 researched direct competitors use productivity/tools; communication 2, workflow 1, education 1. The product's single purpose is translation while reading and working on webpages.",
+  "singlePurpose": "Translate text entered, selected, or requested from a webpage, and text in a user-selected website image, into the chosen language. Page controls stop translation or restore original text; Pro image translation creates a downloadable translated PNG.",
+  "permissions": [
+    {
+      "permission": "activeTab",
+      "justification": "The popup reads the current tab's selected text after the user opens the extension, and targets the current tab for user-requested translation. The implementation uses chrome.tabs.query and chrome.scripting.executeScript in src/ui/main.tsx. This access is scoped to the current tab after a user gesture.",
+      "unused": false,
+      "redundant": true,
+      "review": "activeTab is exercised by the current-tab selection flow, but the broad HTTP(S) host permissions already cover regular websites. It is potentially redundant in the current package; removing it requires a separate functionality check. It does not justify the broader persistent site access.",
+      "evidence": [
+        "extension/src/ui/main.tsx: popup mount selection capture",
+        "extension/src/background.ts: activeTabId"
+      ]
+    },
+    {
+      "permission": "contextMenus",
+      "justification": "Adds Translate selection, Translate page, and Translate image — Pro commands to the browser context menu. User-requested image translation opens a packaged extension tab and creates a translated PNG after server-side Pro verification.",
+      "unused": false,
+      "evidence": [
+        "extension/src/background.ts: createMenus",
+        "extension/src/background.ts: chrome.contextMenus.onClicked"
+      ]
+    },
+    {
+      "permission": "storage",
+      "justification": "Stores language, theme, interface, and selection-mode preferences locally. Session storage holds the popup's text draft and pending translation request, plus active page and job ownership state so reopening the popup or restarting the service worker can continue the requested work. These settings and runtime state require extension storage rather than website storage. Image intent metadata (selected HTTP(S) image URL, languages, idempotency key and job ID) is kept in session storage for recovery. Inline image bytes and embedded URL credentials are never stored there.",
+      "unused": false,
+      "evidence": [
+        "extension/src/background.ts: settings, saveSettings, withSession",
+        "extension/src/ui/main.tsx: textDraft and pendingText"
+      ]
+    },
+    {
+      "permission": "scripting",
+      "justification": "Reads selected text from accessible frames when the user opens the popup. It also injects the packaged content.js into the requested tab if an existing tab does not yet have the content script. This enables the explicit current-tab translation action and needs chrome.scripting; no remote executable code is downloaded.",
+      "unused": false,
+      "evidence": [
+        "extension/src/ui/main.tsx: chrome.scripting.executeScript selection capture",
+        "extension/src/background.ts: startPage fallback injection"
+      ]
+    },
+    {
+      "permission": "identity",
+      "justification": "Uses chrome.identity.getAuthToken for Google sign-in, then signs in to Firebase with that credential. The verified account authorizes translations and its daily allowance. Cached tokens are cleared on sign-out. Only openid, email, and profile scopes are requested; the extension does not request access to Gmail, Drive, contacts, or other account content.",
+      "unused": false,
+      "evidence": [
+        "extension/src/auth.ts: login, logout, getIdToken",
+        "extension/dist/manifest.json: oauth2.scopes"
+      ]
+    },
+    {
+      "permission": "webNavigation",
+      "justification": "Enumerates frames for page translation and tracks document navigation so old translation jobs are cancelled when a tab or frame changes. New eligible frames can join an active page translation. History-state and fragment navigation end the previous translation session. The permission is used for document lifecycle and frame targeting, rather than collecting browsing history; activeTab does not provide these frame and navigation events.",
+      "unused": false,
+      "evidence": [
+        "extension/src/background.ts: startPage and changePage getAllFrames",
+        "extension/src/background.ts: onCommitted, onDOMContentLoaded, onHistoryStateUpdated, onReferenceFragmentUpdated"
+      ]
+    },
+    {
+      "permission": "http://*/*",
+      "justification": "Runs the packaged content script on regular HTTP pages and their accessible HTTP frames so the selected-text icon is ready without opening the popup. When the user starts page translation, it reads eligible text, observes newly appearing text, replaces translated text, and restores originals. Translation is limited to the user's requested selection or active page session. A fixed site list would exclude the arbitrary websites the product translates; activeTab alone would require a manual activation flow and would not provide the current automatic selection-icon experience. Optional per-site access is a possible future design change, not the behavior of this package. Also downloads the image selected through Chrome’s image context menu without website cookies, after verifying Pro. The backend receives bounded file bytes rather than the website image URL.",
+      "unused": false,
+      "review": "Broad persistent site access should be justified explicitly. HTTP support is genuinely separate from HTTPS; do not claim the API itself requires HTTP.",
+      "evidence": [
+        "extension/dist/manifest.json: content_scripts.matches and all_frames",
+        "extension/src/content/index.ts: selection listeners, scan, observeRoots",
+        "extension/src/content/dom.ts: TextDocument.collect and restore"
+      ]
+    },
+    {
+      "permission": "https://*/*",
+      "justification": "Provides the same selected-text and user-started page translation on regular HTTPS websites and accessible frames, including observing new text and restoring originals. It also permits the service worker's HTTPS calls to the translation backend and authentication services. Limiting this permission to the backend domain would prevent translating other websites. activeTab alone cannot supply the installed automatic selection icon on arbitrary pages before a toolbar or menu action; optional per-site access would be a different user flow. Also downloads the image selected through Chrome’s image context menu without website cookies, after verifying Pro. The backend receives bounded file bytes rather than the website image URL.",
+      "unused": false,
+      "review": "The broad website requirement, rather than backend fetch alone, is the reason for this wildcard. Internal browser pages and the Chrome Web Store remain restricted.",
+      "evidence": [
+        "extension/dist/manifest.json: host_permissions and content_scripts.matches",
+        "extension/src/background.ts: api",
+        "extension/src/content/index.ts",
+        "extension/src/auth.ts"
+      ]
+    }
+  ],
+  "oauthScopes": [
+    {
+      "scope": "openid",
+      "purpose": "Authenticate the Google account used for translation access."
+    },
+    {
+      "scope": "email",
+      "purpose": "Identify the signed-in account and display its email in account settings."
+    },
+    {
+      "scope": "profile",
+      "purpose": "Display the account name and profile information supplied through Google/Firebase."
+    }
+  ],
+  "privacyPolicy": "https://ai-translator-ext.web.app/privacy",
+  "homepage": "https://ai-translator-ext.web.app",
+  "support": "https://ai-translator-ext.web.app/support",
+  "developerContact": "balubenko.ink@gmail.com",
+  "storeItemId": "aieamemimbcbbnmakifejomadhegogge",
+  "publicationStatus": "Existing draft item; not treated as a published listing.",
+  "releaseChecks": [
+    "Complete real Google-account sign-in, sign-out, and sign-in again in regular Chrome; current evidence does not establish that this passed.",
+    "Apply any chosen listing name/description and locale manifest changes to extension source in a separate implementation task, then rebuild the package.",
+    "Review the broad host access and potentially redundant activeTab permission before submission.",
+    "Image originals/results have authenticated owner access for 24 hours and asynchronous private-bucket lifecycle cleanup. Real interactive Google sign-in is not covered by automated fixture tests."
+  ]
+}

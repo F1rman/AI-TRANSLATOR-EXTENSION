@@ -1,0 +1,48 @@
+{
+  "kind": "copy-and-store-form-audit",
+  "date": "2026-10-23",
+  "builtManifest": "extension/dist/manifest.json",
+  "nameLengths": [
+    34,
+    34,
+    43,
+    49,
+    13
+  ],
+  "shortDescriptionLengths": [
+    118,
+    113,
+    120,
+    120,
+    120
+  ],
+  "nameLimit": 75,
+  "shortDescriptionLimit": 132,
+  "fullDescriptionWords": 434,
+  "primaryKeyword": "webpage translator",
+  "fullDescriptionKeywordCount": 3,
+  "markdownFound": false,
+  "recommended": {
+    "name": 0,
+    "short": 1
+  },
+  "recommendedName": "Webpage Translator – AI Translator",
+  "recommendedShortDescription": "Read pages in your language with a webpage translator. Translate selected text and show the original when needed.",
+  "exactManifestPermissionCoverage": true,
+  "missingPermissions": [],
+  "extraPermissions": [],
+  "permissionEntries": 8,
+  "unusedPermissions": [],
+  "potentiallyRedundantPermissions": [
+    "activeTab"
+  ],
+  "baselineLocales": 55,
+  "packagedLocales": 0,
+  "draftLocales": [
+    "en"
+  ],
+  "translationsRequested": false,
+  "realGoogleLoginVerified": false,
+  "reviewAskImplemented": false,
+  "welcomePageImplemented": false
+}

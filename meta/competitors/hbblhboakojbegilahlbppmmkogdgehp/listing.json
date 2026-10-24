@@ -1,0 +1,104 @@
+{
+  "id": "hbblhboakojbegilahlbppmmkogdgehp",
+  "name": "AI Translator",
+  "rating": 2.7,
+  "ratingCount": 10,
+  "users": 4000,
+  "category": "productivity/workflow",
+  "summary": "Translate selected text into 38 languages with AI. Select text on any page or use the popup. An AI Anyone product.",
+  "icon": "https://lh3.googleusercontent.com/epnorzcwYEFdw1rWmim7Vw2v5soiiwL7SmASlNKeNR5_L3crsLPybxiKl4JFKtIPkiYi-yNPH92tWRAI_eF966gRqQ",
+  "smallPromo": "https://lh3.googleusercontent.com/argDGvFeCTz8vv2bX1JM1LjFuNWCCUIQpVi4Hx_BQqSSeb6FHlO_qXr_RGDeEEOy-MA2z3BGUkLqwo48-XBWScN1jg",
+  "hasMarquee": false,
+  "url": "https://chromewebstore.google.com/detail/hbblhboakojbegilahlbppmmkogdgehp",
+  "description": "Introducing the AI Translator extension - the ultimate tool for seamless communication and understanding. With cutting-edge AI technology, our extension translates text in real-time, providing accurate and natural translations in over 100 languages. Whether you're traveling abroad, doing business with international clients, or simply trying to understand a foreign language text, our extension has got you covered.\n\nOur extension is designed with SEO in mind, ensuring that your online content is easily discoverable by search engines. Whether you're a blogger, marketer, or content creator, our extension helps you reach a global audience, while eliminating language barriers. With our extension, you can optimize your content for multiple languages and target new audiences with ease.\n\nBut that's not all - our extension is also the perfect companion for our AI Anyone extension. With AI Anyone, you can talk to anyone, dead or alive, with realistic and natural conversations. Whether you want to have a chat with Einstein, Shakespeare, or your deceased loved one, AI Anyone makes it possible. And with the AI Language Translator Extension, you can have those conversations in any language.\n\nDon't let language barriers hold you back from reaching your full potential - with the AI Language Translator Extension, the world is your oyster. And with the added capability of AI Anyone, the possibilities are endless. Our extensions are completely free, with no hidden costs or subscription fees, so download them today and experience the power of AI-based language translation and conversation for yourself.",
+  "screenshots": [
+    "https://lh3.googleusercontent.com/w5b6V8iMGkdRonS6RNFmJe2VQiOlKSp1MB1R8WNDJI1QBqVeNlUtqws6arEXroYDRx-uNnSrwzb8Bmg3y2SYfL8rfA",
+    "https://lh3.googleusercontent.com/snY79r9lTPcpd9DVOCWevG4-dixcadoTxkvUHWWCaWwmKvDqIStLIWQcQ0qVFwRSpCtUDFDb5RNPDlwMER2_pmlYJw"
+  ],
+  "marquee": null,
+  "version": "4.6",
+  "updated": "2026-04-18",
+  "size": "39.15KiB",
+  "languages": [
+    "English"
+  ],
+  "related": [
+    {
+      "id": "ljfjmbdgbebmjbfmdneeimenolagonol",
+      "name": "GPT Translate",
+      "users": 2000
+    },
+    {
+      "id": "bafbmnboaegcmjpjcolahbhabdlncljp",
+      "name": "ChatGPT Translator",
+      "users": 4000
+    },
+    {
+      "id": "noofnfniimcnghnkonpdlhlaeaocidbi",
+      "name": "DeepTranslate - Full Page & Bilingual Translator & AI-Powered Translation",
+      "users": 70000
+    },
+    {
+      "id": "ogjibjphoadhljaoicdnjnmgokohngcc",
+      "name": "NextAI Translator",
+      "users": 100000
+    },
+    {
+      "id": "lacafdjknejfmonblmedjkboknnammbb",
+      "name": "Right Translator - GPT powered translation",
+      "users": 975
+    },
+    {
+      "id": "lbkdhahlblnfljniopojjappcnbnpdok",
+      "name": "Website Translator",
+      "users": 10000
+    },
+    {
+      "id": "khbjbchkedopfbhiafhaacomekdgnhbh",
+      "name": "AI Translate - Gemini",
+      "users": 10000
+    },
+    {
+      "id": "lbcbipoloacjakecofjkohgllhojdhhp",
+      "name": "Talent - Immersive & AI Translator",
+      "users": 10000
+    },
+    {
+      "id": "bnhamcnlecnkodgnpejaidbijocfpbpd",
+      "name": "AI Anyone — We’ve Moved",
+      "users": 56
+    },
+    {
+      "id": "fdobdooapahhogpamooimfeblceimdpd",
+      "name": "EveryLanguage.ai - Instant Language Translator",
+      "users": 772
+    },
+    {
+      "id": "nmoaohajaodpioogcmmjladclkanidif",
+      "name": "WAAudio - Audio to Text + Translation in WhatsApp Web using AI",
+      "users": 6000
+    },
+    {
+      "id": "pbdekcaeombkcnkaildbphbiaainlaba",
+      "name": "ChatGPT Translator",
+      "users": 7000
+    }
+  ],
+  "retrievedAt": "2026-10-23T20:34:17.432Z",
+  "hl": "en",
+  "files": {
+    "screenshots": [
+      "screenshots/1.png",
+      "screenshots/2.png"
+    ],
+    "icon": "icon.png",
+    "smallPromo": "promo-440x280.png",
+    "marquee": null
+  },
+  "errors": [],
+  "researchNotes": {
+    "angle": "General AI text translation; exact brand-name collision.",
+    "weakness": "2.7/5 from10 ratings; only English listed. Generic description diverts into another product; opportunity for specific task-led copy.",
+    "date": "2026-10-23"
+  }
+}

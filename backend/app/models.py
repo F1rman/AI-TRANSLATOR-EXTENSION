@@ -48,3 +48,15 @@ class TranslationRequest(StrictModel):
 class WorkerRequest(StrictModel):
     jobId: Annotated[str, StringConstraints(pattern=r"^[a-f0-9]{32}$")]
     generation: Annotated[int, Field(ge=0)] | None = None
+
+
+class ImageTranslationRequest(StrictModel):
+    sourceLanguage: Language
+    targetLanguage: Language
+    idempotencyKey: Annotated[str, StringConstraints(min_length=1, max_length=128, pattern=r"^[\x21-\x7e]+$")]
+
+    @model_validator(mode="after")
+    def validate_languages(self):
+        if self.targetLanguage.lower() == "auto":
+            raise ValueError("A target language is required")
+        return self

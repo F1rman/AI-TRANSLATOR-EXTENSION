@@ -1,0 +1,22 @@
+# Small promo variant C, 440×280
+
+Rendered version: `../small-440x280-c.png`
+Use: text-to-image. Generate at 1760×1120 or nearest 11:7, then resize to 440×280.
+Attach: nothing.
+
+## Prompt
+
+```text
+Flat vector promotional banner, 11:7 aspect ratio, for a browser extension that translates selected text and web pages with AI.
+Split layout: left half contains exactly "AI Text / Translator" across two lines, slash means line break and must not be printed. Very large heavy sans-serif, left-aligned. Last line in #E9BA63, first line in #FFFEFA. The headline is the largest element, at least 40 px tallest line on the final 440×280 tile.
+Right side: one large flat translation symbol on a white rounded-square card. The symbol has a bold forest-green #263027 ideographic glyph at upper left, a bold capital A at lower right, and a small gold #D49422 plus at upper right. Thick clean strokes.
+Background flat #263027, generous space, saturated accent, high contrast, readable as a small thumbnail. No slogan, action pill, extra text or product claims.
+No 3D, perspective, bevels, gradients on letters, photos, people, other brands' logos, badges, awards, ratings or user counts.
+```
+
+## Check before using
+
+- Exact words only: "AI Text", "Translator". No slash.
+- Every word readable at half size (220×140).
+- No extra text, badges, logos or fake UI.
+- Resize to exactly 440×280. Image generators may misspell or add details; reject altered copy.

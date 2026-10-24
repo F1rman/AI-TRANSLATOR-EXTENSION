@@ -72,6 +72,9 @@ async def test_cloud_task_is_deduplicated_and_contains_no_source_or_api_token():
     assert task["http_request"]["oidc_token"] == {"service_account_email": config.task_service_account, "audience": config.task_audience}
     assert "private-api-token" not in str(task)
     assert set(__import__("json").loads(task["http_request"]["body"])) == {"jobId", "generation"}
+    assert task["dispatch_deadline"].seconds == 120
+    await dispatcher.enqueue("b" * 32, 0, kind="image")
+    assert fake_client.create_task.call_args.kwargs["request"]["task"]["dispatch_deadline"].seconds == 600
     fake_client.create_task.side_effect = AlreadyExists("already queued")
     await dispatcher.enqueue("a" * 32, 3)
 

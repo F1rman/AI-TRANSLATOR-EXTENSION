@@ -1,0 +1,49 @@
+{
+  "extensionId": "aieamemimbcbbnmakifejomadhegogge",
+  "authenticated": false,
+  "liveGoogleLoginTested": false,
+  "liveAiRequest": false,
+  "uiLanguage": "en",
+  "fixture": {
+    "reports": [
+      {
+        "sessionId": "marketing-session",
+        "status": "translating",
+        "total": 12,
+        "completed": 0,
+        "failed": 0
+      },
+      {
+        "sessionId": "marketing-session",
+        "status": "translating",
+        "total": 12,
+        "completed": 12,
+        "failed": 0
+      },
+      {
+        "sessionId": "marketing-session",
+        "status": "translating",
+        "total": 14,
+        "completed": 12,
+        "failed": 0
+      },
+      {
+        "sessionId": "marketing-session",
+        "status": "translated",
+        "total": 14,
+        "completed": 14,
+        "failed": 0
+      },
+      {
+        "sessionId": "marketing-session",
+        "status": "idle",
+        "total": 0,
+        "completed": 0,
+        "failed": 0
+      }
+    ],
+    "submitted": 4,
+    "restoredTitle": "Le jardin après la pluie"
+  },
+  "errors": []
+}

@@ -19,7 +19,14 @@ export interface Quota {
   dailyCharacters: number; usedCharacters: number; reservedCharacters: number;
   remainingCharacters: number; resetsAt: string;
 }
-export interface Account { user: User; quota: Quota; limits: { maxSegments: number; maxCharactersPerJob: number; maxConcurrentJobs: number } }
+export interface ImageQuota {
+  dailyImages: number; usedImages: number; reservedImages: number;
+  remainingImages: number; resetsAt: string;
+}
+export interface Account {
+  user: User; quota: Quota; plan: 'free' | 'pro'; features: { imageTranslation: boolean }; imageQuota: ImageQuota;
+  limits: { maxSegments: number; maxCharactersPerJob: number; maxConcurrentJobs: number };
+}
 export interface Segment { id: string; text: string }
 export interface CreateJob {
   sourceLanguage: string; targetLanguage: string; segments: Segment[]; idempotencyKey: string;
@@ -27,6 +34,14 @@ export interface CreateJob {
 export interface Job {
   id: string; status: 'queued' | 'running' | 'completed' | 'failed' | 'cancelled';
   translations?: Segment[]; error?: ApiError; quota?: Quota;
+}
+export interface ImageJob {
+  id: string; kind: 'image'; status: Job['status']; error?: ApiError; imageQuota?: ImageQuota;
+  output?: { mimeType: string; width: number; height: number; bytes: number };
+}
+export interface ImageIntent {
+  id: string; srcUrl: string; sourceLanguage: string; targetLanguage: string;
+  idempotencyKey: string; jobId?: string; createdAt: number;
 }
 export type PageStatus = 'idle' | 'translating' | 'translated' | 'paused' | 'error';
 export interface PageFrameState {
@@ -43,6 +58,11 @@ export type RuntimeRequest =
   | { type: 'auth:get' | 'auth:login' | 'auth:logout' | 'account:get' }
   | { type: 'translation:submit'; payload: CreateJob }
   | { type: 'translation:get' | 'translation:cancel'; payload: { id: string } }
+  | { type: 'translation:displayed'; payload: { id: string; elapsedMs: number } }
+  | { type: 'image:intent' | 'image:prepare'; payload: { intentId: string } }
+  | { type: 'image:submit'; payload: { intentId: string; sourceLanguage: string; targetLanguage: string; restart?: boolean } }
+  | { type: 'image:get' | 'image:cancel'; payload: { id: string } }
+  | { type: 'image:asset'; payload: { id: string; variant: 'original' | 'translated' } }
   | { type: 'page:start'; payload?: { tabId?: number; sourceLanguage?: string; targetLanguage?: string } }
   | { type: 'page:stop' | 'page:restore' | 'page:status'; payload?: { tabId?: number } }
   | { type: 'page:report'; payload: PageFrameState }

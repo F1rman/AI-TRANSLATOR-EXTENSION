@@ -1,5 +1,6 @@
 import { config } from './config';
 import { getAuthState, getIdToken, login, logout } from './auth';
+import { createImageController } from './images';
 import { DEFAULT_SETTINGS, ExtensionError } from './shared/protocol';
 import type { Account, ApiError, CreateJob, Job, PageCommand, PageFrameState, PageState, Result, RuntimeRequest, Settings } from './shared/protocol';
 
@@ -7,7 +8,7 @@ interface StoredPage {
   sessionId: string; topDocumentId: string; sourceLanguage: string; targetLanguage: string;
   status: PageFrameState['status']; frames: Record<string, PageFrameState>; frameDocuments: Record<string, string>;
 }
-interface JobOwner { tabId?: number; documentId?: string; createdAt: number }
+interface JobOwner { tabId?: number; documentId?: string; createdAt: number; completedSeenAt?: number }
 interface Session { pages: Record<string, StoredPage>; jobs: Record<string, JobOwner> }
 const emptySession = (): Session => ({ pages: {}, jobs: {} });
 let transaction: Promise<unknown> = Promise.resolve();
@@ -47,6 +48,7 @@ async function api<T>(path: string, method = 'GET', body?: unknown, refresh = fa
   if (!response.ok) throw new ExtensionError(value?.error || { code: `HTTP_${response.status}`, message: 'The request could not be completed.' });
   return value as T;
 }
+const images = createImageController(api, settings);
 function cleanLanguage(value: unknown): string {
   if (typeof value !== 'string' || !value.trim() || value.trim().length > 80) throw new ExtensionError({ code: 'INVALID_REQUEST', message: 'Choose a valid language.' });
   return value.trim();
@@ -151,7 +153,7 @@ async function submitJob(payload: CreateJob, sender: chrome.runtime.MessageSende
   if (!Array.isArray(payload.segments) || !payload.segments.length || payload.segments.length > 24 || payload.segments.some((segment) => typeof segment.id !== 'string' || typeof segment.text !== 'string') || payload.segments.reduce((sum, segment) => sum + Array.from(segment.text).length, 0) > 4000) throw new ExtensionError({ code: 'INVALID_REQUEST', message: 'The text is too long for a single translation batch.' });
   const job = await api<Job>('/translation-jobs', 'POST', payload);
   await withSession((session) => {
-    session.jobs[job.id] = { tabId: sender.tab?.id, documentId: sender.documentId, createdAt: Date.now() };
+    session.jobs[job.id] = { tabId: sender.tab?.id, documentId: sender.documentId, createdAt: Date.now(), ...(job.status === 'completed' ? { completedSeenAt: Date.now() } : {}) };
     for (const [id, owner] of Object.entries(session.jobs)) if (Date.now() - owner.createdAt > 3_600_000) delete session.jobs[id];
   });
   return job;
@@ -161,11 +163,12 @@ async function handle(request: RuntimeRequest, sender: chrome.runtime.MessageSen
     case 'settings:get': return settings();
     case 'settings:set': return saveSettings(request.payload);
     case 'auth:get': return getAuthState();
-    case 'auth:login': return login();
+    case 'auth:login': { const state = await login(); images.login(); return state; }
     case 'auth:logout': {
       const ids = await withSession((session) => Object.keys(session.pages).map(Number));
       await Promise.allSettled(ids.map((tabId) => changePage(tabId, 'restore')));
       await withSession((session) => { session.jobs = {}; });
+      await images.logout();
       return logout();
     }
     case 'account:get': return api<Account>('/me');
@@ -174,7 +177,19 @@ async function handle(request: RuntimeRequest, sender: chrome.runtime.MessageSen
     case 'translation:cancel': {
       await ownJob(request.payload.id, sender);
       const job = await api<Job>(`/translation-jobs/${encodeURIComponent(request.payload.id)}`, request.type === 'translation:cancel' ? 'DELETE' : 'GET');
+      if (job.status === 'completed') await withSession(session => { const owner = session.jobs[job.id]; if (owner && !owner.completedSeenAt) owner.completedSeenAt = Date.now(); });
       return job;
+    }
+    case 'translation:displayed': {
+      await ownJob(request.payload.id, sender);
+      const owner = await withSession(session => session.jobs[request.payload.id]);
+      if (owner && Number.isFinite(request.payload.elapsedMs) && request.payload.elapsedMs >= 0) console.info('translation_timing', { totalMs: Math.round(request.payload.elapsedMs), readyToDisplayMs: owner.completedSeenAt ? Math.max(0, Date.now() - owner.completedSeenAt) : null });
+      return null;
+    }
+    case 'image:intent': case 'image:prepare': case 'image:submit': case 'image:get': case 'image:cancel': case 'image:asset': {
+      const page = sender.url && new URL(sender.url);
+      if (!page || page.protocol !== 'chrome-extension:' || page.host !== chrome.runtime.id || page.pathname !== '/image.html') throw new ExtensionError({ code: 'INVALID_REQUEST', message: 'Open image translation from the image context menu.' });
+      return images.handle(request);
     }
     case 'page:start': return startPage(await activeTabId(sender.tab?.id ?? request.payload?.tabId), request.payload?.sourceLanguage, request.payload?.targetLanguage);
     case 'page:stop': return changePage(await activeTabId(sender.tab?.id ?? request.payload?.tabId), 'stop');
@@ -194,12 +209,14 @@ async function createMenus() {
   await chrome.contextMenus.removeAll();
   chrome.contextMenus.create({ id: 'translate-selection', title: language === 'uk' ? 'Перекласти виділене — AI Translator' : 'Translate selection — AI Translator', contexts: ['selection'] });
   chrome.contextMenus.create({ id: 'translate-page', title: language === 'uk' ? 'Перекласти сторінку — AI Translator' : 'Translate page — AI Translator', contexts: ['page'] });
+  chrome.contextMenus.create({ id: 'translate-image', title: language === 'uk' ? 'Перекласти картинку — Pro' : 'Translate image — Pro', contexts: ['image'] });
 }
 chrome.runtime.onInstalled.addListener(() => { void createMenus(); });
 chrome.runtime.onStartup.addListener(() => { void createMenus(); });
 chrome.contextMenus.onClicked.addListener((info, tab) => {
   if (!tab?.id) return;
   if (info.menuItemId === 'translate-page') void startPage(tab.id).catch(() => chrome.runtime.openOptionsPage());
+  if (info.menuItemId === 'translate-image' && info.srcUrl) void images.open(info.srcUrl).catch(() => chrome.runtime.openOptionsPage());
   if (info.menuItemId === 'translate-selection' && info.selectionText) {
     const target = info.frameId === undefined ? undefined : { frameId: info.frameId };
     void chrome.tabs.sendMessage(tab.id, { type: 'selection:translate', payload: { text: info.selectionText } }, target).catch(() => chrome.runtime.openOptionsPage());

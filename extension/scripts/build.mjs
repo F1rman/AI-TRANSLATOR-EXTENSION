@@ -1,12 +1,14 @@
 import { build, loadEnv } from 'vite';
 import { build as bundle } from 'esbuild';
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { deflateSync } from 'node:zlib';
 const env = { ...loadEnv('production', process.cwd(), ''), ...process.env };
+const packageInfo = JSON.parse(await readFile(new URL('../package.json', import.meta.url), 'utf8'));
+const publicKey = (env.EXTENSION_PUBLIC_KEY || await readFile(new URL('../store-public-key.txt', import.meta.url), 'utf8')).trim();
 await build();
 await bundle({ entryPoints: ['src/content/index.ts'], bundle: true, outfile: 'dist/content.js', format: 'iife', target: 'chrome120', minify: true });
 const manifest = {
-  manifest_version: 3, name: 'AI Translator', version: '1.0.0', minimum_chrome_version: '120',
+  manifest_version: 3, name: 'AI Translator', version: packageInfo.version, minimum_chrome_version: '120',
   description: 'Translate selected text and whole webpages with AI. Restore originals in one click.',
   homepage_url: 'https://ai-translator-ext.web.app',
   permissions: ['activeTab', 'contextMenus', 'storage', 'scripting', 'identity', 'webNavigation'],
@@ -18,7 +20,7 @@ const manifest = {
   content_scripts: [{ matches: ['http://*/*', 'https://*/*'], js: ['content.js'], all_frames: true, run_at: 'document_idle', match_about_blank: false }],
   content_security_policy: { extension_pages: "script-src 'self'; object-src 'self'" },
   ...(env.VITE_GOOGLE_CLIENT_ID ? { oauth2: { client_id: env.VITE_GOOGLE_CLIENT_ID, scopes: ['openid', 'email', 'profile'] } } : {}),
-  ...(env.EXTENSION_PUBLIC_KEY ? { key: env.EXTENSION_PUBLIC_KEY } : {}),
+  ...(publicKey ? { key: publicKey } : {}),
 };
 await writeFile('dist/manifest.json', JSON.stringify(manifest, null, 2));
 const crcTable = Array.from({ length: 256 }, (_, value) => { for (let bit = 0; bit < 8; bit++) value = value & 1 ? 0xedb88320 ^ (value >>> 1) : value >>> 1; return value >>> 0; });

@@ -5,5 +5,10 @@
   "hostingUrl": "https://ai-translator-ext.web.app",
   "firebaseAppId": "1:1060412514800:web:c02c6ef48ae7066d94bd35",
   "service": "ai-translator-api",
-  "queue": "translation-jobs"
+  "queue": "translation-jobs",
+  "extensionId": "aieamemimbcbbnmakifejomadhegogge",
+  "extensionOAuthClientId": "1060412514800-4j2utpmaak9lbknl5d077ffaoe6e3ei6.apps.googleusercontent.com",
+  "imageBucket": "ai-translator-ext-images",
+  "dailyImages": 5,
+  "backendVersion": "1.1.0"
 }

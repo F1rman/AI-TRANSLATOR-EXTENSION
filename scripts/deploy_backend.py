@@ -26,7 +26,10 @@ if __name__ == '__main__':
         'BACKEND_BASE_URL': BASE, 'TASK_AUDIENCE': BASE,
         'TASK_QUEUE_PROJECT': PROJECT, 'TASK_QUEUE_LOCATION': REGION,
         'TASK_QUEUE_NAME': 'translation-jobs', 'TASK_SERVICE_ACCOUNT': TASKS,
-        'UPSTREAM_API_URL': 'https://balubenko-ai.web.app/api/generate',
+        'UPSTREAM_API_URL': 'https://gpt-api-kldxufmrdq-ew.a.run.app/api/generate',
+        'UPSTREAM_IMAGE_API_URL': 'https://gpt-api-kldxufmrdq-ew.a.run.app/api/translate-image',
+        'IMAGE_BUCKET': 'ai-translator-ext-images', 'DAILY_IMAGE_LIMIT': '5',
+        'IMAGE_JOB_LEASE_SECONDS': '600',
         'DAILY_CHARACTER_LIMIT': '20000', 'MAX_SEGMENTS': '24',
         'MAX_CHARACTERS_PER_JOB': '4000', 'MAX_CONCURRENT_JOBS': '2',
         'JOB_TTL_SECONDS': '86400', 'JOB_LEASE_SECONDS': '120',
@@ -35,11 +38,15 @@ if __name__ == '__main__':
         f'--service-account={RUNTIME}', '--allow-unauthenticated',
         '--set-env-vars='+','.join(f'{key}={value}' for key,value in values.items()),
         '--set-secrets=API_ACCESS_TOKEN=upstream-api-access-token:latest',
-        '--timeout=120', '--concurrency=8', '--cpu=1', '--memory=512Mi',
+        '--timeout=600', '--concurrency=8', '--cpu=1', '--memory=2Gi',
         '--min-instances=0', '--max-instances=2')
-    Path(ROOT/'deployment.json').write_text(json.dumps({
+    deployment_file = ROOT/'deployment.json'
+    previous = json.loads(deployment_file.read_text()) if deployment_file.exists() else {}
+    deployment_file.write_text(json.dumps({**previous,
         'projectId': PROJECT, 'region': REGION, 'apiBaseUrl': BASE,
         'hostingUrl': 'https://ai-translator-ext.web.app',
         'firebaseAppId': '1:1060412514800:web:c02c6ef48ae7066d94bd35',
         'service': SERVICE, 'queue': 'translation-jobs',
+        'imageBucket': 'ai-translator-ext-images', 'dailyImages': 5,
+        'backendVersion': '1.1.0',
     }, indent=2)+'\n')

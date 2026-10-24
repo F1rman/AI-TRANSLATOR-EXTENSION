@@ -1,0 +1,113 @@
+{
+  "date": "2026-10-23",
+  "categoryTally": {
+    "productivity/workflow": 1,
+    "productivity/communication": 2,
+    "productivity/tools": 4,
+    "productivity/education": 1
+  },
+  "languageTally": {
+    "English": 8,
+    "Deutsch": 7,
+    "Filipino": 3,
+    "Indonesia": 6,
+    "Kiswahili": 1,
+    "Melayu": 1,
+    "Nederlands": 4,
+    "Tiếng Việt": 4,
+    "Türkçe": 6,
+    "azərbaycan": 1,
+    "català": 3,
+    "dansk": 2,
+    "eesti": 2,
+    "español": 6,
+    "français": 7,
+    "hrvatski": 2,
+    "italiano": 7,
+    "latviešu": 1,
+    "lietuvių": 1,
+    "magyar": 4,
+    "norsk": 2,
+    "o‘zbek": 1,
+    "polski": 4,
+    "română": 3,
+    "shqip": 1,
+    "slovenčina": 2,
+    "slovenščina": 2,
+    "suomi": 2,
+    "svenska": 4,
+    "čeština": 4,
+    "Ελληνικά": 2,
+    "български": 3,
+    "русский": 7,
+    "српски": 2,
+    "українська": 4,
+    "հայերեն": 1,
+    "עברית": 4,
+    "العربية": 6,
+    "فارسی": 4,
+    "नेपाली": 1,
+    "मराठी": 1,
+    "हिन्दी": 4,
+    "অসমীয়া": 1,
+    "বাংলা": 2,
+    "ਪੰਜਾਬੀ": 1,
+    "ગુજરાતી": 1,
+    "ଓଡ଼ିଆ": 1,
+    "தமிழ்": 1,
+    "తెలుగు": 1,
+    "ಕನ್ನಡ": 1,
+    "മലയാളം": 1,
+    "සිංහල": 2,
+    "ไทย": 3,
+    "မြန်မာ": 1,
+    "አማርኛ": 2,
+    "日本語": 6,
+    "한국어": 6,
+    "português (Brasil)": 5,
+    "português (Portugal)": 5,
+    "中文（中国）": 6,
+    "中文（台灣）": 5,
+    "اردو": 1
+  },
+  "recommendedCategory": "Productivity > Tools",
+  "brandCollision": {
+    "brand": "AI Translator",
+    "status": "caution",
+    "note": "Existing exact-name listing and similarly named AI translators. Keep brand recognizable but add a descriptive modifier. This is a store-name collision check, not trademark clearance."
+  },
+  "visualInspection": [
+    {
+      "id": "hkelkkhcmkhbpkenoogdeomannakpilk",
+      "image": "screenshots/1.png",
+      "observation": "Raw1280x800 browser screenshot with purple popup; demonstrates bilingual/replace controls but no separate benefit headline."
+    },
+    {
+      "id": "gbefmodhlophhakmoecijeppjblibmie",
+      "image": "screenshots/1.png",
+      "observation": "Yellow feature panel plus browser screenshot; prominent selected-text translation headline and dictionary/speech benefits."
+    },
+    {
+      "id": "hbblhboakojbegilahlbppmmkogdgehp",
+      "image": "screenshots/1.png",
+      "observation": "Large blue AI icon fills screenshot; does not demonstrate product UI or translation task."
+    }
+  ],
+  "errors": [
+    {
+      "source": "web.open",
+      "urls": [
+        "https://chromewebstore.google.com/detail/gbefmodhlophhakmoecijeppjblibmie?hl=en",
+        "https://chromewebstore.google.com/detail/hkelkkhcmkhbpkenoogdeomannakpilk?hl=en",
+        "https://chromewebstore.google.com/detail/hbblhboakojbegilahlbppmmkogdgehp?hl=en"
+      ],
+      "error": "Tool marked URLs inaccessible. Direct Node fetch and supplied parser succeeded; rawHTML retained."
+    },
+    {
+      "source": "competitors.mjs",
+      "id": "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
+      "error": "screenshots/1: not an image (text/html; charset=utf-8) at https://www.youtube.com/embed/BETAR74jd1Y?rel=0&wmode=opaque&enablejsapi=1=s1280-w1280-h800"
+    }
+  ],
+  "provisional": false
+}

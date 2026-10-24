@@ -1,0 +1,83 @@
+<!doctype html>
+<!--
+  Screenshot frame, 1280×800. Copy to meta/screenshots/frame.html. Each shot is
+  one caption plus one real capture, passed in the query string so one file
+  renders every shot:
+    node <skill>/scripts/render-html.mjs \
+      --url "meta/screenshots/frame.html?img=raw/popup.png&cap=Every%20video%20on%20the%20page&em=Every%20video" \
+      --out meta/screenshots/1.png --width 1280 --height 800
+  img is relative to this file. em (optional) is the part of cap to colour;
+  dir=rtl is available if screenshots are ever localized.
+-->
+<html>
+<head>
+<meta charset="utf-8">
+
+
+<style>
+  :root {
+    /* EDIT: same palette as the promo tile. */
+    --accent: #A27725;
+    --ink: #263027;
+    --bg: #F5F3ED;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 100vw; height: 100vh; overflow: hidden; }
+  body {
+    font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    display: flex; flex-direction: column; align-items: center;
+    padding: 6vh 5vw 0;
+  }
+  h1 {
+    font-weight: 900; font-size: 8.5vh; line-height: 1.05;
+    letter-spacing: -0.02em; text-align: center; max-width: 100%;
+  }
+  h1 em { font-style: normal; color: var(--accent); }
+  .shot {
+    flex: 1 1 auto; min-height: 0; width: 100%;
+    display: flex; align-items: flex-start; justify-content: center;
+    padding-top: 5vh;
+  }
+  /* Height-driven so a small popup is enlarged to readable size (capture it
+     with --scale 2 to stay sharp), and bleeds off the bottom so the UI reads
+     as live while the caption keeps the top of the frame. */
+  .shot img {
+    height: 112%; width: auto; max-width: 100%;
+    border-radius: 1.6vh 1.6vh 0 0;
+    box-shadow: 0 2vh 6vh rgba(38, 48, 39, .15);
+    object-fit: contain; object-position: top;
+  }
+body.dark { --bg:#263027; --ink:#FFFEFA; --accent:#E9BA63; }
+body.wide .shot img { width:100%;height:auto;max-width:1000px; }
+body.settings .shot img {width:900px;height:auto;max-width:100%;}
+</style>
+</head>
+<body>
+  <h1 id="cap"></h1>
+  <div class="shot"><img id="img" alt=""></div>
+<script>
+  const params = new URLSearchParams(location.search);
+  const cap = params.get('cap') ?? '';
+  const em = params.get('em');
+  const h1 = document.getElementById('cap');
+  if (em && cap.includes(em)) {
+    const [before, after] = [cap.slice(0, cap.indexOf(em)), cap.slice(cap.indexOf(em) + em.length)];
+    const mark = document.createElement('em');
+    mark.textContent = em;
+    h1.append(before, mark, after);
+  } else {
+    h1.textContent = cap;
+  }
+  document.documentElement.dir = params.get('dir') ?? 'ltr';
+  document.body.className = params.get('layout') ?? ''; 
+  document.getElementById('img').src = params.get('img') ?? '';
+  // Long translations shrink to one or two lines instead of pushing the UI off the frame.
+  document.fonts.ready.then(() => {
+    let size = parseFloat(getComputedStyle(h1).fontSize);
+    while (h1.offsetHeight > size * 2.3 && size > 20) h1.style.fontSize = `${size *= 0.95}px`;
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+{
+  "id": "hkelkkhcmkhbpkenoogdeomannakpilk",
+  "name": "AI Translator - Smart AI Translation (Hover, Select, Context Menu)",
+  "rating": 5,
+  "ratingCount": 9,
+  "users": 530,
+  "category": "productivity/tools",
+  "summary": "Instant AI translator. Hover, select, or translate the whole page bilingually. 50+ languages, dark mode, side panel.",
+  "icon": "https://lh3.googleusercontent.com/hzI1clBH_mujSxiHbNF9d1YVuaZ-Vbs0FvrLnY1VrFjZHcUreAFmE8vo7W7C6sVnp9KUxpWbOu_vk7wYmFz8tbWGHw",
+  "smallPromo": "https://lh3.googleusercontent.com/cgDEA2WzA7rDywqg30v_SBWn-XpcrS4OLPQyXJtc9Y9JXKA1-lJpSTCL6hKLK5NO4BQjmARm1hjvDzsHwWkbcb_VcA",
+  "hasMarquee": true,
+  "url": "https://chromewebstore.google.com/detail/hkelkkhcmkhbpkenoogdeomannakpilk",
+  "description": "🌐 AI Translator - Smart, instant translation powered by the latest AI\n\nWant to read foreign articles, documentation, or any web content without leaving the page? AI Translator gives you accurate, context-aware translation in a single gesture. 🚀\n\n⚡ KEY FEATURES\n✅ Translate the whole page: bilingual mode keeps the original and puts the translation right under each paragraph, or replace the text in place. Menus, header and footer are left alone so the layout never breaks (turn on \"Translate the whole page\" if you want them too).\n✅ Text translator panel: open the side panel, paste up to 5000 characters, translate with Ctrl+Enter, swap languages, copy the result.\n✅ Hover to translate: move your mouse over any text for an instant tooltip translation.\n✅ Select to translate: highlight text, then click the floating icon for a full popup.\n✅ Right-click to translate: use the context menu on any selection.\n✅ Powered by the latest AI: high-quality, context-preserving translation, not word-by-word. The AI builds a glossary for each page so terminology stays consistent.\n✅ 50+ languages: Vietnamese, English, Chinese (Simplified & Traditional), Japanese, Korean, Thai, Spanish, French, German, Russian, Arabic, and many more.\n✅ Interface in 21 languages, with right-to-left support for Arabic, Persian and Hebrew.\n✅ Dark mode and light mode.\n✅ Turn hover lookup off on any site you choose.\n\n📖 PERFECT FOR\n- Reading foreign articles, research papers and documentation\n- Learning a new language with the original text side by side\n- Following international news\n- Translating long pages without copying and pasting\n\n🔒 PRIVACY\nNo account, no tracking. Your text is sent only when you ask for a translation, and translations are not stored.",
+  "screenshots": [
+    "https://lh3.googleusercontent.com/vu56k7NnYz09-eNV7DdlrJxMvGN8YHEQQWcNvq5_GWohcQBdUK_mI_imEXjd5vTH3HOB6u-6nKc-ka8hm8jce7fuCw",
+    "https://lh3.googleusercontent.com/xqjkNy32rQ66TZpc9w69WlnKjlco_truya8vouBa9_-Mh7hZL9mZdrRABgQrVL3qw98gRHtVDBGozV3PxoMTaY1Q7ZA",
+    "https://lh3.googleusercontent.com/ay_aHaeABJR0mZV7Dy43YSOb9tVbTD4WZ9xWqvAgjNF78r93N0gqZzmbS7VXTi6wv_16iUeFLY8tGV0AShUy21oWxXw",
+    "https://lh3.googleusercontent.com/UrZ734E_RP2nOS6BuUdz1qvjCZYL8E39A6AjnXLiOHP8TwvwypqfRHDFVHVNPXdW8C_OADVmfltlbYp7VcildAFoNw",
+    "https://lh3.googleusercontent.com/9V5SoDoXMxuqiz-pzeieVF-n1BT6jIH2HzLQz9srkrBD3zNq6VmvnH3fPj2T6C0uNjB7bKWWv-exKgK8K6lydppU1Q"
+  ],
+  "marquee": "https://lh3.googleusercontent.com/JICHZoLjnqo4C0lo0GEQvYaoc4KdJDDN61Rw-rrbgqN4sPK0UAx4kW10wBs5baKMB9J-DKsMAET2zebmOY4N2xXh",
+  "version": "1.5.1",
+  "updated": "2026-09-13",
+  "size": "295KiB",
+  "languages": [
+    "Deutsch",
+    "English",
+    "Indonesia",
+    "Tiếng Việt",
+    "Türkçe",
+    "español",
+    "français",
+    "italiano",
+    "português (Brasil)",
+    "português (Portugal)",
+    "русский",
+    "עברית",
+    "العربية",
+    "فارسی",
+    "हिन्दी",
+    "ไทย",
+    "中文（中国）",
+    "中文（台灣）",
+    "日本語",
+    "한국어"
+  ],
+  "related": [
+    {
+      "id": "gcfofolonkmploncafjcocnncjcobefk",
+      "name": "SelectTranslate: Web & PDF Translator | Free",
+      "users": 10000
+    },
+    {
+      "id": "lopnbnfpjmgpbppclhclehhgafnifija",
+      "name": "Google Translate in Side Panel",
+      "users": 100000
+    },
+    {
+      "id": "fhfnfmakgcoolkaalffgdijedkdgegad",
+      "name": "Swiftin - AI translator for sites, subtitles and what you type",
+      "users": null
+    },
+    {
+      "id": "bincmiainjofjnhchmcalkanjebghoen",
+      "name": "Zent Translate",
+      "users": 100000
+    },
+    {
+      "id": "klmdchhpomppdmflgickpjopdmnbehgg",
+      "name": "Linguin - AI Translator",
+      "users": 332
+    },
+    {
+      "id": "adhgifgmkblkmejdgiplocmdjbbibkip",
+      "name": "AI Translation",
+      "users": 7000
+    },
+    {
+      "id": "ooggbaolfhebcfbdfjjlhkijileflfhi",
+      "name": "Edge Translate - Text Selection Translation",
+      "users": 1000
+    },
+    {
+      "id": "mlmgeakkomnhoblldciflmoeefmdaaha",
+      "name": "Real-Time Bilingual Video & Audio Translation – SonicCaption",
+      "users": 8000
+    },
+    {
+      "id": "ianmkfjhfmjjlchjceijknakecemeope",
+      "name": "TransorAI - AI Translator | Web, PDF, Images",
+      "users": 5000
+    },
+    {
+      "id": "edldfjnolgadoiinnmnkgpbamnkjibmb",
+      "name": "Translate Workspace: AI Translator",
+      "users": 255
+    },
+    {
+      "id": "jokgnglcgghihhbkinmjhcbjofniocca",
+      "name": "Sidebar for Chrome: Split screen, Bookmarks, Vertical Tabs",
+      "users": 2000
+    },
+    {
+      "id": "ecdcnaegedhdbeaiienfjajimlofocbi",
+      "name": "Transync - Instant Translation & Dictionary",
+      "users": 401
+    }
+  ],
+  "retrievedAt": "2026-10-23T20:34:18.810Z",
+  "hl": "en",
+  "files": {
+    "screenshots": [
+      "screenshots/1.png",
+      "screenshots/2.png",
+      "screenshots/3.png",
+      "screenshots/4.png",
+      "screenshots/5.png"
+    ],
+    "icon": "icon.png",
+    "smallPromo": "promo-440x280.png",
+    "marquee": "marquee-1400x560.png"
+  },
+  "errors": [],
+  "researchNotes": {
+    "angle": "AI hover, selection, full-page bilingual/replace and text panel.",
+    "weakness": "530 users and9 ratings: smaller visible adoption footprint; do not claim missing core features. Screenshot is a dense browser UI without explanatory headline.",
+    "date": "2026-10-23"
+  }
+}

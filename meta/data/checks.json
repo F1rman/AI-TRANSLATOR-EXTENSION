@@ -1,0 +1,8 @@
+[
+  {
+    "id": "vis-icon-distinct",
+    "title": "Icon stands out",
+    "state": "warn",
+    "detail": "Forest green and gold stand apart from the blue, cyan and magenta translation icons captured from competitors. The bold sparkle remains visible in the actual 16 px bitmap on a dark toolbar, though the small dot is subtle and the symbol signals AI more clearly than translation. The 128 px source artwork reaches the canvas edges (128\u00d7128 bounds); it lacks the desired centered 96\u00d796 artwork plus 16 px transparent margin. Keep the existing extension untouched; optional padding proposal prompt is in icon/prompt.md."
+  }
+]

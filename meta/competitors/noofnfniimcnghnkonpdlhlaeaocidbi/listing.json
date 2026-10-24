@@ -1,0 +1,120 @@
+{
+  "id": "noofnfniimcnghnkonpdlhlaeaocidbi",
+  "name": "DeepTranslate - Full Page & Bilingual Translator & AI-Powered Translation",
+  "rating": 3.85,
+  "ratingCount": 488,
+  "users": 70000,
+  "category": "productivity/tools",
+  "summary": "Translate web pages effortlessly with Google Translate and OpenAI. Supports quick text translation and PDF imports for translation.",
+  "icon": "https://lh3.googleusercontent.com/Dx9Fo4-s_t8A-yqvtL5Jc6tA9Gsh8kl28iBdJj4C4WmZQIVOp2GN_C7kKIxJphn2rK7mXor24CqygomDplNVjjOKBQ",
+  "smallPromo": "https://lh3.googleusercontent.com/CTX_5xYfqk0zSxIF-hVyB2XGBITlEFYEfHmrvolcKFGIDPzyX5d-xnLoJmoiVNw86LJ5fD-sUtj6JB30FvhZfFfBSg4",
+  "hasMarquee": true,
+  "url": "https://chromewebstore.google.com/detail/noofnfniimcnghnkonpdlhlaeaocidbi",
+  "description": "🔵 Why Choose DeepTranslate? 🔵  \nDeepTranslate integrates multiple translation engines into a simple, easy-to-use tool, providing comprehensive language support and bilingual display. There's no need to switch between websites or apps—just one click allows you to translate and seamlessly toggle between the original text and translation. It supports popular services like Google Translate, OpenAI, and Microsoft Translator, making it ideal for translating websites, news, Gmail, WhatsApp Web, X, Twitter, Facebook, Google Scholar papers, and more.\n\n🔵 Why Use DeepTranslate? 🔵  \nDeepTranslate is not just a translation tool—it’s your multilingual world exploration assistant. Here are its key features:  \n1️⃣ Completely Free: Enjoy all features without a subscription.  \n2️⃣ Powerful Multilingual Support: Automatically detects and supports over 120 languages, including Chinese, English, Spanish, Japanese, and many others.  \n3️⃣ One-Click Web Translation: Translate entire web pages, from news sites to social media and academic papers, with a single click, and view them in bilingual mode.  \n4️⃣ Social Media Translation: Effortlessly translate posts, comments, and private messages on WhatsApp, X, Twitter, Facebook, and Instagram.  \n5️⃣ Academic Resource Translation: Quickly understand foreign academic papers on platforms like Google Scholar and PubMed.  \n6️⃣ Flexible Engine Switching: Switch between OpenAI, Google Translate, and Microsoft Translator for the best translation quality.  \n7️⃣ Convenient Text Translation: Access quick text translation anytime, anywhere.  \n8️⃣ User-Friendly Experience: Whether you’re a first-time user or an expert, enjoy a smooth and intuitive interface.\n\n🔵 Upcoming Features 🔵  \nWe’re developing new features to make DeepTranslate seamless across various scenarios:  \n✅ Auto Video Subtitle Translation: Generate bilingual subtitles for platforms like YouTube and Vimeo, ensuring you understand every video.  \n✅ Floating Window: Translate quickly with a floating window, without delays.\n\n🔵 How Does DeepTranslate Stand Out? 🔵  \n1️⃣ All-in-One Platform Support: Whether browsing, reading academic papers, or interacting on social media, DeepTranslate offers comprehensive language support, eliminating the need for multiple tools.  \n2️⃣ Bilingual Learning Assistant: Improve your language skills with bilingual mode and multi-engine comparison for better understanding and memory retention.  \n3️⃣ Real-Time Updates & Support: We focus on innovation and continuously enhance features through fast iterations and user feedback, ensuring access to the latest translation technology.\n\n📪 For any questions or suggestions, contact us at support@deeptranslate.ai. We look forward to your feedback and are committed to improving your DeepTranslate experience.",
+  "screenshots": [
+    "https://lh3.googleusercontent.com/Bx5DGY21mBBo-m4yuAbnHmOyNkPQtUaZaBKd9kJJlMK_KMa62wuPC5gH-1t0pPIxfItGhBj1szrA6QoCaCQLfFD-j_U",
+    "https://lh3.googleusercontent.com/U1t8E56KCDj0mL2WQCba68Oem_9dOMAZ5JzYxepaB2Z1EqxtHmrEgbE--ltCBqPM97pACm1SSHdYw1rCvytpa4WB_g",
+    "https://lh3.googleusercontent.com/ud0ImIPowIosC6txRC-R1rO_W8LwzZyzrO1BOpowHpSPpF15Fwz2xf-uTqmMfMu8ZryDswb_bBKBZuCQ8kj3TxADhAk",
+    "https://lh3.googleusercontent.com/HVn0KPxZ7aW1ve0VkgHzV3Bzl6UlmPz6rJurICFfq1IjiexZ8CWpQ46HVr_QSQ6pOuEAEzIneMTTD6GimAsqXPbQpQ",
+    "https://lh3.googleusercontent.com/_wcor8TnbeebRQan2J16pb0HvpIkh0p5B1MjRV3jJ5ss2M2_LqGPpbRwaEg6jSjFda8DnbiteKcatDDIsFtrG_jP"
+  ],
+  "marquee": "https://lh3.googleusercontent.com/u_GeV8rEie8PCqEjwa99rML16nr0wH6R5PEmVuqOJyOZ4FCK_Ojcyi9bLT6OGZG47qzAWVACT7hDhFLbZ5UsDRH33w",
+  "version": "1.7.9",
+  "updated": "2026-10-20",
+  "size": "1.1MiB",
+  "languages": [
+    "Deutsch",
+    "English",
+    "français",
+    "italiano",
+    "português (Brasil)",
+    "português (Portugal)",
+    "русский",
+    "中文（中国）",
+    "中文（台灣）",
+    "日本語",
+    "한국어"
+  ],
+  "related": [
+    {
+      "id": "mnlohknjofogcljbcknkakphddjpijak",
+      "name": "Translate - Translator, Dictionary, TTS",
+      "users": 100000
+    },
+    {
+      "id": "adhgifgmkblkmejdgiplocmdjbbibkip",
+      "name": "AI Translation",
+      "users": 7000
+    },
+    {
+      "id": "jdanedhdmcbkheljojpdcnonnbdbohng",
+      "name": "autoTranslate - Translate web & PDF, Dictionary",
+      "users": 30000
+    },
+    {
+      "id": "gbefmodhlophhakmoecijeppjblibmie",
+      "name": "Linguist - web page translator",
+      "users": 200000
+    },
+    {
+      "id": "elpmkbbdldhoiggkjfpgibmjioncklbn",
+      "name": "Translate for Chrome -Translator, Dictionary",
+      "users": 500000
+    },
+    {
+      "id": "khbjbchkedopfbhiafhaacomekdgnhbh",
+      "name": "AI Translate - Gemini",
+      "users": 10000
+    },
+    {
+      "id": "mjdbhokoopacimoekfgkcoogikbfgngb",
+      "name": "Trancy - AI Translator & Dual Subtitles",
+      "users": 300000
+    },
+    {
+      "id": "lpoljgbmkbhhdpihhcfpkekfncjibobh",
+      "name": "Translate Selected Text, PDF & Dictionary – AI Vocabulary Builder",
+      "users": 5000
+    },
+    {
+      "id": "hnfabcchmopgohnhkcojhocneefbnffg",
+      "name": "Web Translate: AI & Google Translator",
+      "users": 40000
+    },
+    {
+      "id": "cnailncgolnackgmidhkkifchhegijjf",
+      "name": "Lufe.ai: AI Automatic Translator - bilingual translate | Select Translate",
+      "users": 3000
+    },
+    {
+      "id": "icfnljfpacimpcbpammmbclmhenimhfc",
+      "name": "ScTranslator - Translator, Page Translator, Dictionary",
+      "users": 20000
+    },
+    {
+      "id": "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
+      "name": "Immersive Translate: AI Web, PDF & Video Translator",
+      "users": 3000000
+    }
+  ],
+  "retrievedAt": "2026-10-23T20:34:21.199Z",
+  "hl": "en",
+  "files": {
+    "screenshots": [
+      "screenshots/1.jpg",
+      "screenshots/2.jpg",
+      "screenshots/3.jpg",
+      "screenshots/4.jpg",
+      "screenshots/5.jpg"
+    ],
+    "icon": "icon.png",
+    "smallPromo": "promo-440x280.png",
+    "marquee": "marquee-1400x560.png"
+  },
+  "errors": [],
+  "researchNotes": {
+    "angle": "Full-page bilingual mode and switching between translation engines.",
+    "weakness": "3.85/5 from488 ratings; long feature-heavy name. Own product can state a simpler page/text workflow and explicit quota.",
+    "date": "2026-10-23"
+  }
+}

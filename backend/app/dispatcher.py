@@ -12,7 +12,7 @@ class MemoryDispatcher:
         self.tasks = set()
         self.enqueued = set()
 
-    async def enqueue(self, identifier, generation):
+    async def enqueue(self, identifier, generation, kind="text"):
         key = (identifier, generation)
         if key in self.enqueued:
             return
@@ -41,7 +41,7 @@ class CloudTasksDispatcher:
         self.client = tasks_v2.CloudTasksAsyncClient()
         self.parent = self.client.queue_path(settings.task_project, settings.task_location, settings.task_queue)
 
-    async def enqueue(self, identifier, generation):
+    async def enqueue(self, identifier, generation, kind="text"):
         from google.api_core.exceptions import AlreadyExists
         from google.cloud import tasks_v2
         from google.protobuf.duration_pb2 import Duration
@@ -56,7 +56,7 @@ class CloudTasksDispatcher:
                 "oidc_token": {"service_account_email": self.settings.task_service_account,
                                "audience": self.settings.task_audience},
             },
-            "dispatch_deadline": Duration(seconds=120),
+            "dispatch_deadline": Duration(seconds=600 if kind == "image" else 120),
         }
         try:
             await self.client.create_task(request={"parent": self.parent, "task": task}, retry=None, timeout=20)

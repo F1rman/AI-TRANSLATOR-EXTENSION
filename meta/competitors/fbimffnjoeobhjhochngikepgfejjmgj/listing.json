@@ -1,0 +1,136 @@
+{
+  "id": "fbimffnjoeobhjhochngikepgfejjmgj",
+  "name": "Translate Selected Text",
+  "rating": 4.15,
+  "ratingCount": 772,
+  "users": 100000,
+  "category": "productivity/education",
+  "summary": "Translate selected text with Google Translate",
+  "icon": "https://lh3.googleusercontent.com/W3NrVmqySDy3vkQbf69qtVTn36w0ENye8Yn--djZGO8EaiG8U-wO0NwjTxRmuAP-a8VHuCnm7bRVfTSEi3nItUetdQ",
+  "smallPromo": "https://lh3.googleusercontent.com/m243qO0tSR6ulbsVJw6kxi7JrqtTx1mAeLWKE0sw66iXHyT9WvILV0DZpibsdEmaGilUsY0FxKisvMA1FfAwT1Gk",
+  "hasMarquee": true,
+  "url": "https://chromewebstore.google.com/detail/fbimffnjoeobhjhochngikepgfejjmgj",
+  "description": "This extension allows you to translate the text selection using Google Translate whenever you want.\n\nWhen the extension is installed select some text from a website, right click and select to which language you want to translate the selected text.\n\n** FAQ: **\nQ: Why choose this extension and not another one?\nA: I designed this extension so that it didn't prompt the user for permissions. This way the final user knows that the extension doesn't have the permission to access the content of web pages and monitor the user activity on the Internet (other extensions of this type prompt for this permission). This extension has access only to the content of the selected text when the user clicks the extension context menu and it is used to create a Google Translate app with the text autocompleted.\n\nYou can configure from the options page which languages you want to show in the context menu.\n\n** Open Source **\nThis extension is now open sourced! You can check out the source code, contribute, and fill in bugs in the GitHub repository: https://github.com/avm99963/translateselectedtext\n\n** Bugs **\nPlease, report any bugs or feature suggestions here: https://github.com/avm99963/translateselectedtext/issues\n\n** Note **\nGoogle Translate is a trademark of Google Inc. Use of this trademark is subject to Google Permissions.\n\n** Beta version**\nAs this extension has so many users I've decided to upload a Beta version of the extension to the Chrome Web Store so I can test it before uploading any update to the stable version! This way I can make sure the stable version of the extension is 100% bug-free.\n\nIf you want to test the bleeding edge of this extension before everybody else, join the Google Group and download the extension (there may be bugs, you've been warned):\n* Google Group: https://groups.google.com/forum/#!forum/gtranslator-beta\n* Translate Selected Text (Beta): https://chrome.google.com/webstore/detail/translate-selected-text-b/pckjhlclhnnhdadoockkhgfkceeljnkg\n\n** Changelog **\nChangelog available in the following website: https://github.com/avm99963/translateselectedtext/wiki/Changelog\n\n** Credits **\nhttps://github.com/avm99963/translateselectedtext/wiki/Credits",
+  "screenshots": [
+    "https://lh3.googleusercontent.com/ctPVydumWqP43ID_ORDelXMBILiLy7BWIx3DqoF7wUewCoZznTwSg10fP2gr3eqfv0FBqadzqWLac7Un4ticcwJWa_U",
+    "https://lh3.googleusercontent.com/jygzmegVHfWxnvNgvZHHXIi-gQKWVDskMvhANU-sewyUEWQUzk4wjO9cXLid14VyDjrwweYsTPdtN4MYyHt0faCh",
+    "https://lh3.googleusercontent.com/-DHGX5AjQs3Gjkti3ttibN1XDdxjfrydR_Ild_FyMtR5piT8aygaUeUTrkWG71GTIqzS1pmqSPZpMnzB-CAB0uIy8A"
+  ],
+  "marquee": "https://lh3.googleusercontent.com/6HeaqmsRJhWnTMFLgD0ZEv4SbyZQkgltEvNraGL5GeeHnA0vinL175EDmeJA9TcZdqotWpsRgCXMG-xfqeI5SPkGDg",
+  "version": "3.0.0-stable",
+  "updated": "2024-06-02",
+  "size": "1.24MiB",
+  "languages": [
+    "Deutsch",
+    "English",
+    "Filipino",
+    "Indonesia",
+    "Nederlands",
+    "Türkçe",
+    "català",
+    "eesti",
+    "español",
+    "français",
+    "hrvatski",
+    "italiano",
+    "magyar",
+    "polski",
+    "português (Brasil)",
+    "português (Portugal)",
+    "română",
+    "slovenčina",
+    "slovenščina",
+    "svenska",
+    "čeština",
+    "български",
+    "русский",
+    "українська",
+    "العربية",
+    "فارسی",
+    "हिन्दी",
+    "বাংলা",
+    "አማርኛ",
+    "中文（中国）",
+    "中文（台灣）"
+  ],
+  "related": [
+    {
+      "id": "ibplnjkanclpjokhdolnendpplpjiace",
+      "name": "Simple Translate",
+      "users": 200000
+    },
+    {
+      "id": "abebconmjhhbcjofpchjkbbimgkhdmbe",
+      "name": "Translator - translation of selected text",
+      "users": 10000
+    },
+    {
+      "id": "ikinhnbonjocfjegkkhjjmnemajhplnd",
+      "name": "Simple Select to Translate",
+      "users": 1000
+    },
+    {
+      "id": "nnnlbcgpgpgbdhanhcdcooclbfaifabc",
+      "name": "GenAI Translator",
+      "users": 508
+    },
+    {
+      "id": "aapbdbdomjkkjkaonfhkkikfgjllcleb",
+      "name": "Google Translate",
+      "users": 39000000
+    },
+    {
+      "id": "pnpdnibdembnnlaiibkeandepjajegoi",
+      "name": "Translator",
+      "users": 60000
+    },
+    {
+      "id": "nmggadjeahjggalcnbcfpcebpdkijdkm",
+      "name": "Translate Online for Google Chrome™",
+      "users": 10000
+    },
+    {
+      "id": "icchadngbpkcegnabnabhkjkfkfflmpj",
+      "name": "Translator",
+      "users": 10000
+    },
+    {
+      "id": "namibphobdcighbjjojlhcflpnhobjeo",
+      "name": "Input Translator",
+      "users": 2000
+    },
+    {
+      "id": "pfoflbejajgbpkmllhogfpnekjiempip",
+      "name": "Translator - Select to Translate",
+      "users": 60000
+    },
+    {
+      "id": "bebmphofpgkhclocdbgomhnjcpelbenh",
+      "name": "Translator, Dictionary - Accurate Translate",
+      "users": 100000
+    },
+    {
+      "id": "gipnlpdeieaidmmeaichnddnmjmcakoe",
+      "name": "Selection Search",
+      "users": 40000
+    }
+  ],
+  "retrievedAt": "2026-10-23T20:34:22.535Z",
+  "hl": "en",
+  "files": {
+    "screenshots": [
+      "screenshots/1.png",
+      "screenshots/2.png",
+      "screenshots/3.png"
+    ],
+    "icon": "icon.png",
+    "smallPromo": "promo-440x280.png",
+    "marquee": "marquee-1400x560.png"
+  },
+  "errors": [],
+  "researchNotes": {
+    "angle": "Selection-only context-menu handoff to Google Translate.",
+    "weakness": "Last store update2024-06-02; narrow workflow. AI Translator can show in-page results and whole-page mode instead of a handoff.",
+    "date": "2026-10-23"
+  }
+}

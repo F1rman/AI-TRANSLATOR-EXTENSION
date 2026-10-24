@@ -1,0 +1,24 @@
+🌐 AI Translator - Smart, instant translation powered by the latest AI
+
+Want to read foreign articles, documentation, or any web content without leaving the page? AI Translator gives you accurate, context-aware translation in a single gesture. 🚀
+
+⚡ KEY FEATURES
+✅ Translate the whole page: bilingual mode keeps the original and puts the translation right under each paragraph, or replace the text in place. Menus, header and footer are left alone so the layout never breaks (turn on "Translate the whole page" if you want them too).
+✅ Text translator panel: open the side panel, paste up to 5000 characters, translate with Ctrl+Enter, swap languages, copy the result.
+✅ Hover to translate: move your mouse over any text for an instant tooltip translation.
+✅ Select to translate: highlight text, then click the floating icon for a full popup.
+✅ Right-click to translate: use the context menu on any selection.
+✅ Powered by the latest AI: high-quality, context-preserving translation, not word-by-word. The AI builds a glossary for each page so terminology stays consistent.
+✅ 50+ languages: Vietnamese, English, Chinese (Simplified & Traditional), Japanese, Korean, Thai, Spanish, French, German, Russian, Arabic, and many more.
+✅ Interface in 21 languages, with right-to-left support for Arabic, Persian and Hebrew.
+✅ Dark mode and light mode.
+✅ Turn hover lookup off on any site you choose.
+
+📖 PERFECT FOR
+- Reading foreign articles, research papers and documentation
+- Learning a new language with the original text side by side
+- Following international news
+- Translating long pages without copying and pasting
+
+🔒 PRIVACY
+No account, no tracking. Your text is sent only when you ask for a translation, and translations are not stored.

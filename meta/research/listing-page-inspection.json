@@ -1,0 +1,29 @@
+[
+  {
+    "id": "gbefmodhlophhakmoecijeppjblibmie",
+    "url": "https://chromewebstore.google.com/detail/gbefmodhlophhakmoecijeppjblibmie?hl=en",
+    "finalUrl": "https://chromewebstore.google.com/detail/linguist-web-page-transla/gbefmodhlophhakmoecijeppjblibmie?hl=en",
+    "httpStatus": 200,
+    "bytes": 741198,
+    "fetch": "Node.fetch",
+    "webToolError": "URL not accessible via web tool; successful direct fetch and competitors.mjs used instead."
+  },
+  {
+    "id": "hkelkkhcmkhbpkenoogdeomannakpilk",
+    "url": "https://chromewebstore.google.com/detail/hkelkkhcmkhbpkenoogdeomannakpilk?hl=en",
+    "finalUrl": "https://chromewebstore.google.com/detail/ai-translator-smart-ai-tr/hkelkkhcmkhbpkenoogdeomannakpilk?hl=en",
+    "httpStatus": 200,
+    "bytes": 673759,
+    "fetch": "Node.fetch",
+    "webToolError": "URL not accessible via web tool; successful direct fetch and competitors.mjs used instead."
+  },
+  {
+    "id": "hbblhboakojbegilahlbppmmkogdgehp",
+    "url": "https://chromewebstore.google.com/detail/hbblhboakojbegilahlbppmmkogdgehp?hl=en",
+    "finalUrl": "https://chromewebstore.google.com/detail/ai-translator/hbblhboakojbegilahlbppmmkogdgehp?hl=en",
+    "httpStatus": 200,
+    "bytes": 706228,
+    "fetch": "Node.fetch",
+    "webToolError": "URL not accessible via web tool; successful direct fetch and competitors.mjs used instead."
+  }
+]

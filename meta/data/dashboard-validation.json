@@ -1,0 +1,41 @@
+{
+  "checkedAt": "2026-10-24T16:39:09.528Z",
+  "success": true,
+  "tasks": 10,
+  "tabs": [
+    {
+      "hash": "#tasks",
+      "text": "Tasks"
+    },
+    {
+      "hash": "#listing",
+      "text": "Listing"
+    },
+    {
+      "hash": "#images",
+      "text": "Images"
+    },
+    {
+      "hash": "#extension",
+      "text": "In-extension"
+    },
+    {
+      "hash": "#competitors",
+      "text": "Competitors · 8"
+    },
+    {
+      "hash": "#keywords",
+      "text": "Keywords"
+    },
+    {
+      "hash": "#store",
+      "text": "Store form"
+    }
+  ],
+  "localImages": 58,
+  "copyPayloadChecked": true,
+  "clipboardTransport": "stubbed in disposable QA browser",
+  "englishDescriptionChecked": true,
+  "manualTaskPersistenceChecked": true,
+  "errors": []
+}

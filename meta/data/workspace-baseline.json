@@ -1,0 +1,4 @@
+{
+  "nonMetaTrackedDiffSha256": "89611fbf7b12ebae7ec968344c281b737452fa53de2268d5eb04bc09e9e7dc86",
+  "nonMetaGitStatus": " M README.md\n M deployment.json\n M docs/GOOGLE_SIGN_IN.md\n M extension/package-lock.json\n M extension/package.json\n M extension/scripts/build.mjs\n M scripts/browser-qa.mjs\n?? extension/store-public-key.txt"
+}
