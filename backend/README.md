@@ -13,7 +13,7 @@ Public routes require a verified Firebase ID token from a verified Google accoun
 | `POST /v1/translation-jobs` | HTTP 202: job ID, status, quota |
 | `GET /v1/translation-jobs/{id}` | Owner-only status and completed segments |
 | `DELETE /v1/translation-jobs/{id}` | Owner-only cancellation |
-| `POST /v1/image-translation-jobs` | Pro only, multipart `file`, `sourceLanguage`, `targetLanguage`, `idempotencyKey`; HTTP 202 |
+| `POST /v1/image-translation-jobs` | Available when the current plan enables images; multipart `file`, `sourceLanguage`, `targetLanguage`, `idempotencyKey`; HTTP 202 |
 | `GET /v1/image-translation-jobs/{id}` | Owner-only image job state and result dimensions |
 | `DELETE /v1/image-translation-jobs/{id}` | Owner-only cancellation and file deletion |
 | `GET /v1/image-translation-jobs/{id}/image?variant=original\|translated` | Owner-only file bytes, never a public Storage URL |
@@ -32,7 +32,8 @@ Submission body:
 Job statuses: `queued`, `running`, `completed`, `failed`, `cancelled`. Completed results contain `translations: [{id,text}]`. Errors use `{error:{code,message}}`, with `Retry-After` when appropriate. Only the owner can read/cancel a job. Raw prompts and page URLs are not accepted.
 
 `GET /v1/me` also returns `plan: "free" | "pro"`, `features: {imageTranslation: boolean}` and
-`imageQuota: {dailyImages, usedImages, reservedImages, remainingImages, resetsAt}`.
+`quota: {monthlyWords, usedWords, reservedWords, remainingWords, resetsAt}` and
+`imageQuota: {monthlyImages, usedImages, reservedImages, remainingImages, resetsAt}`.
 An image job returns `{id, status, kind: "image", imageQuota, output?, error?}`. Its completed
 `output` contains `{mimeType: "image/png", width, height, bytes}` without internal object names.
 Static PNG/JPEG/WebP uploads are decoded and checked, independently of filename/MIME claims,
@@ -42,6 +43,31 @@ No image URL fetching is available on the backend.
 Internal `POST /internal/process-job` and `/internal/reconcile` require a Google OIDC token whose audience and verified service-account email match server configuration. Cloud Tasks sends only job ID/generation; text stays in the backend job record.
 
 ## Configuration
+
+Edit **[`app/limits.json`](app/limits.json)** to change allowances. This is the only
+source of monthly plan limits; deploy/restart the backend after editing it. The file
+is validated at startup, including integer values, both plans, `calendar_month` and
+`UTC`; malformed configuration stops startup. There are no environment overrides.
+
+| Plan | Words / calendar month | Images / calendar month |
+| --- | ---: | ---: |
+| Free | 10,000 | 5 |
+| Pro | 200,000 | 150 |
+
+The configured values are enforced for each account's server-owned plan. Image
+translation is enabled whenever that plan's `monthlyImages` is greater than zero;
+Free users can use their five images without Pro. Setting the allowance to zero
+disables new image uploads before reading their body (`PRO_REQUIRED` retains the
+existing error contract). Exhausted enabled plans return `IMAGE_QUOTA_EXCEEDED`.
+Actual requests count source word segments, never converted character usage. Allowance resets
+at 00:00 UTC on the first day of each calendar month. Unused allowance does not roll over.
+
+Words use [uniseg 0.10.1 / UAX #29 Unicode boundaries](https://uniseg-py.readthedocs.io/en/latest/wordbreak.html),
+counting segments containing at least one letter or number. Apostrophes and combining
+marks follow the standard; punctuation, whitespace and emoji alone count zero. Each
+submitted text segment is counted separately. This is not dictionary-based language
+analysis: Han characters are counted separately, while Katakana runs may stay joined.
+The 4,000 source-character / 24-segment per-job safety limit remains unchanged.
 
 | Variable | Production value/default |
 | --- | --- |
@@ -56,36 +82,46 @@ Internal `POST /internal/process-job` and `/internal/reconcile` require a Google
 | `TASK_QUEUE_LOCATION` | `europe-west1` |
 | `TASK_QUEUE_NAME` | `translation-jobs` |
 | `TASK_SERVICE_ACCOUNT` | `ai-translator-tasks@ai-translator-ext.iam.gserviceaccount.com` |
-| `DAILY_CHARACTER_LIMIT` | `20000` |
 | `MAX_SEGMENTS`, `MAX_CHARACTERS_PER_JOB` | `24`, `4000` |
 | `MAX_CONCURRENT_JOBS` | `2` |
 | `JOB_TTL_SECONDS`, `JOB_LEASE_SECONDS` | `86400`, `120` |
-| `DAILY_IMAGE_LIMIT`, `IMAGE_JOB_LEASE_SECONDS` | `5`, `600` |
+| `IMAGE_JOB_LEASE_SECONDS` | `600` |
 
 `ALLOW_DEV_AUTH=true` only works with local memory mode and is rejected on Cloud Run. In that explicit mode, local test identities use `Authorization: Bearer dev:local-user`. Do not enable it for deployment.
 
 ## Job consistency
 
-Firestore atomically reserves quota, creates the job, and stores the per-owner idempotency mapping. Reusing a key with different content returns `IDEMPOTENCY_CONFLICT`. Success charges the original reservation day once; failure/cancellation releases it. Expiring leases, deterministic generation-based task names, and scheduled reconciliation recover queued or interrupted jobs. Late workers cannot overwrite a newer generation or a cancelled job.
+Firestore atomically reads the server-owned plan, reserves quota, creates the job, and stores the per-owner idempotency mapping. Reusing a key with different content returns `IDEMPOTENCY_CONFLICT`. Success charges the original reservation month once; failure/cancellation releases it. Expiring leases, deterministic generation-based task names, and scheduled reconciliation recover queued or interrupted jobs. Late workers cannot overwrite a newer generation or a cancelled job.
 
 External AI calls cannot provide an exactly-once guarantee across an infrastructure crash. A recovered attempt can call the provider again, while user quota remains protected against duplicate charges.
 
 Image and text jobs share the same owner concurrency document: at most two active jobs total,
-including at most one image job. `imageUsage` contains separate UTC-day counters, so images do
-not consume the 20,000 source-character text allowance. One successful image charges one unit;
+including at most one image job. `monthlyImageUsage` contains separate UTC-month counters, so images do
+not consume the word allowance. One successful image charges one unit;
 failure/cancellation returns its reservation. Idempotency includes the image digest and both languages.
 The provider receives image multipart requests with a 330-second client timeout; image leases and
 Cloud Task dispatch deadlines are 600 seconds. Text retains its 65-second provider timeout and
 120-second lease/deadline. Run the backend with a Cloud Run request timeout of at least 600 seconds.
 
 Entitlements are admin-owned documents in `translationEntitlements/{sha256(uid UTF-8)}`.
-Only `{plan: "pro"}` grants access; a missing document or `{plan: "free"}` does not. Additional
-admin audit fields are allowed. The backend does not trust an email/client flag or expose an
-entitlement write route. It checks the entitlement transactionally at reservation and again directly
-before the provider call, so revoking access prevents queued image work from incurring a new call.
-Revocation cannot interrupt an image operation already accepted by the external provider.
+Only `{plan: "pro"}` selects Pro limits; a missing document or `{plan: "free"}` selects
+Free limits. Additional admin audit fields are allowed. The backend does not trust an
+email/client flag or expose an entitlement write route. It reads the current plan
+transactionally at reservation and checks the configured feature and original-month
+usage again before the provider call. Downgrading Pro to Free keeps image access
+while the reservation fits the Free allowance; otherwise the queued job fails and
+its reservation is released. Plan changes cannot interrupt an image operation already
+accepted by the external provider.
 
-Collections `translationJobs` and `translationIdempotency` have TTL on `expiresAt`. `translationUsers` stores hashed UID document keys, recent daily counters and active reservations. Direct client Firestore access is denied. Source/translation text is temporary job data; application logs omit it. Firestore TTL is asynchronous.
+Collections `translationJobs` and `translationIdempotency` have TTL on `expiresAt`.
+`translationUsers` stores hashed UID document keys, `monthlyUsage`/`monthlyImageUsage`
+counters keyed by `YYYY-MM`, and active reservations recording month and amount.
+Current and previous month counters are retained for safe rollover settlement. Legacy
+`usage`/`imageUsage` day counters and pre-upgrade reservations are settled in their
+original day and unit until expiry; historical characters are never converted into
+words. Monthly accounting began in 1.1.1; changing plan limits preserves existing usage. Direct client Firestore
+access is denied. Source/translation text is temporary job data; application logs omit
+it. Firestore TTL is asynchronous.
 
 Only image metadata/object keys live in Firestore. Files are private Storage objects under
 `jobs/{job-id}/`; originals and results are accessible through authenticated owner-only routes for
@@ -97,7 +133,8 @@ best-effort basis, with lifecycle as the fallback for infrastructure failures an
 Every provider attempt writes its result to a lease-specific object; stale attempts delete their
 own result without overwriting a newer result.
 
-Ordinary job polling uses one job read and one quota read, with no transaction; task recovery runs
+Ordinary job polling uses one job read, one account read and one current-entitlement read
+(the latter two in parallel), with no transaction; task recovery runs
 only when the stored recovery time is due. Text upstream requests set `profile: "translation"`.
 `Server-Timing` exposes numeric auth/handler durations. Application timing logs contain stage,
 kind and duration only, without translation text, image bytes, user tokens or API credentials.

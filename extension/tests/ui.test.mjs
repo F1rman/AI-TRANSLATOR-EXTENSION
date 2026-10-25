@@ -16,10 +16,12 @@ test('language dropdown searches native names and codes without committing draft
   const directory = await mkdtemp(join(tmpdir(), 'translator-ui-'));
   let root; const initialHandles = new Set(process._getActiveHandles());
   try {
-    const bundle = await build({ stdin: { contents: 'export { createElement, act } from "react"; export { createRoot } from "react-dom/client"; export { LanguageField } from "./src/ui/LanguageField"; export { DEFAULT_SETTINGS } from "./src/shared/protocol"; export { languages, findLanguages } from "./src/ui/languages";', resolveDir: process.cwd(), loader: 'tsx' }, bundle: true, platform: 'node', format: 'esm', write: false });
+    const bundle = await build({ stdin: { contents: 'export { createElement, act } from "react"; export { createRoot } from "react-dom/client"; export { LanguageField } from "./src/ui/LanguageField"; export { DEFAULT_SETTINGS } from "./src/shared/protocol"; export { errorText } from "./src/content/ui"; export { languages, findLanguages } from "./src/ui/languages";', resolveDir: process.cwd(), loader: 'tsx' }, bundle: true, platform: 'node', format: 'esm', write: false });
     const file = join(directory, 'ui.mjs'); await writeFile(file, bundle.outputFiles[0].text);
-    const { createElement, act, createRoot, LanguageField, DEFAULT_SETTINGS, languages, findLanguages } = await import(pathToFileURL(file).href);
+    const { createElement, act, createRoot, LanguageField, DEFAULT_SETTINGS, languages, findLanguages, errorText } = await import(pathToFileURL(file).href);
     assert.equal(languages.length, 34);
+    assert.match(errorText({ code: 'QUOTA_EXCEEDED', message: 'limit' }, 'en'), /monthly word.*first day.*00:00 UTC/);
+    assert.match(errorText({ code: 'QUOTA_EXCEEDED', message: 'limit' }, 'uk'), /Місячний ліміт слів.*першого числа.*00:00 UTC/);
     for (const query of ['Українська', 'uk', 'Français', 'francais', '日本語', 'ja', 'العربية', 'ar', 'zh-cn']) assert.ok(findLanguages(query).length > 0, `search supports ${query}`);
     const changes = [];
     root = createRoot(document.getElementById('root'));

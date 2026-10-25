@@ -28,9 +28,9 @@ if __name__ == '__main__':
         'TASK_QUEUE_NAME': 'translation-jobs', 'TASK_SERVICE_ACCOUNT': TASKS,
         'UPSTREAM_API_URL': 'https://gpt-api-kldxufmrdq-ew.a.run.app/api/generate',
         'UPSTREAM_IMAGE_API_URL': 'https://gpt-api-kldxufmrdq-ew.a.run.app/api/translate-image',
-        'IMAGE_BUCKET': 'ai-translator-ext-images', 'DAILY_IMAGE_LIMIT': '5',
+        'IMAGE_BUCKET': 'ai-translator-ext-images',
         'IMAGE_JOB_LEASE_SECONDS': '600',
-        'DAILY_CHARACTER_LIMIT': '20000', 'MAX_SEGMENTS': '24',
+        'MAX_SEGMENTS': '24',
         'MAX_CHARACTERS_PER_JOB': '4000', 'MAX_CONCURRENT_JOBS': '2',
         'JOB_TTL_SECONDS': '86400', 'JOB_LEASE_SECONDS': '120',
     }
@@ -42,11 +42,13 @@ if __name__ == '__main__':
         '--min-instances=0', '--max-instances=2')
     deployment_file = ROOT/'deployment.json'
     previous = json.loads(deployment_file.read_text()) if deployment_file.exists() else {}
+    previous.pop('dailyImages', None)
+    limits = json.loads((ROOT/'backend/app/limits.json').read_text())
     deployment_file.write_text(json.dumps({**previous,
         'projectId': PROJECT, 'region': REGION, 'apiBaseUrl': BASE,
         'hostingUrl': 'https://ai-translator-ext.web.app',
         'firebaseAppId': '1:1060412514800:web:c02c6ef48ae7066d94bd35',
         'service': SERVICE, 'queue': 'translation-jobs',
-        'imageBucket': 'ai-translator-ext-images', 'dailyImages': 5,
-        'backendVersion': '1.1.0',
+        'imageBucket': 'ai-translator-ext-images', 'quotaLimits': limits,
+        'backendVersion': '1.1.2',
     }, indent=2)+'\n')

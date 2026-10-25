@@ -50,12 +50,12 @@ export function createImageController(api: Api, settings: () => Promise<Settings
   const submitting = new Map<string, Promise<ImageJob>>();
   let generation = 0;
   let signingOut = false;
-  async function requirePro() {
+  async function requireImageAccess() {
     const account = await api<Account>('/me');
-    if (account.plan !== 'pro' || !account.features?.imageTranslation) fail('PRO_REQUIRED', 'Image translation is available with Pro.');
+    if (!account.features?.imageTranslation) fail('FEATURE_DISABLED', 'Image translation is not available for this account.');
   }
   async function original(id: string): Promise<Blob> {
-    await requirePro();
+    await requireImageAccess();
     const current = await intent(id);
     if (!originals.has(id)) {
       if (originals.size >= 2) originals.delete(originals.keys().next().value!);
@@ -104,7 +104,7 @@ export function createImageController(api: Api, settings: () => Promise<Settings
     const { intentId, sourceLanguage, targetLanguage, restart } = request.payload;
     for (const language of [sourceLanguage, targetLanguage]) if (typeof language !== 'string' || !language.trim() || language.length > 80) fail('INVALID_REQUEST', 'Choose a valid language.');
     if (targetLanguage === 'auto') fail('INVALID_REQUEST', 'Choose a target language.');
-    await requirePro();
+    await requireImageAccess();
     let current = await intent(intentId);
     const changed = current.sourceLanguage !== sourceLanguage || current.targetLanguage !== targetLanguage;
     if (current.jobId) {

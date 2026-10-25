@@ -10,14 +10,14 @@ OAuth-клієнт розширення вже доданий до збірки:
 
 Store public key збережено в [extension/store-public-key.txt](../extension/store-public-key.txt) та додано до збірки. Перевірено, що SHA-256 цього ключа дає ID `aieamemimbcbbnmakifejomadhegogge`, і Chromium завантажує розширення саме з цим ID.
 
-Зібрано `artifacts/ai-translator-1.1.0.zip` для оновлення наявної чернетки Store. Версію підвищено для завантаження нового пакета. Налаштування Google-входу повністю задані; реальний вхід ще потрібно пройти у звичайному Google Chrome. Автоматизований Chromium перевіряє ID, ініціалізацію Firebase, інтерфейс та DOM-переклад; його обмеження Google identity не дозволяють підтвердити вхід користувача.
+Зібрано `artifacts/ai-translator-1.1.3.zip` для оновлення наявної чернетки Store. Версію підвищено для завантаження нового пакета. Налаштування Google-входу повністю задані; реальний вхід ще потрібно пройти у звичайному Google Chrome. Автоматизований Chromium перевіряє ID, ініціалізацію Firebase, інтерфейс та DOM-переклад; його обмеження Google identity не дозволяють підтвердити вхід користувача.
 
 Firebase Google provider використовує OAuth-клієнт типу **Web application**; `chrome.identity` у розширенні використовує окремий клієнт типу **Chrome Extension**, прив'язаний до Item ID. За самим рядком Client ID визначити його тип неможливо: перевірити його можна на [сторінці Clients](https://console.cloud.google.com/auth/clients?project=ai-translator-ext). Наявний Firebase-клієнт зберігаємо; у `VITE_GOOGLE_CLIENT_ID` потрібно вказати саме Chrome Extension клієнт.
 
 ## Кроки налаштування
 
 1. Зібрати ZIP: `npm run build` → `npm run package`.
-2. У [Chrome Web Store Developer Dashboard](https://chrome.google.com/webstore/devconsole) відкрити наявний item `aieamemimbcbbnmakifejomadhegogge` і завантажити оновлений `artifacts/ai-translator-1.1.0.zip` у **Package**. Зберегти як чернетку, без подання на модерацію. Новий item не створювати.
+2. У [Chrome Web Store Developer Dashboard](https://chrome.google.com/webstore/devconsole) відкрити наявний item `aieamemimbcbbnmakifejomadhegogge` і завантажити оновлений `artifacts/ai-translator-1.1.3.zip` у **Package**. Зберегти як чернетку, без подання на модерацію. Новий item не створювати.
 3. У **Package → View public key** скопіювати public key. Видалити BEGIN/END PUBLIC KEY та переноси рядків. Приватного ключа для цього не потрібно.
 4. У [Google Auth Platform](https://console.cloud.google.com/auth/overview?project=ai-translator-ext) налаштувати назву **AI Translator**, контакт власника, зовнішню аудиторію та посилання на домашню сторінку/приватність. У полі **App logo** завантажити [ai-translator-oauth-120.png](../assets/branding/ai-translator-oauth-120.png) — готовий PNG 120×120. Великий оригінал — [ai-translator-logo-master.png](../assets/branding/ai-translator-logo-master.png). [Вимоги Google до логотипа](https://support.google.com/cloud/answer/15549049?hl=en): квадратне зображення, до 1 MB, рекомендовано 120×120. Для тестування додати потрібні Google-акаунти як test users; для публічного доступу перевести OAuth app у Production.
 5. На сторінці **Clients** перевірити OAuth-клієнт `1060412514800-4j2utpmaak9lbknl5d077ffaoe6e3ei6.apps.googleusercontent.com`: тип **Chrome Extension**, Item ID — `aieamemimbcbbnmakifejomadhegogge`. Client ID і public key уже додані до збірки.

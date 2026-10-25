@@ -8,3 +8,4 @@ google-cloud-firestore==2.34.1
 google-cloud-storage==3.17.1
 Pillow==12.0.0
 python-multipart==0.0.22
+uniseg==0.10.1

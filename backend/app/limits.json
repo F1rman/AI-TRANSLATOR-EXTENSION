@@ -1,0 +1,14 @@
+{
+  "period": "calendar_month",
+  "timezone": "UTC",
+  "plans": {
+    "free": {
+      "monthlyWords": 10000,
+      "monthlyImages": 5
+    },
+    "pro": {
+      "monthlyWords": 200000,
+      "monthlyImages": 150
+    }
+  }
+}

@@ -209,7 +209,7 @@ async function createMenus() {
   await chrome.contextMenus.removeAll();
   chrome.contextMenus.create({ id: 'translate-selection', title: language === 'uk' ? 'Перекласти виділене — AI Translator' : 'Translate selection — AI Translator', contexts: ['selection'] });
   chrome.contextMenus.create({ id: 'translate-page', title: language === 'uk' ? 'Перекласти сторінку — AI Translator' : 'Translate page — AI Translator', contexts: ['page'] });
-  chrome.contextMenus.create({ id: 'translate-image', title: language === 'uk' ? 'Перекласти картинку — Pro' : 'Translate image — Pro', contexts: ['image'] });
+  chrome.contextMenus.create({ id: 'translate-image', title: language === 'uk' ? 'Перекласти картинку' : 'Translate image', contexts: ['image'] });
 }
 chrome.runtime.onInstalled.addListener(() => { void createMenus(); });
 chrome.runtime.onStartup.addListener(() => { void createMenus(); });

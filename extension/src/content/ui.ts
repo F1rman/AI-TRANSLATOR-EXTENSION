@@ -5,7 +5,7 @@ const COPY = {
     name: 'AI Translator', translate: 'Перекласти', loading: 'Перекладаємо…', copy: 'Копіювати', copied: 'Скопійовано', close: 'Закрити',
     stop: 'Зупинити', restore: 'Оригінал', retry: 'Продовжити', signIn: 'Увійти з Google', ready: 'Сторінку перекладено',
     watching: 'Новий текст перекладатиметься автоматично', paused: 'Переклад призупинено', blocks: 'блоків', failed: 'з помилкою',
-    auth: 'Увійди з Google, щоб почати переклад.', quota: 'Денний ліміт вичерпано. Він оновиться о 00:00 UTC.',
+    auth: 'Увійди з Google, щоб почати переклад.', quota: 'Місячний ліміт слів вичерпано. Він оновиться першого числа о 00:00 UTC.',
     network: 'Не вдалося з’єднатися. Перевір інтернет і продовж переклад.', long: 'Виділи до 20 000 символів для одного перекладу.',
     invalid: 'AI повернув неповний переклад. Спробуй ще раз.',
     rate: 'Сервіс тимчасово зайнятий. Спробуй трохи пізніше.',
@@ -15,7 +15,7 @@ const COPY = {
     name: 'AI Translator', translate: 'Translate', loading: 'Translating…', copy: 'Copy', copied: 'Copied', close: 'Close',
     stop: 'Stop', restore: 'Original', retry: 'Continue', signIn: 'Sign in with Google', ready: 'Page translated',
     watching: 'New text will be translated automatically', paused: 'Translation paused', blocks: 'blocks', failed: 'failed',
-    auth: 'Sign in with Google to start translating.', quota: 'Your daily limit is used up. It resets at 00:00 UTC.',
+    auth: 'Sign in with Google to start translating.', quota: 'Your monthly word allowance is used up. It resets on the first day of the month at 00:00 UTC.',
     network: 'Could not connect. Check your connection and continue.', long: 'Select up to 20,000 characters for one translation.',
     invalid: 'The AI returned an incomplete translation. Please try again.',
     rate: 'The service is busy. Please try again shortly.',
@@ -90,6 +90,7 @@ export class ContentUI {
   readonly host: HTMLDivElement;
   private container: HTMLDivElement;
   private toolbar?: HTMLDivElement;
+  private dismissedToolbarSessionId?: string;
   private chip?: HTMLButtonElement;
   private bubble?: HTMLDivElement;
   private anchor?: DOMRect;
@@ -131,13 +132,25 @@ export class ContentUI {
   showToolbar(state: PageFrameState, error?: ApiError): void {
     this.lastState = state;
     this.lastError = error;
-    if (state.status === 'idle') { this.toolbar?.remove(); this.toolbar = undefined; return; }
+    if (state.status === 'idle' || state.sessionId === this.dismissedToolbarSessionId) {
+      this.toolbar?.remove();
+      this.toolbar = undefined;
+      return;
+    }
     const t = COPY[this.settings.uiLanguage];
     const card = element('div', 'card toolbar');
     card.setAttribute('role', 'region');
     card.setAttribute('aria-label', t.name);
     const head = element('div', 'headline');
-    head.append(element('span', 'mark', '文'), element('span', undefined, t.name));
+    const close = button('×', () => {
+      this.dismissedToolbarSessionId = state.sessionId;
+      this.toolbar?.remove();
+      this.toolbar = undefined;
+    });
+    close.className = 'close';
+    close.setAttribute('aria-label', t.close);
+    close.title = t.close;
+    head.append(element('span', 'mark', '文'), element('span', undefined, t.name), close);
     const title = element('div', 'state', state.status === 'translating' ? t.loading : state.status === 'translated' ? t.ready : t.paused);
     const detail = element('div', 'detail', error ? errorText(error, this.settings.uiLanguage) : state.message || (state.status === 'translated' ? t.watching : `${state.completed} / ${state.total} ${t.blocks}${state.failed ? ` · ${state.failed} ${t.failed}` : ''}`));
     title.setAttribute('aria-live', 'polite');

@@ -1,6 +1,8 @@
 from dataclasses import dataclass, field
 import os
 
+from .limits import MonthlyLimits, load_limits
+
 
 @dataclass(frozen=True)
 class Settings:
@@ -16,14 +18,13 @@ class Settings:
     task_queue: str = "translation-jobs"
     task_service_account: str = ""
     task_audience: str = ""
-    daily_characters: int = 20_000
+    limits: MonthlyLimits = field(default_factory=load_limits)
     max_segments: int = 24
     max_characters: int = 4_000
     max_concurrent_jobs: int = 2
     job_ttl_seconds: int = 86_400
     lease_seconds: int = 120
     image_lease_seconds: int = 600
-    daily_images: int = 5
     max_image_bytes: int = 10 * 1024 * 1024
     max_image_pixels: int = 20_000_000
     allow_dev_auth: bool = False
@@ -51,14 +52,12 @@ class Settings:
             task_queue=os.environ.get("TASK_QUEUE_NAME", "translation-jobs"),
             task_service_account=os.environ.get("TASK_SERVICE_ACCOUNT", ""),
             task_audience=os.environ.get("TASK_AUDIENCE", base_url),
-            daily_characters=number("DAILY_CHARACTER_LIMIT", 20_000),
             max_segments=number("MAX_SEGMENTS", 24),
             max_characters=number("MAX_CHARACTERS_PER_JOB", 4_000),
             max_concurrent_jobs=number("MAX_CONCURRENT_JOBS", 2),
             job_ttl_seconds=number("JOB_TTL_SECONDS", 86_400),
             lease_seconds=number("JOB_LEASE_SECONDS", 120),
             image_lease_seconds=number("IMAGE_JOB_LEASE_SECONDS", 600),
-            daily_images=number("DAILY_IMAGE_LIMIT", 5),
             allow_dev_auth=os.environ.get("ALLOW_DEV_AUTH", "false").lower() == "true",
         )
         if settings.mode not in {"firestore", "memory"}:

@@ -25,8 +25,10 @@ test('image UI gates uploads, resumes jobs, downloads PNG and recovers from poll
       const picture = (text) => { const canvas = document.createElement('canvas'); canvas.width = 800; canvas.height = 480; const ctx = canvas.getContext('2d'); ctx.fillStyle = '#e4ebda'; ctx.fillRect(0, 0, 800, 480); ctx.fillStyle = '#263027'; ctx.font = '600 54px system-ui'; ctx.fillText(text, 64, 200); ctx.font = '28px system-ui'; ctx.fillText('AI Translator · UI test fixture', 64, 260); return canvas.toDataURL('image/png'); };
       const png = picture('Hello, world!'); const translatedPng = picture('Привіт, світе!');
       const user = { uid: 'test-user', email: 'test@example.com', name: 'Test', picture: null };
-      const quota = { dailyCharacters: 20000, usedCharacters: 0, reservedCharacters: 0, remainingCharacters: 20000, resetsAt: '2026-10-25T00:00:00Z' };
-      const imageQuota = { dailyImages: 5, usedImages: 0, reservedImages: 0, remainingImages: 5, resetsAt: quota.resetsAt };
+      const free = mode.startsWith('free');
+      const monthlyWords = free ? 10000 : 200000;
+      const quota = { monthlyWords, usedWords: mode === 'words-exhausted' ? monthlyWords : 1234, reservedWords: 23, remainingWords: mode === 'words-exhausted' ? 0 : monthlyWords - 1257, resetsAt: '2026-11-01T00:00:00Z' };
+      const imageQuota = { monthlyImages: free ? 5 : mode === 'custom-quota' ? 17 : 150, usedImages: mode === 'images-exhausted' ? 150 : 0, reservedImages: 0, remainingImages: mode === 'images-exhausted' ? 0 : free ? 5 : mode === 'custom-quota' ? 17 : 150, resetsAt: quota.resetsAt };
       let loggedIn = mode !== 'signedout'; let settings = { sourceLanguage: 'auto', targetLanguage: 'Ukrainian', uiLanguage: mode === 'pro-dark' ? 'uk' : 'en', theme: mode === 'pro-dark' ? 'dark' : 'light', selectionMode: 'icon' };
       let submitted = false; let getCount = 0; let cancelled = false;
       globalThis.uiRequests = [];
@@ -39,11 +41,13 @@ test('image UI gates uploads, resumes jobs, downloads PNG and recovers from poll
           case 'auth:get': data = { user: loggedIn ? user : null, configured: true }; break;
           case 'auth:login': loggedIn = true; data = { user, configured: true }; break;
           case 'auth:logout': loggedIn = false; data = { user: null, configured: true }; break;
-          case 'account:get': data = { user, quota, imageQuota, plan: mode === 'free' ? 'free' : 'pro', features: { imageTranslation: mode !== 'free' }, limits: {} }; break;
+          case 'account:get': data = { user, quota, imageQuota, plan: free ? 'free' : 'pro', features: { imageTranslation: !mode.endsWith('disabled') }, limits: {} }; break;
           case 'image:intent': data = { id: 'intent', srcUrl: 'https://fixture.test/image.png', sourceLanguage: 'auto', targetLanguage: 'Ukrainian', idempotencyKey: 'key', createdAt: Date.now(), ...(mode === 'resume' ? { jobId: 'existing-job' } : {}) }; break;
           case 'image:prepare': data = { dataUrl: png }; break;
           case 'image:asset': data = { dataUrl: request.payload.variant === 'translated' ? translatedPng : png }; break;
-          case 'image:submit': submitted = true; cancelled = false; getCount = 0; data = { id: 'new-job', kind: 'image', status: 'queued' }; break;
+          case 'image:submit':
+            if (mode === 'quota-error') return { ok: false, error: { code: 'IMAGE_QUOTA_EXCEEDED', message: 'Limit reached' } };
+            submitted = true; cancelled = false; getCount = 0; data = { id: 'new-job', kind: 'image', status: 'queued' }; break;
           case 'image:get':
             getCount++;
             if (mode === 'network' && getCount === 1) return { ok: false, error: { code: 'NETWORK_ERROR', message: 'Offline' } };
@@ -60,15 +64,50 @@ test('image UI gates uploads, resumes jobs, downloads PNG and recovers from poll
     return { context, page, requests: () => page.evaluate(() => globalThis.uiRequests) };
   }
   try {
-    for (const mode of ['free', 'signedout']) {
+    for (const mode of ['free-disabled', 'pro-disabled', 'signedout']) {
       const { context, page, requests } = await open(mode);
-      await page.getByRole('heading', { name: mode === 'free' ? 'Available with Pro' : 'Continue with Google', exact: true }).waitFor();
+      await page.getByRole('heading', { name: mode.endsWith('disabled') ? 'Image translation unavailable' : 'Continue with Google', exact: true }).waitFor();
       assert.equal((await requests()).filter((request) => ['image:prepare', 'image:submit', 'image:asset'].includes(request.type)).length, 0, `${mode} must never fetch/upload image bytes`);
+      if (mode.endsWith('disabled')) assert.equal(await page.locator('.plan-summary .plan-badge').textContent(), mode.startsWith('free') ? 'Free' : 'PRO', 'disabled feature does not change the actual plan badge');
       await context.close();
     }
+    const freeImage = await open('free'); await freeImage.page.getByRole('button', { name: 'Download PNG' }).waitFor();
+    assert.equal(await freeImage.page.locator('.plan-summary .plan-badge').textContent(), 'Free');
+    assert.equal(await freeImage.page.locator('.plan-summary strong').textContent(), '5 / 5');
+    assert.equal((await freeImage.requests()).filter((request) => request.type === 'image:submit').length, 1, 'Free image translation is enabled by the server feature flag');
+    await freeImage.context.close();
+    const freePopup = await open('free', 'popup'); await freePopup.page.getByText('Words this month', { exact: true }).waitFor();
+    assert.equal(await freePopup.page.locator('.quota-block strong').textContent(), '1,234 / 10,000');
+    assert.equal(await freePopup.page.locator('.plan-summary strong').textContent(), '5 / 5'); await freePopup.context.close();
+    for (const mode of ['images-exhausted', 'quota-error']) {
+      const { context, page, requests } = await open(mode);
+      const monthlyMessage = 'Your monthly image allowance is used up. It resets on the first day of the month at 00:00 UTC.';
+      await page.getByText(monthlyMessage, { exact: true }).waitFor();
+      if (mode === 'images-exhausted') {
+        assert.equal(await page.getByRole('button', { name: 'Translate', exact: true }).isDisabled(), true);
+        assert.equal((await requests()).filter((request) => request.type === 'image:prepare' || request.type === 'image:submit').length, 0, 'exhausted monthly quota does not start work');
+      }
+      await context.close();
+    }
+    const custom = await open('custom-quota'); await custom.page.getByRole('button', { name: 'Download PNG' }).waitFor();
+    assert.equal(await custom.page.locator('.plan-summary strong').textContent(), '17 / 17', 'image quota uses server values without a hardcoded daily/monthly limit'); await custom.context.close();
+    const words = await open('words-exhausted', 'popup');
+    await words.page.getByRole('textbox', { name: 'Type or paste your text…' }).fill('Hello');
+    assert.equal(await words.page.locator('.translate-button').isDisabled(), true, 'monthly word exhaustion disables new translations');
+    await words.page.getByText('Words this month', { exact: true }).waitFor();
+    assert.equal(await words.page.locator('.quota-block strong').textContent(), '200,000 / 200,000');
+    assert.match(await words.page.locator('.quota-reset').textContent(), /Nov.*1.*2026.*00:00.*UTC/);
+    assert.equal(await words.page.locator('.text-card-bottom>span').textContent(), '5 / 4,000', 'batch input limit still counts characters');
+    await words.context.close();
+    const options = await open('pro', 'options'); await options.page.locator('#account .quota-block').waitFor();
+    assert.equal(await options.page.locator('#account .quota-block strong').textContent(), '1,234 / 200,000');
+    assert.equal(await options.page.locator('#account .plan-summary strong').textContent(), '150 / 150');
+    await options.context.close();
     const { context, page, requests } = await open('pro');
     await page.getByRole('button', { name: 'Download PNG' }).waitFor();
     assert.equal(await page.locator('.image-panel img').count(), 2);
+    assert.equal(await page.locator('.plan-summary strong').textContent(), '150 / 150');
+    assert.match(await page.locator('.plan-summary').textContent(), /this month/);
     await page.waitForFunction(() => [...document.querySelectorAll('.image-panel img')].every((image) => image.complete && image.naturalWidth > 0));
     if (screenshotDirectory) await page.screenshot({ path: join(screenshotDirectory, 'image-en-light.png'), fullPage: true });
     assert.equal((await requests()).filter((request) => request.type === 'image:submit').length, 1);
@@ -90,6 +129,8 @@ test('image UI gates uploads, resumes jobs, downloads PNG and recovers from poll
     }
     const dark = await open('pro-dark'); await dark.page.getByRole('button', { name: 'Завантажити PNG' }).waitFor(); assert.equal(await dark.page.locator('html').getAttribute('data-theme'), 'dark'); if (screenshotDirectory) await dark.page.screenshot({ path: join(screenshotDirectory, 'image-uk-dark.png'), fullPage: true }); await dark.context.close();
     const popup = await open('pro', 'popup');
+    await popup.page.getByText('Words this month', { exact: true }).waitFor();
+    assert.equal(await popup.page.locator('.quota-block strong').textContent(), '1,234 / 200,000');
     await popup.page.locator('.language-trigger').last().click();
     const bounds = await popup.page.locator('.language-menu').boundingBox();
     if (screenshotDirectory) await popup.page.screenshot({ path: join(screenshotDirectory, 'language-menu-en.png') });

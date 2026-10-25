@@ -37,7 +37,7 @@ async function fixture(t, plan = 'pro') {
   const globalNames = ['chrome', 'fetch', 'createImageBitmap', '__imageTestTokenCalls'];
   const previous = new Map(globalNames.map((name) => [name, Object.getOwnPropertyDescriptor(globalThis, name)]));
   const callbacks = {}, values = {}, tabs = [], calls = [], posts = [], deleted = [], jobs = new Map(), byKey = new Map();
-  const state = { plan, loseNextResponse: false, sourceResponse: null, beforePost: null, bitmap: { width: 20, height: 12 } };
+  const state = { plan, imageTranslation: true, loseNextResponse: false, sourceResponse: null, beforePost: null, bitmap: { width: 20, height: 12 } };
   const events = (name) => ({ addListener(handler) { callbacks[name] = handler; } });
   const storage = {
     async get(key) { return { [key]: structuredClone(values[key]) }; },
@@ -79,7 +79,7 @@ async function fixture(t, plan = 'pro') {
     throw new Error(`Unexpected fetch: ${href}`);
   };
   const api = async (path, method = 'GET') => {
-    if (path === '/me') return { plan: state.plan, features: { imageTranslation: state.plan === 'pro' } };
+    if (path === '/me') return { plan: state.plan, features: { imageTranslation: state.imageTranslation } };
     const identifier = decodeURIComponent(path.split('/').at(-1));
     const job = jobs.get(identifier);
     assert.ok(job, `Expected known job ${identifier}`);
@@ -102,13 +102,24 @@ async function fixture(t, plan = 'pro') {
   return { controller, open, submit, state, values, calls, posts, jobs, byKey, deleted, callbacks, api };
 }
 
-test('Free accounts cannot fetch, decode or upload an image', async (t) => {
-  const f = await fixture(t, 'free');
-  const id = await f.open();
-  await assertCode(f.controller.handle({ type: 'image:prepare', payload: { intentId: id } }), 'PRO_REQUIRED');
-  await assertCode(f.submit(id), 'PRO_REQUIRED');
-  assert.equal(f.calls.length, 0);
-  assert.equal(f.byKey.size, 0);
+test('server-disabled image access blocks fetch, decode and upload regardless of the plan', async (t) => {
+  for (const plan of ['free', 'pro']) await t.test(plan, async (t) => {
+    const f = await fixture(t, plan); f.state.imageTranslation = false;
+    const id = await f.open();
+    await assertCode(f.controller.handle({ type: 'image:prepare', payload: { intentId: id } }), 'FEATURE_DISABLED');
+    await assertCode(f.submit(id), 'FEATURE_DISABLED');
+    assert.equal(f.calls.length, 0);
+    assert.equal(f.byKey.size, 0);
+  });
+});
+
+test('Free accounts with server-enabled image access can prepare and submit an image', async (t) => {
+  const f = await fixture(t, 'free'); const id = await f.open();
+  const original = await f.controller.handle({ type: 'image:prepare', payload: { intentId: id } });
+  assert.match(original.dataUrl, /^data:image\/png;base64,/);
+  const job = await f.submit(id);
+  assert.equal(job.status, 'queued'); assert.equal(f.posts.length, 1);
+  assert.equal(f.calls.filter(({ url }) => url.startsWith('https://images.example.test/')).length, 1);
 });
 
 test('unsupported inline images and URL credentials never enter session storage', async (t) => {

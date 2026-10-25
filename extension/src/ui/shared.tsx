@@ -9,6 +9,14 @@ export function Brand({ small = false }: { small?: boolean }) {
 export function PlanSummary({ account, locale }: { account: Account | null; locale: UiLanguage }) {
   if (!account) return null;
   const t = messages[locale];
-  const pro = account.plan === 'pro' && account.features?.imageTranslation;
-  return <div className="plan-summary"><div><span className={`plan-badge ${pro ? 'is-pro' : ''}`}>{pro ? 'PRO' : t.freePlan}</span><span>{t.proImages}</span></div><span>{pro ? <><Image size={13}/>{t.imagesRemaining}: <strong>{account.imageQuota.remainingImages} / {account.imageQuota.dailyImages}</strong></> : <><LockKeyhole size={12}/>{t.proOnly}</>}</span></div>;
+  const pro = account.plan === 'pro';
+  const enabled = account.features?.imageTranslation;
+  return <div className="plan-summary" title={quotaResetLabel(account.imageQuota.resetsAt, locale)}><div><span className={`plan-badge ${pro ? 'is-pro' : ''}`}>{pro ? 'PRO' : t.freePlan}</span><span>{t.imageTranslation}</span></div><span>{enabled ? <><Image size={13}/>{t.imagesRemaining}: <strong>{account.imageQuota.remainingImages.toLocaleString(locale)} / {account.imageQuota.monthlyImages.toLocaleString(locale)}</strong><span className="plan-period">{t.monthlyPeriod}</span></> : <><LockKeyhole size={12}/>{t.imageAccessDisabled}</>}</span></div>;
+}
+
+export function quotaResetLabel(resetsAt: string, locale: UiLanguage): string {
+  const date = new Date(resetsAt);
+  if (!Number.isFinite(date.getTime())) return messages[locale].monthlyReset;
+  const formatted = new Intl.DateTimeFormat(locale, { timeZone: 'UTC', year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(date);
+  return `${messages[locale].quotaResets}: ${formatted} UTC`;
 }

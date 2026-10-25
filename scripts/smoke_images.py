@@ -92,24 +92,27 @@ async def run(args, report):
     images.bucket = images.client.bucket(args.bucket)
     store = JobStore(repository, settings)
     service = TranslationService(store, dispatcher, None, images)
-    uid = "image-integration-smoke-" + uuid4().hex
-    fixture_keys = {store.user_key(uid), store.entitlement_key(uid)}
-    task_names, image_identifiers = set(), set()
+    uid = "free-image-integration-smoke-" + uuid4().hex
+    pro_uid = "pro-image-integration-smoke-" + uuid4().hex
+    fixture_keys = {store.user_key(uid), store.entitlement_key(uid),
+                    store.user_key(pro_uid), store.entitlement_key(pro_uid)}
+    task_names, image_owners = set(), {}
+    pro_limits, free_limits = settings.limits.pro, settings.limits.free
     data = Path(args.source).read_bytes()
     metadata = validate_image(data)
     image_hash = hashlib.sha256(data).hexdigest()
     report["source"] = {"path": str(Path(args.source).relative_to(ROOT)), **metadata,
                         "languages": ["English", "Ukrainian", "Arabic", "Japanese"], "targetLanguage": "English"}
 
-    async def create(request_key, selected_store=store):
+    async def create(request_key, selected_store=store, selected_uid=uid):
         request = ImageTranslationRequest(sourceLanguage="auto", targetLanguage="English", idempotencyKey=request_key)
         candidate = uuid4().hex
-        image_identifiers.add(candidate)
+        image_owners[candidate] = selected_uid
         fixture_keys.add(store.job_key(candidate))
-        fixture_keys.add(("translationIdempotency", digest(uid + "\0" + request_key)))
+        fixture_keys.add(("translationIdempotency", digest(selected_uid + "\0" + request_key)))
         object_key = f"jobs/{candidate}/original"
         await images.put(object_key, data, metadata["mimeType"])
-        selected = await selected_store.create_image(uid, request, candidate, metadata, image_hash, object_key)
+        selected = await selected_store.create_image(selected_uid, request, candidate, metadata, image_hash, object_key)
         if selected != candidate:
             await images.delete_job(candidate)
         return selected
@@ -135,13 +138,48 @@ async def run(args, report):
             require(worker.status_code == 401, "WORKER_AUTH_REJECTION_FAILED")
             report["checks"]["missingWorkerTokenRejected"] = True
 
-        await repository.reference(store.entitlement_key(uid)).set({"plan": "pro", "createdAt": now(), "source": "isolated-live-smoke"})
-        require((await store.get_account(uid))["features"]["imageTranslation"], "FIXTURE_PRO_ENTITLEMENT_FAILED")
-        report["checks"]["isolatedProFixture"] = True
+        # A future recoverAt prevents scheduled reconciliation from starting a paid
+        # operation while this separate Pro fixture verifies reservation/refund.
+        pro_time = now() + timedelta(minutes=10)
+        pro_store = JobStore(repository, settings, clock=lambda: pro_time)
+        await repository.reference(store.entitlement_key(pro_uid)).set({"plan": "pro", "createdAt": now(), "source": "isolated-live-smoke"})
+        pro_account = await pro_store.get_account(pro_uid)
+        require(pro_account["plan"] == "pro" and pro_account["features"]["imageTranslation"],
+                "FIXTURE_PRO_IMAGE_ACCESS_FAILED")
+        require(pro_account["quota"]["monthlyWords"] == pro_limits.monthly_words
+                and pro_account["imageQuota"]["monthlyImages"] == pro_limits.monthly_images,
+                "FIXTURE_PRO_MONTHLY_LIMITS_FAILED")
+        pro_id = await create(uuid4().hex, pro_store, pro_uid)
+        pro_quota = await pro_store.get_image_quota(pro_uid)
+        require(pro_quota["reservedImages"] == 1 and pro_quota["usedImages"] == 0
+                and pro_quota["remainingImages"] == pro_limits.monthly_images - 1,
+                "PRO_IMAGE_RESERVATION_FAILED")
+        await pro_store.cancel(pro_uid, pro_id)
+        await pro_store.cancel(pro_uid, pro_id)
+        await images.delete_job(pro_id)
+        pro_quota = await pro_store.get_image_quota(pro_uid)
+        require(pro_quota["reservedImages"] == 0 and pro_quota["usedImages"] == 0
+                and pro_quota["remainingImages"] == pro_limits.monthly_images,
+                "PRO_IMAGE_CANCEL_REFUND_FAILED")
+        report["proMonthlyWords"] = pro_limits.monthly_words
+        report["proMonthlyImages"] = pro_limits.monthly_images
+        report["checks"]["proImageAllowanceReservedAndRefundedWithoutProvider"] = True
+
+        account = await store.get_account(uid)
+        require(account["plan"] == "free" and account["features"]["imageTranslation"], "FIXTURE_FREE_IMAGE_ACCESS_FAILED")
+        require(account["quota"]["monthlyWords"] == free_limits.monthly_words
+                and account["imageQuota"]["monthlyImages"] == free_limits.monthly_images,
+                "FIXTURE_FREE_MONTHLY_LIMITS_FAILED")
+        report["paidFixturePlan"] = "free"
+        report["monthlyWords"] = account["quota"]["monthlyWords"]
+        report["monthlyImages"] = account["imageQuota"]["monthlyImages"]
+        report["quotaResetsAt"] = account["imageQuota"]["resetsAt"]
+        report["checks"]["isolatedFreeFixture"] = True
         request_key = uuid4().hex
         identifier = await create(request_key)
         quota = await store.get_image_quota(uid)
-        require(quota["reservedImages"] == 1 and quota["usedImages"] == 0, "IMAGE_RESERVATION_FAILED")
+        require(quota["reservedImages"] == 1 and quota["usedImages"] == 0
+                and quota["remainingImages"] == free_limits.monthly_images - 1, "IMAGE_RESERVATION_FAILED")
         report["checks"]["oneImageReserved"] = True
         original_job = await repository.get(store.job_key(identifier))
         async with httpx.AsyncClient(timeout=30) as http:
@@ -166,10 +204,12 @@ async def run(args, report):
         result.write_bytes(translated)
         report["result"] = {"path": str(result.relative_to(ROOT)), **decoded}
         report["checks"]["realCloudTaskOidcAndAiImageCompleted"] = True
+        report["checks"]["freeImageAccessThroughCloudTasks"] = True
         report["checks"]["translatedPngSavedBeforeCleanup"] = True
         quota = await store.get_image_quota(uid)
-        require(quota["usedImages"] == 1 and quota["reservedImages"] == 0, "IMAGE_SETTLEMENT_FAILED")
-        require((await store.get_quota(uid))["usedCharacters"] == 0, "IMAGE_SPENT_TEXT_QUOTA")
+        require(quota["usedImages"] == 1 and quota["reservedImages"] == 0
+                and quota["remainingImages"] == free_limits.monthly_images - 1, "IMAGE_SETTLEMENT_FAILED")
+        require((await store.get_quota(uid))["usedWords"] == 0, "IMAGE_SPENT_TEXT_QUOTA")
         report["checks"]["oneImageChargedWithoutTextCharge"] = True
         for operation in (lambda: service.get("other-fixture-user", identifier, kind="image"),
                           lambda: service.image("other-fixture-user", identifier, "translated")):
@@ -229,11 +269,11 @@ async def run(args, report):
             except Exception:
                 cleanup_ok = False
         # Disable all fixture work before deleting source objects and account/entitlement records.
-        for image_id in image_identifiers:
+        for image_id, owner_uid in image_owners.items():
             try:
                 existing = await repository.get(store.job_key(image_id))
                 if existing and existing["status"] not in {"completed", "failed", "cancelled"}:
-                    await store.cancel(uid, image_id)
+                    await store.cancel(owner_uid, image_id)
                 await images.delete_job(image_id)
             except Exception:
                 cleanup_ok = False
@@ -260,8 +300,8 @@ def main():
     parser.add_argument("--bucket", default="ai-translator-ext-images")
     parser.add_argument("--account", default="balubenko.ink@gmail.com")
     parser.add_argument("--source", default=str(ROOT / "artifacts/image-fixture/original.png"))
-    parser.add_argument("--result", default=str(ROOT / "artifacts/image-fixture/translated.png"))
-    parser.add_argument("--output", default=str(ROOT / "artifacts/image-smoke.json"))
+    parser.add_argument("--result", default=str(ROOT / "artifacts/image-fixture/translated-1.1.2.png"))
+    parser.add_argument("--output", default=str(ROOT / "artifacts/image-smoke-1.1.2.json"))
     parser.add_argument("--timeout", type=int, default=400)
     args = parser.parse_args()
     args.base_url = args.base_url.rstrip("/")

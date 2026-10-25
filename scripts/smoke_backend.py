@@ -29,6 +29,7 @@ from app.dispatcher import CloudTasksDispatcher
 from app.models import TranslationRequest
 from app.repository import FirestoreRepository
 from app.service import JobStore, digest
+from app.words import count_words
 
 
 def now():
@@ -82,6 +83,7 @@ async def run(args, report):
     dispatcher.client = tasks_v2.CloudTasksAsyncClient(credentials=credentials)
     dispatcher.parent = dispatcher.client.queue_path(args.project, args.location, args.queue)
     store = JobStore(repository, settings)
+    word_limit = settings.limits.free.monthly_words
     uid = "integration-smoke-" + uuid4().hex
     fixture_keys = {store.user_key(uid)}
     task_names = set()
@@ -115,10 +117,13 @@ async def run(args, report):
             report["checks"]["missingWorkerTokenRejected"] = True
 
         text, key = "Hello, world!", uuid4().hex
-        require(len(text) == 13, "FIXTURE_CHARACTER_COUNT_FAILED")
+        require(count_words(text) == 2, "FIXTURE_WORD_COUNT_FAILED")
         identifier = await create(key, text)
         quota = await store.get_quota(uid)
-        require(quota["reservedCharacters"] == 13 and quota["usedCharacters"] == 0, "INITIAL_RESERVATION_FAILED")
+        require(quota["monthlyWords"] == word_limit and quota["reservedWords"] == 2
+                and quota["usedWords"] == 0 and quota["remainingWords"] == word_limit - 2, "INITIAL_RESERVATION_FAILED")
+        report["monthlyWords"] = quota["monthlyWords"]
+        report["quotaResetsAt"] = quota["resetsAt"]
         report["checks"]["quotaReserved"] = True
         await enqueue(identifier, 0)
         await store.dispatched(identifier, 0)
@@ -132,7 +137,8 @@ async def run(args, report):
                 and any("\u0400" <= character <= "\u04ff" for character in translated[0]["text"]), "TRANSLATION_MAPPING_FAILED")
         report["checks"]["realTaskOidcWorkerCompleted"] = True
         quota = await store.get_quota(uid)
-        require(quota["usedCharacters"] == 13 and quota["reservedCharacters"] == 0, "QUOTA_SETTLEMENT_FAILED")
+        require(quota["usedWords"] == 2 and quota["reservedWords"] == 0
+                and quota["remainingWords"] == word_limit - 2, "QUOTA_SETTLEMENT_FAILED")
         report["checks"]["quotaChargedOnce"] = True
         require(await create(key, text) == identifier, "LIVE_IDEMPOTENCY_FAILED")
         report["checks"]["liveIdempotency"] = True
@@ -142,23 +148,24 @@ async def run(args, report):
         duplicate_task = dispatcher.client.task_path(args.project, args.location, args.queue,
                                                    f"translate-{identifier}-1")
         await wait_for_task_deletion(dispatcher.client, duplicate_task)
-        require((await store.get_quota(uid))["usedCharacters"] == 13, "DUPLICATE_DELIVERY_CHARGED")
+        require((await store.get_quota(uid))["usedWords"] == 2, "DUPLICATE_DELIVERY_CHARGED")
         report["checks"]["duplicateDeliveryDidNotCharge"] = True
 
         cancelled = await create(uuid4().hex, "Cancel me")
-        require((await store.get_quota(uid))["reservedCharacters"] == len("Cancel me"), "CANCELLATION_RESERVATION_FAILED")
+        require(count_words("Cancel me") == 2, "CANCELLATION_FIXTURE_WORD_COUNT_FAILED")
+        require((await store.get_quota(uid))["reservedWords"] == 2, "CANCELLATION_RESERVATION_FAILED")
         await store.cancel(uid, cancelled)
         await store.cancel(uid, cancelled)
         quota = await store.get_quota(uid)
-        require(quota["reservedCharacters"] == 0 and quota["usedCharacters"] == 13, "CANCELLATION_RELEASE_FAILED")
+        require(quota["reservedWords"] == 0 and quota["usedWords"] == 2, "CANCELLATION_RELEASE_FAILED")
         await enqueue(cancelled, 0)
         cancelled_task = dispatcher.client.task_path(args.project, args.location, args.queue,
                                                    f"translate-{cancelled}-0")
         await wait_for_task_deletion(dispatcher.client, cancelled_task)
         require((await repository.get(store.job_key(cancelled)))["status"] == "cancelled", "LATE_TASK_OVERWROTE_CANCELLATION")
-        require((await store.get_quota(uid))["usedCharacters"] == 13, "CANCELLED_JOB_CHARGED")
+        require((await store.get_quota(uid))["usedWords"] == 2, "CANCELLED_JOB_CHARGED")
         report["checks"]["cancellationReleasedOnceAndLateDeliveryIgnored"] = True
-        report["chargedCharacters"] = 13
+        report["chargedWords"] = 2
     finally:
         cleanup_ok = True
         for name in task_names:
@@ -190,7 +197,7 @@ def main():
     parser.add_argument("--task-service-account")
     parser.add_argument("--audience")
     parser.add_argument("--timeout", type=int, default=90)
-    parser.add_argument("--output", default=str(ROOT / "artifacts" / "backend-smoke.json"))
+    parser.add_argument("--output", default=str(ROOT / "artifacts" / "backend-smoke-1.1.2.json"))
     args = parser.parse_args()
     args.base_url = args.base_url.rstrip("/")
     require(args.base_url.startswith("https://"), "HTTPS_REQUIRED")

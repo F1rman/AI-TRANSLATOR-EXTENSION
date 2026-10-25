@@ -62,7 +62,7 @@ def create_app(runtime=None, settings=None):
         finally:
             await selected.close()
 
-    application = FastAPI(title="AI Translator API", version="1.1.0", lifespan=lifespan)
+    application = FastAPI(title="AI Translator API", version="1.1.2", lifespan=lifespan)
     # Injectable runtime also supports ASGI transports that do not run lifespan automatically.
     if runtime:
         application.state.runtime = runtime
@@ -73,14 +73,14 @@ def create_app(runtime=None, settings=None):
         oversized = False
         maximum = request.app.state.runtime.settings.max_image_bytes + 64 * 1024
         if request.method == "POST" and request.url.path == "/v1/image-translation-jobs":
-            # Dependencies run after multipart parsing. Authenticate and gate Pro before reading
+            # Dependencies run after multipart parsing. Authenticate and check plan access before reading
             # even the first upload byte, then reuse the verified identity in the route dependency.
             auth_started = perf_counter()
             try:
                 selected = request.app.state.runtime
                 identity = await selected.user_auth(request.headers.get("Authorization"))
                 request.state.auth_ms = (perf_counter() - auth_started) * 1000
-                await selected.service.store.require_pro(identity["uid"])
+                await selected.service.store.require_image_access(identity["uid"])
                 request.state.verified_identity = identity
             except ApiError as error:
                 return await api_error(request, error)

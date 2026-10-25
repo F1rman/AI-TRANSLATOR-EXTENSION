@@ -16,16 +16,16 @@ Understand every word, without losing your place. AI Translator translates selec
 - Restore the original text whenever you want.
 - Choose a language from the list or enter any other language name.
 - Search the language list by English, Ukrainian, native name or language code.
-- Pro: right-click a public static image to create and download a PNG with translated text.
+- Right-click a public static image to create and download a PNG with translated text.
 - Make it yours with light/dark themes and Ukrainian/English interfaces.
 
-Sign in with Google. Free access includes 20,000 source characters per account each day, resetting at midnight UTC. Long pages may exceed the remaining allowance. AI-generated translations can contain errors.
+Sign in with Google. Free access includes 10,000 source words and five images per account per calendar month, resetting on the first day at 00:00 UTC. Long pages may exceed the remaining allowance. AI-generated translations can contain errors.
 
-Pro access is granted manually and includes five successful image translations per UTC day. There is no payment or subscription checkout. PNG, JPEG and WebP images must be static, no larger than 10 MB and 20 megapixels. AI editing can alter small details; inspect the result before use.
+Pro access is granted manually and includes 200,000 source words and 150 successful image translations per calendar month UTC. There is no payment or subscription checkout. PNG, JPEG and WebP images must be static, no larger than 10 MB and 20 megapixels. AI editing can alter small details; inspect the result before use.
 
-Page text is sent for translation only when you start page translation; the optional instant-selection mode sends selected text automatically. Website inputs, editable areas, hidden elements, and code blocks are excluded. Internal Chrome pages, PDF documents and canvas text are not supported. Page translation skips image text; Pro image translation is a separate context-menu action.
+Page text is sent for translation only when you start page translation; the optional instant-selection mode sends selected text automatically. Website inputs, editable areas, hidden elements, and code blocks are excluded. Internal Chrome pages, PDF documents and canvas text are not supported. Page translation skips image text; image translation is a separate context-menu action.
 
-For Pro image translation, selected image bytes are sent to our server and OpenAI. A vision step recognizes and translates visible text; image editing receives the exact replacements and creates a new PNG. Original and translated images are stored privately with authenticated owner access for 24 hours; automatic deletion may occur later. Failed and cancelled jobs trigger immediate deletion attempts. The text allowance stays 20,000 characters on both plans.
+For image translation, selected image bytes are sent to our server and OpenAI. A vision step recognizes and translates visible text; image editing receives the exact replacements and creates a new PNG. Original and translated images are stored privately with authenticated owner access for 24 hours; automatic deletion may occur later. Failed and cancelled jobs trigger immediate deletion attempts. Free includes 10,000 source words and five images per calendar month. Pro includes 200,000 words and 150 images per calendar month.
 
 ## Посилання
 
@@ -48,6 +48,6 @@ For Pro image translation, selected image bytes are sent to our server and OpenA
 
 Для 1.1.0 також розкрити обробку вибраних зображень сайту, оригіналу та згенерованого PNG, Pro entitlement і окремих image-лічильників. URL картинки зберігається лише в session storage розширення для відновлення; backend отримує байти, а не URL. Сховище картинок приватне, доступ до файлів має лише власник завдання. Нових Chrome-дозволів у 1.1.0 немає.
 
-Пакет релізу: `artifacts/ai-translator-1.1.0.zip`. Розгорнутий опис для копіювання також оновлений у `meta/descriptions/en.txt`; варіанти SEO-назви залишаються чернетками.
+Пакет релізу: `artifacts/ai-translator-1.1.3.zip`. Розгорнутий опис для копіювання також оновлений у `meta/descriptions/en.txt`; варіанти SEO-назви залишаються чернетками.
 
 Скріншоти в `artifacts/screenshots/`. Перед поданням перевірити фінальний OAuth, актуальний ZIP, контакт розробника та знімки потрібного Store розміру. Подання на модерацію — окремий етап.

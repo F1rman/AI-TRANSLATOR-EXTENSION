@@ -9,6 +9,7 @@ from time import perf_counter
 
 from .images import MemoryImageStorage, validate_image
 from .models import ApiError
+from .words import count_words
 
 log = logging.getLogger("translator")
 TERMINAL = {"completed", "failed", "cancelled"}
@@ -20,6 +21,13 @@ def utc_now():
 
 def digest(value):
     return hashlib.sha256(value.encode("utf-8")).hexdigest()
+
+
+def month_period(now):
+    now = now.astimezone(UTC)
+    start = now.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
+    following = (start.replace(day=28) + timedelta(days=4)).replace(day=1)
+    return start.strftime("%Y-%m"), following
 
 
 class JobStore:
@@ -42,65 +50,98 @@ class JobStore:
         entitlement = await self.repository.get(self.entitlement_key(uid))
         return bool(entitlement and entitlement.get("plan") == "pro")
 
-    async def require_pro(self, uid):
-        if not await self.is_pro(uid):
-            raise ApiError("PRO_REQUIRED", "Image translation is available with Pro access.", 403)
+    def image_enabled(self, pro):
+        return self.settings.limits.for_plan(pro).monthly_images > 0
+
+    async def require_image_access(self, uid, *, reservation=None):
+        if reservation and "month" in reservation:
+            account, pro = await asyncio.gather(self.repository.get(self.user_key(uid)), self.is_pro(uid))
+        else:
+            account, pro = None, await self.is_pro(uid)
+        if not self.image_enabled(pro):
+            # Preserve the existing API code for configurations which disable
+            # images in Free. Access is determined by the server's current plan.
+            raise ApiError("PRO_REQUIRED", "Image translation is not available with your current plan.", 403)
+        if reservation and "month" in reservation:
+            account = self.account(account, self.clock())
+            usage = account["monthlyImageUsage"].get(reservation["month"], {"used": 0, "reserved": 0})
+            if usage["used"] + usage["reserved"] > self.settings.limits.for_plan(pro).monthly_images:
+                _, resets = month_period(self.clock())
+                raise ApiError("IMAGE_QUOTA_EXCEEDED", "The monthly image translation allowance has been reached.", 429,
+                               max(1, int((resets - self.clock()).total_seconds())))
+
+    @staticmethod
+    def reservation_usage(account, slot):
+        image = slot.get("kind") == "image"
+        if "month" in slot:
+            return account["monthlyImageUsage" if image else "monthlyUsage"], slot["month"], slot["amount"]
+        # Release/charge pre-upgrade jobs in their original day and unit. Daily
+        # source characters cannot be converted into an honest word count.
+        return account["imageUsage" if image else "usage"], slot["day"], 1 if image else slot["characters"]
 
     def account(self, value, now):
-        account = deepcopy(value) if value else {"usage": {}, "activeJobs": {}}
-        account.setdefault("imageUsage", {})
+        account = deepcopy(value) if value else {}
+        for key in ("usage", "imageUsage", "monthlyUsage", "monthlyImageUsage", "activeJobs"):
+            account.setdefault(key, {})
         for identifier, slot in list(account["activeJobs"].items()):
             if slot["expiresAt"] <= now:
-                image = slot.get("kind") == "image"
-                usage = account["imageUsage" if image else "usage"].get(slot["day"])
+                counters, period, amount = self.reservation_usage(account, slot)
+                usage = counters.get(period)
                 if usage:
-                    usage["reserved"] = max(0, usage["reserved"] - (1 if image else slot["characters"]))
+                    usage["reserved"] = max(0, usage["reserved"] - amount)
                 del account["activeJobs"][identifier]
         # Every live reservation expires within 24 hours. Keep a few days for rollover settlement.
         cutoff = (now - timedelta(days=3)).date().isoformat()
         account["usage"] = {day: usage for day, usage in account["usage"].items() if day >= cutoff}
         account["imageUsage"] = {day: usage for day, usage in account["imageUsage"].items() if day >= cutoff}
+        month, _ = month_period(now)
+        previous = (datetime.strptime(month, "%Y-%m") - timedelta(days=1)).strftime("%Y-%m")
+        for key in ("monthlyUsage", "monthlyImageUsage"):
+            account[key] = {period: usage for period, usage in account[key].items() if period >= previous}
         return account
 
-    def quota(self, account, now):
+    def quota(self, account, now, pro=False):
         account = self.account(account, now)
-        usage = account["usage"].get(now.date().isoformat(), {"used": 0, "reserved": 0})
-        resets = datetime.combine(now.date() + timedelta(days=1), datetime.min.time(), UTC)
+        month, resets = month_period(now)
+        usage = account["monthlyUsage"].get(month, {"used": 0, "reserved": 0})
+        limit = self.settings.limits.for_plan(pro).monthly_words
         return {
-            "dailyCharacters": self.settings.daily_characters,
-            "usedCharacters": usage["used"],
-            "reservedCharacters": usage["reserved"],
-            "remainingCharacters": max(0, self.settings.daily_characters - usage["used"] - usage["reserved"]),
+            "monthlyWords": limit,
+            "usedWords": usage["used"],
+            "reservedWords": usage["reserved"],
+            "remainingWords": max(0, limit - usage["used"] - usage["reserved"]),
             "resetsAt": resets.isoformat().replace("+00:00", "Z"),
         }
 
     async def get_quota(self, uid):
-        return self.quota(await self.repository.get(self.user_key(uid)), self.clock())
+        account, pro = await asyncio.gather(self.repository.get(self.user_key(uid)), self.is_pro(uid))
+        return self.quota(account, self.clock(), pro)
 
-    def image_quota(self, account, now):
+    def image_quota(self, account, now, pro=False):
         account = self.account(account, now)
-        usage = account["imageUsage"].get(now.date().isoformat(), {"used": 0, "reserved": 0})
-        resets = datetime.combine(now.date() + timedelta(days=1), datetime.min.time(), UTC)
-        return {"dailyImages": self.settings.daily_images, "usedImages": usage["used"],
+        month, resets = month_period(now)
+        usage = account["monthlyImageUsage"].get(month, {"used": 0, "reserved": 0})
+        limit = self.settings.limits.for_plan(pro).monthly_images
+        return {"monthlyImages": limit, "usedImages": usage["used"],
                 "reservedImages": usage["reserved"],
-                "remainingImages": max(0, self.settings.daily_images - usage["used"] - usage["reserved"]),
+                "remainingImages": max(0, limit - usage["used"] - usage["reserved"]),
                 "resetsAt": resets.isoformat().replace("+00:00", "Z")}
 
     async def get_image_quota(self, uid):
-        return self.image_quota(await self.repository.get(self.user_key(uid)), self.clock())
+        account, pro = await asyncio.gather(self.repository.get(self.user_key(uid)), self.is_pro(uid))
+        return self.image_quota(account, self.clock(), pro)
 
     async def get_account(self, uid):
         account, pro = await asyncio.gather(self.repository.get(self.user_key(uid)), self.is_pro(uid))
         now = self.clock()
-        return {"quota": self.quota(account, now), "plan": "pro" if pro else "free",
-                "features": {"imageTranslation": pro}, "imageQuota": self.image_quota(account, now)}
+        return {"quota": self.quota(account, now, pro), "plan": "pro" if pro else "free",
+                "features": {"imageTranslation": self.image_enabled(pro)}, "imageQuota": self.image_quota(account, now, pro)}
 
     def settle(self, account, job, *, charge):
         slot = account["activeJobs"].pop(job["id"], None)
         if slot:
-            image = slot.get("kind") == "image"
-            amount = 1 if image else slot["characters"]
-            usage = account["imageUsage" if image else "usage"].setdefault(slot["day"], {"used": 0, "reserved": 0})
+            counters, period, amount = self.reservation_usage(account, slot)
+            usage = counters.setdefault(period, {"used": 0, "reserved": 0})
             usage["reserved"] = max(0, usage["reserved"] - amount)
             if charge:
                 usage["used"] += amount
@@ -114,10 +155,11 @@ class JobStore:
         payload = request.model_dump(exclude={"idempotencyKey"})
         payload_hash = digest(json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":")))
         characters = sum(len(segment["text"]) for segment in payload["segments"])
+        words = sum(count_words(segment["text"]) for segment in payload["segments"])
         if len(payload["segments"]) > self.settings.max_segments or characters > self.settings.max_characters:
             raise ApiError("INVALID_REQUEST", "The translation job exceeds the request limits.", 422)
         identifier = uuid4().hex
-        job_key, user_key = self.job_key(identifier), self.user_key(uid)
+        job_key, user_key, entitlement_key = self.job_key(identifier), self.user_key(uid), self.entitlement_key(uid)
         idem_key = ("translationIdempotency", digest(uid + "\0" + request.idempotencyKey))
 
         def create(documents):
@@ -127,27 +169,28 @@ class JobStore:
                     raise ApiError("IDEMPOTENCY_CONFLICT", "This request key was already used for different text.", 409)
                 return previous["jobId"], {}
             account = self.account(documents[user_key], now)
-            quota = self.quota(account, now)
-            if characters > quota["remainingCharacters"]:
-                midnight = datetime.combine(now.date() + timedelta(days=1), datetime.min.time(), UTC)
-                raise ApiError("QUOTA_EXCEEDED", "The daily translation allowance has been reached.", 429,
-                               max(1, int((midnight - now).total_seconds())))
+            pro = bool(documents[entitlement_key] and documents[entitlement_key].get("plan") == "pro")
+            quota = self.quota(account, now, pro)
+            month, resets = month_period(now)
+            if words > quota["remainingWords"]:
+                raise ApiError("QUOTA_EXCEEDED", "The monthly word translation allowance has been reached.", 429,
+                               max(1, int((resets - now).total_seconds())))
             if len(account["activeJobs"]) >= self.settings.max_concurrent_jobs:
                 raise ApiError("CONCURRENCY_LIMIT", "Two translation jobs are already in progress. Try again shortly.", 429, 2)
-            day = now.date().isoformat()
             expiry = now + timedelta(seconds=self.settings.job_ttl_seconds)
-            account["usage"].setdefault(day, {"used": 0, "reserved": 0})["reserved"] += characters
-            account["activeJobs"][identifier] = {"day": day, "characters": characters, "expiresAt": expiry}
+            account["monthlyUsage"].setdefault(month, {"used": 0, "reserved": 0})["reserved"] += words
+            account["activeJobs"][identifier] = {"kind": "text", "month": month, "words": words,
+                                                  "amount": words, "expiresAt": expiry}
             job = {
                 "id": identifier, "uid": uid, "status": "queued", "payload": payload,
-                "payloadHash": payload_hash, "characters": characters, "day": day,
+                "payloadHash": payload_hash, "characters": characters, "words": words, "month": month,
                 "createdAt": now, "updatedAt": now, "expiresAt": expiry,
                 "reservationState": "reserved", "generation": 0, "dispatchState": "pending", "recoverAt": now,
             }
             idem = {"jobId": identifier, "payloadHash": payload_hash, "expiresAt": expiry}
             return identifier, {job_key: job, user_key: account, idem_key: idem}
 
-        return await self.repository.atomic([job_key, user_key, idem_key], create)
+        return await self.repository.atomic([job_key, user_key, entitlement_key, idem_key], create)
 
     async def create_image(self, uid, request, identifier, metadata, image_hash, object_key):
         now = self.clock()
@@ -158,26 +201,27 @@ class JobStore:
         idem_key = ("translationIdempotency", digest(uid + "\0" + request.idempotencyKey))
 
         def create(documents):
-            if not documents[entitlement_key] or documents[entitlement_key].get("plan") != "pro":
-                raise ApiError("PRO_REQUIRED", "Image translation is available with Pro access.", 403)
+            pro = bool(documents[entitlement_key] and documents[entitlement_key].get("plan") == "pro")
+            if not self.image_enabled(pro):
+                raise ApiError("PRO_REQUIRED", "Image translation is not available with your current plan.", 403)
             previous = documents[idem_key]
             if previous and previous["expiresAt"] > now:
                 if previous["payloadHash"] != payload_hash:
                     raise ApiError("IDEMPOTENCY_CONFLICT", "This request key was already used for a different translation.", 409)
                 return previous["jobId"], {}
             account = self.account(documents[user_key], now)
-            if self.image_quota(account, now)["remainingImages"] < 1:
-                midnight = datetime.combine(now.date() + timedelta(days=1), datetime.min.time(), UTC)
-                raise ApiError("IMAGE_QUOTA_EXCEEDED", "The daily image translation allowance has been reached.", 429,
-                               max(1, int((midnight - now).total_seconds())))
+            month, resets = month_period(now)
+            if self.image_quota(account, now, pro)["remainingImages"] < 1:
+                raise ApiError("IMAGE_QUOTA_EXCEEDED", "The monthly image translation allowance has been reached.", 429,
+                               max(1, int((resets - now).total_seconds())))
             if (len(account["activeJobs"]) >= self.settings.max_concurrent_jobs
                     or any(slot.get("kind") == "image" for slot in account["activeJobs"].values())):
                 raise ApiError("CONCURRENCY_LIMIT", "An image translation or two translation jobs are already in progress.", 429, 2)
-            day, expiry = now.date().isoformat(), now + timedelta(seconds=self.settings.job_ttl_seconds)
-            account["imageUsage"].setdefault(day, {"used": 0, "reserved": 0})["reserved"] += 1
-            account["activeJobs"][identifier] = {"kind": "image", "day": day, "characters": 0, "expiresAt": expiry}
+            expiry = now + timedelta(seconds=self.settings.job_ttl_seconds)
+            account["monthlyImageUsage"].setdefault(month, {"used": 0, "reserved": 0})["reserved"] += 1
+            account["activeJobs"][identifier] = {"kind": "image", "month": month, "amount": 1, "expiresAt": expiry}
             job = {"id": identifier, "uid": uid, "kind": "image", "status": "queued", "payload": payload,
-                   "input": {**metadata, "objectKey": object_key}, "payloadHash": payload_hash, "day": day,
+                   "input": {**metadata, "objectKey": object_key}, "payloadHash": payload_hash, "month": month,
                    "createdAt": now, "updatedAt": now, "expiresAt": expiry, "reservationState": "reserved",
                    "generation": 0, "dispatchState": "pending", "recoverAt": now}
             idem = {"jobId": identifier, "payloadHash": payload_hash, "expiresAt": expiry}
@@ -379,7 +423,7 @@ class TranslationService:
 
     async def submit_image(self, uid, request, data):
         # Check entitlement before decoding, uploading or reserving any paid operation.
-        await self.store.require_pro(uid)
+        await self.store.require_image_access(uid)
         metadata = await asyncio.to_thread(validate_image, data, max_bytes=self.store.settings.max_image_bytes,
                                           max_pixels=self.store.settings.max_image_pixels)
         identifier = uuid4().hex
@@ -399,7 +443,7 @@ class TranslationService:
     async def get(self, uid, identifier, kind="text"):
         started = perf_counter()
         job = await self.owned(uid, identifier, kind)
-        # The usual poll is exactly one job read and one quota read. Recovery is exceptional.
+        # Polls read the job, counters and current plan; recovery is exceptional.
         if (job["status"] not in TERMINAL and job.get("recoverAt") is not None
                 and job["recoverAt"] <= self.store.clock()):
             await self.ensure_dispatched(identifier, job)
@@ -449,14 +493,14 @@ class TranslationService:
         completion_attempted = False
         try:
             if kind == "image":
-                await self.store.require_pro(claim["uid"])
+                await self.store.require_image_access(claim["uid"], reservation=claim)
                 data = await self.images.get(claim["input"]["objectKey"])
                 # Cancellation/recovery while downloading must not start another provider operation.
                 current = await self.store.repository.get(self.store.job_key(identifier))
                 if (not current or current["status"] != "running"
                         or current.get("leaseToken") != claim["leaseToken"]):
                     return
-                await self.store.require_pro(claim["uid"])
+                await self.store.require_image_access(claim["uid"], reservation=claim)
                 translated = await self.upstream.translate_image(data, claim["input"]["mimeType"], claim["payload"])
                 try:
                     metadata = await asyncio.to_thread(validate_image, translated, max_bytes=40 * 1024 * 1024,

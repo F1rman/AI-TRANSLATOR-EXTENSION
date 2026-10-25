@@ -9,6 +9,19 @@
   "extensionId": "aieamemimbcbbnmakifejomadhegogge",
   "extensionOAuthClientId": "1060412514800-4j2utpmaak9lbknl5d077ffaoe6e3ei6.apps.googleusercontent.com",
   "imageBucket": "ai-translator-ext-images",
-  "dailyImages": 5,
-  "backendVersion": "1.1.0"
+  "backendVersion": "1.1.2",
+  "quotaLimits": {
+    "period": "calendar_month",
+    "timezone": "UTC",
+    "plans": {
+      "free": {
+        "monthlyWords": 10000,
+        "monthlyImages": 5
+      },
+      "pro": {
+        "monthlyWords": 200000,
+        "monthlyImages": 150
+      }
+    }
+  }
 }

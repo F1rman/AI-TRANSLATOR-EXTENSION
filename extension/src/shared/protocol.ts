@@ -16,11 +16,11 @@ export type Result<T> = { ok: true; data: T } | { ok: false; error: ApiError };
 export interface User { uid: string; name: string | null; email: string | null; picture: string | null }
 export interface AuthState { user: User | null; configured: boolean }
 export interface Quota {
-  dailyCharacters: number; usedCharacters: number; reservedCharacters: number;
-  remainingCharacters: number; resetsAt: string;
+  monthlyWords: number; usedWords: number; reservedWords: number;
+  remainingWords: number; resetsAt: string;
 }
 export interface ImageQuota {
-  dailyImages: number; usedImages: number; reservedImages: number;
+  monthlyImages: number; usedImages: number; reservedImages: number;
   remainingImages: number; resetsAt: string;
 }
 export interface Account {

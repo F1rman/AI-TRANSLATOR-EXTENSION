@@ -1,7 +1,7 @@
 Webpage Translator – AI Translator helps you read articles, understand product information, and work with text in another language. Translate selections or webpage text in place, then show the original when you need it.
 
 ✨ WHAT IT DOES
-• Pro: right-click a static website image to create and download a PNG with translated text. Pro is granted manually and includes five images per UTC day.
+• Right-click a static website image to create and download a PNG with translated text. Free includes five images per calendar month UTC. Pro is granted manually and includes 150 images.
 • Translate selected text in a small result bubble without leaving the page.
 • Type or paste text into the popup and copy the translation.
 • Replace eligible webpage text with a translation while preserving links and page structure.
@@ -21,16 +21,16 @@ Understand product details or instructions while staying on the page.
 Use a webpage translator alongside your language studies or daily work.
 
 🔒 PRIVACY
-Requested text and, for Pro image translation, the selected image are sent to the translation server and processed through an AI provider using OpenAI. When page translation is active, eligible new page text is also sent. The optional instant-selection mode sends selected text automatically.
+Requested text and, for image translation, the selected image are sent to the translation server and processed through an AI provider using OpenAI. When page translation is active, eligible new page text is also sent. The optional instant-selection mode sends selected text automatically.
 
-Preferences stay in Chrome. Originals used for restoration stay in the page's memory. Server jobs temporarily store source text and results; Pro originals and translated images are stored privately with authenticated owner access; records are marked to expire after 24 hours, and automatic deletion may happen later. Google sign-in and daily usage counters support your account and allowance. There is no translation-history feature.
+Preferences stay in Chrome. Originals used for restoration stay in the page's memory. Server jobs temporarily store source text and results; Original and translated images are stored privately with authenticated owner access; records are marked to expire after 24 hours, and automatic deletion may happen later. Google sign-in and monthly usage counters support your account and allowance. There is no translation-history feature.
 
 ❓ FAQ
 Does the webpage translator work everywhere?
-It works with eligible text on regular websites. Browser settings pages, the Chrome Web Store, PDF documents and canvas text are not supported. Whole-page translation skips images. Pro image translation separately supports public static PNG/JPEG/WebP images up to 10 MB and 20 megapixels. Form fields, editable areas, hidden content, and code blocks are skipped. Website behavior and AI language coverage can affect results.
+It works with eligible text on regular websites. Browser settings pages, the Chrome Web Store, PDF documents and canvas text are not supported. Whole-page translation skips images. Image translation separately supports public static PNG/JPEG/WebP images up to 10 MB and 20 megapixels. Form fields, editable areas, hidden content, and code blocks are skipped. Website behavior and AI language coverage can affect results.
 
 What is included?
-Free access includes 20,000 source characters per Google account each day, resetting at 00:00 UTC. The popup accepts up to 4,000 characters per request. Long pages can use the remaining daily allowance. AI translations can contain errors, and image editing can alter small visual details. Check the result before use.
+Free access includes 10,000 source words and five images per Google account per calendar month, resetting on the first day at 00:00 UTC. Pro includes 200,000 source words and 150 images per calendar month. The popup accepts up to 4,000 characters per request. Long pages can use the remaining monthly allowance. AI translations can contain errors, and image editing can alter small visual details. Check the result before use.
 
 Privacy: https://ai-translator-ext.web.app/privacy
 Support: https://ai-translator-ext.web.app/support

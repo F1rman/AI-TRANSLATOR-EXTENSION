@@ -65,11 +65,11 @@ async def test_concurrent_idempotency_reserves_once_and_payload_conflict(setup):
     jobs = await asyncio.gather(*[setup.service.submit("alice", request()) for _ in range(12)])
     assert len({job["id"] for job in jobs}) == 1
     quota = await setup.store.get_quota("alice")
-    assert quota["reservedCharacters"] == 5
+    assert quota["reservedWords"] == 1
     assert len(setup.repository.documents) == 3
     with pytest.raises(ApiError, match="IDEMPOTENCY_CONFLICT"):
         await setup.service.submit("alice", request("different"))
-    assert (await setup.store.get_quota("alice"))["reservedCharacters"] == 5
+    assert (await setup.store.get_quota("alice"))["reservedWords"] == 1
     bob = await setup.service.submit("bob", request())
     assert bob["id"] != jobs[0]["id"]
 
@@ -78,22 +78,22 @@ async def test_atomic_two_job_limit(setup):
     outcomes = await asyncio.gather(*[setup.service.submit("alice", request(key=str(number))) for number in range(6)], return_exceptions=True)
     assert sum(isinstance(result, dict) for result in outcomes) == 2
     assert all(result.code == "CONCURRENCY_LIMIT" for result in outcomes if isinstance(result, ApiError))
-    assert (await setup.store.get_quota("alice"))["reservedCharacters"] == 10
+    assert (await setup.store.get_quota("alice"))["reservedWords"] == 2
 
 
-async def test_daily_quota_counts_unicode_codepoints_and_settles_success(setup):
-    setup.store.settings = replace(setup.settings, daily_characters=5)
-    job = await setup.service.submit("alice", request("😀😀😀"))
+async def test_monthly_quota_counts_unicode_words_and_settles_success(setup):
+    setup.store.settings = replace(setup.settings, limits=replace(setup.settings.limits, free=replace(setup.settings.limits.free, monthly_words=5)))
+    job = await setup.service.submit("alice", request("Привіт, світе 👋 hello"))
     quota = await setup.store.get_quota("alice")
-    assert quota["reservedCharacters"] == 3
+    assert quota["reservedWords"] == 3
     with pytest.raises(ApiError, match="QUOTA_EXCEEDED"):
-        await setup.service.submit("alice", request("abc", key="second"))
+        await setup.service.submit("alice", request("abc def ghi", key="second"))
     await setup.service.process(job["id"], 0)
     quota = await setup.store.get_quota("alice")
-    assert (quota["usedCharacters"], quota["reservedCharacters"], quota["remainingCharacters"]) == (3, 0, 2)
+    assert (quota["usedWords"], quota["reservedWords"], quota["remainingWords"]) == (3, 0, 2)
     await setup.service.process(job["id"], 0)
     assert len(setup.upstream.calls) == 1
-    assert (await setup.store.get_quota("alice"))["usedCharacters"] == 3
+    assert (await setup.store.get_quota("alice"))["usedWords"] == 3
 
 
 async def test_cancel_releases_once_and_late_completion_cannot_overwrite(setup):
@@ -103,10 +103,10 @@ async def test_cancel_releases_once_and_late_completion_cannot_overwrite(setup):
     assert (await setup.service.cancel("alice", first["id"]))["status"] == "cancelled"
     await setup.service.cancel("alice", first["id"])
     assert not await setup.store.finish(claim, translations=[{"id": "first", "text": "late"}])
-    assert (await setup.store.get_quota("alice"))["reservedCharacters"] == 5
+    assert (await setup.store.get_quota("alice"))["reservedWords"] == 1
     assert (await setup.service.get("alice", first["id"]))["status"] == "cancelled"
     await setup.service.process(second["id"], 0)
-    assert (await setup.store.get_quota("alice"))["usedCharacters"] == 5
+    assert (await setup.store.get_quota("alice"))["usedWords"] == 1
 
 
 async def test_failed_provider_releases_reservation_and_new_job_is_allowed(setup):
@@ -116,7 +116,7 @@ async def test_failed_provider_releases_reservation_and_new_job_is_allowed(setup
     result = await setup.service.get("alice", job["id"])
     assert result["status"] == "failed"
     assert result["error"]["code"] == "UPSTREAM_RATE_LIMIT"
-    assert result["quota"]["remainingCharacters"] == 20_000
+    assert result["quota"]["remainingWords"] == 10_000
     assert "payload" not in result
     await setup.service.submit("alice", request(key="new"))
 
@@ -126,7 +126,7 @@ async def test_idempotency_ownership_and_read_cancel_isolation(setup):
     for operation in (setup.service.get, setup.service.cancel):
         with pytest.raises(ApiError, match="JOB_NOT_FOUND"):
             await operation("bob", job["id"])
-    assert (await setup.store.get_quota("alice"))["reservedCharacters"] == 5
+    assert (await setup.store.get_quota("alice"))["reservedWords"] == 1
 
 
 async def test_stale_worker_recovery_generation_and_lease_guards(setup):
@@ -143,7 +143,7 @@ async def test_stale_worker_recovery_generation_and_lease_guards(setup):
     assert not await setup.store.finish(old_claim, translations=[{"id": "first", "text": "stale"}])
     assert await setup.store.finish(new_claim, translations=[{"id": "first", "text": "fresh"}])
     assert (await setup.service.get("alice", job["id"]))["translations"][0]["text"] == "fresh"
-    assert (await setup.store.get_quota("alice"))["usedCharacters"] == 5
+    assert (await setup.store.get_quota("alice"))["usedWords"] == 1
 
 
 async def test_enqueue_failure_reconciles_without_duplicate_quota(setup, caplog):
@@ -156,7 +156,7 @@ async def test_enqueue_failure_reconciles_without_duplicate_quota(setup, caplog)
     assert (await setup.service.reconcile())["dispatched"] == 1
     retry = await setup.service.submit("alice", request("private source text"))
     assert retry["id"] == job["id"]
-    assert (await setup.store.get_quota("alice"))["reservedCharacters"] == len("private source text")
+    assert (await setup.store.get_quota("alice"))["reservedWords"] == 3
 
 
 async def test_lost_or_exhausted_queued_task_gets_new_generation(setup):
@@ -164,18 +164,18 @@ async def test_lost_or_exhausted_queued_task_gets_new_generation(setup):
     setup.clock.now += timedelta(seconds=121)
     await setup.service.reconcile()
     assert setup.dispatcher.calls[-1] == (job["id"], 1)
-    assert (await setup.store.get_quota("alice"))["reservedCharacters"] == 5
+    assert (await setup.store.get_quota("alice"))["reservedWords"] == 1
 
 
-async def test_utc_rollover_settles_original_day(setup):
-    setup.clock.now = datetime(2026, 10, 22, 23, 59, 59, tzinfo=UTC)
+async def test_utc_month_rollover_settles_original_month(setup):
+    setup.clock.now = datetime(2026, 10, 31, 23, 59, 59, tzinfo=UTC)
     job = await setup.service.submit("alice", request())
     setup.clock.now += timedelta(seconds=2)
-    assert (await setup.store.get_quota("alice"))["remainingCharacters"] == 20_000
+    assert (await setup.store.get_quota("alice"))["remainingWords"] == 10_000
     await setup.service.process(job["id"], 0)
     account = await setup.repository.get(setup.store.user_key("alice"))
-    assert account["usage"]["2026-10-22"] == {"used": 5, "reserved": 0}
-    assert (await setup.store.get_quota("alice"))["usedCharacters"] == 0
+    assert account["monthlyUsage"]["2026-10"] == {"used": 1, "reserved": 0}
+    assert (await setup.store.get_quota("alice"))["usedWords"] == 0
 
 
 async def test_expired_and_ttl_deleted_jobs_release_concurrency_slots(setup):
@@ -185,7 +185,7 @@ async def test_expired_and_ttl_deleted_jobs_release_concurrency_slots(setup):
     assert await setup.store.finish(claim, translations=[{"id": "first", "text": "too late"}])
     with pytest.raises(ApiError, match="JOB_EXPIRED"):
         await setup.service.get("alice", job["id"])
-    assert (await setup.store.get_quota("alice"))["usedCharacters"] == 0
+    assert (await setup.store.get_quota("alice"))["usedWords"] == 0
     another = await setup.service.submit("alice", request(key="another"))
     del setup.repository.documents[setup.store.job_key(another["id"])]
     setup.clock.now += timedelta(days=1, seconds=1)
@@ -206,7 +206,7 @@ async def test_api_round_trip_and_separate_worker_auth(setup):
         complete = (await client.get(f"/v1/translation-jobs/{identifier}")).json()
         assert complete["status"] == "completed"
         assert complete["translations"] == [{"id": "first", "text": "translated: hello"}]
-        assert complete["quota"]["usedCharacters"] == 5
+        assert complete["quota"]["usedWords"] == 1
         missing = await client.get("/v1/me", headers={"Authorization": ""})
         assert missing.status_code == 401
         assert missing.json()["error"]["code"] == "AUTH_REQUIRED"
