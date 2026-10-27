@@ -45,6 +45,40 @@ class TranslationRequest(StrictModel):
         return self
 
 
+class CharacterSegment(Segment):
+    text: Annotated[str, StringConstraints(min_length=1, max_length=50_000)]
+
+
+class CharacterTranslationRequest(TranslationRequest):
+    segments: Annotated[list[CharacterSegment], Field(min_length=1, max_length=24)]
+    mode: Literal["text", "selection", "page"] = "text"
+    tone: Literal["neutral", "formal", "friendly", "technical"] = "neutral"
+    context: Annotated[str, StringConstraints(max_length=2000)] = ""
+
+
+class SubscriptionSync(StrictModel):
+    environment: Literal["test", "live"]
+    productId: Literal["ai-translator-extension"]
+    authProjectId: Annotated[str, StringConstraints(min_length=1, max_length=128)]
+    uid: Identifier
+    revision: Annotated[int, Field(ge=1, le=9_007_199_254_740_991)]
+    subscriptionId: Annotated[str, StringConstraints(min_length=1, max_length=128)] | None
+    status: Annotated[str, StringConstraints(min_length=1, max_length=64)]
+    blockedReason: Annotated[str, StringConstraints(min_length=1, max_length=128)] | None
+    paidPeriodStart: Annotated[int, Field(ge=1, le=253402300799)] | None
+    paidThrough: Annotated[int, Field(ge=1, le=253402300799)] | None
+    quotaAnchorAt: Annotated[int, Field(ge=1, le=253402300799)] | None
+    policyVersion: Literal[2]
+
+    @model_validator(mode="after")
+    def validate_period(self):
+        if self.paidPeriodStart is not None and self.paidThrough is not None and self.paidPeriodStart >= self.paidThrough:
+            raise ValueError("The paid period must have positive duration")
+        if self.quotaAnchorAt is not None and self.paidThrough is not None and self.quotaAnchorAt >= self.paidThrough:
+            raise ValueError("The quota anchor must precede the paid period end")
+        return self
+
+
 class WorkerRequest(StrictModel):
     jobId: Annotated[str, StringConstraints(pattern=r"^[a-f0-9]{32}$")]
     generation: Annotated[int, Field(ge=0)] | None = None

@@ -40,7 +40,7 @@ class FakeUpstream:
 @pytest.fixture
 def setup():
     clock = SimpleNamespace(now=datetime(2026, 10, 22, 12, 0, tzinfo=UTC))
-    settings = Settings(mode="memory", allow_dev_auth=True)
+    settings = Settings(mode="memory", allow_dev_auth=True, legacy_text_submission_enabled=True)
     repository = MemoryRepository()
     store = JobStore(repository, settings, lambda: clock.now)
     dispatcher, upstream = RecordingDispatcher(), FakeUpstream()

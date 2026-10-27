@@ -47,7 +47,7 @@ for (const size of [16, 32, 48, 128]) {
       const qx = Math.max(Math.abs(px - 16) - 9, 0), qy = Math.max(Math.abs(py - 16) - 9, 0);
       if (qx * qx + qy * qy > 49) continue;
       const sparkle = Math.sqrt(Math.abs(px - 16) / 10.7) + Math.sqrt(Math.abs(py - 16) / 10.7) < 1 || (px - 25) ** 2 + (py - 6.5) ** 2 < 2;
-      const color = sparkle ? [233, 186, 99] : [38, 48, 39]; red += color[0]; green += color[1]; blue += color[2]; alpha++;
+      const color = sparkle ? [35, 118, 79] : [228, 241, 233]; red += color[0]; green += color[1]; blue += color[2]; alpha++;
     }
     const index = y * (size * 4 + 1) + 1 + x * 4;
     rows[index] = alpha ? red / alpha : 0; rows[index + 1] = alpha ? green / alpha : 0; rows[index + 2] = alpha ? blue / alpha : 0; rows[index + 3] = alpha / 16 * 255;

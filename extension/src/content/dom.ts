@@ -167,7 +167,7 @@ export class TextDocument {
   }
 
   /** Keep a paragraph's text nodes together to provide context, up to the API batch bounds. */
-  batches(records: TextRecord[]): TranslationPart[][] {
+  batches(records: TextRecord[], maxCharacters = MAX_JOB_CHARACTERS, maxSegments = MAX_JOB_SEGMENTS): TranslationPart[][] {
     const groups = new Map<Element, TextRecord[]>();
     for (const record of records) {
       const group = groups.get(record.context) ?? [];
@@ -185,13 +185,13 @@ export class TextDocument {
     for (const group of groups.values()) {
       const groupLength = group.reduce((sum, record) => sum + record.parts.reduce((n, part, index) => n + (record.results.has(index) ? 0 : part.text.length), 0), 0);
       const groupCount = group.reduce((sum, record) => sum + record.parts.filter((part, index) => !!part.text && !record.results.has(index)).length, 0);
-      if (length + groupLength > MAX_JOB_CHARACTERS || batch.length + groupCount > MAX_JOB_SEGMENTS) flush();
+      if (length + groupLength > maxCharacters || batch.length + groupCount > maxSegments) flush();
       for (const record of group) {
         record.state = 'queued';
         record.parts.forEach((part, index) => {
           if (record.results.has(index)) return;
           if (!part.text) { record.results.set(index, ''); return; }
-          if (length + part.text.length > MAX_JOB_CHARACTERS || batch.length >= MAX_JOB_SEGMENTS) flush();
+          if (length + part.text.length > maxCharacters || batch.length >= maxSegments) flush();
           batch.push({ id: `n${record.id}r${record.revision}p${index}`, text: part.text, record, revision: record.revision, part: index });
           length += part.text.length;
         });

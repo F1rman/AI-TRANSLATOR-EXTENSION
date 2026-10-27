@@ -1,15 +1,16 @@
 import { config } from './config';
 import { getAuthState, getIdToken, login, logout } from './auth';
-import { createImageController } from './images';
+import { deleteHistory, listHistory, saveHistory, setHistoryRecording } from './shared/history';
 import { DEFAULT_SETTINGS, ExtensionError } from './shared/protocol';
-import { billingAvailability, billingBuild, billingPage, type CentralBillingConfig } from './shared/billing';
-import type { Account, ApiError, CreateJob, Job, PageCommand, PageFrameState, PageState, Result, RuntimeRequest, Settings } from './shared/protocol';
+import { billingAvailability, billingBuild, billingPage, fetchCentralBillingConfig } from './shared/billing';
+import type { Account, ApiError, CreateJob, Job, PageCommand, PageFrameState, PageState, Result, RuntimeRequest, Settings, Tone } from './shared/protocol';
 
 interface StoredPage {
   sessionId: string; topDocumentId: string; sourceLanguage: string; targetLanguage: string;
+  maxCharactersPerJob: number; maxSegments: number; tone: Tone; usePageContext: boolean;
   status: PageFrameState['status']; frames: Record<string, PageFrameState>; frameDocuments: Record<string, string>;
 }
-interface JobOwner { tabId?: number; documentId?: string; createdAt: number; completedSeenAt?: number }
+interface JobOwner { tabId?: number; documentId?: string; createdAt: number; completedSeenAt?: number; historySaved?: boolean; uid?: string; request?: CreateJob }
 interface Session { pages: Record<string, StoredPage>; jobs: Record<string, JobOwner> }
 const emptySession = (): Session => ({ pages: {}, jobs: {} });
 let transaction: Promise<unknown> = Promise.resolve();
@@ -37,7 +38,7 @@ async function api<T>(path: string, method = 'GET', body?: unknown, refresh = fa
   const token = await getIdToken(refresh);
   let response: Response;
   try {
-    response = await fetch(`${config.apiBase}/v1${path}`, {
+    response = await fetch(`${config.apiBase}/v2${path}`, {
       method, headers: { Authorization: `Bearer ${token}`, ...(body ? { 'Content-Type': 'application/json' } : {}) },
       ...(body ? { body: JSON.stringify(body) } : {}), signal: AbortSignal.timeout(22_000),
     });
@@ -46,23 +47,15 @@ async function api<T>(path: string, method = 'GET', body?: unknown, refresh = fa
   }
   if (response.status === 401 && !refresh) return api<T>(path, method, body, true);
   const value = await response.json().catch(() => null);
+  if (response.status === 404 || response.status === 410 || response.status === 426) throw new ExtensionError({ code: 'UPDATE_REQUIRED', message: 'Update AI Translator and try again. The subscription service is not available in this server version.' });
   if (!response.ok) throw new ExtensionError(value?.error || { code: `HTTP_${response.status}`, message: 'The request could not be completed.' });
   return value as T;
 }
 async function accountWithBilling(): Promise<Account> {
   // This public request deliberately has no Firebase token or cookies.
-  const central = async (): Promise<CentralBillingConfig | undefined> => {
-    try {
-      const response = await fetch(`${billingBuild.billingBase}/api/config?productId=ai-translator-extension`, {
-        credentials: 'omit', redirect: 'error', referrerPolicy: 'no-referrer', cache: 'no-store',
-        signal: AbortSignal.timeout(5000),
-      });
-      if (!response.ok) return undefined;
-      const value = await response.json();
-      return value?.data;
-    } catch { return undefined; }
-  };
-  const [account, publicConfig] = await Promise.all([api<Account>('/me'), central()]);
+  const [account, publicConfig] = await Promise.all([
+    translationAccount(), fetchCentralBillingConfig(billingBuild.billingBase),
+  ]);
   return { ...account, billingAvailability: billingAvailability(account, publicConfig) };
 }
 async function openBilling(page: 'pay' | 'account', sender: chrome.runtime.MessageSender) {
@@ -80,7 +73,47 @@ async function openBilling(page: 'pay' | 'account', sender: chrome.runtime.Messa
   await chrome.tabs.create({ url: billingPage(page) });
   return { opened: true };
 }
-const images = createImageController(api, settings);
+async function translationAccount(): Promise<Account> {
+  const account = await api<Account>('/me');
+  if (!account.characterQuota || !account.features || !Number.isSafeInteger(account.limits?.maxCharactersPerJob)) {
+    throw new ExtensionError({ code: 'UPDATE_REQUIRED', message: 'Update AI Translator and refresh your account to use subscriptions.' });
+  }
+  return account;
+}
+function requireUi(sender: chrome.runtime.MessageSender): void {
+  const source = sender.url && new URL(sender.url);
+  if (!source || source.protocol !== 'chrome-extension:' || source.host !== chrome.runtime.id || !['/popup.html', '/options.html'].includes(source.pathname)) {
+    throw new ExtensionError({ code: 'INVALID_REQUEST', message: 'Open this action from AI Translator.' });
+  }
+}
+async function historyScope(): Promise<string> {
+  const state = await getAuthState();
+  if (!state.user) throw new ExtensionError({ code: 'AUTH_REQUIRED', message: 'Sign in to view your local history.' });
+  return JSON.stringify([billingBuild.environment, state.user.uid]);
+}
+async function rememberJob(job: Job): Promise<void> {
+  if (job.status !== 'completed' || !job.translations) return;
+  const owner = await withSession(session => session.jobs[job.id]);
+  const state = await getAuthState();
+  if (!owner?.request || owner.historySaved || !owner.uid || state.user?.uid !== owner.uid) return;
+  const payload = owner.request;
+  // Local storage failure never changes a successful translation into an error.
+  try {
+    await saveHistory(JSON.stringify([billingBuild.environment, owner.uid]), {
+      id: job.id, createdAt: owner.createdAt, sourceLanguage: payload.sourceLanguage, targetLanguage: payload.targetLanguage,
+      source: payload.segments.map(segment => segment.text).join('\n'),
+      translation: payload.segments.map(segment => job.translations!.find(result => result.id === segment.id)?.text || '').join('\n'),
+      tone: payload.tone || 'neutral', mode: payload.mode || 'text',
+    });
+    await withSession(session => { if (session.jobs[job.id]) { session.jobs[job.id].historySaved = true; delete session.jobs[job.id].request; } });
+  } catch { /* Translation remains usable when browser storage is full or unavailable. */ }
+}
+async function surroundingContext(tabId: number): Promise<string> {
+  try {
+    const result = await chrome.tabs.sendMessage(tabId, { type: 'context:get' }, { frameId: 0 }) as Result<string>;
+    return result?.ok && typeof result.data === 'string' ? Array.from(result.data).slice(0, 2000).join('') : '';
+  } catch { return ''; }
+}
 function cleanLanguage(value: unknown): string {
   if (typeof value !== 'string' || !value.trim() || value.trim().length > 80) throw new ExtensionError({ code: 'INVALID_REQUEST', message: 'Choose a valid language.' });
   return value.trim();
@@ -92,6 +125,8 @@ async function saveSettings(partial: Partial<Settings>): Promise<Settings> {
   if (partial.selectionMode && ['icon', 'instant', 'disabled'].includes(partial.selectionMode)) value.selectionMode = partial.selectionMode;
   if (partial.uiLanguage && ['uk', 'en'].includes(partial.uiLanguage)) value.uiLanguage = partial.uiLanguage;
   if (partial.theme && ['system', 'light', 'dark'].includes(partial.theme)) value.theme = partial.theme;
+  if (partial.tone && ['neutral', 'formal', 'friendly', 'technical'].includes(partial.tone)) value.tone = partial.tone;
+  if (typeof partial.usePageContext === 'boolean') value.usePageContext = partial.usePageContext;
   await chrome.storage.local.set({ settings: value });
   await createMenus();
   return value;
@@ -113,7 +148,7 @@ async function pageStatus(tabId: number) {
   return withSession((session) => aggregate(tabId, session.pages[tabId]));
 }
 async function command(tabId: number, documentId: string, page: StoredPage, action: PageCommand['payload']['action']) {
-  const message: PageCommand = { type: 'page:command', payload: { action, sessionId: page.sessionId, sourceLanguage: page.sourceLanguage, targetLanguage: page.targetLanguage } };
+  const message: PageCommand = { type: 'page:command', payload: { action, sessionId: page.sessionId, sourceLanguage: page.sourceLanguage, targetLanguage: page.targetLanguage, maxCharactersPerJob: page.maxCharactersPerJob, maxSegments: page.maxSegments, tone: page.tone, usePageContext: page.usePageContext } };
   return chrome.tabs.sendMessage(tabId, message, { documentId });
 }
 async function cancelTabJobs(tabId: number, documentId?: string) {
@@ -122,7 +157,8 @@ async function cancelTabJobs(tabId: number, documentId?: string) {
   await withSession((session) => { for (const id of ids) delete session.jobs[id]; });
 }
 async function startPage(tabId: number, sourceLanguage?: string, targetLanguage?: string): Promise<PageState> {
-  await getIdToken();
+  const account = await translationAccount();
+  if (!account.features.pageTranslation) throw new ExtensionError({ code: 'PRO_REQUIRED', message: 'Page translation is available with Pro.' });
   const tab = await chrome.tabs.get(tabId);
   if (!tab.url || !/^https?:/.test(tab.url)) throw new ExtensionError({ code: 'UNSUPPORTED_PAGE', message: 'Open a regular website. Chrome pages and the Web Store cannot be translated.' });
   const prefs = await settings();
@@ -137,7 +173,7 @@ async function startPage(tabId: number, sourceLanguage?: string, targetLanguage?
     await Promise.allSettled((frames || []).map((frame) => command(tabId, frame.documentId, prior, action)));
     await cancelTabJobs(tabId);
   }
-  const page: StoredPage = { sessionId: crypto.randomUUID(), topDocumentId: top.documentId, sourceLanguage: source, targetLanguage: target, status: 'translating', frames: {}, frameDocuments: Object.fromEntries((frames || []).map((frame) => [String(frame.frameId), frame.documentId])) };
+  const page: StoredPage = { sessionId: crypto.randomUUID(), topDocumentId: top.documentId, sourceLanguage: source, targetLanguage: target, maxCharactersPerJob: account.limits.maxCharactersPerJob, maxSegments: account.limits.maxSegments, tone: account.features.tones.includes(prefs.tone) ? prefs.tone : 'neutral', usePageContext: account.features.pageContext && prefs.usePageContext, status: 'translating', frames: {}, frameDocuments: Object.fromEntries((frames || []).map((frame) => [String(frame.frameId), frame.documentId])) };
   await withSession((session) => { session.pages[tabId] = page; });
   let results = await Promise.allSettled((frames || []).filter((frame) => /^https?:/.test(frame.url)).map((frame) => command(tabId, frame.documentId, page, 'start')));
   if (!results.length || results.every((result) => result.status === 'rejected')) {
@@ -180,14 +216,33 @@ async function ownJob(id: string, sender: chrome.runtime.MessageSender) {
   const owner = await withSession((session) => session.jobs[id]);
   if (!owner || owner.tabId !== sender.tab.id || owner.documentId !== sender.documentId) throw new ExtensionError({ code: 'JOB_NOT_FOUND', message: 'This translation is no longer available.' });
 }
-async function submitJob(payload: CreateJob, sender: chrome.runtime.MessageSender) {
+async function submitJob(payload: CreateJob, sender: chrome.runtime.MessageSender, ownerUid?: string) {
+  if (ownerUid && (await getAuthState()).user?.uid !== ownerUid) throw new ExtensionError({ code: 'AUTH_REQUIRED', message: 'The signed-in account changed. Submit this translation again.' });
   cleanLanguage(payload.sourceLanguage); cleanLanguage(payload.targetLanguage);
-  if (!Array.isArray(payload.segments) || !payload.segments.length || payload.segments.length > 24 || payload.segments.some((segment) => typeof segment.id !== 'string' || typeof segment.text !== 'string') || payload.segments.reduce((sum, segment) => sum + Array.from(segment.text).length, 0) > 4000) throw new ExtensionError({ code: 'INVALID_REQUEST', message: 'The text is too long for a single translation batch.' });
-  const job = await api<Job>('/translation-jobs', 'POST', payload);
-  await withSession((session) => {
-    session.jobs[job.id] = { tabId: sender.tab?.id, documentId: sender.documentId, createdAt: Date.now(), ...(job.status === 'completed' ? { completedSeenAt: Date.now() } : {}) };
+  const account = await translationAccount(); const prefs = await settings();
+  const count = Array.isArray(payload.segments) ? payload.segments.reduce((sum, segment) => sum + (typeof segment?.text === 'string' ? Array.from(segment.text).length : 0), 0) : 0;
+  if (!Array.isArray(payload.segments) || !payload.segments.length || payload.segments.length > account.limits.maxSegments || payload.segments.some(segment => typeof segment.id !== 'string' || typeof segment.text !== 'string') || count > account.limits.maxCharactersPerJob) throw new ExtensionError({ code: 'TEXT_TOO_LONG', message: `Use up to ${account.limits.maxCharactersPerJob.toLocaleString()} characters per translation.` });
+  const mode = payload.mode || (sender.tab ? 'selection' : 'text');
+  if (mode === 'page' && !account.features.pageTranslation) throw new ExtensionError({ code: 'PRO_REQUIRED', message: 'Page translation is available with Pro.' });
+  const tone = payload.tone || (account.features.tones.includes(prefs.tone) ? prefs.tone : 'neutral');
+  if (!account.features.tones.includes(tone)) throw new ExtensionError({ code: 'PRO_REQUIRED', message: 'Translation tones are available with Pro.' });
+  let context = payload.context || '';
+  if (context && (!prefs.usePageContext || !account.features.pageContext)) throw new ExtensionError({ code: 'PRO_REQUIRED', message: 'Page context requires Pro and your permission.' });
+  if (!context && prefs.usePageContext && account.features.pageContext && !sender.tab) {
+    const tabId = await activeTabId().catch(() => undefined);
+    if (tabId !== undefined) context = await surroundingContext(tabId);
+  }
+  if (Array.from(context).length > 2000) throw new ExtensionError({ code: 'INVALID_REQUEST', message: 'Page context is limited to 2,000 characters.' });
+  const request: CreateJob = { ...payload, mode, tone, context };
+  const state = await getAuthState();
+  if (ownerUid && state.user?.uid !== ownerUid) throw new ExtensionError({ code: 'AUTH_REQUIRED', message: 'The signed-in account changed. Submit this translation again.' });
+  const job = await api<Job>('/translation-jobs', 'POST', request);
+  await withSession(session => {
+    const previous = session.jobs[job.id];
+    session.jobs[job.id] = { ...previous, tabId: sender.tab?.id, documentId: sender.documentId, uid: state.user?.uid, ...(previous?.historySaved ? {} : { request }), createdAt: previous?.createdAt || Date.now(), ...(job.status === 'completed' ? { completedSeenAt: Date.now() } : {}) };
     for (const [id, owner] of Object.entries(session.jobs)) if (Date.now() - owner.createdAt > 3_600_000) delete session.jobs[id];
   });
+  await rememberJob(job);
   return job;
 }
 async function handle(request: RuntimeRequest, sender: chrome.runtime.MessageSender): Promise<unknown> {
@@ -195,21 +250,25 @@ async function handle(request: RuntimeRequest, sender: chrome.runtime.MessageSen
     case 'settings:get': return settings();
     case 'settings:set': return saveSettings(request.payload);
     case 'auth:get': return getAuthState();
-    case 'auth:login': { const state = await login(); images.login(); return state; }
+    case 'auth:login': return login();
     case 'auth:logout': {
       const ids = await withSession((session) => Object.keys(session.pages).map(Number));
       await Promise.allSettled(ids.map((tabId) => changePage(tabId, 'restore')));
       await withSession((session) => { session.jobs = {}; });
-      await images.logout();
       return logout();
     }
     case 'account:get': return accountWithBilling();
+    case 'history:list': { requireUi(sender); const account = await translationAccount(); return listHistory(await historyScope(), account.plan === 'pro' ? 1000 : 20); }
+    case 'history:delete': requireUi(sender); await deleteHistory(await historyScope(), request.payload.id); return { ok: true };
+    case 'history:clear': requireUi(sender); await deleteHistory(await historyScope()); return { ok: true };
+    case 'history:recording': requireUi(sender); await setHistoryRecording(await historyScope(), request.payload.enabled === true); return { ok: true };
     case 'billing:open': return openBilling(request.payload?.page, sender);
-    case 'translation:submit': return submitJob(request.payload, sender);
+    case 'translation:submit': return submitJob(request.payload, sender, request.ownerUid);
     case 'translation:get':
     case 'translation:cancel': {
       await ownJob(request.payload.id, sender);
       const job = await api<Job>(`/translation-jobs/${encodeURIComponent(request.payload.id)}`, request.type === 'translation:cancel' ? 'DELETE' : 'GET');
+      await rememberJob(job);
       if (job.status === 'completed') await withSession(session => { const owner = session.jobs[job.id]; if (owner && !owner.completedSeenAt) owner.completedSeenAt = Date.now(); });
       return job;
     }
@@ -219,11 +278,8 @@ async function handle(request: RuntimeRequest, sender: chrome.runtime.MessageSen
       if (owner && Number.isFinite(request.payload.elapsedMs) && request.payload.elapsedMs >= 0) console.info('translation_timing', { totalMs: Math.round(request.payload.elapsedMs), readyToDisplayMs: owner.completedSeenAt ? Math.max(0, Date.now() - owner.completedSeenAt) : null });
       return null;
     }
-    case 'image:intent': case 'image:prepare': case 'image:submit': case 'image:get': case 'image:cancel': case 'image:asset': {
-      const page = sender.url && new URL(sender.url);
-      if (!page || page.protocol !== 'chrome-extension:' || page.host !== chrome.runtime.id || page.pathname !== '/image.html') throw new ExtensionError({ code: 'INVALID_REQUEST', message: 'Open image translation from the image context menu.' });
-      return images.handle(request);
-    }
+    case 'image:intent': case 'image:prepare': case 'image:submit': case 'image:get': case 'image:cancel': case 'image:asset':
+      throw new ExtensionError({ code: 'FEATURE_UNAVAILABLE', message: 'Image translation is no longer available.' });
     case 'page:start': return startPage(await activeTabId(sender.tab?.id ?? request.payload?.tabId), request.payload?.sourceLanguage, request.payload?.targetLanguage);
     case 'page:stop': return changePage(await activeTabId(sender.tab?.id ?? request.payload?.tabId), 'stop');
     case 'page:restore': return changePage(await activeTabId(sender.tab?.id ?? request.payload?.tabId), 'restore');
@@ -242,14 +298,12 @@ async function createMenus() {
   await chrome.contextMenus.removeAll();
   chrome.contextMenus.create({ id: 'translate-selection', title: language === 'uk' ? 'Перекласти виділене — AI Translator' : 'Translate selection — AI Translator', contexts: ['selection'] });
   chrome.contextMenus.create({ id: 'translate-page', title: language === 'uk' ? 'Перекласти сторінку — AI Translator' : 'Translate page — AI Translator', contexts: ['page'] });
-  chrome.contextMenus.create({ id: 'translate-image', title: language === 'uk' ? 'Перекласти картинку' : 'Translate image', contexts: ['image'] });
 }
 chrome.runtime.onInstalled.addListener(() => { void createMenus(); });
 chrome.runtime.onStartup.addListener(() => { void createMenus(); });
 chrome.contextMenus.onClicked.addListener((info, tab) => {
   if (!tab?.id) return;
   if (info.menuItemId === 'translate-page') void startPage(tab.id).catch(() => chrome.runtime.openOptionsPage());
-  if (info.menuItemId === 'translate-image' && info.srcUrl) void images.open(info.srcUrl).catch(() => chrome.runtime.openOptionsPage());
   if (info.menuItemId === 'translate-selection' && info.selectionText) {
     const target = info.frameId === undefined ? undefined : { frameId: info.frameId };
     void chrome.tabs.sendMessage(tab.id, { type: 'selection:translate', payload: { text: info.selectionText } }, target).catch(() => chrome.runtime.openOptionsPage());

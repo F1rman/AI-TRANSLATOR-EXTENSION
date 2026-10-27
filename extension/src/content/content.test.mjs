@@ -244,7 +244,7 @@ test('integrated in-flight site edits remain unchanged by stale model output', a
 });
 
 test('authentication and quota failures pause the page with recoverable localized status', async () => {
-  for (const [code, expected] of [['AUTH_REQUIRED', /Sign in with Google/], ['QUOTA_EXCEEDED', /00:00 UTC/]]) {
+  for (const [code, expected] of [['AUTH_REQUIRED', /Sign in with Google/], ['QUOTA_EXCEEDED', /monthly character allowance/]]) {
     const f = contentFixture({ submit: () => ({ ok: false, error: { code, message: 'Technical server detail' } }) });
     try {
       await f.command('start');

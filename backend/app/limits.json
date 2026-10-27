@@ -4,11 +4,15 @@
   "plans": {
     "free": {
       "monthlyWords": 10000,
-      "monthlyImages": 5
+      "monthlyImages": 5,
+      "monthlyCharacters": 100000,
+      "maxCharactersPerJob": 4000
     },
     "pro": {
       "monthlyWords": 200000,
-      "monthlyImages": 150
+      "monthlyImages": 150,
+      "monthlyCharacters": 2000000,
+      "maxCharactersPerJob": 50000
     }
   }
 }

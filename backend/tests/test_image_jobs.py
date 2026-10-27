@@ -12,7 +12,7 @@ from app.auth import DevelopmentTaskAuth, DevelopmentUserAuth
 from app.config import Settings
 from app.images import MemoryImageStorage, validate_image
 from app.main import Runtime, create_app
-from app.models import ApiError, ImageTranslationRequest, TranslationRequest
+from app.models import ApiError, ImageTranslationRequest, SubscriptionSync, TranslationRequest
 from app.repository import MemoryRepository
 from app.service import JobStore, TranslationService
 
@@ -94,6 +94,26 @@ def disable_free_images(setup):
 def client(setup, uid="alice"):
     return httpx.AsyncClient(transport=httpx.ASGITransport(app=create_app(setup.runtime)),
                             base_url="https://test", headers={"Authorization": f"Bearer dev:{uid}"})
+
+
+async def test_paid_text_subscription_does_not_grant_legacy_pro_image_allowance(setup):
+    setup.store.settings = replace(setup.settings, project_id="ai-translator-ext")
+    start = int(setup.clock.now.timestamp())
+    await setup.store.sync_subscription(SubscriptionSync(
+        environment="live", productId="ai-translator-extension", authProjectId="ai-translator-ext",
+        uid="alice", revision=1, subscriptionId="sub_paid_text", status="active", blockedReason=None,
+        paidPeriodStart=start, paidThrough=start + 31 * 86400, quotaAnchorAt=start, policyVersion=2))
+    async with client(setup) as api:
+        account = (await api.get("/v1/me")).json()
+        assert account["plan"] == "pro"
+        assert account["imageQuota"]["monthlyImages"] == 5
+    setup.repository.documents[setup.store.user_key("alice")] = {
+        "monthlyImageUsage": {"2026-10": {"used": 5, "reserved": 0}}}
+    with pytest.raises(ApiError, match="IMAGE_QUOTA_EXCEEDED"):
+        await setup.service.submit_image("alice", image_request(), png())
+    assert setup.upstream.image_calls == []
+    grant(setup)
+    assert (await setup.store.get_account("alice"))["imageQuota"]["monthlyImages"] == 150
 
 
 async def test_default_free_and_server_owned_entitlement(setup):
@@ -325,7 +345,7 @@ def test_image_pixel_and_animation_validation():
     assert validate_image(png("WEBP"))["mimeType"] == "image/webp"
 
 
-async def test_ordinary_text_and_image_poll_is_three_reads_zero_transactions(setup):
+async def test_ordinary_legacy_poll_reads_account_manual_and_paid_access_without_transactions(setup):
     grant(setup)
     text = TranslationRequest(sourceLanguage="auto", targetLanguage="uk", idempotencyKey="text", segments=[{"id": "1", "text": "hello"}])
     text_job = await setup.service.submit("alice", text)
@@ -334,7 +354,8 @@ async def test_ordinary_text_and_image_poll_is_three_reads_zero_transactions(set
         setup.repository.reads.clear()
         before = setup.repository.transactions
         await setup.service.get("alice", job["id"], kind=kind)
-        assert setup.repository.reads == [setup.store.job_key(job["id"]), setup.store.user_key("alice"), setup.store.entitlement_key("alice")]
+        assert setup.repository.reads == [setup.store.job_key(job["id"]), setup.store.user_key("alice"),
+                                          setup.store.entitlement_key("alice"), setup.store.subscription_key("alice")]
         assert setup.repository.transactions == before
     setup.clock.now += timedelta(seconds=121)
     await setup.service.get("alice", text_job["id"])

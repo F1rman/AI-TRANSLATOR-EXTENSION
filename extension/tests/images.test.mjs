@@ -239,7 +239,7 @@ test('logout drains an in-flight upload and cancels the created job before clear
   assert.equal(signedOut, true);
 });
 
-test('worker accepts image commands only from its own image page', async (t) => {
+test('worker rejects retired image commands from every page', async (t) => {
   const f = await fixture(t);
   const id = await f.open();
   await load(workerCode);
@@ -252,10 +252,10 @@ test('worker accepts image commands only from its own image page', async (t) => 
   ]) {
     const response = await request({ id: 'test-extension', url, tab: { id: 1 } });
     assert.equal(response.ok, false);
-    assert.equal(response.error.code, 'INVALID_REQUEST');
+    assert.equal(response.error.code, 'FEATURE_UNAVAILABLE');
   }
   const response = await request({ id: 'test-extension', url: `chrome-extension://test-extension/image.html?intent=${id}` });
-  assert.equal(response.ok, true);
-  assert.equal(response.data.id, id);
+  assert.equal(response.ok, false);
+  assert.equal(response.error.code, 'FEATURE_UNAVAILABLE');
   assert.equal(f.calls.length, 0);
 });

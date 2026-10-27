@@ -59,7 +59,8 @@ async def test_cloud_task_is_deduplicated_and_contains_no_source_or_api_token():
     config = Settings(project_id="test", task_project="test", task_location="europe-west1", task_queue="translation-jobs",
                       backend_base_url="https://backend.run.app", task_audience="https://backend.run.app",
                       task_service_account="tasks@test.iam.gserviceaccount.com", api_access_token="private-api-token")
-    fake_client = SimpleNamespace(task_path=lambda *parts: "/".join(parts), create_task=AsyncMock())
+    fake_client = SimpleNamespace(task_path=lambda *parts: "/".join(parts),
+                                  queue_path=lambda *parts: "/".join(parts), create_task=AsyncMock())
     dispatcher = CloudTasksDispatcher.__new__(CloudTasksDispatcher)
     dispatcher.settings, dispatcher.client, dispatcher.parent = config, fake_client, "queue-parent"
     await dispatcher.enqueue("a" * 32, 3)
@@ -73,6 +74,10 @@ async def test_cloud_task_is_deduplicated_and_contains_no_source_or_api_token():
     assert "private-api-token" not in str(task)
     assert set(__import__("json").loads(task["http_request"]["body"])) == {"jobId", "generation"}
     assert task["dispatch_deadline"].seconds == 120
+    await dispatcher.enqueue("c" * 32, 0, priority=True)
+    priority_task = fake_client.create_task.call_args.kwargs["request"]
+    assert priority_task["parent"].endswith('/' + config.pro_task_queue)
+    assert '/' + config.pro_task_queue + '/' in priority_task["task"]["name"]
     await dispatcher.enqueue("b" * 32, 0, kind="image")
     assert fake_client.create_task.call_args.kwargs["request"]["task"]["dispatch_deadline"].seconds == 600
     fake_client.create_task.side_effect = AlreadyExists("already queued")

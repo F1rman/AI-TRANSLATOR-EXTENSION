@@ -12,7 +12,7 @@ class MemoryDispatcher:
         self.tasks = set()
         self.enqueued = set()
 
-    async def enqueue(self, identifier, generation, kind="text"):
+    async def enqueue(self, identifier, generation, kind="text", priority=False):
         key = (identifier, generation)
         if key in self.enqueued:
             return
@@ -39,15 +39,16 @@ class CloudTasksDispatcher:
         from google.cloud import tasks_v2
         self.settings = settings
         self.client = tasks_v2.CloudTasksAsyncClient()
-        self.parent = self.client.queue_path(settings.task_project, settings.task_location, settings.task_queue)
 
-    async def enqueue(self, identifier, generation, kind="text"):
+    async def enqueue(self, identifier, generation, kind="text", priority=False):
         from google.api_core.exceptions import AlreadyExists
         from google.cloud import tasks_v2
         from google.protobuf.duration_pb2 import Duration
+        queue = self.settings.pro_task_queue if priority else self.settings.task_queue
+        parent = self.client.queue_path(self.settings.task_project, self.settings.task_location, queue)
         task = {
             "name": self.client.task_path(self.settings.task_project, self.settings.task_location,
-                                         self.settings.task_queue, f"translate-{identifier}-{generation}"),
+                                         queue, f"translate-{identifier}-{generation}"),
             "http_request": {
                 "http_method": tasks_v2.HttpMethod.POST,
                 "url": self.settings.backend_base_url + "/internal/process-job",
@@ -59,7 +60,7 @@ class CloudTasksDispatcher:
             "dispatch_deadline": Duration(seconds=600 if kind == "image" else 120),
         }
         try:
-            await self.client.create_task(request={"parent": self.parent, "task": task}, retry=None, timeout=20)
+            await self.client.create_task(request={"parent": parent, "task": task}, retry=None, timeout=20)
         except AlreadyExists:
             pass
 

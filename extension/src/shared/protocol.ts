@@ -1,15 +1,19 @@
 export type Theme = 'system' | 'light' | 'dark';
 export type UiLanguage = 'uk' | 'en';
+export type Tone = 'neutral' | 'formal' | 'friendly' | 'technical';
+export type TranslationMode = 'text' | 'selection' | 'page';
 export interface Settings {
   sourceLanguage: string;
   targetLanguage: string;
   selectionMode: 'icon' | 'instant' | 'disabled';
   uiLanguage: UiLanguage;
   theme: Theme;
+  tone: Tone;
+  usePageContext: boolean;
 }
 export const DEFAULT_SETTINGS: Settings = {
   sourceLanguage: 'auto', targetLanguage: 'Ukrainian', selectionMode: 'icon',
-  uiLanguage: 'uk', theme: 'system',
+  uiLanguage: 'uk', theme: 'system', tone: 'neutral', usePageContext: false,
 };
 export interface ApiError { code: string; message: string }
 export type Result<T> = { ok: true; data: T } | { ok: false; error: ApiError };
@@ -33,21 +37,31 @@ export interface BillingAvailability {
   canViewPurchases: boolean;
   reason: 'ready' | 'disabled' | 'unavailable' | 'environment-mismatch';
 }
+export interface CharacterQuota {
+  monthlyCharacters: number; usedCharacters: number; reservedCharacters: number;
+  remainingCharacters: number; periodStart: string; resetsAt: string;
+}
 export interface Account {
-  user: User; quota: Quota; plan: 'free' | 'pro'; features: { imageTranslation: boolean }; imageQuota: ImageQuota;
-  prepaid?: PrepaidBalance;
+  user: User; characterQuota: CharacterQuota; plan: 'free' | 'pro';
+  features: { pageTranslation: boolean; pageContext: boolean; tones: Tone[]; historyLimit: number; priority: boolean; imageTranslation: false };
   billing?: { environment: BillingEnvironment; purchasesEnabled: boolean };
-  /** Added by the background after checking the public billing service configuration. */
   billingAvailability?: BillingAvailability;
+  subscription?: { status: string; paidThrough?: number | null; cancelAtPeriodEnd?: boolean };
   limits: { maxSegments: number; maxCharactersPerJob: number; maxConcurrentJobs: number };
 }
+export interface HistoryEntry {
+  id: string; createdAt: number; sourceLanguage: string; targetLanguage: string;
+  source: string; translation: string; tone: Tone; mode: TranslationMode;
+}
+export interface HistoryPage { entries: HistoryEntry[]; total: number; recording: boolean; limit: number }
 export interface Segment { id: string; text: string }
 export interface CreateJob {
   sourceLanguage: string; targetLanguage: string; segments: Segment[]; idempotencyKey: string;
+  mode?: TranslationMode; tone?: Tone; context?: string;
 }
 export interface Job {
   id: string; status: 'queued' | 'running' | 'completed' | 'failed' | 'cancelled';
-  translations?: Segment[]; error?: ApiError; quota?: Quota;
+  translations?: Segment[]; error?: ApiError; quota?: Quota; characterQuota?: CharacterQuota;
   prepaid?: PrepaidBalance;
 }
 export interface ImageJob {
@@ -66,14 +80,18 @@ export interface PageFrameState {
 export interface PageState extends PageFrameState { tabId?: number; sourceLanguage?: string; targetLanguage?: string }
 export interface PageCommand {
   type: 'page:command';
-  payload: { action: 'start' | 'stop' | 'restore' | 'status'; sessionId: string; sourceLanguage: string; targetLanguage: string };
+  payload: { action: 'start' | 'stop' | 'restore' | 'status'; sessionId: string; sourceLanguage: string; targetLanguage: string; maxCharactersPerJob?: number; maxSegments?: number; tone?: Tone; usePageContext?: boolean };
 }
 export type RuntimeRequest =
   | { type: 'settings:get' }
   | { type: 'settings:set'; payload: Partial<Settings> }
   | { type: 'auth:get' | 'auth:login' | 'auth:logout' | 'account:get' }
+  | { type: 'history:list' | 'history:clear' }
+  | { type: 'history:delete'; payload: { id: string } }
+  | { type: 'history:recording'; payload: { enabled: boolean } }
+  | { type: 'context:get' }
   | { type: 'billing:open'; payload: { page: 'pay' | 'account' } }
-  | { type: 'translation:submit'; payload: CreateJob }
+  | { type: 'translation:submit'; payload: CreateJob; ownerUid?: string }
   | { type: 'translation:get' | 'translation:cancel'; payload: { id: string } }
   | { type: 'translation:displayed'; payload: { id: string; elapsedMs: number } }
   | { type: 'image:intent' | 'image:prepare'; payload: { intentId: string } }

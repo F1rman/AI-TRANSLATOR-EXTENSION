@@ -17,6 +17,47 @@ const context = await chromium.launchPersistentContext(profile, {
   viewport: { width: 1280, height: 900 },
 });
 const errors = [];
+// A normal tab cannot verify Chrome's toolbar popup autosizing. Inspect the
+// actual action target through CDP (Playwright does not emit a page event for it).
+async function assertActionPopupWidth(worker, extensionId) {
+  await worker.evaluate(() => chrome.action.openPopup());
+  const cdp = await context.browser().newBrowserCDPSession();
+  let sessionId; let target; let listener; let timer;
+  try {
+    const { targetInfos } = await cdp.send('Target.getTargets');
+    target = targetInfos.find(info => info.type === 'page' && info.url === `chrome-extension://${extensionId}/popup.html`);
+    assert.ok(target, 'Chrome must open the actual toolbar popup');
+    ({ sessionId } = await cdp.send('Target.attachToTarget', { targetId: target.targetId, flatten: false }));
+    const expression = `new Promise(resolve => {
+      const check = () => {
+        if (!document.querySelector('.popup')) { setTimeout(check, 20); return; }
+        requestAnimationFrame(() => requestAnimationFrame(() => resolve({
+          viewport: innerWidth,
+          widths: ['html', 'body', '#root', '.popup'].map(selector => document.querySelector(selector).getBoundingClientRect().width)
+        })));
+      }; check();
+    })`;
+    const metrics = await new Promise((resolve, reject) => {
+      timer = setTimeout(() => reject(new Error('Toolbar popup width check timed out')), 10000);
+      listener = event => {
+        if (event.sessionId !== sessionId) return;
+        const message = JSON.parse(event.message);
+        if (message.id !== 1) return;
+        if (message.error || message.result.exceptionDetails) reject(new Error(JSON.stringify(message.error || message.result.exceptionDetails)));
+        else resolve(message.result.result.value);
+      };
+      cdp.on('Target.receivedMessageFromTarget', listener);
+      void cdp.send('Target.sendMessageToTarget', { sessionId, message: JSON.stringify({ id: 1, method: 'Runtime.evaluate', params: { expression, awaitPromise: true, returnByValue: true } }) }).catch(reject);
+    });
+    assert.deepEqual(metrics, { viewport: 420, widths: [420, 420, 420, 420] }, 'Actual Chrome action viewport and document must stay exactly 420px');
+  } finally {
+    clearTimeout(timer);
+    if (listener) cdp.off('Target.receivedMessageFromTarget', listener);
+    if (sessionId) await cdp.send('Target.detachFromTarget', { sessionId });
+    if (target) await cdp.send('Target.closeTarget', { targetId: target.targetId });
+    await cdp.detach();
+  }
+}
 try {
   const worker = context.serviceWorkers()[0] || await context.waitForEvent('serviceworker');
   const id = new URL(worker.url()).host;
@@ -27,10 +68,13 @@ try {
     const deployment = JSON.parse(await readFile(path.join(root, 'deployment.json'), 'utf8'));
     if (deployment.extensionId) assert.equal(id, deployment.extensionId, 'Unpacked extension ID must match the Store item');
   }
+  await assertActionPopupWidth(worker, id);
   const page = await context.newPage();
   page.on('pageerror', error => errors.push(error.message));
   await page.goto(`chrome-extension://${id}/popup.html`);
   await page.locator('.popup-header').waitFor();
+  const popupWidths = await page.evaluate(() => ['html', 'body', '#root', '.popup'].map(selector => document.querySelector(selector).getBoundingClientRect().width));
+  assert.deepEqual(popupWidths, [420, 420, 420, 420], 'Packaged popup document and content must stay exactly 420px');
   await page.waitForFunction(() => document.querySelector('.setup-note') || document.querySelector('.google-button'));
   const authState = await page.evaluate(async () => chrome.runtime.sendMessage({ type: 'auth:get' }));
   assert.equal(authState.ok, true, 'Firebase authentication must initialize successfully');
@@ -56,7 +100,7 @@ try {
   assert.equal(unauthorized.ok, false);
   assert.ok(['AUTH_REQUIRED', 'NOT_CONFIGURED'].includes(unauthorized.error.code), unauthorized.error.code);
   assert.deepEqual(errors, [], 'Extension page runtime errors');
-  console.log(`PASS: packaged extension ${id} loads, persists settings, handles signed-out access; no runtime errors.`);
+  console.log(`PASS: packaged extension ${id} opens a 420px toolbar popup, persists settings, handles signed-out access; no runtime errors.`);
 
   // Exercise the actual built content bundle with a deterministic job transport.
   // This is browser integration testing, not a live AI quality test.

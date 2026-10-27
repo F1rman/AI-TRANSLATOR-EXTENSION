@@ -4,6 +4,7 @@ Manifest V3 розширення: переклад виділення, введ�
 
 ## Поточний стан
 
+- **Версія 1.2.1:** реальні пакети на `https://balubenko-stripe.web.app`, тестові — на `https://balubenko-stripe-test.web.app`. ZIP live — `artifacts/ai-translator-1.2.1.zip`, test — `artifacts/ai-translator-1.2.1-test.zip`. Розширення явно показує режим балансу й повторює перевірку білінгу після тимчасового збою. Деталі — [docs/RELEASE_1.2.1.md](docs/RELEASE_1.2.1.md).
 - Код розширення та сервера реалізований. Сервер, Firestore, Cloud Tasks, Firebase Auth і публічні сторінки налаштовані у **`ai-translator-ext`**.
 - Джерело перекладів — наявний `https://balubenko-ai.web.app/api/generate`. Токен доступний лише серверу через Secret Manager.
 - **OAuth Client ID і Store public key додані до збірки.** Локальне розширення має Store ID `aieamemimbcbbnmakifejomadhegogge`, origin дозволений у Firebase, брендинг підтверджений. ZIP `artifacts/ai-translator-1.2.0.zip` призначений для оновлення цієї чернетки Store. Залишилося пройти справжній Google-вхід у звичайному Chrome й перевірити переклад. Інструкція — [docs/GOOGLE_SIGN_IN.md](docs/GOOGLE_SIGN_IN.md).
@@ -95,7 +96,7 @@ AI API в сусідньому `../OpenAI` має сумісний необов�
 
 Спільна адмінка BALUBENKO-STRIPE керує разовими пакетами слів і картинок. Налаштування OIDC-доставки оплат, тестового середовища та правила списання описані в [docs/BILLING.md](docs/BILLING.md). Пакети додаються до балансу без строку дії й використовуються після місячної квоти; статус Free/ручний Pro зберігається. Перед розгортанням backend застосуй також Firestore indexes із `firestore.indexes.json`.
 
-## Пакети й збірки 1.2.0
+## Пакети й збірки 1.2.1
 
 Free залишається **10 000 слів / 5 картинок за календарний місяць UTC**. Ручний Pro зберігає 200 000 / 150. Разові пакети додають окремі баланси слів і картинок: місячна квота використовується першою, пакети накопичуються й не згорають. Ліміти й залишки надходять із API, ціни — з центрального каталогу на платіжній сторінці; у коді розширення немає копії тарифів.
 
@@ -104,10 +105,10 @@ Popup, налаштування й вкладка картинки показу�
 ```sh
 npm run build
 npm run package
-# extension/dist → artifacts/ai-translator-1.2.0.zip
+# extension/dist → artifacts/ai-translator-1.2.1.zip
 npm run build:test
 npm run package:test
-# extension/dist-test → artifacts/ai-translator-1.2.0-test.zip
+# extension/dist-test → artifacts/ai-translator-1.2.1-test.zip
 ```
 
 Live використовує `ai-translator-api-1060412514800.europe-west1.run.app` і `balubenko-stripe.web.app`. Test використовує `ai-translator-api-test-1060412514800.europe-west1.run.app` і `balubenko-stripe-test.web.app`, має назву «AI Translator (Test)» та помітку тестового режиму. Test ZIP призначений лише для локальної перевірки; обидві збірки зберігають Store ID/OAuth, тому одночасно встановлюється одна з них. Тестові оплати не додають live-баланс. Збірка не розгортає сервер і не подає пакет у Chrome Web Store.

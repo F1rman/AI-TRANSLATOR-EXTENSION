@@ -1,4 +1,71 @@
-# Translation job API
+# Translation API v2: subscriptions and source characters
+
+The current extension uses `GET /v2/me` and `POST /v2/translation-jobs`, with the
+same owner-only GET/DELETE job paths under `/v2/translation-jobs/{id}`. Auth,
+Cloud Tasks leases, idempotency and cancellation retain the v1 guarantees below.
+
+| Plan | Monthly source characters | Characters per request | Period |
+| --- | ---: | ---: | --- |
+| Free | 100,000 | 4,000 | Calendar month, 00:00 UTC |
+| Pro | 2,000,000 | 50,000 | Monthly anniversary of the original subscription anchor, UTC |
+
+Pro is $4.99/month or $39.99/year in the central billing catalogue. Annual payment
+still grants a fresh 2,000,000-character allowance each month. Boundaries always
+use the original day/time, independently clamped to the last day of short months:
+January 31 → February 28/29 → March 31. Unused monthly allowance does not roll over.
+Characters are Unicode code points in source segment text, including spaces and
+punctuation; output, prompts and context do not count. Existing word counters and
+accepted legacy reservations keep their original units and are never converted.
+
+`/v2/me` exposes `characterQuota: {monthlyCharacters, usedCharacters,
+reservedCharacters, remainingCharacters, periodStart, resetsAt}`, dynamic
+`limits`, `plan`, and `features`. Pro enables full-page mode, page context,
+formal/friendly/technical tones and priority dispatch. `historyLimit` is 20 for
+Free / 1,000 for Pro; history is local to the extension. Images are hidden in v2
+(`imageTranslation: false`); existing v1 image routes remain available for
+compatibility. Paid text subscriptions do not receive the legacy 150-image Pro
+allowance: v1 images retain the Free allowance unless an explicit manual Pro grant
+exists. No v2 response advertises prepaid balances, and v2 jobs never spend
+retired purchased word credits.
+
+V2 job payloads retain sourceLanguage/targetLanguage/segments/idempotencyKey and
+add optional `mode: "text" | "selection" | "page"` (default text),
+`tone: "neutral" | "formal" | "friendly" | "technical"` (default neutral), and
+`context` (default empty, maximum 2,000 code points). The complete payload is bound
+to the idempotency key. Pro gates and size caps are checked from authoritative
+entitlements in the reservation transaction and again before the provider call.
+
+`POST /internal/subscription-sync` accepts the revisioned aggregate entitlement
+from BALUBENKO Billing. It uses the same exact configured `BILLING_AUDIENCE` as
+`/internal/billing-sync`; the OIDC audience intentionally need not match the new
+route. Only paid, unblocked active/past_due snapshots with a future paidThrough
+select Pro. Expiry is enforced on every account/reservation read, even if no
+webhook arrives. Manual Pro grants remain separate, expiry-aware overrides; an
+undated legacy grant receives a one-time persisted quota anchor on its first v2
+read. See [`../docs/BILLING.md`](../docs/BILLING.md) for the full sync contract.
+
+The existing upstream already defaults to `gpt-6-luna`; the translation profile
+uses Responses `reasoning: {effort: "none"}`. Private provider credentials stay
+server-side.
+
+Deployment uses distinct Free/Pro Cloud Tasks queues: `translation-jobs` at
+1 dispatch/sec and 2 concurrent workers, `translation-jobs-pro` at 2/sec and 4
+concurrent workers; test queues append `-test`. Priority is stored by the server
+when accepting a job, and retries use the same tier. Configure
+`PRO_TASK_QUEUE_NAME` alongside `TASK_QUEUE_NAME`.
+
+New v1 text submissions return `UPDATE_REQUIRED` by default; existing v1 account
+and job reads/cancellation and historical purchase reconciliation remain intact.
+For a staged rollout only, `LEGACY_TEXT_SUBMISSION_ENABLED=true` (or deployment
+`--allow-legacy-text-submissions`) temporarily preserves v1 submissions. Disable
+it after distributing the updated extension. Deploy/test v2 backend and billing
+sync before switching the extension. No database conversion or destructive
+migration is needed.
+
+## Legacy v1 and image API reference
+
+The following documents the retained word/image contracts and their accepted
+reservations; it does not define the v2 subscription offer.
 
 Python 3.12 / FastAPI. Production adapters use Firestore transactions and Cloud Tasks; requests from Chrome are short and durable worker requests call the existing AI endpoint.
 

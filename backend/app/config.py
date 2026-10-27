@@ -16,6 +16,7 @@ class Settings:
     task_project: str = ""
     task_location: str = "europe-west1"
     task_queue: str = "translation-jobs"
+    pro_task_queue: str = "translation-jobs-pro"
     task_service_account: str = ""
     task_audience: str = ""
     billing_environment: str = "live"
@@ -25,6 +26,7 @@ class Settings:
     max_segments: int = 24
     max_characters: int = 4_000
     max_concurrent_jobs: int = 2
+    legacy_text_submission_enabled: bool = False
     job_ttl_seconds: int = 86_400
     lease_seconds: int = 120
     image_lease_seconds: int = 600
@@ -53,6 +55,7 @@ class Settings:
             task_project=os.environ.get("TASK_QUEUE_PROJECT", project),
             task_location=os.environ.get("TASK_QUEUE_LOCATION", "europe-west1"),
             task_queue=os.environ.get("TASK_QUEUE_NAME", "translation-jobs"),
+            pro_task_queue=os.environ.get("PRO_TASK_QUEUE_NAME", "translation-jobs-pro"),
             task_service_account=os.environ.get("TASK_SERVICE_ACCOUNT", ""),
             task_audience=os.environ.get("TASK_AUDIENCE", base_url),
             billing_environment=os.environ.get("BILLING_ENVIRONMENT", "live"),
@@ -61,6 +64,7 @@ class Settings:
             max_segments=number("MAX_SEGMENTS", 24),
             max_characters=number("MAX_CHARACTERS_PER_JOB", 4_000),
             max_concurrent_jobs=number("MAX_CONCURRENT_JOBS", 2),
+            legacy_text_submission_enabled=os.environ.get("LEGACY_TEXT_SUBMISSION_ENABLED", "false").lower() == "true",
             job_ttl_seconds=number("JOB_TTL_SECONDS", 86_400),
             lease_seconds=number("JOB_LEASE_SECONDS", 120),
             image_lease_seconds=number("IMAGE_JOB_LEASE_SECONDS", 600),
@@ -70,6 +74,8 @@ class Settings:
             raise RuntimeError("BACKEND_MODE must be firestore or memory")
         if settings.billing_environment not in {"test", "live"}:
             raise RuntimeError("BILLING_ENVIRONMENT must be test or live")
+        if not settings.task_queue or not settings.pro_task_queue or settings.task_queue == settings.pro_task_queue:
+            raise RuntimeError("Free and Pro jobs require distinct task queues")
         if settings.billing_service_account and (not settings.billing_audience.startswith("https://")
                                                   or not settings.billing_service_account.endswith(".iam.gserviceaccount.com")):
             raise RuntimeError("Billing sync requires an exact HTTPS audience and service account")

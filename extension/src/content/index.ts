@@ -1,9 +1,10 @@
 import { DEFAULT_SETTINGS } from '../shared/protocol';
-import type { ApiError, PageCommand, PageFrameState, PageState, Settings } from '../shared/protocol';
+import type { Account, ApiError, PageCommand, PageFrameState, PageState, Settings, Tone } from '../shared/protocol';
 import { hasTranslatableText, isExcluded, MAX_JOB_CHARACTERS, MAX_JOB_SEGMENTS, splitText, TextDocument } from './dom';
 import type { TranslationPart } from './dom';
 import { errorDetails, isAborted, request, translateJob } from './jobs';
 import { ContentUI, errorText } from './ui';
+import { visiblePageContext } from './context';
 
 interface PageRun { generation: number; abort: AbortController; queue: TranslationPart[][]; running: number }
 type SelectionRequest = { type: 'selection:translate'; payload?: { text?: string } };
@@ -32,6 +33,10 @@ class ContentController {
   private selected?: { text: string; rect: DOMRect };
   private lastPointer?: { x: number; y: number };
   private readonly ready: Promise<void>;
+  private maxCharacters = MAX_JOB_CHARACTERS;
+  private maxSegments = MAX_JOB_SEGMENTS;
+  private pageTone: Tone = 'neutral';
+  private pageContext = false;
 
   constructor() {
     this.ui = new ContentUI(this.settings, {
@@ -45,12 +50,13 @@ class ContentController {
       this.settings = settings;
       this.ui.setSettings(settings);
     }).catch(() => undefined);
-    chrome.runtime.onMessage.addListener((message: PageCommand | SelectionRequest | AggregateRequest, sender, respond) => {
+    chrome.runtime.onMessage.addListener((message: PageCommand | SelectionRequest | AggregateRequest | { type: 'context:get' }, sender, respond) => {
       // No window-message or DOM bridge: webpage JavaScript cannot issue authenticated commands.
       if (sender.id !== chrome.runtime.id || !message || typeof message !== 'object') return false;
-      if (message.type !== 'page:command' && message.type !== 'selection:translate' && message.type !== 'page:aggregate') return false;
+      if (message.type !== 'page:command' && message.type !== 'selection:translate' && message.type !== 'page:aggregate' && message.type !== 'context:get') return false;
       void this.ready.then(() => {
-        if (message.type === 'page:aggregate') {
+        if (message.type === 'context:get') { respond({ ok: true, data: visiblePageContext(document) });
+        } else if (message.type === 'page:aggregate') {
           if (window.top === window && message.payload.sessionId === this.sessionId) {
             this.aggregate = message.payload;
             this.ui.showToolbar(message.payload, this.pageError);
@@ -59,7 +65,12 @@ class ContentController {
         } else if (message.type === 'page:command') {
           const command = message.payload;
           if (!command || !['start', 'stop', 'restore', 'status'].includes(command.action)) return;
-          if (command.action === 'start') this.start(command.sessionId, command.sourceLanguage, command.targetLanguage);
+          if (command.action === 'start') {
+            this.maxCharacters = Math.min(50000, Math.max(1, command.maxCharactersPerJob || MAX_JOB_CHARACTERS));
+            this.maxSegments = Math.min(24, Math.max(1, command.maxSegments || MAX_JOB_SEGMENTS));
+            this.pageTone = command.tone || 'neutral'; this.pageContext = command.usePageContext === true;
+            this.start(command.sessionId, command.sourceLanguage, command.targetLanguage);
+          }
           else if (command.action === 'stop' && command.sessionId === this.sessionId) this.stop();
           else if (command.action === 'restore' && command.sessionId === this.sessionId) this.restore();
           respond({ ok: true, data: this.state() });
@@ -170,7 +181,7 @@ class ContentController {
     const run = this.run;
     if (!this.active || !run) return;
     const fresh = this.text.collect();
-    run.queue.push(...this.text.batches(fresh));
+    run.queue.push(...this.text.batches(fresh, this.maxCharacters, this.maxSegments));
     this.observeRoots();
     this.pump(run);
     this.report();
@@ -210,7 +221,7 @@ class ContentController {
       const batch = run.queue.shift()!.filter((part) => part.record.node.isConnected && part.record.revision === part.revision && part.record.state === 'queued');
       if (!batch.length) continue;
       run.running++;
-      void translateJob({ ...this.languages, segments: batch.map(({ id, text }) => ({ id, text })) }, run.abort.signal).then((result) => {
+      void translateJob({ ...this.languages, mode: 'page', tone: this.pageTone, context: this.pageContext ? visiblePageContext(document) : '', segments: batch.map(({ id, text }) => ({ id, text })) }, run.abort.signal).then((result) => {
         if (run !== this.run || run.abort.signal.aborted) return;
         const translations = new Map(result.map((segment) => [segment.id, segment.text]));
         for (const part of batch) this.text.apply(part, translations.get(part.id)!);
@@ -295,28 +306,39 @@ class ContentController {
   }
 
   private translateSelection(text: string, rect: DOMRect): void {
+    void this.runSelection(text, rect);
+  }
+
+  private async runSelection(text: string, rect: DOMRect): Promise<void> {
     this.selectionAbort?.abort();
     const abort = new AbortController();
     this.selectionAbort = abort;
     this.selected = { text, rect };
     this.ui.showSelection(rect, () => this.translateSelection(text, rect));
+    let account: Account;
+    try { account = await request<Account>({ type: 'account:get' }); }
+    catch (error) { if (!abort.signal.aborted) this.ui.selectionFailure(errorDetails(error)); return; }
+    if (abort.signal.aborted) return;
+    const maxCharacters = account.limits?.maxCharactersPerJob || MAX_JOB_CHARACTERS;
+    if (Array.from(text).length > maxCharacters) {
+      this.ui.selectionFailure({ code: 'TEXT_TOO_LONG', message: this.settings.uiLanguage === 'uk' ? `Виділіть до ${maxCharacters.toLocaleString('uk')} символів.` : `Select up to ${maxCharacters.toLocaleString()} characters.` });
+      return;
+    }
     const pieces = splitText(text);
     const sourceLanguage = this.settings.sourceLanguage;
     const targetLanguage = this.settings.targetLanguage;
-    if (text.length > 20_000) {
-      this.ui.selectionFailure({ code: 'TEXT_TOO_LONG', message: 'Select up to 20,000 characters.' });
-      return;
-    }
+    const tone = account.features.tones.includes(this.settings.tone) ? this.settings.tone : 'neutral';
+    const context = account.features.pageContext && this.settings.usePageContext ? visiblePageContext(document) : '';
     const batches: { id: string; text: string }[][] = [];
     let batch: { id: string; text: string }[] = [];
     let characters = 0;
     pieces.forEach((piece, index) => {
       if (!piece.text) return;
-      if (batch.length >= MAX_JOB_SEGMENTS || characters + piece.text.length > MAX_JOB_CHARACTERS) {
+      if (batch.length >= account.limits.maxSegments || characters + Array.from(piece.text).length > maxCharacters) {
         batches.push(batch); batch = []; characters = 0;
       }
       batch.push({ id: String(index), text: piece.text });
-      characters += piece.text.length;
+      characters += Array.from(piece.text).length;
     });
     if (batch.length) batches.push(batch);
     const translated = new Map<string, string>();
@@ -324,7 +346,7 @@ class ContentController {
     const worker = async () => {
       while (cursor < batches.length) {
         const segments = batches[cursor++]!;
-        const results = await translateJob({ sourceLanguage, targetLanguage, segments }, abort.signal);
+        const results = await translateJob({ sourceLanguage, targetLanguage, mode: 'selection', tone, context, segments }, abort.signal);
         for (const result of results) translated.set(result.id, result.text.trim());
       }
     };

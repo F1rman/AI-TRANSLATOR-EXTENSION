@@ -20,8 +20,8 @@ test('language dropdown searches native names and codes without committing draft
     const file = join(directory, 'ui.mjs'); await writeFile(file, bundle.outputFiles[0].text);
     const { createElement, act, createRoot, LanguageField, DEFAULT_SETTINGS, languages, findLanguages, errorText } = await import(pathToFileURL(file).href);
     assert.equal(languages.length, 34);
-    assert.match(errorText({ code: 'QUOTA_EXCEEDED', message: 'limit' }, 'en'), /monthly word.*first day.*00:00 UTC/);
-    assert.match(errorText({ code: 'QUOTA_EXCEEDED', message: 'limit' }, 'uk'), /Місячний ліміт слів.*першого числа.*00:00 UTC/);
+    assert.match(errorText({ code: 'QUOTA_EXCEEDED', message: 'limit' }, 'en'), /monthly character allowance/);
+    assert.match(errorText({ code: 'QUOTA_EXCEEDED', message: 'limit' }, 'uk'), /Місячний ліміт символів/);
     for (const query of ['Українська', 'uk', 'Français', 'francais', '日本語', 'ja', 'العربية', 'ar', 'zh-cn']) assert.ok(findLanguages(query).length > 0, `search supports ${query}`);
     const changes = [];
     root = createRoot(document.getElementById('root'));

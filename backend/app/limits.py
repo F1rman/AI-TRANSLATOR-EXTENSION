@@ -8,6 +8,8 @@ from pathlib import Path
 class PlanLimits:
     monthly_words: int
     monthly_images: int
+    monthly_characters: int = 100_000
+    max_characters_per_job: int = 4_000
 
 
 @dataclass(frozen=True)
@@ -30,11 +32,14 @@ def load_limits(path: Path | None = None) -> MonthlyLimits:
             raise ValueError("Expected calendar_month, UTC and free/pro plans")
         plans = {}
         for name, plan in value["plans"].items():
-            if not isinstance(plan, dict) or set(plan) != {"monthlyWords", "monthlyImages"}:
-                raise ValueError("Expected monthlyWords and monthlyImages for each plan")
+            if not isinstance(plan, dict) or set(plan) != {"monthlyWords", "monthlyImages", "monthlyCharacters", "maxCharactersPerJob"}:
+                raise ValueError("Expected legacy and character allowances for each plan")
             if any(type(number) is not int or number < 0 for number in plan.values()):
                 raise ValueError("Monthly allowances must be non-negative integers")
-            plans[name] = PlanLimits(plan["monthlyWords"], plan["monthlyImages"])
+            if not 1 <= plan["maxCharactersPerJob"] <= 50_000:
+                raise ValueError("Character request limits must fit the transport safety ceiling")
+            plans[name] = PlanLimits(plan["monthlyWords"], plan["monthlyImages"],
+                                     plan["monthlyCharacters"], plan["maxCharactersPerJob"])
         return MonthlyLimits(**plans)
     except (OSError, ValueError, TypeError) as error:
         raise RuntimeError(f"Invalid monthly limits file: {path.name}") from error

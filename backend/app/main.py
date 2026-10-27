@@ -15,7 +15,8 @@ from .auth import DevelopmentTaskAuth, DevelopmentUserAuth, FirebaseUserAuth, Ta
 from .config import Settings
 from .dispatcher import CloudTasksDispatcher, MemoryDispatcher
 from .images import CloudImageStorage, MemoryImageStorage
-from .models import ApiError, BillingSync, ImageTranslationRequest, TranslationRequest, WorkerRequest
+from .models import (ApiError, BillingSync, CharacterTranslationRequest, ImageTranslationRequest,
+                     SubscriptionSync, TranslationRequest, WorkerRequest)
 from .logging_config import configure_logging
 from .repository import FirestoreRepository, MemoryRepository
 from .service import JobStore, TranslationService
@@ -66,7 +67,7 @@ def create_app(runtime=None, settings=None):
         finally:
             await selected.close()
 
-    application = FastAPI(title="AI Translator API", version="1.2.0", lifespan=lifespan)
+    application = FastAPI(title="AI Translator API", version="2.0.0", lifespan=lifespan)
     # Injectable runtime also supports ASGI transports that do not run lifespan automatically.
     if runtime:
         application.state.runtime = runtime
@@ -179,14 +180,29 @@ def create_app(runtime=None, settings=None):
 
     @application.post("/v1/translation-jobs", status_code=202)
     async def submit(payload: TranslationRequest, identity=Depends(user), current: Runtime = Depends(get_runtime)):
+        if not current.settings.legacy_text_submission_enabled:
+            raise ApiError("UPDATE_REQUIRED", "Update AI Translator to use the current subscription and character allowance.", 409)
         return await current.service.submit(identity["uid"], payload)
+
+    @application.get("/v2/me")
+    async def me_v2(identity=Depends(user), current: Runtime = Depends(get_runtime)):
+        config = current.settings
+        return {"user": identity, **await current.service.store.get_character_account(identity["uid"]),
+                "billing": {"environment": config.billing_environment,
+                            "purchasesEnabled": bool(config.billing_service_account and config.billing_audience)}}
+
+    @application.post("/v2/translation-jobs", status_code=202)
+    async def submit_v2(payload: CharacterTranslationRequest, identity=Depends(user), current: Runtime = Depends(get_runtime)):
+        return await current.service.submit_character(identity["uid"], payload)
 
     JobId = Annotated[str, Path(pattern=r"^[a-f0-9]{32}$")]
 
+    @application.get("/v2/translation-jobs/{job_id}")
     @application.get("/v1/translation-jobs/{job_id}")
     async def get_job(job_id: JobId, identity=Depends(user), current: Runtime = Depends(get_runtime)):
         return await current.service.get(identity["uid"], job_id)
 
+    @application.delete("/v2/translation-jobs/{job_id}")
     @application.delete("/v1/translation-jobs/{job_id}")
     async def cancel_job(job_id: JobId, identity=Depends(user), current: Runtime = Depends(get_runtime)):
         return await current.service.cancel(identity["uid"], job_id)
@@ -235,6 +251,10 @@ def create_app(runtime=None, settings=None):
     @application.post("/internal/billing-sync", dependencies=[Depends(billing_sender)])
     async def billing_sync(payload: BillingSync, current: Runtime = Depends(get_runtime)):
         return await current.service.store.sync_purchase(payload)
+
+    @application.post("/internal/subscription-sync", dependencies=[Depends(billing_sender)])
+    async def subscription_sync(payload: SubscriptionSync, current: Runtime = Depends(get_runtime)):
+        return await current.service.store.sync_subscription(payload)
 
     return application
 

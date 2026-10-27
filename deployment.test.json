@@ -6,7 +6,7 @@
   "environment": "test",
   "service": "ai-translator-api-test",
   "queue": "translation-jobs-test",
-  "image": "europe-west1-docker.pkg.dev/ai-translator-ext/ai-translator/backend:live-20261026210952",
+  "image": "europe-west1-docker.pkg.dev/ai-translator-ext/ai-translator/backend:subscriptions-v2-20261027",
   "runtimeServiceAccount": "ai-translator-test-runtime@ai-translator-ext.iam.gserviceaccount.com",
   "taskServiceAccount": "ai-translator-test-tasks@ai-translator-ext.iam.gserviceaccount.com",
   "billingAudience": "https://ai-translator-api-test-1060412514800.europe-west1.run.app/internal/billing-sync",
@@ -19,13 +19,18 @@
     "plans": {
       "free": {
         "monthlyWords": 10000,
-        "monthlyImages": 5
+        "monthlyImages": 5,
+        "monthlyCharacters": 100000,
+        "maxCharactersPerJob": 4000
       },
       "pro": {
         "monthlyWords": 200000,
-        "monthlyImages": 150
+        "monthlyImages": 150,
+        "monthlyCharacters": 2000000,
+        "maxCharactersPerJob": 50000
       }
     }
   },
-  "backendVersion": "1.2.0"
+  "backendVersion": "2.0.0",
+  "proQueue": "translation-jobs-pro-test"
 }

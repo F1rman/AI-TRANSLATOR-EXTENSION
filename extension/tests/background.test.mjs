@@ -20,7 +20,9 @@ test('worker routes durable jobs and isolates document generations', async () =>
   const requests = [];
   const openedTabs = [];
   let purchasesEnabled = true;
+  let pro = true;
   let centralEnvironment = 'live';
+  let centralFailures = 0;
   const tabMessages = [];
   let activeTab = 9;
   globalThis.chrome = {
@@ -33,8 +35,12 @@ test('worker routes durable jobs and isolates document generations', async () =>
   };
   globalThis.fetch = async (url, init) => {
     requests.push({ url, method: init.method, body: init.body && JSON.parse(init.body), headers: init.headers, credentials: init.credentials });
-    if (String(url).includes('/api/config?')) return new Response(JSON.stringify({ data: { environment: centralEnvironment, authProjectId: 'ai-translator-ext', firebaseConfig: { projectId: 'ai-translator-ext' } } }));
-    if (String(url).endsWith('/v1/me')) return new Response(JSON.stringify({ billing: { environment: 'live', purchasesEnabled } }));
+    if (String(url).includes('/api/config?')) {
+      if (centralFailures-- > 0) throw new TypeError('Failed to fetch');
+      return new Response(JSON.stringify({ data: { environment: centralEnvironment, authProjectId: 'ai-translator-ext', firebaseConfig: { projectId: 'ai-translator-ext' } } }));
+    }
+    if (String(url).endsWith('/v2/me')) return new Response(JSON.stringify({ billing: { environment: 'live', purchasesEnabled },
+      user: {uid:'user'}, plan: pro ? 'pro' : 'free', characterQuota: {monthlyCharacters:pro?2000000:100000, usedCharacters:12,reservedCharacters:0,remainingCharacters:99988,periodStart:'2026-10-01',resetsAt:'2026-11-01'}, features: { pageTranslation:pro,pageContext:pro,tones:pro?['neutral','formal','friendly','technical']:['neutral'],historyLimit:pro?1000:20,priority:pro,imageTranslation:false }, limits: {maxCharactersPerJob:pro?50000:4000,maxSegments:24,maxConcurrentJobs:2} }));
     const body = init.method === 'POST' ? { id: 'job-one', status: 'queued' } : { id: 'job-one', status: init.method === 'DELETE' ? 'cancelled' : 'completed', translations: [{ id: 'part', text: 'Переклад' }] };
     return new Response(JSON.stringify(body), { status: init.method === 'POST' ? 202 : 200 });
   };
@@ -55,6 +61,15 @@ test('worker routes durable jobs and isolates document generations', async () =>
   const request = (message, sender = ui) => new Promise((resolve) => { callbacks.message(message, sender, resolve); });
   try {
     assert.equal((await request({ type: 'account:get' })).data.billingAvailability.canPurchase, true);
+    centralFailures = 1;
+    assert.equal((await request({ type: 'account:get' })).data.billingAvailability.canPurchase, true, 'a transient config failure gets one recovery attempt');
+    centralFailures = 2;
+    const callsBefore = requests.filter(entry => String(entry.url).includes('/api/config?')).length;
+    const unavailable = await request({ type: 'account:get' });
+    assert.equal(unavailable.ok, true);
+    assert.equal(unavailable.data.billingAvailability.reason, 'unavailable');
+    assert.equal(unavailable.data.characterQuota.usedCharacters, 12, 'config failure must never replace usage');
+    assert.equal(requests.filter(entry => String(entry.url).includes('/api/config?')).length - callsBefore, 2, 'failed attempts are bounded');
     assert.equal((await request({ type: 'billing:open', payload: { page: 'pay' } })).ok, true);
     assert.equal(openedTabs[0].url, 'https://balubenko-stripe.web.app/pay?product=ai-translator-extension');
     const publicCalls = requests.filter(entry => String(entry.url).includes('/api/config?'));
@@ -68,18 +83,30 @@ test('worker routes durable jobs and isolates document generations', async () =>
     assert.equal(openedTabs.length, 2);
     assert.equal((await request({ type: 'billing:open', payload: { page: 'pay' } }, child)).error.code, 'INVALID_REQUEST', 'a webpage cannot open billing through the content script');
     centralEnvironment = 'live';
+    const mismatched = await request({type:'translation:submit',ownerUid:'different-user',payload:{sourceLanguage:'auto',targetLanguage:'Ukrainian',segments:[{id:'text',text:'Private'}],idempotencyKey:'different-owner'}});
+    assert.equal(mismatched.error.code,'AUTH_REQUIRED','A pending popup request cannot switch to another account');
     const started = await request({ type: 'page:start' });
     assert.equal(started.ok, true);
     const sessionId = started.data.sessionId;
     const report = { type: 'page:report', payload: { sessionId, status: 'translating', total: 2, completed: 1, failed: 0 } };
     assert.equal((await request(report, child)).data.total, 2);
 
-    const create = { type: 'translation:submit', payload: { sourceLanguage: 'auto', targetLanguage: 'Ukrainian', segments: [{ id: 'part', text: '😀'.repeat(4000) }], idempotencyKey: 'request-one' } };
+    const create = { type: 'translation:submit', payload: { sourceLanguage: 'auto', targetLanguage: 'Ukrainian', segments: [{ id: 'part', text: '😀'.repeat(50000) }], idempotencyKey: 'request-one' } };
     assert.equal((await request(create, child)).ok, true, 'the limit counts Unicode codepoints');
     create.payload.segments[0].text += 'a';
     const tooLong = await request(create, child);
     assert.equal(tooLong.ok, false);
-    assert.equal(tooLong.error.code, 'INVALID_REQUEST');
+    assert.equal(tooLong.error.code, 'TEXT_TOO_LONG');
+    pro = false;
+    assert.equal((await request({type:'page:start'})).error.code, 'PRO_REQUIRED');
+    create.payload.segments[0].text = 'a'.repeat(4001);
+    assert.equal((await request(create, child)).error.code, 'TEXT_TOO_LONG');
+    create.payload.segments[0].text = 'a'.repeat(4000);
+    assert.equal((await request(create, child)).ok, true);
+    create.payload.tone = 'formal';
+    assert.equal((await request(create, child)).error.code, 'PRO_REQUIRED');
+    delete create.payload.tone;
+    pro = true;
     assert.equal((await request({ type: 'translation:get', payload: { id: 'job-one' } }, child)).data.status, 'completed');
     assert.equal((await request({ type: 'translation:get', payload: { id: 'job-one' } }, child)).data.status, 'completed', 'a lost terminal response can be safely retrieved again');
     assert.equal((await request({ type: 'translation:get', payload: { id: 'job-one' } }, { ...child, documentId: 'other-document' })).error.code, 'JOB_NOT_FOUND');

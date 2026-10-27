@@ -48,3 +48,39 @@ export function billingPage(page: 'pay' | 'account', origin = billingBuild.billi
   url.searchParams.set('product', 'ai-translator-extension');
   return url.href;
 }
+
+/** Public configuration can cold-start; retry only transient transport/server failures. */
+export async function fetchCentralBillingConfig(origin: string, fetcher: typeof fetch = fetch,
+                                                timeoutMs = 10_000): Promise<CentralBillingConfig | undefined> {
+  let url: URL;
+  try {
+    // Reject credentials, query strings and paths before making any request.
+    url = new URL('/api/config', new URL(billingPage('pay', origin)).origin);
+    url.searchParams.set('productId', 'ai-translator-extension');
+  } catch { return undefined; }
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      const response = await fetcher(url.href, {
+        credentials: 'omit', redirect: 'error', referrerPolicy: 'no-referrer', cache: 'no-store',
+        signal: AbortSignal.timeout(timeoutMs),
+      });
+      if (!response.ok) {
+        if (attempt === 0 && (response.status === 408 || response.status === 429
+            || (response.status >= 500 && response.status <= 599))) continue;
+        return undefined;
+      }
+      const value = await response.json();
+      const data = value?.data;
+      if (!data || typeof data !== 'object' || Array.isArray(data)
+          || !['live', 'test'].includes(data.environment) || typeof data.authProjectId !== 'string'
+          || !data.firebaseConfig || typeof data.firebaseConfig.projectId !== 'string') return undefined;
+      // A valid response for another environment is returned for the existing mismatch guard.
+      return data as CentralBillingConfig;
+    } catch (error) {
+      const transient = error instanceof TypeError || (error instanceof DOMException
+        && (error.name === 'AbortError' || error.name === 'TimeoutError'));
+      if (!transient || attempt === 1) return undefined;
+    }
+  }
+  return undefined;
+}

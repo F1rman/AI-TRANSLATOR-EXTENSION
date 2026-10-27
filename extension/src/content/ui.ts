@@ -5,7 +5,7 @@ const COPY = {
     name: 'AI Translator', translate: 'Перекласти', loading: 'Перекладаємо…', copy: 'Копіювати', copied: 'Скопійовано', close: 'Закрити',
     stop: 'Зупинити', restore: 'Оригінал', retry: 'Продовжити', signIn: 'Увійти з Google', ready: 'Сторінку перекладено',
     watching: 'Новий текст перекладатиметься автоматично', paused: 'Переклад призупинено', blocks: 'блоків', failed: 'з помилкою',
-    auth: 'Увійди з Google, щоб почати переклад.', quota: 'Місячний ліміт слів і придбаний баланс вичерпано. Купіть пакет або дочекайтеся оновлення квоти першого числа о 00:00 UTC.',
+    auth: 'Увійди з Google, щоб почати переклад.', quota: 'Місячний ліміт символів вичерпано. Перейдіть на Pro або дочекайтеся оновлення ліміту у вашому акаунті.',
     network: 'Не вдалося з’єднатися. Перевір інтернет і продовж переклад.', long: 'Виділи до 20 000 символів для одного перекладу.',
     invalid: 'AI повернув неповний переклад. Спробуй ще раз.',
     rate: 'Сервіс тимчасово зайнятий. Спробуй трохи пізніше.',
@@ -15,7 +15,7 @@ const COPY = {
     name: 'AI Translator', translate: 'Translate', loading: 'Translating…', copy: 'Copy', copied: 'Copied', close: 'Close',
     stop: 'Stop', restore: 'Original', retry: 'Continue', signIn: 'Sign in with Google', ready: 'Page translated',
     watching: 'New text will be translated automatically', paused: 'Translation paused', blocks: 'blocks', failed: 'failed',
-    auth: 'Sign in with Google to start translating.', quota: 'Your monthly word allowance and purchased balance are used up. Buy a package or wait for the monthly reset on the first day at 00:00 UTC.',
+    auth: 'Sign in with Google to start translating.', quota: 'Your monthly character allowance is used up. Upgrade to Pro or wait for the reset shown in your account.',
     network: 'Could not connect. Check your connection and continue.', long: 'Select up to 20,000 characters for one translation.',
     invalid: 'The AI returned an incomplete translation. Please try again.',
     rate: 'The service is busy. Please try again shortly.',
@@ -27,7 +27,9 @@ export function errorText(error: ApiError, language: Settings['uiLanguage']): st
   const t = COPY[language];
   if (['AUTH_REQUIRED', 'UNAUTHENTICATED', 'TOKEN_EXPIRED'].includes(error.code)) return t.auth;
   if (error.code === 'QUOTA_EXCEEDED') return t.quota;
-  if (error.code === 'TEXT_TOO_LONG') return t.long;
+  if (error.code === 'TEXT_TOO_LONG') return error.message || t.long;
+  if (error.code === 'PRO_REQUIRED') return language === 'uk' ? 'Ця можливість доступна з Pro. Відкрийте розширення, щоб оформити підписку.' : 'This feature requires Pro. Open the extension to upgrade.';
+  if (error.code === 'UPDATE_REQUIRED') return language === 'uk' ? 'Оновіть AI Translator і повторіть спробу.' : 'Update AI Translator and try again.';
   if (error.code === 'INVALID_TRANSLATION') return t.invalid;
   if (['CONCURRENCY_LIMIT', 'UPSTREAM_RATE_LIMIT'].includes(error.code)) return t.rate;
   if (['NETWORK_ERROR', 'SERVICE_UNAVAILABLE', 'UPSTREAM_TIMEOUT', 'UPSTREAM_UNAVAILABLE'].includes(error.code)) return t.network;
@@ -35,30 +37,32 @@ export function errorText(error: ApiError, language: Settings['uiLanguage']): st
 }
 
 const css = `
-:host { all: initial !important; color-scheme: light; --bg:#fffdfa; --fg:#27241f; --muted:#746e64; --line:#e8e1d6; --soft:#f5f1e9; --accent:#b16d12; --highlight:#f7bc55; font:13px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+:host { all:initial!important; color-scheme:light; --app-background:#f3f6f9; --app-surface-1:#ffffff; --app-surface-2:#edf1f5; --app-surface-3:#e4eaf0; --app-foreground:#171a1d; --app-muted:#586572; --app-income:#23764f; --app-expense:#b3344c; --app-on-accent:#ffffff; --app-divider:color-mix(in srgb,var(--app-foreground) 16%,transparent); --app-accent-soft:color-mix(in srgb,var(--app-income) 10%,var(--app-surface-1)); font:13px/1.5 Manrope,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
 * { box-sizing:border-box; }
-[data-theme=dark] { color-scheme:dark; --bg:#211f1b; --fg:#f4f0e8; --muted:#b5aea1; --line:#464036; --soft:#302c25; --accent:#ffd18a; --highlight:#d99028; }
-@media (prefers-color-scheme:dark) { [data-theme=system] { color-scheme:dark; --bg:#211f1b; --fg:#f4f0e8; --muted:#b5aea1; --line:#464036; --soft:#302c25; --accent:#ffd18a; --highlight:#d99028; } }
-.card { background:var(--bg); color:var(--fg); border:1px solid var(--line); box-shadow:0 12px 48px #0002,0 2px 10px #0001; border-radius:18px; font:13px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+[data-theme=dark] { color-scheme:dark; --app-background:#08141e; --app-surface-1:#1b2530; --app-surface-2:#25323f; --app-surface-3:#344453; --app-foreground:#f1f5f9; --app-muted:#bac7d3; --app-income:#75d6a7; --app-expense:#ff9bae; --app-on-accent:#08141e; --app-divider:color-mix(in srgb,var(--app-foreground) 16%,transparent); --app-accent-soft:color-mix(in srgb,var(--app-income) 10%,var(--app-surface-1)); }
+@media (prefers-color-scheme:dark) { [data-theme=system] { color-scheme:dark; --app-background:#08141e; --app-surface-1:#1b2530; --app-surface-2:#25323f; --app-surface-3:#344453; --app-foreground:#f1f5f9; --app-muted:#bac7d3; --app-income:#75d6a7; --app-expense:#ff9bae; --app-on-accent:#08141e; --app-divider:color-mix(in srgb,var(--app-foreground) 16%,transparent); --app-accent-soft:color-mix(in srgb,var(--app-income) 10%,var(--app-surface-1)); } }
+/* A functional edge keeps extension controls distinct on arbitrary page backgrounds. */
+.card { background:var(--app-surface-1); color:var(--app-foreground); border:1px solid var(--app-divider); border-radius:20px; font:13px/1.5 Manrope,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
 .toolbar { position:fixed; z-index:2147483647; width:min(324px,calc(100vw - 24px)); right:20px; bottom:20px; padding:16px; }
 .headline { display:flex; align-items:center; gap:9px; font-weight:650; letter-spacing:-.15px; font-size:14px; }
-.mark { display:grid; place-items:center; flex:none; width:28px; height:28px; border-radius:9px; background:var(--highlight); color:#302211; font-size:16px; font-weight:750; }
+.mark { display:grid; place-items:center; flex:none; width:32px; height:32px; border-radius:12px; background:var(--app-accent-soft); color:var(--app-income); font-size:16px; font-weight:750; }
 .state { margin:12px 0 2px; font-weight:600; font-size:13px; }
-.detail { font-size:12px; line-height:1.5; color:var(--muted); overflow-wrap:anywhere; }
-.progress { height:5px; margin:12px 0; background:var(--soft); border-radius:5px; overflow:hidden; }
-.progress span { display:block; height:100%; background:var(--highlight); border-radius:5px; transition:width .2s; }
-.actions { display:flex; flex-wrap:wrap; gap:7px; margin-top:12px; }
-button { appearance:none; cursor:pointer; border:1px solid var(--line); border-radius:9px; color:var(--fg); background:var(--soft); padding:7px 11px; font:600 12px/1.3 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; transition:filter .15s; }
-button:hover { filter:brightness(.95); } button:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
-button:disabled { opacity:.55; cursor:default; } button.primary { background:var(--highlight); color:#302211; border-color:transparent; }
-button.close { margin-left:auto; border:0; background:transparent; padding:2px 5px; font-size:20px; line-height:1; font-weight:400; color:var(--muted); }
-.chip { position:fixed; z-index:2147483647; display:flex; align-items:center; gap:6px; box-shadow:0 4px 16px #0002; padding:8px 11px; background:var(--bg); color:var(--fg); border:1px solid var(--line); border-radius:11px; font-weight:650; }
-.chip .mark { width:23px; height:23px; font-size:14px; border-radius:7px; }
+.detail { font-size:12px; line-height:1.5; color:var(--app-muted); overflow-wrap:anywhere; }
+.progress { height:5px; margin:12px 0; background:var(--app-surface-2); border-radius:5px; overflow:hidden; }
+.progress span { display:block; height:100%; background:var(--app-income); border-radius:5px; transition:width .2s; }
+.actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+button { appearance:none; cursor:pointer; border:0; border-radius:12px; min-width:44px; min-height:44px; color:var(--app-foreground); background:var(--app-surface-2); padding:10px 12px; font:600 13px/1.4 Manrope,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; transition:background .15s; }
+button:hover:not(:disabled) { background:var(--app-surface-3); } button:focus-visible { outline:2px solid var(--app-income); outline-offset:2px; }
+button:disabled { opacity:.55; cursor:default; } button.primary { background:var(--app-income); color:var(--app-on-accent); }
+button.primary:hover:not(:disabled) { background:color-mix(in srgb,var(--app-income) 88%,var(--app-foreground)); }
+button.close { display:grid; place-items:center; flex:none; margin-left:auto; padding:8px; font-size:22px; line-height:1; font-weight:400; color:var(--app-muted); }
+.chip { position:fixed; z-index:2147483647; display:flex; align-items:center; gap:8px; padding:6px 12px 6px 6px; background:var(--app-surface-1); color:var(--app-foreground); border:1px solid var(--app-divider); border-radius:12px; font-weight:650; }
+.chip .mark { width:30px; height:30px; font-size:14px; }
 .bubble { position:fixed; z-index:2147483647; width:min(370px,calc(100vw - 24px)); padding:16px; }
 .translation { margin-top:13px; white-space:pre-wrap; overflow-wrap:anywhere; max-height:min(340px,55vh); overflow:auto; font-size:14px; line-height:1.65; user-select:text; }
-.error { color:var(--accent); }
-.pending { display:flex; gap:8px; align-items:center; color:var(--muted); padding:10px 0 4px; }
-.spinner { width:13px; height:13px; border-radius:50%; border:2px solid var(--line); border-top-color:var(--accent); animation:spin .8s linear infinite; }
+.error { color:var(--app-expense); }
+.pending { display:flex; gap:8px; align-items:center; color:var(--app-muted); padding:12px 0 4px; }
+.spinner { width:16px; height:16px; flex:none; border-radius:50%; border:2px solid var(--app-surface-3); border-top-color:var(--app-income); animation:spin .8s linear infinite; }
 @keyframes spin { to { transform:rotate(360deg); } }
 @media (prefers-reduced-motion:reduce) { * { animation:none!important; transition:none!important; } }
 [hidden] { display:none!important; }

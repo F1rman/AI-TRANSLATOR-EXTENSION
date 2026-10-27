@@ -7,7 +7,7 @@ const code = (await build({
   entryPoints: ['src/shared/billing.ts'], bundle: true, format: 'esm', platform: 'browser', write: false,
   define: { 'import.meta.env': JSON.stringify({ VITE_BILLING_BASE_URL: 'https://balubenko-stripe.web.app' }) },
 })).outputFiles[0].text;
-const { billingPage, billingAvailability } = await import(`data:text/javascript;base64,${Buffer.from(code).toString('base64')}`);
+const { billingPage, billingAvailability, fetchCentralBillingConfig } = await import(`data:text/javascript;base64,${Buffer.from(code).toString('base64')}`);
 const live = { environment: 'live', apiBase: 'https://ai-translator-api-1060412514800.europe-west1.run.app', billingBase: 'https://balubenko-stripe.web.app', authProjectId: 'ai-translator-ext' };
 const account = { billing: { environment: 'live', purchasesEnabled: true } };
 const central = { environment: 'live', authProjectId: 'ai-translator-ext', firebaseConfig: { projectId: 'ai-translator-ext' } };
@@ -57,4 +57,59 @@ test('live and test build targets cannot be accidentally crossed', () => {
   assert.throws(() => buildConfig('live', { ...auth, VITE_FIREBASE_PROJECT_ID: 'foreign' }));
   assert.throws(() => buildConfig('live', {}));
   assert.equal(buildConfig('test', { ...auth, API_ACCESS_TOKEN: 'private', VITE_PRIVATE_TOKEN: 'private' }).API_ACCESS_TOKEN, undefined);
+});
+
+test('public config recovers from an aborted first attempt without sending credentials', async () => {
+  const calls = [];
+  const result = await fetchCentralBillingConfig(live.billingBase, async (url, options) => {
+    calls.push({ url, options });
+    if (calls.length === 1) await new Promise((resolve, reject) => {
+      const timer = setTimeout(() => reject(new Error('The request did not time out.')), 100);
+      options.signal.addEventListener('abort', () => { clearTimeout(timer); reject(options.signal.reason); }, { once: true });
+    });
+    return Response.json({ data: central });
+  }, 1);
+  assert.deepEqual(result, central);
+  assert.equal(calls.length, 2);
+  assert.notEqual(calls[0].options.signal, calls[1].options.signal, 'each attempt has its own deadline');
+  for (const { url, options } of calls) {
+    assert.equal(url, 'https://balubenko-stripe.web.app/api/config?productId=ai-translator-extension');
+    assert.equal(options.credentials, 'omit'); assert.equal(options.redirect, 'error');
+    assert.equal(options.cache, 'no-store'); assert.equal(options.referrerPolicy, 'no-referrer');
+    assert.equal(options.headers, undefined); assert.equal(options.body, undefined);
+  }
+});
+
+test('public config retries transient HTTP failures once and bounds repeated network failure', async () => {
+  for (const status of [408, 429, 500, 503, 599]) {
+    let calls = 0;
+    const result = await fetchCentralBillingConfig(live.billingBase, async () => {
+      calls++;
+      return calls === 1 ? new Response('', { status }) : Response.json({ data: central });
+    });
+    assert.deepEqual(result, central); assert.equal(calls, 2, String(status));
+  }
+  let calls = 0;
+  const result = await fetchCentralBillingConfig(live.billingBase, async () => {
+    calls++; throw new TypeError('Failed to fetch');
+  });
+  assert.equal(result, undefined); assert.equal(calls, 2);
+  assert.equal(billingAvailability(account, result, live).reason, 'unavailable');
+});
+
+test('public config does not retry nontransient responses or valid environment mismatches', async () => {
+  const mismatch = { ...central, environment: 'test' };
+  for (const [response, expected] of [[new Response('', { status: 400 }), undefined],
+    [new Response('', { status: 401 }), undefined], [new Response('', { status: 404 }), undefined],
+    [new Response('{invalid'), undefined], [Response.json({ data: {} }), undefined],
+    [Response.json({ data: null }), undefined], [Response.json({ data: mismatch }), mismatch]]) {
+    let calls = 0;
+    const result = await fetchCentralBillingConfig(live.billingBase, async () => { calls++; return response; });
+    assert.equal(calls, 1);
+    assert.deepEqual(result, expected);
+    if (result) assert.equal(billingAvailability(account, result, live).reason, 'environment-mismatch');
+  }
+  let calls = 0;
+  assert.equal(await fetchCentralBillingConfig('https://example.com?token=private', async () => { calls++; return Response.json({ data: central }); }), undefined);
+  assert.equal(calls, 0, 'invalid origins cannot put credentials in a public request URL');
 });

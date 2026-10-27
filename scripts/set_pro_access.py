@@ -23,6 +23,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--email', required=True)
     parser.add_argument('--plan', choices=['free', 'pro'], required=True)
+    parser.add_argument('--environment', choices=['test', 'live'], default='live')
     args = parser.parse_args()
     credential = AdministratorCredential(access_token())
     app = firebase_admin.initialize_app(credential, options={'projectId': PROJECT}, name='admin-plan-access')
@@ -31,12 +32,18 @@ def main():
         raise RuntimeError('A verified, enabled Google account is required')
     client = firestore.Client(project=PROJECT, credentials=credential.get_credential())
     key = hashlib.sha256(user.uid.encode()).hexdigest()
-    client.collection('translationEntitlements').document(key).set({
-        'plan': args.plan, 'updatedAt': datetime.now(UTC), 'updatedBy': ACCOUNT,
-        'expiresAt': None,
-    })
+    ref = client.collection(('test_' if args.environment == 'test' else '') + 'translationEntitlements').document(key)
+    @firestore.transactional
+    def write(transaction):
+        prior = ref.get(transaction=transaction).to_dict() or {}
+        now = datetime.now(UTC)
+        # Reaffirming an existing grant must not reset its monthly allowance.
+        anchor = prior.get('quotaAnchorAt') or (prior.get('updatedAt') if prior.get('plan') == 'pro' else None) or now
+        transaction.set(ref, {'plan': args.plan, 'updatedAt': now, 'updatedBy': ACCOUNT,
+                             'quotaAnchorAt': anchor, 'expiresAt': None})
+    write(client.transaction())
     client.close()
-    print(json.dumps({'email': user.email, 'plan': args.plan, 'permanent': args.plan == 'pro'}))
+    print(json.dumps({'email': user.email, 'plan': args.plan, 'environment': args.environment, 'permanent': args.plan == 'pro'}))
 
 
 if __name__ == '__main__':
