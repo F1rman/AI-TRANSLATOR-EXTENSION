@@ -6,7 +6,7 @@ Manifest V3 розширення: переклад виділення, введ�
 
 - Код розширення та сервера реалізований. Сервер, Firestore, Cloud Tasks, Firebase Auth і публічні сторінки налаштовані у **`ai-translator-ext`**.
 - Джерело перекладів — наявний `https://balubenko-ai.web.app/api/generate`. Токен доступний лише серверу через Secret Manager.
-- **OAuth Client ID і Store public key додані до збірки.** Локальне розширення має Store ID `aieamemimbcbbnmakifejomadhegogge`, origin дозволений у Firebase, брендинг підтверджений. ZIP `artifacts/ai-translator-1.1.3.zip` призначений для оновлення цієї чернетки Store. Залишилося пройти справжній Google-вхід у звичайному Chrome й перевірити переклад. Інструкція — [docs/GOOGLE_SIGN_IN.md](docs/GOOGLE_SIGN_IN.md).
+- **OAuth Client ID і Store public key додані до збірки.** Локальне розширення має Store ID `aieamemimbcbbnmakifejomadhegogge`, origin дозволений у Firebase, брендинг підтверджений. ZIP `artifacts/ai-translator-1.2.0.zip` призначений для оновлення цієї чернетки Store. Залишилося пройти справжній Google-вхід у звичайному Chrome й перевірити переклад. Інструкція — [docs/GOOGLE_SIGN_IN.md](docs/GOOGLE_SIGN_IN.md).
 - ZIP з суфіксом `-draft` призначений для створення чернетки Store. Це ще не фінальна збірка з робочим входом. На модерацію нічого не надсилалося.
 
 ## Встановлення локально
@@ -34,7 +34,7 @@ npm run build
 npm run package
 ```
 
-Публічні Firebase/OAuth налаштування задаються у `extension/.env.production`; приклад — `extension/.env.example`. `API_ACCESS_TOKEN` не належить до налаштувань розширення.
+Публічні Firebase/OAuth налаштування задаються у `extension/.env.production`; приклад — `extension/.env.example`. Скрипти збірки вибирають і перевіряють API та billing origin відповідно до live/test; Firebase identity і стабільний ID розширення спільні. `API_ACCESS_TOKEN` не належить до налаштувань розширення.
 
 ```sh
 python3.12 -m venv backend/.venv
@@ -51,7 +51,7 @@ npm run qa:browser
 Стан розгортання — `deployment.json`. Код і змінні середовища описані в [backend/README.md](backend/README.md).
 
 ```sh
-python3.12 scripts/deploy_backend.py
+python3.12 scripts/deploy_backend.py --environment live
 python3.12 scripts/deploy_hosting.py
 ```
 
@@ -67,18 +67,18 @@ python3.12 scripts/deploy_hosting.py
 
 Налаштування сервера — [backend/app/limits.json](backend/app/limits.json). Free: **10 000 слів і 5 картинок** на місяць; Pro: **200 000 слів і 150 картинок** на місяць. Квота оновлюється першого числа о 00:00 UTC.
 
-Щоб змінити ліміти, відредагуй `plans.free` або `plans.pro` у цьому JSON і повторно запусти `python3.12 scripts/deploy_backend.py`. Файл включений у серверний образ; окремих змінних середовища для квот немає. Розширення отримує актуальні значення через API.
+Щоб змінити ліміти, відредагуй `plans.free` або `plans.pro` у цьому JSON і повторно запусти `python3.12 scripts/deploy_backend.py --environment live`. Файл включений у серверний образ; окремих змінних середовища для квот немає. Розширення отримує актуальні значення через API.
 
 Значення задані вручну для кожного тарифу. Зміна лімітів не скидає використану квоту. Облік використовує фактичні межі слів Unicode UAX #29, а не ділення символів. Пробіли, пунктуація та окремі емодзі не списують слова. Для мов без пробілів застосовуються стандартні Unicode-межі без словникового аналізу; наприклад, ієрогліфи можуть рахуватися окремо. Історичні добові символи не конвертуються у слова; місячний облік почався з релізу 1.1.1, а раніше створені завдання завершуються за своїм попереднім резервуванням.
 
-Готовий пакет — [artifacts/ai-translator-1.1.3.zip](artifacts/ai-translator-1.1.3.zip). Онови встановлене розширення для доступу Free до картинок. Результати перевірок і розгортання — [docs/RELEASE_1.1.2.md](docs/RELEASE_1.1.2.md); виміри текстових перекладів — [docs/RELEASE_1.1.0.md](docs/RELEASE_1.1.0.md).
+Готовий пакет — [artifacts/ai-translator-1.2.0.zip](artifacts/ai-translator-1.2.0.zip). У версії 1.2.0 виправлено відступи й вирівнювання блоку квот, тарифу та залишку картинок; посилання приватності й підтримки перекладаються відповідно до мови інтерфейсу. Результати перевірок і розгортання — [docs/RELEASE_1.1.2.md](docs/RELEASE_1.1.2.md); виміри текстових перекладів — [docs/RELEASE_1.1.0.md](docs/RELEASE_1.1.0.md).
 
 ## Можливості 1.1.0
 
 - Власний список 34 мов із пошуком за українською, англійською, власною назвою або кодом; вибір власної мови збережено.
 - Короткі переклади використовують швидкий профіль AI без reasoning, адаптивні перевірки результату та скорочений шлях читання Firestore.
 - Free і Pro: правий клік на статичній PNG/JPEG/WebP картинці → окрема вкладка → нова картинка з перекладом → завантаження PNG. Ліміт: 10 МБ, 20 МП, 5 картинок для Free або 150 для Pro на календарний місяць UTC, одне активне image-завдання. Приватні оригінали й результати доступні власнику до 24 годин, видалення асинхронне.
-- `dev.watersport@gmail.com` отримав безстроковий Pro. Оплати немає; текстова квота — 10 000 слів для Free або 200 000 для Pro на місяць.
+- `dev.watersport@gmail.com` має ручний безстроковий Pro. Купівля пакетів не змінює цей grant; текстова квота — 10 000 слів для Free або 200 000 для Pro на місяць.
 
 Адміністрування доступу (потрібен авторизований адміністратор gcloud):
 
@@ -90,3 +90,26 @@ backend/.venv/bin/python scripts/set_pro_access.py --email dev.watersport@gmail.
 Сервер перевіряє тариф за Firebase UID, а не за email чи прапорцем з розширення. Після зміни доступу достатньо оновити інформацію акаунта.
 
 AI API в сусідньому `../OpenAI` має сумісний необов’язковий `profile` для тексту та захищений multipart `/api/translate-image`. Оновлення вже створеного сервера без зміни секретів: `python3 scripts/deploy_upstream.py`. Для image-запитів використовується прямий Cloud Run URL, не 60-секундний Firebase Hosting proxy.
+
+## Пакети перекладів і оплата
+
+Спільна адмінка BALUBENKO-STRIPE керує разовими пакетами слів і картинок. Налаштування OIDC-доставки оплат, тестового середовища та правила списання описані в [docs/BILLING.md](docs/BILLING.md). Пакети додаються до балансу без строку дії й використовуються після місячної квоти; статус Free/ручний Pro зберігається. Перед розгортанням backend застосуй також Firestore indexes із `firestore.indexes.json`.
+
+## Пакети й збірки 1.2.0
+
+Free залишається **10 000 слів / 5 картинок за календарний місяць UTC**. Ручний Pro зберігає 200 000 / 150. Разові пакети додають окремі баланси слів і картинок: місячна квота використовується першою, пакети накопичуються й не згорають. Ліміти й залишки надходять із API, ціни — з центрального каталогу на платіжній сторінці; у коді розширення немає копії тарифів.
+
+Popup, налаштування й вкладка картинки показують місячний залишок, придбаний баланс, резерви та загальну доступну кількість. «Купити пакет» і «Мої покупки» повторно перевіряють середовище через background перед відкриттям сайту. Без підтримуваного API, billing-конфігурації або при розбіжності test/live купівля вимкнена; переклад залишається доступним. Баланс оновлюється вручну та після повернення у вкладку.
+
+```sh
+npm run build
+npm run package
+# extension/dist → artifacts/ai-translator-1.2.0.zip
+npm run build:test
+npm run package:test
+# extension/dist-test → artifacts/ai-translator-1.2.0-test.zip
+```
+
+Live використовує `ai-translator-api-1060412514800.europe-west1.run.app` і `balubenko-stripe.web.app`. Test використовує `ai-translator-api-test-1060412514800.europe-west1.run.app` і `balubenko-stripe-test.web.app`, має назву «AI Translator (Test)» та помітку тестового режиму. Test ZIP призначений лише для локальної перевірки; обидві збірки зберігають Store ID/OAuth, тому одночасно встановлюється одна з них. Тестові оплати не додають live-баланс. Збірка не розгортає сервер і не подає пакет у Chrome Web Store.
+
+У `/v1/me` додано `billing: {environment: "live" | "test", purchasesEnabled: boolean}`. Сервер визначає доступність за налаштованим відправником доставки; background додатково перевіряє central `/api/config`. Умови: [EN](https://ihorkharchyshyn.site/extensions/ai-translator/terms), [UK](https://ihorkharchyshyn.site/uk/extensions/ai-translator/terms). Деталі оплати — [docs/BILLING.md](docs/BILLING.md).

@@ -10,6 +10,7 @@ from time import perf_counter
 from .images import MemoryImageStorage, validate_image
 from .models import ApiError
 from .words import count_words
+from . import billing
 
 log = logging.getLogger("translator")
 TERMINAL = {"completed", "failed", "cancelled"}
@@ -46,6 +47,34 @@ class JobStore:
     def entitlement_key(uid):
         return ("translationEntitlements", digest(uid))
 
+    async def atomic(self, keys, operation, uid):
+        def update(documents):
+            before = {key: deepcopy(value) for key, value in billing.purchase_documents(documents)}
+            result, updates = operation(documents)
+            for key, value in billing.purchase_documents(documents):
+                if value != before.get(key):
+                    updates[key] = value
+            user_key = self.user_key(uid)
+            if user_key in updates:
+                updates[user_key]["prepaid"] = billing.summary(documents)
+            return result, updates
+        return await self.repository.atomic(keys, update, purchases_uid=uid,
+                                            environment=self.settings.billing_environment)
+
+    async def sync_purchase(self, payload):
+        if payload.environment != self.settings.billing_environment:
+            raise ApiError("BILLING_ENVIRONMENT_MISMATCH", "The purchase belongs to another billing environment.", 409)
+        if payload.authProjectId != self.settings.project_id:
+            raise ApiError("PURCHASE_IDENTITY_MISMATCH", "The purchase belongs to another authentication project.", 403)
+        uid, now = payload.uid, self.clock()
+        key = billing.purchase_key(payload.environment, payload.orderId)
+        user_key = self.user_key(uid)
+        def sync(documents):
+            applied = billing.apply_snapshot(documents, key, payload.model_dump())
+            account = self.account(documents[user_key], now, documents)
+            return {"ok": True, "applied": applied, "revision": documents[key]["revision"]}, {user_key: account}
+        return await self.atomic([key, user_key], sync, uid)
+
     async def is_pro(self, uid):
         entitlement = await self.repository.get(self.entitlement_key(uid))
         return bool(entitlement and entitlement.get("plan") == "pro")
@@ -54,11 +83,17 @@ class JobStore:
         return self.settings.limits.for_plan(pro).monthly_images > 0
 
     async def require_image_access(self, uid, *, reservation=None):
-        if reservation and "month" in reservation:
-            account, pro = await asyncio.gather(self.repository.get(self.user_key(uid)), self.is_pro(uid))
-        else:
-            account, pro = None, await self.is_pro(uid)
-        if not self.image_enabled(pro):
+        current = await self.get_account(uid)
+        # Accepted prepaid reservations stay committed even if a refund arrives
+        # while the provider is working. Check the server reservation, never input.
+        if reservation:
+            account = await self.repository.get(self.user_key(uid))
+            slot = (account or {}).get("activeJobs", {}).get(reservation.get("id"))
+            if slot and slot.get("kind") == "image" and slot.get("prepaid"):
+                return
+        pro = current["plan"] == "pro"
+        if (not self.image_enabled(pro) and current["prepaid"]["images"] <= 0
+                and current["prepaid"]["reservedImages"] <= 0):
             # Preserve the existing API code for configurations which disable
             # images in Free. Access is determined by the server's current plan.
             raise ApiError("PRO_REQUIRED", "Image translation is not available with your current plan.", 403)
@@ -79,16 +114,21 @@ class JobStore:
         # source characters cannot be converted into an honest word count.
         return account["imageUsage" if image else "usage"], slot["day"], 1 if image else slot["characters"]
 
-    def account(self, value, now):
+    def account(self, value, now, documents=None):
         account = deepcopy(value) if value else {}
         for key in ("usage", "imageUsage", "monthlyUsage", "monthlyImageUsage", "activeJobs"):
             account.setdefault(key, {})
         for identifier, slot in list(account["activeJobs"].items()):
             if slot["expiresAt"] <= now:
+                if slot.get("prepaid") and documents is None:
+                    # Pure quota formatting must not release external purchase lots.
+                    continue
                 counters, period, amount = self.reservation_usage(account, slot)
                 usage = counters.get(period)
                 if usage:
                     usage["reserved"] = max(0, usage["reserved"] - amount)
+                if slot.get("prepaid"):
+                    billing.release(documents, slot["prepaid"], charge=False)
                 del account["activeJobs"][identifier]
         # Every live reservation expires within 24 hours. Keep a few days for rollover settlement.
         cutoff = (now - timedelta(days=3)).date().isoformat()
@@ -114,8 +154,7 @@ class JobStore:
         }
 
     async def get_quota(self, uid):
-        account, pro = await asyncio.gather(self.repository.get(self.user_key(uid)), self.is_pro(uid))
-        return self.quota(account, self.clock(), pro)
+        return (await self.get_account(uid))["quota"]
 
     def image_quota(self, account, now, pro=False):
         account = self.account(account, now)
@@ -128,16 +167,29 @@ class JobStore:
                 "resetsAt": resets.isoformat().replace("+00:00", "Z")}
 
     async def get_image_quota(self, uid):
-        account, pro = await asyncio.gather(self.repository.get(self.user_key(uid)), self.is_pro(uid))
-        return self.image_quota(account, self.clock(), pro)
+        return (await self.get_account(uid))["imageQuota"]
 
     async def get_account(self, uid):
-        account, pro = await asyncio.gather(self.repository.get(self.user_key(uid)), self.is_pro(uid))
         now = self.clock()
+        user_key, entitlement_key = self.user_key(uid), self.entitlement_key(uid)
+        account, entitlement = await asyncio.gather(self.repository.get(user_key), self.repository.get(entitlement_key))
+        # Ordinary polling keeps the existing two account reads. Only overdue
+        # purchase reservations need a transaction to release their external lots.
+        if any(slot.get("prepaid") and slot["expiresAt"] <= now
+               for slot in (account or {}).get("activeJobs", {}).values()):
+            def cleanup(documents):
+                selected = self.account(documents[user_key], now, documents)
+                return selected, {user_key: selected}
+            account = await self.atomic([user_key], cleanup, uid)
+        account = self.account(account, now)
+        pro = bool(entitlement and entitlement.get("plan") == "pro")
+        prepaid = account.get("prepaid", {"words": 0, "images": 0, "reservedWords": 0, "reservedImages": 0})
         return {"quota": self.quota(account, now, pro), "plan": "pro" if pro else "free",
-                "features": {"imageTranslation": self.image_enabled(pro)}, "imageQuota": self.image_quota(account, now, pro)}
+                "prepaid": prepaid, "features": {"imageTranslation": self.image_enabled(pro)
+                    or prepaid["images"] > 0 or prepaid["reservedImages"] > 0},
+                "imageQuota": self.image_quota(account, now, pro)}
 
-    def settle(self, account, job, *, charge):
+    def settle(self, account, job, *, charge, documents=None):
         slot = account["activeJobs"].pop(job["id"], None)
         if slot:
             counters, period, amount = self.reservation_usage(account, slot)
@@ -145,6 +197,8 @@ class JobStore:
             usage["reserved"] = max(0, usage["reserved"] - amount)
             if charge:
                 usage["used"] += amount
+            if slot.get("prepaid"):
+                billing.release(documents, slot["prepaid"], charge=charge)
         job["reservationState"] = "charged" if charge and slot else "released"
         job["recoverAt"] = None
         job.pop("leaseToken", None)
@@ -168,19 +222,21 @@ class JobStore:
                 if previous["payloadHash"] != payload_hash:
                     raise ApiError("IDEMPOTENCY_CONFLICT", "This request key was already used for different text.", 409)
                 return previous["jobId"], {}
-            account = self.account(documents[user_key], now)
+            account = self.account(documents[user_key], now, documents)
             pro = bool(documents[entitlement_key] and documents[entitlement_key].get("plan") == "pro")
             quota = self.quota(account, now, pro)
             month, resets = month_period(now)
-            if words > quota["remainingWords"]:
-                raise ApiError("QUOTA_EXCEEDED", "The monthly word translation allowance has been reached.", 429,
+            if words > quota["remainingWords"] + billing.summary(documents)["words"]:
+                raise ApiError("QUOTA_EXCEEDED", "Your monthly word allowance and purchased balance are used up. Buy a package or wait for the monthly reset.", 429,
                                max(1, int((resets - now).total_seconds())))
             if len(account["activeJobs"]) >= self.settings.max_concurrent_jobs:
                 raise ApiError("CONCURRENCY_LIMIT", "Two translation jobs are already in progress. Try again shortly.", 429, 2)
             expiry = now + timedelta(seconds=self.settings.job_ttl_seconds)
-            account["monthlyUsage"].setdefault(month, {"used": 0, "reserved": 0})["reserved"] += words
+            monthly_amount = min(words, quota["remainingWords"])
+            prepaid = billing.reserve(documents, "words", words - monthly_amount)
+            account["monthlyUsage"].setdefault(month, {"used": 0, "reserved": 0})["reserved"] += monthly_amount
             account["activeJobs"][identifier] = {"kind": "text", "month": month, "words": words,
-                                                  "amount": words, "expiresAt": expiry}
+                                                  "amount": monthly_amount, "prepaid": prepaid, "expiresAt": expiry}
             job = {
                 "id": identifier, "uid": uid, "status": "queued", "payload": payload,
                 "payloadHash": payload_hash, "characters": characters, "words": words, "month": month,
@@ -190,7 +246,7 @@ class JobStore:
             idem = {"jobId": identifier, "payloadHash": payload_hash, "expiresAt": expiry}
             return identifier, {job_key: job, user_key: account, idem_key: idem}
 
-        return await self.repository.atomic([job_key, user_key, entitlement_key, idem_key], create)
+        return await self.atomic([job_key, user_key, entitlement_key, idem_key], create, uid)
 
     async def create_image(self, uid, request, identifier, metadata, image_hash, object_key):
         now = self.clock()
@@ -202,31 +258,35 @@ class JobStore:
 
         def create(documents):
             pro = bool(documents[entitlement_key] and documents[entitlement_key].get("plan") == "pro")
-            if not self.image_enabled(pro):
-                raise ApiError("PRO_REQUIRED", "Image translation is not available with your current plan.", 403)
             previous = documents[idem_key]
             if previous and previous["expiresAt"] > now:
                 if previous["payloadHash"] != payload_hash:
                     raise ApiError("IDEMPOTENCY_CONFLICT", "This request key was already used for a different translation.", 409)
                 return previous["jobId"], {}
-            account = self.account(documents[user_key], now)
+            account = self.account(documents[user_key], now, documents)
+            if not self.image_enabled(pro) and billing.summary(documents)["images"] <= 0:
+                raise ApiError("PRO_REQUIRED", "Image translation is not available with your current plan.", 403)
             month, resets = month_period(now)
-            if self.image_quota(account, now, pro)["remainingImages"] < 1:
-                raise ApiError("IMAGE_QUOTA_EXCEEDED", "The monthly image translation allowance has been reached.", 429,
+            remaining = self.image_quota(account, now, pro)["remainingImages"]
+            if remaining + billing.summary(documents)["images"] < 1:
+                raise ApiError("IMAGE_QUOTA_EXCEEDED", "Your monthly image allowance and purchased balance are used up. Buy a package or wait for the monthly reset.", 429,
                                max(1, int((resets - now).total_seconds())))
             if (len(account["activeJobs"]) >= self.settings.max_concurrent_jobs
                     or any(slot.get("kind") == "image" for slot in account["activeJobs"].values())):
                 raise ApiError("CONCURRENCY_LIMIT", "An image translation or two translation jobs are already in progress.", 429, 2)
             expiry = now + timedelta(seconds=self.settings.job_ttl_seconds)
-            account["monthlyImageUsage"].setdefault(month, {"used": 0, "reserved": 0})["reserved"] += 1
-            account["activeJobs"][identifier] = {"kind": "image", "month": month, "amount": 1, "expiresAt": expiry}
+            monthly_amount = min(1, remaining)
+            prepaid = billing.reserve(documents, "images", 1 - monthly_amount)
+            account["monthlyImageUsage"].setdefault(month, {"used": 0, "reserved": 0})["reserved"] += monthly_amount
+            account["activeJobs"][identifier] = {"kind": "image", "month": month, "amount": monthly_amount,
+                                                  "prepaid": prepaid, "expiresAt": expiry}
             job = {"id": identifier, "uid": uid, "kind": "image", "status": "queued", "payload": payload,
                    "input": {**metadata, "objectKey": object_key}, "payloadHash": payload_hash, "month": month,
                    "createdAt": now, "updatedAt": now, "expiresAt": expiry, "reservationState": "reserved",
                    "generation": 0, "dispatchState": "pending", "recoverAt": now}
             idem = {"jobId": identifier, "payloadHash": payload_hash, "expiresAt": expiry}
             return identifier, {job_key: job, user_key: account, idem_key: idem}
-        return await self.repository.atomic([job_key, user_key, entitlement_key, idem_key], create)
+        return await self.atomic([job_key, user_key, entitlement_key, idem_key], create, uid)
 
     async def owned(self, uid, identifier):
         job = await self.repository.get(self.job_key(identifier))
@@ -247,15 +307,15 @@ class JobStore:
                 raise ApiError("JOB_NOT_FOUND", "The translation job was not found.", 404)
             if job["status"] in TERMINAL:
                 return job, {}
-            account = self.account(documents[user_key], now)
+            account = self.account(documents[user_key], now, documents)
             job["status"] = "failed" if expired else "cancelled"
             job["updatedAt"] = now
             if expired:
                 job["error"] = {"code": "JOB_EXPIRED", "message": "The translation job has expired."}
-            self.settle(account, job, charge=False)
+            self.settle(account, job, charge=False, documents=documents)
             return job, {job_key: job, user_key: account}
 
-        return await self.repository.atomic([job_key, user_key], cancel)
+        return await self.atomic([job_key, user_key], cancel, uid)
 
     async def dispatch_ticket(self, identifier, existing=None):
         now = self.clock()
@@ -269,10 +329,10 @@ class JobStore:
             if not job or job["status"] in TERMINAL:
                 return None, {}
             if job["expiresAt"] <= now:
-                account = self.account(documents[user_key], now)
+                account = self.account(documents[user_key], now, documents)
                 job.update(status="failed", updatedAt=now,
                            error={"code": "JOB_EXPIRED", "message": "The translation job has expired."})
-                self.settle(account, job, charge=False)
+                self.settle(account, job, charge=False, documents=documents)
                 return None, {job_key: job, user_key: account}
             if job["status"] == "running":
                 if job["leaseUntil"] > now:
@@ -287,7 +347,7 @@ class JobStore:
             job["updatedAt"] = now
             return {"jobId": identifier, "generation": job["generation"], "kind": job.get("kind", "text")}, {job_key: job}
 
-        return await self.repository.atomic([job_key, user_key], ticket)
+        return await self.atomic([job_key, user_key], ticket, existing["uid"])
 
     async def dispatched(self, identifier, generation):
         now, key = self.clock(), self.job_key(identifier)
@@ -314,10 +374,10 @@ class JobStore:
             if not job or job["status"] in TERMINAL or (generation is not None and job["generation"] != generation):
                 return None, {}
             if job["expiresAt"] <= now:
-                account = self.account(documents[user_key], now)
+                account = self.account(documents[user_key], now, documents)
                 job.update(status="failed", updatedAt=now,
                            error={"code": "JOB_EXPIRED", "message": "The translation job has expired."})
-                self.settle(account, job, charge=False)
+                self.settle(account, job, charge=False, documents=documents)
                 return None, {job_key: job, user_key: account}
             if job["status"] == "running" and job["leaseUntil"] > now:
                 raise ApiError("SERVICE_UNAVAILABLE", "The translation job is already running.", 503, 5)
@@ -327,7 +387,7 @@ class JobStore:
                        recoverAt=lease_until, updatedAt=now)
             return job, {job_key: job}
 
-        return await self.repository.atomic([job_key, user_key], claim)
+        return await self.atomic([job_key, user_key], claim, existing["uid"])
 
     async def finish(self, claim, translations=None, error=None, output=None, return_outcome=False):
         now = self.clock()
@@ -340,7 +400,7 @@ class JobStore:
                         "outputKey": (job.get("output") or {}).get("objectKey") if job else None}
             if not job or job["status"] != "running" or job.get("leaseToken") != claim["leaseToken"]:
                 return outcome(False), {}
-            account = self.account(documents[user_key], now)
+            account = self.account(documents[user_key], now, documents)
             failure = error
             if job["expiresAt"] <= now:
                 failure = {"code": "JOB_EXPIRED", "message": "The translation job has expired."}
@@ -351,10 +411,10 @@ class JobStore:
                 job["output"] = output
             else:
                 job["translations"] = translations
-            self.settle(account, job, charge=failure is None)
+            self.settle(account, job, charge=failure is None, documents=documents)
             return outcome(True), {job_key: job, user_key: account}
 
-        result = await self.repository.atomic([job_key, user_key], finish)
+        result = await self.atomic([job_key, user_key], finish, claim["uid"])
         return result if return_outcome else result["accepted"]
 
 
@@ -401,13 +461,14 @@ class TranslationService:
     async def public_job(self, uid, identifier, job=None):
         job = job or await self.store.owned(uid, identifier)
         image = job.get("kind") == "image"
-        result = {"id": job["id"], "status": job["status"]}
+        account = await self.store.get_account(uid)
+        result = {"id": job["id"], "status": job["status"], "prepaid": account["prepaid"]}
         if image:
-            result.update(kind="image", imageQuota=await self.store.get_image_quota(uid))
+            result.update(kind="image", imageQuota=account["imageQuota"])
             if job.get("output"):
                 result["output"] = {key: value for key, value in job["output"].items() if key != "objectKey"}
         else:
-            result["quota"] = await self.store.get_quota(uid)
+            result["quota"] = account["quota"]
             if "translations" in job:
                 result["translations"] = job["translations"]
         if "error" in job:

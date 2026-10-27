@@ -23,8 +23,22 @@ export interface ImageQuota {
   monthlyImages: number; usedImages: number; reservedImages: number;
   remainingImages: number; resetsAt: string;
 }
+export interface PrepaidBalance {
+  words: number; images: number; reservedWords: number; reservedImages: number;
+}
+export type BillingEnvironment = 'live' | 'test';
+export interface BillingAvailability {
+  environment: BillingEnvironment;
+  canPurchase: boolean;
+  canViewPurchases: boolean;
+  reason: 'ready' | 'disabled' | 'unavailable' | 'environment-mismatch';
+}
 export interface Account {
   user: User; quota: Quota; plan: 'free' | 'pro'; features: { imageTranslation: boolean }; imageQuota: ImageQuota;
+  prepaid?: PrepaidBalance;
+  billing?: { environment: BillingEnvironment; purchasesEnabled: boolean };
+  /** Added by the background after checking the public billing service configuration. */
+  billingAvailability?: BillingAvailability;
   limits: { maxSegments: number; maxCharactersPerJob: number; maxConcurrentJobs: number };
 }
 export interface Segment { id: string; text: string }
@@ -34,10 +48,12 @@ export interface CreateJob {
 export interface Job {
   id: string; status: 'queued' | 'running' | 'completed' | 'failed' | 'cancelled';
   translations?: Segment[]; error?: ApiError; quota?: Quota;
+  prepaid?: PrepaidBalance;
 }
 export interface ImageJob {
   id: string; kind: 'image'; status: Job['status']; error?: ApiError; imageQuota?: ImageQuota;
   output?: { mimeType: string; width: number; height: number; bytes: number };
+  prepaid?: PrepaidBalance;
 }
 export interface ImageIntent {
   id: string; srcUrl: string; sourceLanguage: string; targetLanguage: string;
@@ -56,6 +72,7 @@ export type RuntimeRequest =
   | { type: 'settings:get' }
   | { type: 'settings:set'; payload: Partial<Settings> }
   | { type: 'auth:get' | 'auth:login' | 'auth:logout' | 'account:get' }
+  | { type: 'billing:open'; payload: { page: 'pay' | 'account' } }
   | { type: 'translation:submit'; payload: CreateJob }
   | { type: 'translation:get' | 'translation:cancel'; payload: { id: string } }
   | { type: 'translation:displayed'; payload: { id: string; elapsedMs: number } }

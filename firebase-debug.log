@@ -1,0 +1,32 @@
+[debug] [2026-10-26T21:09:41.324Z] ----------------------------------------------------------------------
+[debug] [2026-10-26T21:09:41.326Z] Command:       /usr/local/bin/node /Users/ihorkharchyshyn/WORK/PROJECTS/BALUBENKO-STRIPE/node_modules/.bin/firebase deploy --only hosting --project ai-translator-ext --non-interactive
+[debug] [2026-10-26T21:09:41.326Z] CLI Version:   15.34.0
+[debug] [2026-10-26T21:09:41.326Z] Platform:      darwin
+[debug] [2026-10-26T21:09:41.326Z] Node Version:  v22.23.3
+[debug] [2026-10-26T21:09:41.326Z] Detected Agent: codex_cli
+[debug] [2026-10-26T21:09:41.326Z] Time:          Mon Oct 26 2026 23:09:41 GMT+0200 (Eastern European Standard Time)
+[debug] [2026-10-26T21:09:41.326Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-10-26T21:09:41.861Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-10-26T21:09:41.862Z] > authorizing via signed-in user (ihorkharchyshyn@gmail.com)
+[debug] [2026-10-26T21:09:41.862Z] [iam] checking project ai-translator-ext for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-10-26T21:09:41.866Z] Checked if tokens are valid: true, expires at: 1793052058128
+[debug] [2026-10-26T21:09:41.866Z] Checked if tokens are valid: true, expires at: 1793052058128
+[debug] [2026-10-26T21:09:41.866Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/ai-translator-ext:testIamPermissions [none]
+[debug] [2026-10-26T21:09:41.866Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/ai-translator-ext:testIamPermissions  x-goog-user-project=ai-translator-ext
+[debug] [2026-10-26T21:09:41.866Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/ai-translator-ext:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-10-26T21:09:42.241Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/ai-translator-ext:testIamPermissions 403
+[debug] [2026-10-26T21:09:42.242Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/ai-translator-ext:testIamPermissions {"error":{"code":403,"message":"Caller does not have required permission to use project ai-translator-ext. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=ai-translator-ext and then retry. Propagation of the new permission may take a few minutes.","status":"PERMISSION_DENIED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"USER_PROJECT_DENIED","domain":"googleapis.com","metadata":{"consumer":"projects/ai-translator-ext","consoleUrl":"https://console.developers.google.com/iam-admin/iam?project=ai-translator-ext","containerInfo":"ai-translator-ext","service":"cloudresourcemanager.googleapis.com"}},{"@type":"type.googleapis.com/google.rpc.LocalizedMessage","locale":"en-US","message":"Caller does not have required permission to use project ai-translator-ext. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=ai-translator-ext and then retry. Propagation of the new permission may take a few minutes."},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Google developer console IAM admin","url":"https://console.developers.google.com/iam-admin/iam?project=ai-translator-ext"}]}]}}
+[debug] [2026-10-26T21:09:42.242Z] [iam] error while checking permissions, command may fail: Request to https://cloudresourcemanager.googleapis.com/v1/projects/ai-translator-ext:testIamPermissions had HTTP Error: 403, Caller does not have required permission to use project ai-translator-ext. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=ai-translator-ext and then retry. Propagation of the new permission may take a few minutes.
+[debug] [2026-10-26T21:09:42.243Z] Checked if tokens are valid: true, expires at: 1793052058128
+[debug] [2026-10-26T21:09:42.243Z] Checked if tokens are valid: true, expires at: 1793052058128
+[debug] [2026-10-26T21:09:42.243Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/ai-translator-ext [none]
+[debug] [2026-10-26T21:09:43.015Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/ai-translator-ext 403
+[debug] [2026-10-26T21:09:43.015Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/ai-translator-ext {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2026-10-26T21:09:43.015Z] Request to https://firebase.googleapis.com/v1beta1/projects/ai-translator-ext had HTTP Error: 403, The caller does not have permission
+[debug] [2026-10-26T21:09:43.015Z] FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/ai-translator-ext had HTTP Error: 403, The caller does not have permission
+    at responseToError (/Users/ihorkharchyshyn/WORK/PROJECTS/BALUBENKO-STRIPE/node_modules/firebase-tools/lib/responseToError.js:53:12)
+    at RetryOperation._fn (/Users/ihorkharchyshyn/WORK/PROJECTS/BALUBENKO-STRIPE/node_modules/firebase-tools/lib/apiv2.js:415:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+[error] 
+[error] Error: Failed to get Firebase project ai-translator-ext. Please make sure the project exists and your account has permission to access it.

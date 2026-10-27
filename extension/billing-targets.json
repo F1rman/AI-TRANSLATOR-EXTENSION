@@ -1,0 +1,10 @@
+{
+  "live": {
+    "apiBaseUrl": "https://ai-translator-api-1060412514800.europe-west1.run.app",
+    "billingBaseUrl": "https://balubenko-stripe.web.app"
+  },
+  "test": {
+    "apiBaseUrl": "https://ai-translator-api-test-1060412514800.europe-west1.run.app",
+    "billingBaseUrl": "https://balubenko-stripe-test.web.app"
+  }
+}

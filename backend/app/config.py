@@ -18,6 +18,9 @@ class Settings:
     task_queue: str = "translation-jobs"
     task_service_account: str = ""
     task_audience: str = ""
+    billing_environment: str = "live"
+    billing_service_account: str = ""
+    billing_audience: str = ""
     limits: MonthlyLimits = field(default_factory=load_limits)
     max_segments: int = 24
     max_characters: int = 4_000
@@ -52,6 +55,9 @@ class Settings:
             task_queue=os.environ.get("TASK_QUEUE_NAME", "translation-jobs"),
             task_service_account=os.environ.get("TASK_SERVICE_ACCOUNT", ""),
             task_audience=os.environ.get("TASK_AUDIENCE", base_url),
+            billing_environment=os.environ.get("BILLING_ENVIRONMENT", "live"),
+            billing_service_account=os.environ.get("BILLING_SERVICE_ACCOUNT", ""),
+            billing_audience=os.environ.get("BILLING_AUDIENCE", base_url + "/internal/billing-sync" if base_url else ""),
             max_segments=number("MAX_SEGMENTS", 24),
             max_characters=number("MAX_CHARACTERS_PER_JOB", 4_000),
             max_concurrent_jobs=number("MAX_CONCURRENT_JOBS", 2),
@@ -62,6 +68,13 @@ class Settings:
         )
         if settings.mode not in {"firestore", "memory"}:
             raise RuntimeError("BACKEND_MODE must be firestore or memory")
+        if settings.billing_environment not in {"test", "live"}:
+            raise RuntimeError("BILLING_ENVIRONMENT must be test or live")
+        if settings.billing_service_account and (not settings.billing_audience.startswith("https://")
+                                                  or not settings.billing_service_account.endswith(".iam.gserviceaccount.com")):
+            raise RuntimeError("Billing sync requires an exact HTTPS audience and service account")
+        if settings.billing_service_account and settings.billing_service_account == settings.task_service_account:
+            raise RuntimeError("Billing and queue workers must use different service accounts")
         if settings.allow_dev_auth and (settings.mode != "memory" or os.environ.get("K_SERVICE")):
             raise RuntimeError("Development authentication is allowed only in local memory mode")
         if settings.mode == "firestore":

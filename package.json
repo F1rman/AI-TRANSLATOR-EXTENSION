@@ -6,7 +6,9 @@
     "test:extension": "npm --prefix extension test",
     "test:backend": "backend/.venv/bin/python -m pytest backend/tests -q",
     "package": "python3.12 scripts/package_extension.py",
-    "qa:browser": "node scripts/browser-qa.mjs"
+    "qa:browser": "node scripts/browser-qa.mjs",
+    "build:test": "npm --prefix extension run build:test",
+    "package:test": "python3.12 scripts/package_extension.py --environment test"
   },
   "devDependencies": {
     "playwright": "^1.64.1"

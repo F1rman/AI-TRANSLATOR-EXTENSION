@@ -21,7 +21,7 @@ Understand every word, without losing your place. AI Translator translates selec
 
 Sign in with Google. Free access includes 10,000 source words and five images per account per calendar month, resetting on the first day at 00:00 UTC. Long pages may exceed the remaining allowance. AI-generated translations can contain errors.
 
-Pro access is granted manually and includes 200,000 source words and 150 successful image translations per calendar month UTC. There is no payment or subscription checkout. PNG, JPEG and WebP images must be static, no larger than 10 MB and 20 megapixels. AI editing can alter small details; inspect the result before use.
+Optional word-and-image packages are one-time purchases through our secure billing website when available. Monthly allowances are used first; packages accumulate and their unused balance has no expiry. Sign in with the same Google account. The extension shows available and reserved units and refreshes your balance when you return. Current prices and contents appear on the payment page. Buying a package does not grant Pro or start a subscription. Manually granted Pro retains 200,000 words and 150 images per calendar month UTC. PNG, JPEG and WebP images must be static, no larger than 10 MB and 20 megapixels. AI editing can alter small details; inspect the result before use.
 
 Page text is sent for translation only when you start page translation; the optional instant-selection mode sends selected text automatically. Website inputs, editable areas, hidden elements, and code blocks are excluded. Internal Chrome pages, PDF documents and canvas text are not supported. Page translation skips image text; image translation is a separate context-menu action.
 
@@ -32,6 +32,7 @@ For image translation, selected image bytes are sent to our server and OpenAI. A
 - Homepage: https://ai-translator-ext.web.app
 - Privacy: https://ai-translator-ext.web.app/privacy
 - Support: https://ai-translator-ext.web.app/support
+- Terms: https://ihorkharchyshyn.site/extensions/ai-translator/terms
 
 ## Пояснення дозволів
 
@@ -48,6 +49,8 @@ For image translation, selected image bytes are sent to our server and OpenAI. A
 
 Для 1.1.0 також розкрити обробку вибраних зображень сайту, оригіналу та згенерованого PNG, Pro entitlement і окремих image-лічильників. URL картинки зберігається лише в session storage розширення для відновлення; backend отримує байти, а не URL. Сховище картинок приватне, доступ до файлів має лише власник завдання. Нових Chrome-дозволів у 1.1.0 немає.
 
-Пакет релізу: `artifacts/ai-translator-1.1.3.zip`. Розгорнутий опис для копіювання також оновлений у `meta/descriptions/en.txt`; варіанти SEO-назви залишаються чернетками.
+Пакет релізу: `artifacts/ai-translator-1.2.0.zip`. Розгорнутий опис для копіювання також оновлений у `meta/descriptions/en.txt`; варіанти SEO-назви залишаються чернетками.
 
 Скріншоти в `artifacts/screenshots/`. Перед поданням перевірити фінальний OAuth, актуальний ZIP, контакт розробника та знімки потрібного Store розміру. Подання на модерацію — окремий етап.
+
+Для 1.2.0 також розкрити ідентифікатор акаунта, email, покупки, ціни/валюту, payment identifiers, залишки й резерви одиниць та стани refund/dispute. Оплата відбувається у Stripe на зовнішньому сайті; розширення не отримує карткових даних. Тестовий ZIP не завантажувати у Store.

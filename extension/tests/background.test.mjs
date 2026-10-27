@@ -18,25 +18,30 @@ test('worker routes durable jobs and isolates document generations', async () =>
     { frameId: 1, documentId: 'child-old', url: 'https://child.example.com' },
   ];
   const requests = [];
+  const openedTabs = [];
+  let purchasesEnabled = true;
+  let centralEnvironment = 'live';
   const tabMessages = [];
   let activeTab = 9;
   globalThis.chrome = {
     runtime: { id: 'test-extension', onMessage: event('message'), onInstalled: event('installed'), onStartup: event('startup'), async openOptionsPage() {} },
     storage: { local: storage(), session: storage() },
-    tabs: { async query() { return [{ id: activeTab }]; }, async get(id) { return { id, url: 'https://example.com' }; }, async sendMessage(tabId, message) { tabMessages.push({ tabId, message }); return { ok: true, data: null }; }, onRemoved: event('removed') },
+    tabs: { async create(options) { openedTabs.push(options); }, async query() { return [{ id: activeTab }]; }, async get(id) { return { id, url: 'https://example.com' }; }, async sendMessage(tabId, message) { tabMessages.push({ tabId, message }); return { ok: true, data: null }; }, onRemoved: event('removed') },
     contextMenus: { async removeAll() {}, create() {}, onClicked: event('context') },
     scripting: { async executeScript() {} },
     webNavigation: { async getAllFrames() { return frames; }, onCommitted: event('committed'), onDOMContentLoaded: event('dom'), onHistoryStateUpdated: event('history'), onReferenceFragmentUpdated: event('fragment') },
   };
   globalThis.fetch = async (url, init) => {
-    requests.push({ url, method: init.method, body: init.body && JSON.parse(init.body) });
+    requests.push({ url, method: init.method, body: init.body && JSON.parse(init.body), headers: init.headers, credentials: init.credentials });
+    if (String(url).includes('/api/config?')) return new Response(JSON.stringify({ data: { environment: centralEnvironment, authProjectId: 'ai-translator-ext', firebaseConfig: { projectId: 'ai-translator-ext' } } }));
+    if (String(url).endsWith('/v1/me')) return new Response(JSON.stringify({ billing: { environment: 'live', purchasesEnabled } }));
     const body = init.method === 'POST' ? { id: 'job-one', status: 'queued' } : { id: 'job-one', status: init.method === 'DELETE' ? 'cancelled' : 'completed', translations: [{ id: 'part', text: 'Переклад' }] };
     return new Response(JSON.stringify(body), { status: init.method === 'POST' ? 202 : 200 });
   };
   const directory = await mkdtemp(join(tmpdir(), 'translator-worker-'));
   const bundled = await build({
     entryPoints: ['src/background.ts'], bundle: true, format: 'esm', platform: 'node', write: false,
-    define: { 'import.meta.env': JSON.stringify({ VITE_API_BASE_URL: 'https://api.example.com' }) },
+    define: { 'import.meta.env': JSON.stringify({ VITE_API_BASE_URL: 'https://ai-translator-api-1060412514800.europe-west1.run.app', VITE_BILLING_BASE_URL: 'https://balubenko-stripe.web.app', VITE_BILLING_ENVIRONMENT: 'live', VITE_FIREBASE_PROJECT_ID: 'ai-translator-ext' }) },
     plugins: [{ name: 'test-auth', setup(builder) {
       builder.onResolve({ filter: /^\.\/auth$/ }, () => ({ path: 'auth', namespace: 'test' }));
       builder.onLoad({ filter: /.*/, namespace: 'test' }, () => ({ contents: 'export async function getIdToken(){return "test-token"} export async function getAuthState(){return {user:{uid:"user"},configured:true}} export const login=getAuthState;export const logout=getAuthState;', loader: 'js' }));
@@ -49,6 +54,20 @@ test('worker routes durable jobs and isolates document generations', async () =>
   const child = { id: 'test-extension', tab: { id: 9 }, frameId: 1, documentId: 'child-old' };
   const request = (message, sender = ui) => new Promise((resolve) => { callbacks.message(message, sender, resolve); });
   try {
+    assert.equal((await request({ type: 'account:get' })).data.billingAvailability.canPurchase, true);
+    assert.equal((await request({ type: 'billing:open', payload: { page: 'pay' } })).ok, true);
+    assert.equal(openedTabs[0].url, 'https://balubenko-stripe.web.app/pay?product=ai-translator-extension');
+    const publicCalls = requests.filter(entry => String(entry.url).includes('/api/config?'));
+    assert.ok(publicCalls.every(entry => !entry.headers && entry.credentials === 'omit'), 'public config gets no Firebase token or cookies');
+    purchasesEnabled = false;
+    assert.equal((await request({ type: 'billing:open', payload: { page: 'pay' } })).error.code, 'BILLING_UNAVAILABLE', 'click rechecks server after the prior UI check');
+    assert.equal(openedTabs.length, 1);
+    assert.equal((await request({ type: 'billing:open', payload: { page: 'account' } })).ok, true, 'existing purchase history stays accessible while new purchases are disabled');
+    purchasesEnabled = true; centralEnvironment = 'test';
+    assert.equal((await request({ type: 'billing:open', payload: { page: 'pay' } })).error.code, 'BILLING_ENVIRONMENT_MISMATCH');
+    assert.equal(openedTabs.length, 2);
+    assert.equal((await request({ type: 'billing:open', payload: { page: 'pay' } }, child)).error.code, 'INVALID_REQUEST', 'a webpage cannot open billing through the content script');
+    centralEnvironment = 'live';
     const started = await request({ type: 'page:start' });
     assert.equal(started.ok, true);
     const sessionId = started.data.sessionId;

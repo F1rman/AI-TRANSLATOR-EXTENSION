@@ -2,13 +2,23 @@ import { build, loadEnv } from 'vite';
 import { build as bundle } from 'esbuild';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { deflateSync } from 'node:zlib';
-const env = { ...loadEnv('production', process.cwd(), ''), ...process.env };
+import { createHash } from 'node:crypto';
+import { buildConfig, selectedEnvironment } from './build-config.mjs';
+const environment = selectedEnvironment(process.argv.slice(2));
+const publicSettings = loadEnv('production', process.cwd(), 'VITE_');
+const env = buildConfig(environment, publicSettings, process.env);
+const outDir = environment === 'test' ? 'dist-test' : 'dist';
 const packageInfo = JSON.parse(await readFile(new URL('../package.json', import.meta.url), 'utf8'));
-const publicKey = (env.EXTENSION_PUBLIC_KEY || await readFile(new URL('../store-public-key.txt', import.meta.url), 'utf8')).trim();
-await build();
-await bundle({ entryPoints: ['src/content/index.ts'], bundle: true, outfile: 'dist/content.js', format: 'iife', target: 'chrome120', minify: true });
+const publicKey = (process.env.EXTENSION_PUBLIC_KEY || await readFile(new URL('../store-public-key.txt', import.meta.url), 'utf8')).trim();
+const extensionId = [...createHash('sha256').update(Buffer.from(publicKey, 'base64')).digest('hex').slice(0, 32)]
+  .map(char => String.fromCharCode(97 + parseInt(char, 16))).join('');
+if (extensionId !== 'aieamemimbcbbnmakifejomadhegogge') throw new Error('The build must preserve the existing Chrome extension ID.');
+await build({ mode: 'production', build: { outDir },
+  define: Object.fromEntries(Object.entries(env).map(([key, value]) => [`import.meta.env.${key}`, JSON.stringify(value)])) });
+await bundle({ entryPoints: ['src/content/index.ts'], bundle: true, outfile: `${outDir}/content.js`, format: 'iife', target: 'chrome120', minify: true });
 const manifest = {
-  manifest_version: 3, name: 'AI Translator', version: packageInfo.version, minimum_chrome_version: '120',
+  manifest_version: 3, name: environment === 'test' ? 'AI Translator (Test)' : 'AI Translator', version: packageInfo.version,
+  version_name: environment === 'test' ? `${packageInfo.version} · Test` : packageInfo.version, minimum_chrome_version: '120',
   description: 'Translate selected text and whole webpages with AI. Restore originals in one click.',
   homepage_url: 'https://ai-translator-ext.web.app',
   permissions: ['activeTab', 'contextMenus', 'storage', 'scripting', 'identity', 'webNavigation'],
@@ -22,10 +32,12 @@ const manifest = {
   ...(env.VITE_GOOGLE_CLIENT_ID ? { oauth2: { client_id: env.VITE_GOOGLE_CLIENT_ID, scopes: ['openid', 'email', 'profile'] } } : {}),
   ...(publicKey ? { key: publicKey } : {}),
 };
-await writeFile('dist/manifest.json', JSON.stringify(manifest, null, 2));
+await writeFile(`${outDir}/manifest.json`, JSON.stringify(manifest, null, 2));
+await writeFile(`${outDir}/billing-build.json`, JSON.stringify({ environment, version: packageInfo.version,
+  apiBaseUrl: env.VITE_API_BASE_URL, billingBaseUrl: env.VITE_BILLING_BASE_URL, extensionId }, null, 2) + '\n');
 const crcTable = Array.from({ length: 256 }, (_, value) => { for (let bit = 0; bit < 8; bit++) value = value & 1 ? 0xedb88320 ^ (value >>> 1) : value >>> 1; return value >>> 0; });
 function chunk(type, bytes) { const data = Buffer.concat([Buffer.from(type), bytes]); let crc = 0xffffffff; for (const byte of data) crc = crcTable[(crc ^ byte) & 255] ^ (crc >>> 8); const len = Buffer.alloc(4), sum = Buffer.alloc(4); len.writeUInt32BE(bytes.length); sum.writeUInt32BE((crc ^ 0xffffffff) >>> 0); return Buffer.concat([len, data, sum]); }
-await mkdir('dist/icons', { recursive: true });
+await mkdir(`${outDir}/icons`, { recursive: true });
 for (const size of [16, 32, 48, 128]) {
   const rows = Buffer.alloc((size * 4 + 1) * size);
   for (let y = 0; y < size; y++) for (let x = 0; x < size; x++) {
@@ -41,6 +53,6 @@ for (const size of [16, 32, 48, 128]) {
     rows[index] = alpha ? red / alpha : 0; rows[index + 1] = alpha ? green / alpha : 0; rows[index + 2] = alpha ? blue / alpha : 0; rows[index + 3] = alpha / 16 * 255;
   }
   const header = Buffer.alloc(13); header.writeUInt32BE(size, 0); header.writeUInt32BE(size, 4); header[8] = 8; header[9] = 6;
-  await writeFile(`dist/icons/${size}.png`, Buffer.concat([Buffer.from([137,80,78,71,13,10,26,10]), chunk('IHDR', header), chunk('IDAT', deflateSync(rows)), chunk('IEND', Buffer.alloc(0))]));
+  await writeFile(`${outDir}/icons/${size}.png`, Buffer.concat([Buffer.from([137,80,78,71,13,10,26,10]), chunk('IHDR', header), chunk('IDAT', deflateSync(rows)), chunk('IEND', Buffer.alloc(0))]));
 }
-console.log('Built extension/dist (load unpacked or package for Chrome Web Store).');
+console.log(`Built extension/${outDir} (${environment}; ${packageInfo.version}).`);

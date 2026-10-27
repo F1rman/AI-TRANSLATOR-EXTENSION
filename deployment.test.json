@@ -1,0 +1,31 @@
+{
+  "projectId": "ai-translator-ext",
+  "region": "europe-west1",
+  "apiBaseUrl": "https://ai-translator-api-test-1060412514800.europe-west1.run.app",
+  "canonicalServiceUrl": "https://ai-translator-api-test-2y2mfw4ckq-ew.a.run.app",
+  "environment": "test",
+  "service": "ai-translator-api-test",
+  "queue": "translation-jobs-test",
+  "image": "europe-west1-docker.pkg.dev/ai-translator-ext/ai-translator/backend:live-20261026210952",
+  "runtimeServiceAccount": "ai-translator-test-runtime@ai-translator-ext.iam.gserviceaccount.com",
+  "taskServiceAccount": "ai-translator-test-tasks@ai-translator-ext.iam.gserviceaccount.com",
+  "billingAudience": "https://ai-translator-api-test-1060412514800.europe-west1.run.app/internal/billing-sync",
+  "hostingUrl": "https://ai-translator-ext.web.app",
+  "firebaseAppId": "1:1060412514800:web:c02c6ef48ae7066d94bd35",
+  "imageBucket": "ai-translator-ext-images",
+  "quotaLimits": {
+    "period": "calendar_month",
+    "timezone": "UTC",
+    "plans": {
+      "free": {
+        "monthlyWords": 10000,
+        "monthlyImages": 5
+      },
+      "pro": {
+        "monthlyWords": 200000,
+        "monthlyImages": 150
+      }
+    }
+  },
+  "backendVersion": "1.2.0"
+}

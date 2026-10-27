@@ -11,6 +11,7 @@
 # Dependencies and generated artifacts
 node_modules/
 dist/
+dist-test/
 artifacts/
 .venv/
 __pycache__/

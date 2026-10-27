@@ -15,7 +15,7 @@ from .auth import DevelopmentTaskAuth, DevelopmentUserAuth, FirebaseUserAuth, Ta
 from .config import Settings
 from .dispatcher import CloudTasksDispatcher, MemoryDispatcher
 from .images import CloudImageStorage, MemoryImageStorage
-from .models import ApiError, ImageTranslationRequest, TranslationRequest, WorkerRequest
+from .models import ApiError, BillingSync, ImageTranslationRequest, TranslationRequest, WorkerRequest
 from .logging_config import configure_logging
 from .repository import FirestoreRepository, MemoryRepository
 from .service import JobStore, TranslationService
@@ -31,6 +31,7 @@ class Runtime:
     service: TranslationService
     user_auth: object
     task_auth: object
+    billing_auth: object = None
 
     async def close(self):
         for component in (self.service.dispatcher, self.service.upstream, self.service.store.repository, self.service.images):
@@ -39,7 +40,8 @@ class Runtime:
 
 
 def build_runtime(settings):
-    repository = MemoryRepository() if settings.mode == "memory" else FirestoreRepository(settings.project_id)
+    repository = MemoryRepository() if settings.mode == "memory" else FirestoreRepository(
+        settings.project_id, namespace="test_" if settings.billing_environment == "test" else "")
     dispatcher = MemoryDispatcher() if settings.mode == "memory" else CloudTasksDispatcher(settings)
     images = MemoryImageStorage() if settings.mode == "memory" else CloudImageStorage(settings.project_id, settings.image_bucket)
     service = TranslationService(JobStore(repository, settings), dispatcher, HttpUpstream(settings), images)
@@ -49,6 +51,8 @@ def build_runtime(settings):
         settings, service,
         DevelopmentUserAuth() if settings.allow_dev_auth else FirebaseUserAuth(settings.project_id),
         DevelopmentTaskAuth() if settings.allow_dev_auth else TaskOidcAuth(settings.task_audience, settings.task_service_account),
+        TaskOidcAuth(settings.billing_audience, settings.billing_service_account)
+        if settings.billing_service_account else None,
     )
 
 
@@ -62,7 +66,7 @@ def create_app(runtime=None, settings=None):
         finally:
             await selected.close()
 
-    application = FastAPI(title="AI Translator API", version="1.1.2", lifespan=lifespan)
+    application = FastAPI(title="AI Translator API", version="1.2.0", lifespan=lifespan)
     # Injectable runtime also supports ASGI transports that do not run lifespan automatically.
     if runtime:
         application.state.runtime = runtime
@@ -153,6 +157,13 @@ def create_app(runtime=None, settings=None):
     async def worker(request: Request, current: Runtime = Depends(get_runtime)):
         await current.task_auth(request.headers.get("Authorization"))
 
+    async def billing_sender(request: Request, current: Runtime = Depends(get_runtime)):
+        # Disabled by default until the dedicated billing sender is configured.
+        # Queue-worker tokens and ordinary Firebase users cannot grant purchases.
+        if current.billing_auth is None:
+            raise ApiError("BILLING_UNAVAILABLE", "Purchase delivery is not configured.", 503)
+        await current.billing_auth(request.headers.get("Authorization"))
+
     @application.get("/health")
     async def health():
         return {"status": "ok"}
@@ -161,6 +172,8 @@ def create_app(runtime=None, settings=None):
     async def me(identity=Depends(user), current: Runtime = Depends(get_runtime)):
         config = current.settings
         return {"user": identity, **await current.service.store.get_account(identity["uid"]),
+                "billing": {"environment": config.billing_environment,
+                            "purchasesEnabled": bool(config.billing_service_account and config.billing_audience)},
                 "limits": {"maxSegments": config.max_segments, "maxCharactersPerJob": config.max_characters,
                            "maxConcurrentJobs": config.max_concurrent_jobs}}
 
@@ -218,6 +231,10 @@ def create_app(runtime=None, settings=None):
     @application.post("/internal/reconcile", dependencies=[Depends(worker)])
     async def reconcile(current: Runtime = Depends(get_runtime)):
         return await current.service.reconcile()
+
+    @application.post("/internal/billing-sync", dependencies=[Depends(billing_sender)])
+    async def billing_sync(payload: BillingSync, current: Runtime = Depends(get_runtime)):
+        return await current.service.store.sync_purchase(payload)
 
     return application
 

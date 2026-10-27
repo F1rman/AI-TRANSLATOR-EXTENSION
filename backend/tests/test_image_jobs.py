@@ -36,9 +36,9 @@ class CountingRepository(MemoryRepository):
         self.reads.append(key)
         return await super().get(key)
 
-    async def atomic(self, keys, operation):
+    async def atomic(self, keys, operation, **options):
         self.transactions += 1
-        return await super().atomic(keys, operation)
+        return await super().atomic(keys, operation, **options)
 
 
 class Dispatcher:
@@ -447,13 +447,13 @@ async def test_uncertain_image_commit_preserves_output_until_authoritative_recov
     grant(setup)
     job = await setup.service.submit_image("alice", image_request(), png())
     original_atomic = setup.repository.atomic
-    async def interrupted_ack(keys, operation):
+    async def interrupted_ack(keys, operation, **options):
         stored = setup.repository.documents.get(setup.store.job_key(job["id"]))
         if stored and stored["status"] == "running" and any(key.endswith(".png") for key in setup.images.objects):
             if commit_before_failure:
-                await original_atomic(keys, operation)
+                await original_atomic(keys, operation, **options)
             raise ConnectionError("Firestore commit acknowledgement lost")
-        return await original_atomic(keys, operation)
+        return await original_atomic(keys, operation, **options)
     setup.repository.atomic = interrupted_ack
     with pytest.raises(ApiError, match="SERVICE_UNAVAILABLE"):
         await setup.service.process(job["id"], 0)

@@ -1,6 +1,7 @@
 """Atomic document adapters; business transitions are shared by both adapters."""
 import asyncio
 from copy import deepcopy
+from random import uniform
 
 
 class MemoryRepository:
@@ -8,9 +9,13 @@ class MemoryRepository:
         self.documents = {}
         self.lock = asyncio.Lock()
 
-    async def atomic(self, keys, operation):
+    async def atomic(self, keys, operation, *, purchases_uid=None, environment=None):
         async with self.lock:
             documents = {key: deepcopy(self.documents.get(key)) for key in dict.fromkeys(keys)}
+            if purchases_uid is not None:
+                documents.update({key: deepcopy(value) for key, value in self.documents.items()
+                                  if key[0] == "translationPurchases" and value.get("uid") == purchases_uid
+                                  and value.get("environment") == environment and value.get("open")})
             result, updates = operation(documents)
             for key, value in updates.items():
                 self.documents[key] = deepcopy(value)
@@ -29,16 +34,18 @@ class MemoryRepository:
 
 
 class FirestoreRepository:
-    def __init__(self, project_id):
+    def __init__(self, project_id, namespace=""):
         from google.cloud.firestore_v1 import AsyncClient
         self.client = AsyncClient(project=project_id)
+        self.namespace = namespace
 
     def reference(self, key):
         collection, identifier = key
-        return self.client.collection(collection).document(identifier)
+        return self.client.collection(self.namespace + collection).document(identifier)
 
-    async def atomic(self, keys, operation):
+    async def atomic(self, keys, operation, *, purchases_uid=None, environment=None):
         from google.cloud.firestore_v1 import async_transactional
+        from google.api_core.exceptions import Aborted
         keys = list(dict.fromkeys(keys))
 
         @async_transactional
@@ -47,12 +54,29 @@ class FirestoreRepository:
             for key in keys:
                 snapshot = await self.reference(key).get(transaction=transaction)
                 documents[key] = snapshot.to_dict() if snapshot.exists else None
+            if purchases_uid is not None:
+                from google.cloud.firestore_v1.base_query import FieldFilter
+                query = (self.client.collection(self.namespace + "translationPurchases")
+                         .where(filter=FieldFilter("uid", "==", purchases_uid))
+                         .where(filter=FieldFilter("environment", "==", environment))
+                         .where(filter=FieldFilter("open", "==", True)))
+                async for snapshot in query.stream(transaction=transaction):
+                    documents[("translationPurchases", snapshot.id)] = snapshot.to_dict()
             result, updates = operation(documents)
             for key, value in updates.items():
                 transaction.set(self.reference(key), value)
             return result
 
-        return await execute(self.client.transaction(max_attempts=5))
+        # Concurrent query transactions can exhaust the SDK's immediate retries in
+        # lockstep. A fresh, rolled-back transaction with jitter breaks contention;
+        # business/validation failures and unknown failures are never retried here.
+        for attempt in range(3):
+            try:
+                return await execute(self.client.transaction(max_attempts=5))
+            except (Aborted, ValueError) as error:
+                if (not isinstance(error, Aborted) and not isinstance(error.__cause__, Aborted)) or attempt == 2:
+                    raise
+                await asyncio.sleep(uniform(0.05, 0.25) * (2 ** attempt))
 
     async def get(self, key):
         snapshot = await self.reference(key).get()
@@ -60,7 +84,7 @@ class FirestoreRepository:
 
     async def recoverable(self, now, limit=100):
         from google.cloud.firestore_v1.base_query import FieldFilter
-        query = (self.client.collection("translationJobs")
+        query = (self.client.collection(self.namespace + "translationJobs")
                  .where(filter=FieldFilter("recoverAt", "<=", now))
                  .order_by("recoverAt").limit(limit))
         return [snapshot.to_dict() async for snapshot in query.stream()]

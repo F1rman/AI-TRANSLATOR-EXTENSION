@@ -9,7 +9,7 @@
   "extensionId": "aieamemimbcbbnmakifejomadhegogge",
   "extensionOAuthClientId": "1060412514800-4j2utpmaak9lbknl5d077ffaoe6e3ei6.apps.googleusercontent.com",
   "imageBucket": "ai-translator-ext-images",
-  "backendVersion": "1.1.2",
+  "backendVersion": "1.2.0",
   "quotaLimits": {
     "period": "calendar_month",
     "timezone": "UTC",
@@ -23,5 +23,11 @@
         "monthlyImages": 150
       }
     }
-  }
+  },
+  "canonicalServiceUrl": "https://ai-translator-api-2y2mfw4ckq-ew.a.run.app",
+  "environment": "live",
+  "image": "europe-west1-docker.pkg.dev/ai-translator-ext/ai-translator/backend:live-20261026210952",
+  "runtimeServiceAccount": "ai-translator-runtime@ai-translator-ext.iam.gserviceaccount.com",
+  "taskServiceAccount": "ai-translator-tasks@ai-translator-ext.iam.gserviceaccount.com",
+  "billingAudience": "https://ai-translator-api-1060412514800.europe-west1.run.app/internal/billing-sync"
 }

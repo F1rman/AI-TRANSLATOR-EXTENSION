@@ -31,7 +31,7 @@ Submission body:
 
 Job statuses: `queued`, `running`, `completed`, `failed`, `cancelled`. Completed results contain `translations: [{id,text}]`. Errors use `{error:{code,message}}`, with `Retry-After` when appropriate. Only the owner can read/cancel a job. Raw prompts and page URLs are not accepted.
 
-`GET /v1/me` also returns `plan: "free" | "pro"`, `features: {imageTranslation: boolean}` and
+`GET /v1/me` also returns `billing: {environment: "live" | "test", purchasesEnabled: boolean}`. Purchases are enabled only when the dedicated billing sender and audience are configured; older servers without this field are treated as unavailable for purchases. The client additionally checks the selected build target and the central public billing configuration. The response also returns `plan: "free" | "pro"`, `features: {imageTranslation: boolean}` and
 `quota: {monthlyWords, usedWords, reservedWords, remainingWords, resetsAt}` and
 `imageQuota: {monthlyImages, usedImages, reservedImages, remainingImages, resetsAt}`.
 An image job returns `{id, status, kind: "image", imageQuota, output?, error?}`. Its completed

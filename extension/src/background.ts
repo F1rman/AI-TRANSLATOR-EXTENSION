@@ -2,6 +2,7 @@ import { config } from './config';
 import { getAuthState, getIdToken, login, logout } from './auth';
 import { createImageController } from './images';
 import { DEFAULT_SETTINGS, ExtensionError } from './shared/protocol';
+import { billingAvailability, billingBuild, billingPage, type CentralBillingConfig } from './shared/billing';
 import type { Account, ApiError, CreateJob, Job, PageCommand, PageFrameState, PageState, Result, RuntimeRequest, Settings } from './shared/protocol';
 
 interface StoredPage {
@@ -47,6 +48,37 @@ async function api<T>(path: string, method = 'GET', body?: unknown, refresh = fa
   const value = await response.json().catch(() => null);
   if (!response.ok) throw new ExtensionError(value?.error || { code: `HTTP_${response.status}`, message: 'The request could not be completed.' });
   return value as T;
+}
+async function accountWithBilling(): Promise<Account> {
+  // This public request deliberately has no Firebase token or cookies.
+  const central = async (): Promise<CentralBillingConfig | undefined> => {
+    try {
+      const response = await fetch(`${billingBuild.billingBase}/api/config?productId=ai-translator-extension`, {
+        credentials: 'omit', redirect: 'error', referrerPolicy: 'no-referrer', cache: 'no-store',
+        signal: AbortSignal.timeout(5000),
+      });
+      if (!response.ok) return undefined;
+      const value = await response.json();
+      return value?.data;
+    } catch { return undefined; }
+  };
+  const [account, publicConfig] = await Promise.all([api<Account>('/me'), central()]);
+  return { ...account, billingAvailability: billingAvailability(account, publicConfig) };
+}
+async function openBilling(page: 'pay' | 'account', sender: chrome.runtime.MessageSender) {
+  const source = sender.url && new URL(sender.url);
+  if (!source || source.protocol !== 'chrome-extension:' || source.host !== chrome.runtime.id
+      || !['/popup.html', '/options.html', '/image.html'].includes(source.pathname)
+      || !['pay', 'account'].includes(page)) throw new ExtensionError({ code: 'INVALID_REQUEST', message: 'Open billing from AI Translator.' });
+  // Always recheck at click time: the page's earlier account state can be stale.
+  const account = await accountWithBilling();
+  const availability = account.billingAvailability!;
+  if (!(page === 'pay' ? availability.canPurchase : availability.canViewPurchases)) {
+    throw new ExtensionError({ code: availability.reason === 'environment-mismatch' ? 'BILLING_ENVIRONMENT_MISMATCH' : 'BILLING_UNAVAILABLE',
+      message: 'Purchases are temporarily unavailable. Refresh your account and try again.' });
+  }
+  await chrome.tabs.create({ url: billingPage(page) });
+  return { opened: true };
 }
 const images = createImageController(api, settings);
 function cleanLanguage(value: unknown): string {
@@ -171,7 +203,8 @@ async function handle(request: RuntimeRequest, sender: chrome.runtime.MessageSen
       await images.logout();
       return logout();
     }
-    case 'account:get': return api<Account>('/me');
+    case 'account:get': return accountWithBilling();
+    case 'billing:open': return openBilling(request.payload?.page, sender);
     case 'translation:submit': return submitJob(request.payload, sender);
     case 'translation:get':
     case 'translation:cancel': {

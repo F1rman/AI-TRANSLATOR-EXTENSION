@@ -1,0 +1,18 @@
+{
+  "indexes": [
+    {"collectionGroup": "translationPurchases", "queryScope": "COLLECTION", "fields": [
+      {"fieldPath": "uid", "order": "ASCENDING"},
+      {"fieldPath": "environment", "order": "ASCENDING"},
+      {"fieldPath": "open", "order": "ASCENDING"}
+    ]},
+    {"collectionGroup": "test_translationPurchases", "queryScope": "COLLECTION", "fields": [
+      {"fieldPath": "uid", "order": "ASCENDING"},
+      {"fieldPath": "environment", "order": "ASCENDING"},
+      {"fieldPath": "open", "order": "ASCENDING"}
+    ]}
+  ],
+  "fieldOverrides": [
+    {"collectionGroup": "translationUsers", "fieldPath": "activeJobs", "indexes": []},
+    {"collectionGroup": "test_translationUsers", "fieldPath": "activeJobs", "indexes": []}
+  ]
+}

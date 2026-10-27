@@ -1,4 +1,4 @@
-from typing import Annotated
+from typing import Annotated, Literal
 from pydantic import BaseModel, ConfigDict, Field, StringConstraints, model_validator
 
 
@@ -48,6 +48,29 @@ class TranslationRequest(StrictModel):
 class WorkerRequest(StrictModel):
     jobId: Annotated[str, StringConstraints(pattern=r"^[a-f0-9]{32}$")]
     generation: Annotated[int, Field(ge=0)] | None = None
+
+
+class BillingSync(StrictModel):
+    orderId: Annotated[str, StringConstraints(min_length=1, max_length=128, pattern=r"^[a-zA-Z0-9_-]+$")]
+    environment: Literal["test", "live"]
+    productId: Literal["ai-translator-extension"]
+    authProjectId: Annotated[str, StringConstraints(min_length=1, max_length=128)]
+    uid: Identifier
+    revision: Annotated[int, Field(ge=1, le=9_007_199_254_740_991)]
+    purchasedAt: Annotated[int, Field(ge=1, le=253402300799)]
+    words: Annotated[int, Field(ge=0, le=9_007_199_254_740_991)]
+    images: Annotated[int, Field(ge=0, le=9_007_199_254_740_991)]
+    netGrantedWords: Annotated[int, Field(ge=0, le=9_007_199_254_740_991)]
+    netGrantedImages: Annotated[int, Field(ge=0, le=9_007_199_254_740_991)]
+    paymentState: Literal["pending", "paid", "partially_refunded", "refunded", "disputed", "failed", "expired"]
+
+    @model_validator(mode="after")
+    def validate_grant(self):
+        if self.words + self.images == 0 or self.netGrantedWords > self.words or self.netGrantedImages > self.images:
+            raise ValueError("Invalid purchase allowance")
+        if self.paymentState not in {"paid", "partially_refunded"} and (self.netGrantedWords or self.netGrantedImages):
+            raise ValueError("Only a paid purchase can grant units")
+        return self
 
 
 class ImageTranslationRequest(StrictModel):
