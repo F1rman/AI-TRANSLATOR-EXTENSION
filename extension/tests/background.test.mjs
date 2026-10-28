@@ -26,7 +26,7 @@ test('worker routes durable jobs and isolates document generations', async () =>
   const tabMessages = [];
   let activeTab = 9;
   globalThis.chrome = {
-    runtime: { id: 'test-extension', onMessage: event('message'), onInstalled: event('installed'), onStartup: event('startup'), async openOptionsPage() {} },
+    runtime: { id: 'test-extension', getURL: name => `chrome-extension://test-extension/${name}`, onMessage: event('message'), onInstalled: event('installed'), onStartup: event('startup'), async openOptionsPage() {} },
     storage: { local: storage(), session: storage() },
     tabs: { async create(options) { openedTabs.push(options); }, async query() { return [{ id: activeTab }]; }, async get(id) { return { id, url: 'https://example.com' }; }, async sendMessage(tabId, message) { tabMessages.push({ tabId, message }); return { ok: true, data: null }; }, onRemoved: event('removed') },
     contextMenus: { async removeAll() {}, create() {}, onClicked: event('context') },
@@ -142,5 +142,22 @@ test('worker routes durable jobs and isolates document generations', async () =>
     assert.ok(tabMessages.some(({ message }) => message.payload.action === 'restore'), 'changing language restores original text first');
     activeTab = 99;
     assert.equal((await request({ type: 'page:status' }, child)).data.tabId, 9, 'content requests target their sender tab after a tab switch');
+    for (const type of ['review:status', 'review:rate', 'review:dismiss']) {
+      assert.equal((await request({ type }, child)).error.code, 'INVALID_REQUEST', 'website content cannot alter review prompts or launch review pages');
+    }
+    assert.equal((await request({ type: 'review:status' })).data.eligible, false, 'repeated polling of one job counts once');
+    const tabsBeforeReview = openedTabs.length;
+    await request({ type: 'review:rate' });
+    assert.equal(openedTabs[tabsBeforeReview].url, 'https://chromewebstore.google.com/detail/test-extension/reviews');
+    assert.equal((await request({ type: 'review:status' })).data.eligible, false);
+    const beforeInstall = openedTabs.length;
+    await callbacks.installed({ reason: 'update' });
+    assert.equal(openedTabs.length, beforeInstall, 'updates do not open welcome');
+    await Promise.all([callbacks.installed({ reason: 'install' }), callbacks.installed({ reason: 'install' })]);
+    assert.equal(openedTabs.length, beforeInstall + 1, 'first install opens welcome exactly once');
+    assert.equal(openedTabs.at(-1).url, 'chrome-extension://test-extension/welcome.html');
+    await callbacks.installed({ reason: 'update' });
+    await callbacks.installed({ reason: 'chrome_update' });
+    assert.equal(openedTabs.length, beforeInstall + 1, 'subsequent events do not reopen welcome');
   } finally { await rm(directory, { recursive: true, force: true }); }
 });

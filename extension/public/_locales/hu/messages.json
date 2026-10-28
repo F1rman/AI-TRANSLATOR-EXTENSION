@@ -1,0 +1,44 @@
+{
+  "appName": {
+    "message": "AI Translator – Szöveg- és weboldalfordító"
+  },
+  "appDescription": {
+    "message": "Fordíts MI-vel, helyi előzményekkel. A Pro weboldalfordítást, hangnemet és választható kontextust ad."
+  },
+  "reviewPrompt": {
+    "message": "Tetszik az AI Translator? Értékeld a Chrome Web Store-ban"
+  },
+  "reviewRate": {
+    "message": "★ Értékelés"
+  },
+  "reviewDismiss": {
+    "message": "Értékelési kérés bezárása"
+  },
+  "welcomeTitle": {
+    "message": "Üdvözöl az AI Translator"
+  },
+  "welcomeIntro": {
+    "message": "Fordíts begépelt vagy kijelölt szöveget MI-vel. A Pro weboldalakat is fordít, és visszaállítja az eredeti szöveget."
+  },
+  "welcomePin": {
+    "message": "Rögzítsd az AI Translatort az eszköztárra, majd nyisd meg."
+  },
+  "welcomeSignIn": {
+    "message": "Jelentkezz be Google-fiókkal, és válaszd ki a fordítás nyelveit."
+  },
+  "welcomeFirstResult": {
+    "message": "Illessz szöveget a felugró ablakba, vagy jelölj ki szöveget egy oldalon, és kattints a fordításikonra. A weboldalakhoz Pro szükséges."
+  },
+  "welcomeAllowance": {
+    "message": "A Free naptári havonta 100,000 forráskaraktert és fordításonként legfeljebb 4,000 karaktert ad. A Pro havi időszakonként 2,000,000, fordításonként legfeljebb 50,000 karaktert ad 4.99 USD/hó vagy 39.99 USD/év áron."
+  },
+  "welcomePrivacy": {
+    "message": "A szöveg MI-feldolgozásra a szerverre kerül. Bekapcsolt azonnali kijelöléskor a kijelölt szöveg automatikusan elküldődik. A Pro az oldal új szövegét is feldolgozza; a választható kontextus legfeljebb 2,000 látható környező karaktert küld. Az előzmények az eszközön maradnak, fiókonként elkülönítve, felhőszinkron nélkül."
+  },
+  "welcomeOpenSettings": {
+    "message": "Beállítások megnyitása"
+  },
+  "welcomeReadPrivacy": {
+    "message": "Adatvédelmi szabályzat olvasása"
+  }
+}

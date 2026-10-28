@@ -1,13 +1,11 @@
-# AI Translator icon review, 2026-10-27
+# AI Translator packaged icon — 1.3.1
 
-Reference: `source128.png` and `source16.png` copied unchanged from the packaged build; comparison: `check.png`.
+Reference: `source128.png` and `source16.png` copied from the current package; comparison: `check.png`. The 128px Store bitmap now has centered 96px mint/green artwork with 16px transparent margins. Small toolbar variants preserve the original optical size. This correction is implemented in `extension/scripts/build.mjs`.
 
-The current mint rounded square and dark green sparkle are clear at 16px and distinct from the downloaded competitors’ predominantly blue/cyan translation marks. The sparkle communicates AI more directly than translation. The rounded mint artwork reaches the 128px canvas edges; it has corner transparency but no 16px transparent margin around a centered 96px artwork. Keep the familiar mark; the margin question remains a Store image guideline review rather than a silently applied redesign.
-
-## Optional proposal prompt
+## Matching rendering prompt
 
 ```text
-Propose a padded variant of the attached original AI Translator icon. Square 128×128 transparent canvas. Preserve its pale mint rounded square and single bold dark green curved four-point sparkle with the small green dot near the upper-right, preserving their geometry and color. Fit the existing rounded-square artwork into a centered 96×96 region with 16px transparent margins and visually balance it at 16px. Keep it distinct beside the observed blue/cyan translation icons. No text, letters, additional symbols, thin details, outlines, gradients, shadow, blur, 3D or perspective. This is a proposal only, not the packaged icon; compare it at 16px on light and dark before accepting.
+Reproduce the attached original AI Translator icon on an exactly 128×128 transparent canvas. Preserve the pale-mint rounded square, the bold dark-green curved four-point sparkle, and the small green dot near its upper-right. Preserve the supplied mark's proportions, geometry and colors. Center the complete rounded-square artwork in a 96×96 region, leaving 16px transparent margins on every side. Keep the interior solid and flat. No text, letters, added symbols, thin outlines, gradients, shadows, glow, blur, 3D or perspective. Compare the result against source128.png and check.png; the procedural packaged bitmap is authoritative. For 16px toolbar use the supplied source16.png optical variant rather than shrinking the padded Store image.
 ```
 
-No proposal has been installed or represented as the shipped icon.
+The actual source bitmap and comparison were inspected. Pixel bounds and toolbar dimensions are recorded by the release validators. Brand/name similarity remains a separate editorial decision, not a claim of trademark clearance.

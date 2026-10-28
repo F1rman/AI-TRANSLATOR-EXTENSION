@@ -1,0 +1,44 @@
+{
+  "appName": {
+    "message": "AI Translator – Tagasalin ng Teksto at Webpage"
+  },
+  "appDescription": {
+    "message": "Magsalin gamit ang AI at magtago ng lokal na history. May webpage, tono, at opsyonal na konteksto ang Pro."
+  },
+  "reviewPrompt": {
+    "message": "Nagugustuhan mo ang AI Translator? I-rate ito sa Chrome Web Store"
+  },
+  "reviewRate": {
+    "message": "★ I-rate"
+  },
+  "reviewDismiss": {
+    "message": "Isara ang hiling na mag-rate"
+  },
+  "welcomeTitle": {
+    "message": "Maligayang pagdating sa AI Translator"
+  },
+  "welcomeIntro": {
+    "message": "Isalin ang na-type o napiling teksto gamit ang AI. Nagsasalin din ang Pro ng mga webpage at naibabalik ang orihinal na teksto."
+  },
+  "welcomePin": {
+    "message": "I-pin ang AI Translator sa toolbar at buksan ito."
+  },
+  "welcomeSignIn": {
+    "message": "Mag-sign in gamit ang Google at piliin ang mga wika ng pagsasalin."
+  },
+  "welcomeFirstResult": {
+    "message": "Mag-paste sa popup o pumili ng teksto sa webpage at i-click ang icon ng pagsasalin. Kailangan ang Pro para sa mga webpage."
+  },
+  "welcomeAllowance": {
+    "message": "May 100,000 source character bawat buwang kalendaryo at hanggang 4,000 bawat salin ang Free. May 2,000,000 bawat buwanang panahon at hanggang 50,000 bawat salin ang Pro, sa US$$4.99/buwan o US$$39.99/taon."
+  },
+  "welcomePrivacy": {
+    "message": "Ipinapadala ang teksto sa server para iproseso ng AI. Kapag naka-on ang agarang pagpili, awtomatikong ipinapadala ang napiling teksto. Pinoproseso rin ng Pro ang bagong teksto ng pahina; hanggang 2,000 nakikitang karakter sa paligid ang ipinapadala ng opsyonal na konteksto. Nananatili sa device ang history, hiwalay bawat account, nang walang cloud sync."
+  },
+  "welcomeOpenSettings": {
+    "message": "Buksan ang mga kagustuhan"
+  },
+  "welcomeReadPrivacy": {
+    "message": "Basahin ang patakaran sa privacy"
+  }
+}

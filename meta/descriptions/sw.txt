@@ -1,0 +1,27 @@
+AI Translator hukusaidia kutafsiri maandishi unaposoma na kufanya kazi kwenye kivinjari. Bandika maandishi kwenye dirisha ibukizi, tafsiri sehemu uliyochagua kwenye ukurasa au tumia Pro kusoma ukurasa unaokubalika katika lugha unayotaka.
+
+Tafsiri maandishi uliyoandika au kubandika. Chagua maandishi kwenye ukurasa na utumie aikoni ya tafsiri au menyu ya muktadha. Lugha asili inaweza kutambuliwa kiotomatiki au kuchaguliwa mwenyewe. Nakili matokeo na upate tafsiri zilizokamilika katika historia ya kifaa.
+
+Free inajumuisha herufi 100,000 za maandishi asili kwa mwezi wa kalenda na hadi 4,000 kwa tafsiri moja. Nafasi kati ya maneno zinahesabiwa. Kikomo huanza upya siku ya kwanza ya kila mwezi saa 00:00 UTC; herufi zisizotumika hazihamishwi kwenda kipindi kingine.
+
+Free hutumia mtindo wa kawaida na huonyesha rekodi 20 za karibuni. Unahitaji kuingia kwa Google ili kutafsiri na kufuatilia matumizi ya akaunti.
+
+Pro ni US$4.99 kwa mwezi au US$39.99 kwa mwaka. Inajumuisha herufi 2,000,000 za maandishi asili kwa kila kipindi cha mwezi cha usajili, hadi 50,000 kwa tafsiri moja. Malipo ya mwaka pia yana kikomo tofauti cha kila mwezi.
+
+Pro hutafsiri kurasa zinazokubalika, ikiwemo maandishi mapya yanayoonekana wakati wa kipindi hai. Sitisha tafsiri au urejeshe maandishi asili. Chagua mtindo wa kawaida, rasmi, wa kirafiki au wa kitaalamu wa kiufundi. Kwa hiari, tumia hadi herufi 2,000 za maandishi yanayoonekana karibu na sehemu kwenye ukurasa huu; wewe huamua kama zitumike. Pro hutoa hadi rekodi 1,000 za historia ya kifaa na foleni ya uchakataji yenye kipaumbele. Muda wa uchakataji unaweza kutofautiana.
+
+Kikomo cha Pro husasishwa kila mwezi kuanzia tarehe ya kuanza usajili, hata kwa mpango wa mwaka. Herufi zisizotumika hazihamishwi. Dhibiti au ghairi uhuishaji kupitia akaunti; ukighairi, ufikiaji hubaki hadi kipindi kilicholipiwa kiishe.
+
+1. Bandika AI Translator kwenye upau wa zana na ufungue dirisha ibukizi.
+2. Ingia kwa Google na uchague lugha.
+3. Bandika au chagua maandishi na utafsiri. Kwa kurasa, chagua Pro na uanze kwenye ukurasa unaokubalika.
+
+Maandishi asili yaliyoombwa hutumwa kwenye seva ya tafsiri kwa uchakataji wa AI. Ukiwasha hali ya tafsiri ya papo hapo ya sehemu iliyochaguliwa, maandishi hayo hutumwa kiotomatiki. Kipindi hai cha Pro pia hutuma maandishi mapya yanayofaa yanapoonekana. Muktadha wa hiari haujumuishi sehemu za kuingiza taarifa, nywila au maandishi yaliyofichwa; HTML ya ukurasa haitumwi kama muktadha.
+
+Historia huhifadhiwa katika kiendelezi kwenye kifaa hiki, kando kwa kila akaunti na mazingira, bila usawazishaji wa wingu. Unaweza kuzima uhifadhi, kufuta rekodi moja moja au kufuta zote. Huhifadhiwa rekodi zisizozidi 1,000 au 25 MiB; za zamani huondolewa inapohitajika. Free huonyesha 20 za karibuni; kushusha mpango pekee hakufuti rekodi za zamani.
+
+Kiolesura kinapatikana kwa Kiingereza na Kiukraini. Kurasa za ndani za Chrome na Chrome Web Store haziwezi kutafsiriwa.
+
+Faragha: https://ai-translator-ext.web.app/privacy
+Masharti: https://balubenko-stripe.web.app/ai-translator-terms
+Usaidizi: https://ai-translator-ext.web.app/support

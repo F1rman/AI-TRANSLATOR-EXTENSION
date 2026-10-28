@@ -1,0 +1,22 @@
+[
+  {
+    "cap": "Förstå varje ord",
+    "desc": "Översätt text och markeringar med AI."
+  },
+  {
+    "cap": "Markera. Översätt. Läs vidare.",
+    "desc": "Se betydelsen bredvid texten."
+  },
+  {
+    "cap": "Läs hela sidan",
+    "desc": "Pro översätter sidor och återställer original."
+  },
+  {
+    "cap": "Välj rätt ton",
+    "desc": "Pro ger ton och valfritt sidsammanhang."
+  },
+  {
+    "cap": "Ha översättningar nära",
+    "desc": "Lokal historik som du styr själv."
+  }
+]

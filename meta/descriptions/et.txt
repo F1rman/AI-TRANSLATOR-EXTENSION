@@ -1,0 +1,38 @@
+AI Translator aitab teksti tõlkida brauseris lugemise ja töötamise ajal. Kleebi tekst hüpikaknasse, tõlgi valitud lõik veebilehel või kasuta Pro lehetõlget, et lugeda toetatud lehte valitud keeles.
+
+TEKSTITÕLGE
+• Tõlgi hüpikaknasse sisestatud või kleebitud teksti.
+• Vali lehel tekst ning kasuta tõlkeikooni või kontekstimenüüd.
+• Tuvasta lähtekeel automaatselt või vali see ise.
+• Kopeeri tulemus ning leia lõpetatud tõlked kohalikust ajaloost.
+
+FREE
+Free sisaldab kalendrikuus 100,000 lähteteksti märki ja kuni 4,000 märki tõlke kohta. Ka tühikud loevad. Kvoot lähtestatakse kuu esimesel päeval kell 00:00 UTC; kasutamata märgid edasi ei kandu.
+
+Free kasutab neutraalset tooni ja näitab ajaloo viimast 20 kirjet. Tõlkimiseks ja konto kvoodi arvestuseks on vaja Google’iga sisse logida.
+
+PRO
+Pro maksab 4.99 USD kuus või 39.99 USD aastas ning sisaldab:
+• 2,000,000 lähtemärki igas tellimuse kuuperioodis ja kuni 50,000 tõlke kohta. Ka aastamakse korral antakse iga kuu eraldi kvoot.
+• Toetatud veebilehtede tõlget, sealhulgas aktiivse seansi ajal ilmuvat uut teksti. Tõlke saab peatada või algteksti taastada.
+• Neutraalset, ametlikku, sõbralikku ja tehnilist tooni.
+• Valikulist konteksti kuni 2,000 nähtava ümbritseva märgiga käesoleval lehel. Sina otsustad, kas seda kasutatakse.
+• Ligipääsu kuni 1,000 kohaliku ajaloo kirjele ning eelisjärjekorda. Töötlemisaeg võib erineda.
+
+Pro kvoot uueneb iga kuu tellimuse alguskuupäevast, ka aastaplaani puhul. Kasutamata märgid edasi ei kandu. Uuendamist saab hallata või tühistada kontol; tühistamisel säilib ligipääs tasutud perioodi lõpuni.
+
+ALUSTAMINE
+1. Kinnita AI Translator tööriistaribale ja ava hüpikaken.
+2. Logi sisse Google’iga ja vali keeled.
+3. Kleebi või vali tekst ja tõlgi. Veebilehe jaoks vali Pro ning alusta tõlget toetatud lehel.
+
+PRIVAATSUS JA KOHALIK AJALUGU
+Soovitud lähtetekst saadetakse tõlkeserverisse tehisaruga töötlemiseks. Kui valitud teksti kiirtõlge on lubatud, saadetakse valik automaatselt. Aktiivne Pro leheseanss saadab ka ilmuvat uut toetatud teksti. Valikuline kontekst välistab sisestusväljad, paroolid ja peidetud teksti; lehe HTML-i kontekstina ei saadeta.
+
+Ajalugu hoitakse selle seadme laienduses kontode ja keskkondade kaupa eraldi, pilvesünkroonimiseta. Salvestamise saab välja lülitada, kirjeid eraldi kustutada või kogu ajaloo tühjendada. Säilib kuni 1,000 kirjet või 25 MiB; vajadusel eemaldatakse vanimad. Free näitab viimast 20; madalamale paketile üleminek üksi vanemaid kirjeid ei kustuta.
+
+Kasutajaliides on inglise ja ukraina keeles. Chrome’i siselehti ja Chrome Web Store’i ei saa tõlkida.
+
+https://ai-translator-ext.web.app/privacy
+https://balubenko-stripe.web.app/ai-translator-terms
+https://ai-translator-ext.web.app/support

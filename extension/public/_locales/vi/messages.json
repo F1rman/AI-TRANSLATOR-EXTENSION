@@ -1,0 +1,44 @@
+{
+  "appName": {
+    "message": "AI Translator – Dịch văn bản và trang web"
+  },
+  "appDescription": {
+    "message": "Dịch văn bản bằng AI và lưu lịch sử cục bộ. Pro bổ sung dịch trang, giọng điệu và ngữ cảnh tùy chọn."
+  },
+  "reviewPrompt": {
+    "message": "Bạn thích AI Translator? Hãy đánh giá trên Chrome Web Store"
+  },
+  "reviewRate": {
+    "message": "★ Đánh giá"
+  },
+  "reviewDismiss": {
+    "message": "Đóng yêu cầu đánh giá"
+  },
+  "welcomeTitle": {
+    "message": "Chào mừng đến với AI Translator"
+  },
+  "welcomeIntro": {
+    "message": "AI Translator giúp bạn dịch văn bản khi đọc và làm việc trong trình duyệt. Dán văn bản vào cửa sổ tiện ích, dịch phần được chọn trên trang web hoặc dùng trình dịch trang Pro để đọc trang được hỗ trợ bằng ngôn ngữ bạn chọn."
+  },
+  "welcomePin": {
+    "message": "Ghim AI Translator vào thanh công cụ và mở cửa sổ tiện ích."
+  },
+  "welcomeSignIn": {
+    "message": "Đăng nhập bằng Google và chọn ngôn ngữ."
+  },
+  "welcomeFirstResult": {
+    "message": "Dán hoặc chọn văn bản để dịch. Để dịch trang, chọn Pro rồi bắt đầu trên trang được hỗ trợ."
+  },
+  "welcomeAllowance": {
+    "message": "Free gồm 100,000 ký tự nguồn mỗi tháng dương lịch và tối đa 4,000 ký tự mỗi lần dịch. Dấu cách cũng được tính. Hạn mức đặt lại vào ngày đầu tháng lúc 00:00 UTC; ký tự chưa dùng không được chuyển sang kỳ sau. Pro có giá US$$4.99/tháng hoặc US$$39.99/năm, gồm 2,000,000 ký tự nguồn cho mỗi kỳ tháng của gói đăng ký, tối đa 50,000 ký tự mỗi lần dịch. Khi thanh toán theo năm, hạn mức vẫn được cấp riêng hằng tháng."
+  },
+  "welcomePrivacy": {
+    "message": "Văn bản nguồn được yêu cầu dịch sẽ được gửi tới máy chủ dịch để AI xử lý. Khi bật chế độ dịch tức thì phần được chọn, văn bản đã chọn sẽ tự động được gửi. Phiên dịch trang Pro đang hoạt động cũng gửi văn bản mới phù hợp khi xuất hiện. Ngữ cảnh tùy chọn không bao gồm ô nhập liệu, mật khẩu và văn bản ẩn; HTML của trang không được gửi làm ngữ cảnh. Lịch sử được lưu trong tiện ích trên thiết bị này, tách riêng theo tài khoản và môi trường, không đồng bộ lên đám mây. Bạn có thể tắt ghi lịch sử, xóa từng mục hoặc xóa tất cả. Tối đa 1,000 mục hoặc 25 MiB được lưu, mục cũ nhất sẽ bị xóa khi cần. Free hiển thị 20 mục mới nhất; việc hạ gói tự nó không xóa mục cũ."
+  },
+  "welcomeOpenSettings": {
+    "message": "Mở tùy chọn"
+  },
+  "welcomeReadPrivacy": {
+    "message": "Đọc chính sách quyền riêng tư"
+  }
+}

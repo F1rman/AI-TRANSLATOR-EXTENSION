@@ -1,0 +1,27 @@
+O AI Translator ajuda a traduzir texto enquanto lê e trabalha no navegador. Cole texto na janela da extensão, traduza uma seleção numa página ou utilize o tradutor de páginas Pro para ler uma página compatível no idioma escolhido.
+
+Traduza texto escrito ou colado. Selecione texto numa página e utilize o ícone de tradução ou o menu de contexto. Detete automaticamente o idioma de origem ou escolha-o manualmente. Copie o resultado e encontre traduções concluídas no histórico local.
+
+O Free inclui 100,000 caracteres de origem por mês de calendário e até 4,000 por tradução. Os espaços contam para o limite. A quota é reposta no primeiro dia de cada mês às 00:00 UTC; os caracteres não utilizados não transitam.
+
+O Free utiliza um tom neutro e apresenta os últimos 20 registos do histórico. É necessário iniciar sessão com o Google para traduzir e contabilizar a utilização da conta.
+
+O Pro custa US$4.99 por mês ou US$39.99 por ano e inclui 2,000,000 de caracteres de origem por período mensal da subscrição, até 50,000 por tradução. Mesmo com pagamento anual, existe uma quota mensal separada.
+
+O Pro traduz páginas compatíveis, incluindo novo texto que surja durante uma sessão ativa. Pode pausar a tradução ou repor o original. Estão disponíveis os tons neutro, formal, amigável e técnico. Utilize opcionalmente até 2,000 caracteres visíveis do texto envolvente na página atual; a ativação depende de si. O Pro permite aceder a até 1,000 registos locais e a uma fila de processamento prioritária. O tempo de processamento pode variar.
+
+A quota Pro é renovada mensalmente a partir da data de início da subscrição, incluindo no plano anual. Os caracteres não utilizados não transitam. Faça a gestão ou cancele a renovação na conta; ao cancelar, mantém o acesso até ao fim do período pago.
+
+1. Fixe o AI Translator na barra de ferramentas e abra a janela da extensão.
+2. Inicie sessão com o Google e escolha os idiomas.
+3. Cole ou selecione texto e traduza. Para traduzir páginas, escolha o Pro e inicie a tradução numa página compatível.
+
+O texto solicitado é enviado ao servidor de tradução para processamento por IA. Quando o modo de seleção instantânea está ativo, o texto selecionado é enviado automaticamente. Uma sessão Pro ativa também envia novo texto elegível da página à medida que surge. O contexto opcional exclui campos de introdução, palavras-passe e texto oculto; o HTML da página não é enviado como contexto.
+
+O histórico é guardado na extensão neste dispositivo, separado por conta e ambiente, sem sincronização na nuvem. Pode desativar o registo, eliminar entradas individualmente ou limpar tudo. São guardados, no máximo, 1,000 registos ou 25 MiB, removendo os mais antigos quando necessário. O Free apresenta os últimos 20; passar para um plano inferior não elimina, por si só, registos antigos.
+
+A interface está disponível em inglês e ucraniano. As páginas internas do Chrome e a Chrome Web Store não podem ser traduzidas.
+
+Privacidade: https://ai-translator-ext.web.app/privacy
+Termos: https://balubenko-stripe.web.app/ai-translator-terms
+Apoio: https://ai-translator-ext.web.app/support

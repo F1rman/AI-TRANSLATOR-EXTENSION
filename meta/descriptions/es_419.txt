@@ -1,0 +1,38 @@
+AI Translator te ayuda a traducir texto mientras lees y trabajas en el navegador. Pega texto en la ventana emergente, traduce una selección de una página o utiliza el traductor de páginas Pro para leer una página compatible en el idioma que elijas.
+
+TRADUCCIÓN DE TEXTO
+• Traduce texto escrito o pegado en la ventana emergente.
+• Selecciona texto en una página y utiliza el icono de traducción o el menú contextual.
+• Detecta automáticamente el idioma de origen o elígelo tú.
+• Copia el resultado y encuentra las traducciones terminadas en el historial local.
+
+FREE
+Free incluye 100,000 caracteres del texto de origen por mes natural y hasta 4,000 por traducción. Los espacios cuentan. El cupo se restablece el primer día de cada mes a las 00:00 UTC; los caracteres sin usar no se acumulan.
+
+Free utiliza un tono neutro y muestra los últimos 20 entradas del historial. Para traducir y llevar el registro del cupo de tu cuenta debes iniciar sesión con Google.
+
+PRO
+Pro cuesta US$4.99 al mes o US$39.99 al año e incluye:
+• 2,000,000 de caracteres de origen por período mensual de suscripción y hasta 50,000 por traducción. La facturación anual también ofrece un cupo independiente cada mes.
+• Traducción de páginas compatibles, incluido el texto que aparece durante una sesión activa. Puedes pausar la traducción o recuperar el texto original.
+• Tonos neutro, formal, amistoso y técnico.
+• Contexto opcional de hasta 2,000 caracteres visibles alrededor del texto en la página actual. Tú decides si se utiliza.
+• Acceso a hasta 1,000 entradas del historial local y una cola de procesamiento prioritaria. Los tiempos de procesamiento pueden variar.
+
+El cupo Pro se renueva cada mes a partir de la fecha de inicio de la suscripción, también en el plan anual. Los caracteres no utilizados no se acumulan. Administra o cancela la renovación desde tu cuenta; cancelar la renovación mantiene el acceso hasta el final del período pagado.
+
+CÓMO EMPEZAR
+1. Ancla AI Translator en la barra de herramientas y abre la ventana emergente.
+2. Inicia sesión con Google y elige los idiomas.
+3. Pega o selecciona texto y tradúcelo. Para traducir páginas, elige Pro e inicia la traducción en una página compatible.
+
+PRIVACIDAD E HISTORIAL LOCAL
+El texto solicitado se envía al servidor de traducción para procesarlo con IA. Si activas la selección instantánea, el texto seleccionado se envía automáticamente. Una sesión Pro de traducción de páginas también envía el texto nuevo compatible que va apareciendo. El contexto opcional excluye campos de entrada, contraseñas y texto oculto; no envía el HTML de la página como contexto.
+
+El historial se guarda en la extensión de este dispositivo, separado por cuenta y entorno, sin sincronización en la nube. Puedes desactivar el registro, eliminar entradas individuales o vaciarlo. Se conservan como máximo 1,000 registros o 25 MiB y se eliminan los más antiguos cuando es necesario. Free muestra los últimos 20; bajar de plan no elimina por sí solo los registros anteriores.
+
+La interfaz está disponible en inglés y ucraniano. Las páginas internas de Chrome y Chrome Web Store no se pueden traducir.
+
+Privacidad: https://ai-translator-ext.web.app/privacy
+Condiciones: https://balubenko-stripe.web.app/ai-translator-terms
+Soporte: https://ai-translator-ext.web.app/support

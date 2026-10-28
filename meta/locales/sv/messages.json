@@ -1,0 +1,44 @@
+{
+  "appName": {
+    "message": "AI Translator – Text- och webbsideöversättare"
+  },
+  "appDescription": {
+    "message": "Översätt text med AI och behåll lokal historik. Pro ger sidöversättning, ton och valfritt sammanhang."
+  },
+  "reviewPrompt": {
+    "message": "Gillar du AI Translator? Betygsätt tillägget i Chrome Web Store"
+  },
+  "reviewRate": {
+    "message": "★ Betygsätt"
+  },
+  "reviewDismiss": {
+    "message": "Stäng begäran om omdöme"
+  },
+  "welcomeTitle": {
+    "message": "Välkommen till AI Translator"
+  },
+  "welcomeIntro": {
+    "message": "AI Translator hjälper dig att översätta text när du läser och arbetar i webbläsaren. Klistra in text i popupfönstret, översätt markerad text på en sida eller läs en sida som stöds på ditt valda språk med Pro."
+  },
+  "welcomePin": {
+    "message": "Fäst AI Translator i verktygsfältet och öppna popupfönstret."
+  },
+  "welcomeSignIn": {
+    "message": "Logga in med Google och välj språk."
+  },
+  "welcomeFirstResult": {
+    "message": "Klistra in eller markera text och översätt. Välj Pro för sidöversättning och starta på en sida som stöds."
+  },
+  "welcomeAllowance": {
+    "message": "Free innehåller 100,000 källtecken per kalendermånad och upp till 4,000 per översättning. Mellanslag räknas. Gränsen återställs den första dagen i varje månad kl. 00:00 UTC; oanvända tecken förs inte över. Pro kostar US$$4.99 per månad eller US$$39.99 per år och innehåller 2,000,000 källtecken per månatlig abonnemangsperiod, upp till 50,000 per översättning. Årsbetalning ger också en separat månadsgräns."
+  },
+  "welcomePrivacy": {
+    "message": "Begärd källtext skickas till översättningsservern för AI-bearbetning. När läget för direktöversättning av markering är på skickas markerad text automatiskt. En aktiv Pro-sidsession skickar även lämplig ny sidtext. Valfritt sammanhang utesluter inmatningsfält, lösenord och dold text; sidans HTML skickas inte som sammanhang. Historiken lagras i tillägget på den här enheten, separat per konto och miljö, utan molnsynkronisering. Lagring kan stängas av; ta bort en post eller rensa allt. Högst 1,000 poster eller 25 MiB sparas, och de äldsta tas bort vid behov. Free visar de senaste 20; en nedgradering i sig tar inte bort äldre poster."
+  },
+  "welcomeOpenSettings": {
+    "message": "Öppna inställningar"
+  },
+  "welcomeReadPrivacy": {
+    "message": "Läs integritetspolicyn"
+  }
+}

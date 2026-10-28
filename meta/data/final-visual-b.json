@@ -1,0 +1,398 @@
+{
+  "checkedAt": "2026-10-28T08:42:20.647135Z",
+  "success": true,
+  "locales": [
+    {
+      "locale": "kn",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/kn.png",
+      "contactSheetSha256": "515ad72155a20bca7eb3ac1282cbeed40be5d738333ada16969ed9ea941485d2",
+      "findings": []
+    },
+    {
+      "locale": "ko",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/ko.png",
+      "contactSheetSha256": "4ad8caf2c3ae7c4eb4992af4c4c4cd4bf7f0ba20382e48dd2d18b0dad162075c",
+      "findings": []
+    },
+    {
+      "locale": "lt",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/lt.png",
+      "contactSheetSha256": "0778ef9663575b8ed974c45fe4312f2e41545e932294ab73c51da737b7922d7f",
+      "findings": []
+    },
+    {
+      "locale": "lv",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/lv.png",
+      "contactSheetSha256": "13bdd8bf5c90c89d4817c2f3a4bbb96ee4b6ff536a5120b80f1acf3454cc6330",
+      "findings": []
+    },
+    {
+      "locale": "ml",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/ml.png",
+      "contactSheetSha256": "cc6112200c5ff4a4e7dc707ec0e13d053e1feff9be66dcceac9b020762375248",
+      "findings": []
+    },
+    {
+      "locale": "mr",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/mr.png",
+      "contactSheetSha256": "623f96ece5a8b8a15bbac6cc628c3233c3e7badb8280f770b5caada32233271b",
+      "findings": []
+    },
+    {
+      "locale": "ms",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/ms.png",
+      "contactSheetSha256": "d91e1f994913961f2bfa6d9d1343f8fe222d63ad40223011352782178cc86cdb",
+      "findings": []
+    },
+    {
+      "locale": "nl",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/nl.png",
+      "contactSheetSha256": "46d4e070c54e2aaa5daa36a0b2fa5729707ecb622e80a7196e17c4d800c3933a",
+      "findings": []
+    },
+    {
+      "locale": "no",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/no.png",
+      "contactSheetSha256": "36419868880e57da31e4a6ed0822dea7742f22599789892e4af751a304b353e5",
+      "findings": []
+    },
+    {
+      "locale": "pl",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/pl.png",
+      "contactSheetSha256": "83526a1ce02733023fd274e901818828f4cf949cb316a80c57ee776dce73ee48",
+      "findings": []
+    },
+    {
+      "locale": "pt_BR",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/pt_BR.png",
+      "contactSheetSha256": "be76770aefd3232ce9c7c1af98edf5b9ee22cb1810f0f09589d57bad83e66146",
+      "findings": []
+    },
+    {
+      "locale": "pt_PT",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/pt_PT.png",
+      "contactSheetSha256": "7b0ede7b010c5c1b87bf3eca4a5f18d7789bbe876a73990d605ee9410811a9ce",
+      "findings": []
+    },
+    {
+      "locale": "ro",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/ro.png",
+      "contactSheetSha256": "c18392a28f0f96ca9aabe3e4e2efe5266ebf4665230e1e799f82160018d870da",
+      "findings": []
+    },
+    {
+      "locale": "ru",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/ru.png",
+      "contactSheetSha256": "a4d65ed38e548048315b50a052710ef24e14500b1eacd1c2275dd79e9e3f6f88",
+      "findings": []
+    },
+    {
+      "locale": "sk",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/sk.png",
+      "contactSheetSha256": "3b51d283fce4100d12925a6858be778ab7394e25316e3c06fe8c4faceb913f96",
+      "findings": []
+    },
+    {
+      "locale": "sl",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/sl.png",
+      "contactSheetSha256": "88f124e3be763dd7caed0e475f1ee6c470e62cf960f13d9f37ec51d0274c1b0b",
+      "findings": []
+    },
+    {
+      "locale": "sr",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/sr.png",
+      "contactSheetSha256": "a40d42436b570f77f0dcc5b4d8d2d16fdc359eb800944806b68c64c36f02820f",
+      "findings": []
+    },
+    {
+      "locale": "sv",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/sv.png",
+      "contactSheetSha256": "96f8caf4111f07d92623d441ada930442c34f85b07b9e0a58735d77f4b44c54b",
+      "findings": []
+    },
+    {
+      "locale": "sw",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/sw.png",
+      "contactSheetSha256": "1ce7626a97403dc476b54951a8acc12697170ed0cf509be0b934ac2cd8870b51",
+      "findings": []
+    },
+    {
+      "locale": "ta",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/ta.png",
+      "contactSheetSha256": "6ec6edc6392c616e446d793d0b575fd150dc1682e2f06a7bf0496bc0c77d9a60",
+      "findings": []
+    },
+    {
+      "locale": "te",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/te.png",
+      "contactSheetSha256": "13c4e7b957911abf8a6342b3c6119ace94b0ebc78294950cc242e6a31c310f36",
+      "findings": []
+    },
+    {
+      "locale": "th",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/th.png",
+      "contactSheetSha256": "14e7ef7a34cc287d69fbc8b10d876156e9f4309a052e815389edfca6159d5822",
+      "findings": []
+    },
+    {
+      "locale": "tr",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/tr.png",
+      "contactSheetSha256": "3a0d353c4ff394f904b49a0407124dd75566eb7bdb29d1cb8bb437edd5f8c7b9",
+      "findings": []
+    },
+    {
+      "locale": "uk",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/uk.png",
+      "contactSheetSha256": "a70413fbba560389529fc6497fc28311b63fa43fa20cc1829593c8bdeede1f32",
+      "findings": []
+    },
+    {
+      "locale": "vi",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/vi.png",
+      "contactSheetSha256": "7e2e142bf4182d6820f8f7d8a5df3115acb1fa89f94990e5673c5ad2716e70e2",
+      "findings": []
+    },
+    {
+      "locale": "zh_CN",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/zh_CN.png",
+      "contactSheetSha256": "862a2b3cc24918adfe0f39a0d1dd9c982754cacd20c8d4a8ed78d0065227973b",
+      "findings": []
+    },
+    {
+      "locale": "zh_TW",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/zh_TW.png",
+      "contactSheetSha256": "c4d7845200137504efcf0b714d1b2c613d552ceea6e385bceb1c6e498cd5426a",
+      "findings": []
+    },
+    {
+      "locale": "en",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/en.png",
+      "contactSheetSha256": "a1b74164a7140ed139bdaed4c48aeb6a65506e493c936458a91c36ae127a56cf",
+      "findings": []
+    }
+  ]
+}

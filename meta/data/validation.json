@@ -1,7 +1,7 @@
 {
-  "checkedAt": "2026-10-28T06:25:32.639Z",
+  "checkedAt": "2026-10-28T08:41:28.729Z",
   "success": true,
-  "version": "1.3.0",
+  "version": "1.3.1",
   "wordCount": 470,
   "checks": [
     {
@@ -126,13 +126,21 @@
     }
   ],
   "sourceScope": {
-    "marketingWrites": "meta/ only",
+    "marketingAssets": "meta/",
     "changedSinceBaseline": [
+      "README.md",
+      "extension/package-lock.json",
+      "extension/package.json",
+      "extension/scripts/build.mjs",
       "extension/src/background.ts",
+      "extension/src/shared/protocol.ts",
       "extension/src/ui/main.tsx",
+      "extension/src/ui/style.css",
       "extension/tests/background.test.mjs",
-      "extension/tests/ui-browser.test.mjs"
+      "extension/tests/ui-browser.test.mjs",
+      "extension/vite.config.ts",
+      "scripts/browser-qa.mjs"
     ],
-    "note": "Root concurrently implemented the separately authorized Free-to-Pro navigation change and tests. These outside-meta differences are reported, not attributed to marketing."
+    "note": "The user explicitly requested completion of all ten dashboard tasks, including product implementation. Catalogs, icon, review/welcome features, packaging, tests and current documentation are authorized outside-meta changes; the earlier Free-to-Pro navigation changes are preserved."
   }
 }

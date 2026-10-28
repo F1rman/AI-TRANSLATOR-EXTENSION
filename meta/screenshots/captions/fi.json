@@ -1,0 +1,22 @@
+[
+  {
+    "cap": "Ymmärrä jokainen sana",
+    "desc": "Käännä tekstiä ja valintoja tekoälyllä."
+  },
+  {
+    "cap": "Valitse. Käännä. Lue lisää.",
+    "desc": "Näe merkitys tekstin vieressä."
+  },
+  {
+    "cap": "Lue koko sivu",
+    "desc": "Pro kääntää sivut ja palauttaa alkuperäisen."
+  },
+  {
+    "cap": "Löydä sopiva sävy",
+    "desc": "Pro lisää sävyn ja valinnaisen kontekstin."
+  },
+  {
+    "cap": "Käännökset aina lähellä",
+    "desc": "Paikallinen historia hallinnassasi."
+  }
+]

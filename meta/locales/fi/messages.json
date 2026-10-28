@@ -1,0 +1,44 @@
+{
+  "appName": {
+    "message": "AI Translator – Tekstin ja verkkosivujen kääntäjä"
+  },
+  "appDescription": {
+    "message": "Käännä tekoälyllä ja säilytä paikallinen historia. Pro lisää sivukäännökset, tyylin ja valinnaisen kontekstin."
+  },
+  "reviewPrompt": {
+    "message": "Pidätkö AI Translatorista? Arvioi se Chrome Web Storessa"
+  },
+  "reviewRate": {
+    "message": "★ Arvioi"
+  },
+  "reviewDismiss": {
+    "message": "Sulje arviointipyyntö"
+  },
+  "welcomeTitle": {
+    "message": "Tervetuloa AI Translatoriin"
+  },
+  "welcomeIntro": {
+    "message": "Käännä kirjoitettua tai valittua tekstiä tekoälyllä. Pro kääntää myös verkkosivuja ja palauttaa alkuperäisen tekstin."
+  },
+  "welcomePin": {
+    "message": "Kiinnitä AI Translator työkalupalkkiin ja avaa se."
+  },
+  "welcomeSignIn": {
+    "message": "Kirjaudu Googlella ja valitse käännöskielet."
+  },
+  "welcomeFirstResult": {
+    "message": "Liitä teksti ponnahdusikkunaan tai valitse teksti sivulla ja napsauta käännöskuvaketta. Sivujen kääntäminen vaatii Pron."
+  },
+  "welcomeAllowance": {
+    "message": "Free sisältää 100,000 lähdemerkkiä kalenterikuukaudessa ja enintään 4,000 käännöstä kohti. Pro sisältää 2,000,000 kuukauden jaksoa kohti ja enintään 50,000 käännöstä kohti hintaan 4.99 USD/kk tai 39.99 USD/vuosi."
+  },
+  "welcomePrivacy": {
+    "message": "Teksti lähetetään palvelimelle tekoälykäsittelyyn. Käytössä oleva pikakäännös lähettää valitun tekstin automaattisesti. Pro käsittelee myös sivun uuden tekstin; valinnainen konteksti lähettää enintään 2,000 näkyvää ympäröivää merkkiä. Historia säilyy laitteella tileittäin erillään ilman pilvisynkronointia."
+  },
+  "welcomeOpenSettings": {
+    "message": "Avaa asetukset"
+  },
+  "welcomeReadPrivacy": {
+    "message": "Lue tietosuojakäytäntö"
+  }
+}

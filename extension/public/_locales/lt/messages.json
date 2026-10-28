@@ -1,0 +1,44 @@
+{
+  "appName": {
+    "message": "AI Translator – Teksto ir puslapių vertėjas"
+  },
+  "appDescription": {
+    "message": "Verskite tekstą su DI ir saugokite vietinę istoriją. Pro prideda puslapių vertimą, toną ir pasirenkamą kontekstą."
+  },
+  "reviewPrompt": {
+    "message": "Patinka AI Translator? Įvertinkite jį Chrome Web Store"
+  },
+  "reviewRate": {
+    "message": "★ Įvertinti"
+  },
+  "reviewDismiss": {
+    "message": "Atmesti prašymą įvertinti"
+  },
+  "welcomeTitle": {
+    "message": "Sveiki atvykę į AI Translator"
+  },
+  "welcomeIntro": {
+    "message": "AI Translator padeda versti tekstą naršant ir dirbant naršyklėje. Įklijuokite tekstą į iškylantį langą, išverskite pažymėtą tinklalapio dalį arba naudokite Pro puslapių vertimą ir skaitykite palaikomą puslapį pasirinkta kalba."
+  },
+  "welcomePin": {
+    "message": "Prisekite AI Translator prie įrankių juostos ir atidarykite iškylantį langą."
+  },
+  "welcomeSignIn": {
+    "message": "Prisijunkite per Google ir pasirinkite vertimo kalbas."
+  },
+  "welcomeFirstResult": {
+    "message": "Įklijuokite arba pažymėkite tekstą ir verskite. Puslapiams versti pasirinkite Pro ir pradėkite vertimą palaikomame puslapyje."
+  },
+  "welcomeAllowance": {
+    "message": "Free suteikia 100,000 pradinio teksto simbolių per kalendorinį mėnesį ir iki 4,000 simbolių vienam vertimui. Tarpai įskaičiuojami. Limitas atnaujinamas kiekvieno mėnesio pirmą dieną 00:00 UTC; nepanaudoti simboliai neperkeliami. Pro kainuoja US$$4.99 per mėnesį arba US$$39.99 per metus. Kiekvienam mėnesiniam prenumeratos laikotarpiui skiriama 2,000,000 pradinio teksto simbolių, iki 50,000 vienam vertimui. Mokant už metus taip pat taikomi atskiri mėnesiniai limitai."
+  },
+  "welcomePrivacy": {
+    "message": "Versti pateiktas tekstas siunčiamas vertimo serveriui ir apdorojamas DI. Įjungus momentinio pažymėjimo režimą, pažymėtas tekstas siunčiamas automatiškai. Aktyvi Pro puslapio sesija taip pat siunčia naujai atsirandantį tinkamą tekstą. Pasirenkamas kontekstas neapima įvesties laukų, slaptažodžių ir paslėpto teksto; puslapio HTML kaip kontekstas nesiunčiamas. Istorija saugoma šio įrenginio plėtinyje, atskirai pagal paskyrą ir aplinką, be debesų sinchronizavimo. Įrašymą galima išjungti, įrašus ištrinti po vieną arba visus. Saugoma daugiausia 1,000 įrašų arba 25 MiB; prireikus šalinami seniausi. Free rodo naujausius 20; vien plano sumažinimas senesnių įrašų neištrina."
+  },
+  "welcomeOpenSettings": {
+    "message": "Atidaryti nuostatas"
+  },
+  "welcomeReadPrivacy": {
+    "message": "Skaityti privatumo politiką"
+  }
+}

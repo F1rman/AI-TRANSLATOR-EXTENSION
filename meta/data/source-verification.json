@@ -29,11 +29,12 @@
     }
   ],
   "constraints": {
-    "workspaceWrites": "meta/ only",
+    "workspaceWrites": "meta assets plus explicitly authorized product changes for all ten tasks",
     "publish": false,
     "extensionId": "aieamemimbcbbnmakifejomadhegogge",
     "publicationState": "Existing owner draft context; fresh public collector result is recorded separately, not treated as a published listing.",
-    "translateModeRequested": false,
+    "translateModeRequested": true,
     "marketingCaptureEvidence": "Actual current built UI with documented demo account and translation fixtures; not a live authentication or AI-quality test."
-  }
+  },
+  "integrationDate": "2026-10-28"
 }

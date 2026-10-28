@@ -1,0 +1,44 @@
+{
+  "appName": {
+    "message": "AI Translator – Prevoditelj teksta i web-stranica"
+  },
+  "appDescription": {
+    "message": "Prevodite uz AI i čuvajte lokalnu povijest. Pro dodaje prijevod stranica, ton i neobavezni kontekst."
+  },
+  "reviewPrompt": {
+    "message": "Sviđa vam se AI Translator? Ocijenite ga u Chrome Web Storeu"
+  },
+  "reviewRate": {
+    "message": "★ Ocijeni"
+  },
+  "reviewDismiss": {
+    "message": "Zatvori zahtjev za ocjenu"
+  },
+  "welcomeTitle": {
+    "message": "Dobro došli u AI Translator"
+  },
+  "welcomeIntro": {
+    "message": "Prevodite upisani ili odabrani tekst uz AI. Pro prevodi i web-stranice te vraća izvorni tekst."
+  },
+  "welcomePin": {
+    "message": "Prikvačite AI Translator na alatnu traku i otvorite ga."
+  },
+  "welcomeSignIn": {
+    "message": "Prijavite se Googleom i odaberite jezike prijevoda."
+  },
+  "welcomeFirstResult": {
+    "message": "Zalijepite tekst u skočni prozor ili ga odaberite na stranici i kliknite ikonu prijevoda. Za stranice je potreban Pro."
+  },
+  "welcomeAllowance": {
+    "message": "Free uključuje 100,000 izvornih znakova po kalendarskom mjesecu i do 4,000 po prijevodu. Pro uključuje 2,000,000 po mjesečnom razdoblju i do 50,000 po prijevodu za 4.99 USD/mjesečno ili 39.99 USD/godišnje."
+  },
+  "welcomePrivacy": {
+    "message": "Tekst se šalje poslužitelju na obradu uz AI. Uključeni trenutačni odabir automatski šalje odabrani tekst. Pro obrađuje i novi tekst stranice; neobavezni kontekst šalje do 2,000 vidljivih okolnih znakova. Povijest ostaje na uređaju, odvojena po računu, bez sinkronizacije u oblaku."
+  },
+  "welcomeOpenSettings": {
+    "message": "Otvori postavke"
+  },
+  "welcomeReadPrivacy": {
+    "message": "Pročitaj pravila privatnosti"
+  }
+}

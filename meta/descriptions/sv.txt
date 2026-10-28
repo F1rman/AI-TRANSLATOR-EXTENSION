@@ -1,0 +1,27 @@
+AI Translator hjälper dig att översätta text när du läser och arbetar i webbläsaren. Klistra in text i popupfönstret, översätt markerad text på en sida eller läs en sida som stöds på ditt valda språk med Pro.
+
+Översätt skriven eller inklistrad text. Markera text på en webbsida och använd översättningsikonen eller snabbmenyn. Källspråket kan identifieras automatiskt eller väljas manuellt. Kopiera resultatet och hitta färdiga översättningar i den lokala historiken.
+
+Free innehåller 100,000 källtecken per kalendermånad och upp till 4,000 per översättning. Mellanslag räknas. Gränsen återställs den första dagen i varje månad kl. 00:00 UTC; oanvända tecken förs inte över.
+
+Free använder neutral ton och visar de senaste 20 historikposterna. Google-inloggning krävs för att översätta och hålla reda på kontots användning.
+
+Pro kostar US$4.99 per månad eller US$39.99 per år och innehåller 2,000,000 källtecken per månatlig abonnemangsperiod, upp till 50,000 per översättning. Årsbetalning ger också en separat månadsgräns.
+
+Pro översätter sidor som stöds, inklusive ny text som visas under en aktiv session. Pausa översättningen eller återställ originalet. Välj neutral, formell, vänlig eller teknisk ton. Använd valfritt upp till 2,000 synliga tecken runt texten på den aktuella sidan; du styr om detta används. Pro ger upp till 1,000 lokala historikposter och en prioriterad behandlingskö. Bearbetningstiden kan variera.
+
+Din Pro-gräns förnyas varje månad från abonnemangets startdatum, även med årsplanen. Oanvända tecken förs inte över. Hantera eller avsluta förnyelsen via kontot; efter uppsägning behåller du tillgång till slutet av den betalda perioden.
+
+1. Fäst AI Translator i verktygsfältet och öppna popupfönstret.
+2. Logga in med Google och välj språk.
+3. Klistra in eller markera text och översätt. Välj Pro för sidöversättning och starta på en sida som stöds.
+
+Begärd källtext skickas till översättningsservern för AI-bearbetning. När läget för direktöversättning av markering är på skickas markerad text automatiskt. En aktiv Pro-sidsession skickar även lämplig ny sidtext. Valfritt sammanhang utesluter inmatningsfält, lösenord och dold text; sidans HTML skickas inte som sammanhang.
+
+Historiken lagras i tillägget på den här enheten, separat per konto och miljö, utan molnsynkronisering. Lagring kan stängas av; ta bort en post eller rensa allt. Högst 1,000 poster eller 25 MiB sparas, och de äldsta tas bort vid behov. Free visar de senaste 20; en nedgradering i sig tar inte bort äldre poster.
+
+Gränssnittet finns på engelska och ukrainska. Interna Chrome-sidor och Chrome Web Store kan inte översättas.
+
+Integritet: https://ai-translator-ext.web.app/privacy
+Villkor: https://balubenko-stripe.web.app/ai-translator-terms
+Support: https://ai-translator-ext.web.app/support

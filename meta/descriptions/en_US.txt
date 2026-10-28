@@ -1,0 +1,38 @@
+AI Translator helps you translate text while reading and working in your browser. Paste text into the popup, translate a selection on a webpage, or use the Pro webpage translator to read an eligible page in your chosen language.
+
+TEXT TRANSLATION
+• Translate typed or pasted text in the popup.
+• Select text on a webpage and use the translation icon or context menu.
+• Detect the source language automatically or choose it yourself.
+• Copy the result and find completed translations in local history.
+
+FREE
+Free includes 100,000 source characters per calendar month and up to 4,000 characters per translation. Spaces count toward the limit. Your allowance resets on the first day of each month at 00:00 UTC; unused characters do not roll over.
+
+Free uses neutral tone and shows the latest 20 history entries. Google sign-in is required to translate and track your account allowance.
+
+PRO
+Pro costs US$4.99 per month or US$39.99 per year and includes:
+• 2,000,000 source characters per monthly subscription window, with up to 50,000 per translation. Annual billing still provides a separate monthly allowance.
+• Page translation on eligible websites, including newly appearing text during an active session. Pause translation or restore the original text when needed.
+• Neutral, formal, friendly and technical translation tones.
+• Optional context from up to 2,000 visible surrounding characters on the current page. You control whether this is used.
+• Access to up to 1,000 local history entries and a priority processing queue. Processing times can vary.
+
+Your Pro allowance renews monthly from the subscription start date, including on the annual plan. Renewals do not carry unused characters forward. Manage or cancel renewal through your account; canceling renewal keeps access until the end of the paid period.
+
+HOW TO START
+1. Pin AI Translator to the toolbar and open the popup.
+2. Sign in with Google and choose your languages.
+3. Paste or select text and translate. For webpage translation, choose Pro and then start translation on an eligible page.
+
+PRIVACY AND LOCAL HISTORY
+Requested source text is sent to the translation backend for AI processing. When instant-selection mode is enabled, selected text is sent automatically. An active Pro page session also sends eligible new page text as it appears. Optional Pro context excludes input fields, passwords and hidden text; it does not send page HTML as context.
+
+History is stored in the extension on this device, separated by account and environment, without cloud synchronization. Recording can be disabled; entries can be deleted individually or cleared. Storage retains at most 1,000 entries or 25 MiB, removing the oldest when needed. Free shows the latest 20; downgrading alone does not delete older entries.
+
+The interface is available in English and Ukrainian. Chrome internal pages and the Chrome Web Store cannot be translated.
+
+Privacy: https://ai-translator-ext.web.app/privacy
+Terms: https://balubenko-stripe.web.app/ai-translator-terms
+Support: https://ai-translator-ext.web.app/support

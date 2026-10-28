@@ -1,0 +1,27 @@
+AI Translator hjelper deg å oversette tekst mens du leser og arbeider i nettleseren. Lim inn tekst i popup-vinduet, oversett markert tekst på en nettside, eller bruk Pro til å lese en støttet side på språket du velger.
+
+Oversett skrevet eller innlimt tekst. Marker tekst på en nettside og bruk oversettelsesikonet eller hurtigmenyen. Kildespråket kan oppdages automatisk eller velges manuelt. Kopier resultatet og finn ferdige oversettelser i lokal historikk.
+
+Free gir 100,000 kildetegn per kalendermåned og opptil 4,000 tegn per oversettelse. Mellomrom teller med. Grensen fornyes første dag i hver måned kl. 00:00 UTC; ubrukte tegn overføres ikke.
+
+Free bruker nøytral tone og viser de siste 20 historikkoppføringene. Google-pålogging kreves for å oversette og registrere kontoforbruket.
+
+Pro koster US$4.99 per måned eller US$39.99 per år og gir 2,000,000 kildetegn per månedlige abonnementsperiode, opptil 50,000 per oversettelse. Årsbetaling gir også en separat månedlig kvote.
+
+Pro oversetter støttede nettsider, også ny tekst som dukker opp under en aktiv økt. Sett oversettelsen på pause eller gjenopprett originalen. Velg nøytral, formell, vennlig eller teknisk tone. Bruk valgfritt opptil 2,000 synlige tegn rundt teksten på den gjeldende siden; du styrer dette selv. Pro gir opptil 1,000 lokale historikkoppføringer og prioritert behandlingskø. Behandlingstiden kan variere.
+
+Pro-kvoten fornyes månedlig fra abonnementets startdato, også med årsplan. Ubrukte tegn overføres ikke. Administrer eller stopp fornyelse fra kontoen; ved oppsigelse beholder du tilgang ut den betalte perioden.
+
+1. Fest AI Translator til verktøylinjen og åpne popup-vinduet.
+2. Logg på med Google og velg språk.
+3. Lim inn eller marker tekst og oversett. Velg Pro for sideoversettelse og start på en støttet side.
+
+Kildeteksten du ber om å oversette, sendes til oversettelsesserveren for KI-behandling. Når øyeblikkelig oversettelse av markering er aktivert, sendes markert tekst automatisk. En aktiv Pro-sideøkt sender også egnet ny sidetekst. Valgfri kontekst utelater inndatafelt, passord og skjult tekst; sidens HTML sendes ikke som kontekst.
+
+Historikken lagres i utvidelsen på denne enheten, separat for konto og miljø, uten skysynkronisering. Lagring kan slås av; slett én oppføring eller tøm alt. Maksimalt 1,000 oppføringer eller 25 MiB beholdes, og de eldste fjernes ved behov. Free viser de siste 20; nedgradering alene sletter ikke eldre oppføringer.
+
+Grensesnittet finnes på engelsk og ukrainsk. Interne Chrome-sider og Chrome Web Store kan ikke oversettes.
+
+Personvern: https://ai-translator-ext.web.app/privacy
+Vilkår: https://balubenko-stripe.web.app/ai-translator-terms
+Brukerstøtte: https://ai-translator-ext.web.app/support

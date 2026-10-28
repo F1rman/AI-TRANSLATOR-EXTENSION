@@ -1,0 +1,44 @@
+{
+  "appName": {
+    "message": "AI Translator – Teksti ja veebilehtede tõlkija"
+  },
+  "appDescription": {
+    "message": "Tõlgi tehisaruga ja säilita kohalik ajalugu. Pro lisab lehetõlke, tooni ja valikulise konteksti."
+  },
+  "reviewPrompt": {
+    "message": "Kas AI Translator meeldib? Hinda seda Chrome Web Store’is"
+  },
+  "reviewRate": {
+    "message": "★ Hinda"
+  },
+  "reviewDismiss": {
+    "message": "Sulge hindamispalve"
+  },
+  "welcomeTitle": {
+    "message": "Tere tulemast AI Translatorisse"
+  },
+  "welcomeIntro": {
+    "message": "Tõlgi sisestatud või valitud teksti tehisaruga. Pro tõlgib ka veebilehti ja taastab algteksti."
+  },
+  "welcomePin": {
+    "message": "Kinnita AI Translator tööriistaribale ja ava see."
+  },
+  "welcomeSignIn": {
+    "message": "Logi sisse Google’iga ja vali tõlkekeeled."
+  },
+  "welcomeFirstResult": {
+    "message": "Kleebi tekst hüpikaknasse või vali lehel tekst ja vajuta tõlkeikooni. Veebilehtede tõlkimiseks on vaja Prod."
+  },
+  "welcomeAllowance": {
+    "message": "Free sisaldab kalendrikuus 100,000 lähtemärki ja kuni 4,000 tõlke kohta. Pro sisaldab kuuperioodis 2,000,000 ja kuni 50,000 tõlke kohta hinnaga 4.99 USD/kuu või 39.99 USD/aasta."
+  },
+  "welcomePrivacy": {
+    "message": "Tekst saadetakse serverisse tehisaruga töötlemiseks. Lubatud kiirtõlge saadab valitud teksti automaatselt. Pro töötleb ka lehele ilmuvat uut teksti; valikuline kontekst saadab kuni 2,000 nähtavat ümbritsevat märki. Ajalugu jääb seadmesse, kontode kaupa eraldi, pilvesünkroonimiseta."
+  },
+  "welcomeOpenSettings": {
+    "message": "Ava eelistused"
+  },
+  "welcomeReadPrivacy": {
+    "message": "Loe privaatsuspõhimõtteid"
+  }
+}

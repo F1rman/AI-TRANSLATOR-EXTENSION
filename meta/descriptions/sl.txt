@@ -1,0 +1,27 @@
+AI Translator pomaga prevajati besedilo med branjem in delom v brskalniku. Prilepite besedilo v pojavno okno, prevedite izbor na spletni strani ali s Pro berite podprto stran v izbranem jeziku.
+
+Prevajajte vneseno ali prilepljeno besedilo. Na strani označite besedilo ter uporabite ikono za prevod ali kontekstni meni. Izvorni jezik se zazna samodejno ali ga izberete sami. Kopirajte rezultat in poiščite dokončane prevode v lokalni zgodovini.
+
+Free vključuje 100,000 izvornih znakov na koledarski mesec in do 4,000 na prevod. Štejejo tudi presledki. Omejitev se obnovi prvi dan meseca ob 00:00 UTC; neporabljeni znaki se ne prenašajo.
+
+Free uporablja nevtralen ton in prikaže zadnjih 20 zapisov zgodovine. Za prevajanje in spremljanje porabe računa je potrebna prijava z Google.
+
+Pro stane US$4.99 na mesec ali US$39.99 na leto ter vključuje 2,000,000 izvornih znakov na mesečno obdobje naročnine, do 50,000 na prevod. Tudi letno plačilo zagotavlja ločeno mesečno količino.
+
+Pro prevaja podprte spletne strani, vključno z novim besedilom med dejavno sejo. Prevod lahko začasno ustavite ali obnovite izvirnik. Na voljo so nevtralen, formalen, prijazen in tehničen ton. Izbirno uporabite do 2,000 vidnih okoliških znakov s trenutne strani; uporabo določate sami. Pro omogoča do 1,000 lokalnih zapisov zgodovine in prednostno čakalno vrsto. Čas obdelave se lahko razlikuje.
+
+Količina Pro se obnavlja mesečno od začetnega datuma naročnine, tudi pri letnem načrtu. Neporabljeni znaki se ne prenašajo. Obnovitev upravljajte ali prekličite v računu; preklic ohrani dostop do konca plačanega obdobja.
+
+1. Pripnite AI Translator v orodno vrstico in odprite pojavno okno.
+2. Prijavite se z Google in izberite jezike.
+3. Prilepite ali označite besedilo in ga prevedite. Za prevajanje strani izberite Pro in začnite na podprti strani.
+
+Besedilo, zahtevano za prevod, se pošlje strežniku za obdelavo z umetno inteligenco. Ko je vključeno takojšnje prevajanje izbora, se označeno besedilo pošilja samodejno. Dejavna seja strani Pro pošilja tudi ustrezno novo besedilo. Izbirni kontekst izključi vnosna polja, gesla in skrito besedilo; HTML strani se ne pošilja kot kontekst.
+
+Zgodovina se hrani v razširitvi na tej napravi, ločeno po računu in okolju, brez sinhronizacije v oblaku. Shranjevanje lahko izključite, izbrišete posamezne zapise ali vse. Hrani se največ 1,000 zapisov ali 25 MiB; po potrebi se odstranijo najstarejši. Free pokaže zadnjih 20; znižanje načrta samo po sebi ne izbriše starejših zapisov.
+
+Vmesnik je na voljo v angleščini in ukrajinščini. Notranjih strani Chrome in Chrome Web Store ni mogoče prevajati.
+
+Zasebnost: https://ai-translator-ext.web.app/privacy
+Pogoji: https://balubenko-stripe.web.app/ai-translator-terms
+Podpora: https://ai-translator-ext.web.app/support

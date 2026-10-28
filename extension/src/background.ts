@@ -3,6 +3,7 @@ import { getAuthState, getIdToken, login, logout } from './auth';
 import { deleteHistory, listHistory, saveHistory, setHistoryRecording } from './shared/history';
 import { DEFAULT_SETTINGS, ExtensionError } from './shared/protocol';
 import { billingAvailability, billingBuild, billingPage, fetchCentralBillingConfig } from './shared/billing';
+import { createReviewStore } from './shared/review';
 import type { Account, ApiError, CreateJob, Job, PageCommand, PageFrameState, PageState, Result, RuntimeRequest, Settings, Tone } from './shared/protocol';
 
 interface StoredPage {
@@ -13,6 +14,7 @@ interface StoredPage {
 interface JobOwner { tabId?: number; documentId?: string; createdAt: number; completedSeenAt?: number; historySaved?: boolean; uid?: string; request?: CreateJob }
 interface Session { pages: Record<string, StoredPage>; jobs: Record<string, JobOwner> }
 const emptySession = (): Session => ({ pages: {}, jobs: {} });
+const reviews = createReviewStore(chrome.storage.local, billingBuild.environment);
 let transaction: Promise<unknown> = Promise.resolve();
 function withSession<T>(fn: (session: Session) => T | Promise<T>): Promise<T> {
   const next = transaction.then(async () => {
@@ -249,6 +251,7 @@ async function submitJob(payload: CreateJob, sender: chrome.runtime.MessageSende
     for (const [id, owner] of Object.entries(session.jobs)) if (Date.now() - owner.createdAt > 3_600_000) delete session.jobs[id];
   });
   await rememberJob(job);
+  try { await reviews.recordSuccess(job); } catch { /* Optional device-local counters never fail a translation. */ }
   return job;
 }
 async function handle(request: RuntimeRequest, sender: chrome.runtime.MessageSender): Promise<unknown> {
@@ -268,6 +271,15 @@ async function handle(request: RuntimeRequest, sender: chrome.runtime.MessageSen
     case 'history:delete': requireUi(sender); await deleteHistory(await historyScope(), request.payload.id); return { ok: true };
     case 'history:clear': requireUi(sender); await deleteHistory(await historyScope()); return { ok: true };
     case 'history:recording': requireUi(sender); await setHistoryRecording(await historyScope(), request.payload.enabled === true); return { ok: true };
+    case 'review:status': {
+      requireUi(sender);
+      return (await getAuthState()).user ? reviews.status() : { eligible: false };
+    }
+    case 'review:rate':
+      requireUi(sender);
+      await chrome.tabs.create({ url: `https://chromewebstore.google.com/detail/${chrome.runtime.id}/reviews` });
+      await reviews.done(); return { ok: true };
+    case 'review:dismiss': requireUi(sender); await reviews.dismiss(); return { ok: true };
     case 'billing:open': return openBilling(request.payload?.page, sender);
     case 'translation:submit': return submitJob(request.payload, sender, request.ownerUid);
     case 'translation:get':
@@ -275,6 +287,7 @@ async function handle(request: RuntimeRequest, sender: chrome.runtime.MessageSen
       await ownJob(request.payload.id, sender);
       const job = await api<Job>(`/translation-jobs/${encodeURIComponent(request.payload.id)}`, request.type === 'translation:cancel' ? 'DELETE' : 'GET');
       await rememberJob(job);
+      if (request.type === 'translation:get') try { await reviews.recordSuccess(job); } catch { /* Optional local counters. */ }
       if (job.status === 'completed') await withSession(session => { const owner = session.jobs[job.id]; if (owner && !owner.completedSeenAt) owner.completedSeenAt = Date.now(); });
       return job;
     }
@@ -305,7 +318,19 @@ async function createMenus() {
   chrome.contextMenus.create({ id: 'translate-selection', title: language === 'uk' ? 'Перекласти виділене — AI Translator' : 'Translate selection — AI Translator', contexts: ['selection'] });
   chrome.contextMenus.create({ id: 'translate-page', title: language === 'uk' ? 'Перекласти сторінку — AI Translator' : 'Translate page — AI Translator', contexts: ['page'] });
 }
-chrome.runtime.onInstalled.addListener(() => { void createMenus(); });
+let installTransaction: Promise<unknown> = Promise.resolve();
+chrome.runtime.onInstalled.addListener(details => {
+  const installed = installTransaction.then(async () => {
+    await createMenus();
+    if (details.reason !== 'install') return;
+    const { welcomeShownV1 } = await chrome.storage.local.get('welcomeShownV1');
+    if (welcomeShownV1) return;
+    await chrome.storage.local.set({ welcomeShownV1: true });
+    await chrome.tabs.create({ url: chrome.runtime.getURL('welcome.html') });
+  });
+  installTransaction = installed.catch(() => undefined);
+  return installTransaction;
+});
 chrome.runtime.onStartup.addListener(() => { void createMenus(); });
 chrome.contextMenus.onClicked.addListener((info, tab) => {
   if (!tab?.id) return;

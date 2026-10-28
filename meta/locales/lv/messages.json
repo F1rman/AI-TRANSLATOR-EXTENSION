@@ -1,0 +1,44 @@
+{
+  "appName": {
+    "message": "AI Translator – Teksta un lapu tulkotājs"
+  },
+  "appDescription": {
+    "message": "Tulkojiet tekstu ar MI un saglabājiet lokālo vēsturi. Pro piedāvā lapu tulkošanu, toni un papildu kontekstu."
+  },
+  "reviewPrompt": {
+    "message": "Patīk AI Translator? Novērtējiet to Chrome Web Store"
+  },
+  "reviewRate": {
+    "message": "★ Novērtēt"
+  },
+  "reviewDismiss": {
+    "message": "Noraidīt vērtējuma pieprasījumu"
+  },
+  "welcomeTitle": {
+    "message": "Laipni lūdzam AI Translator"
+  },
+  "welcomeIntro": {
+    "message": "AI Translator palīdz tulkot tekstu, lasot un strādājot pārlūkā. Ielīmējiet tekstu uznirstošajā logā, tulkojiet atlasītu fragmentu vai ar Pro lapu tulkotāju lasiet atbalstītu lapu izvēlētajā valodā."
+  },
+  "welcomePin": {
+    "message": "Piespraudiet AI Translator rīkjoslai un atveriet uznirstošo logu."
+  },
+  "welcomeSignIn": {
+    "message": "Pierakstieties ar Google un izvēlieties valodas."
+  },
+  "welcomeFirstResult": {
+    "message": "Ielīmējiet vai atlasiet tekstu un tulkojiet. Lapu tulkošanai izvēlieties Pro un sāciet tulkošanu atbalstītā lapā."
+  },
+  "welcomeAllowance": {
+    "message": "Free ietver 100,000 avota teksta rakstzīmju kalendārajā mēnesī un līdz 4,000 vienā tulkojumā. Skaitās arī atstarpes. Limits atjaunojas mēneša pirmajā dienā plkst. 00:00 UTC; neizmantotās rakstzīmes nepāriet uz nākamo periodu. Pro maksā US$$4.99 mēnesī vai US$$39.99 gadā un ietver 2,000,000 avota rakstzīmju katrā abonementa mēneša periodā, līdz 50,000 vienā tulkojumā. Arī gada maksājumam ir atsevišķs mēneša limits."
+  },
+  "welcomePrivacy": {
+    "message": "Pieprasītais avota teksts tiek nosūtīts tulkošanas serverim MI apstrādei. Ja ieslēgts tūlītējas atlases režīms, atlasītais teksts tiek nosūtīts automātiski. Aktīva Pro lapas sesija nosūta arī jaunu piemērotu lapas tekstu. Papildu kontekstā netiek iekļauti ievades lauki, paroles vai slēpts teksts; lapas HTML netiek sūtīts kā konteksts. Vēsture glabājas paplašinājumā šajā ierīcē atsevišķi katram kontam un videi, bez mākoņa sinhronizācijas. Ierakstīšanu var izslēgt, ierakstus dzēst atsevišķi vai notīrīt visus. Tiek saglabāti ne vairāk kā 1,000 ieraksti vai 25 MiB; vajadzības gadījumā vecākie tiek dzēsti. Free rāda pēdējos 20; plāna pazemināšana pati par sevi vecākus ierakstus neizdzēš."
+  },
+  "welcomeOpenSettings": {
+    "message": "Atvērt preferences"
+  },
+  "welcomeReadPrivacy": {
+    "message": "Lasīt privātuma politiku"
+  }
+}

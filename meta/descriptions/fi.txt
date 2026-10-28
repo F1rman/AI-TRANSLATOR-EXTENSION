@@ -1,0 +1,38 @@
+AI Translator auttaa kääntämään tekstiä, kun luet ja työskentelet selaimessa. Liitä tekstiä ponnahdusikkunaan, käännä verkkosivun valinta tai lue tuettua sivua valitsemallasi kielellä Pron sivukääntäjällä.
+
+TEKSTIN KÄÄNTÄMINEN
+• Käännä ponnahdusikkunaan kirjoitettua tai liitettyä tekstiä.
+• Valitse sivulta teksti ja käytä käännöskuvaketta tai pikavalikkoa.
+• Tunnista lähdekieli automaattisesti tai valitse se itse.
+• Kopioi tulos ja löydä valmiit käännökset paikallisesta historiasta.
+
+FREE
+Free sisältää 100,000 lähdetekstin merkkiä kalenterikuukaudessa ja enintään 4,000 käännöstä kohti. Välilyönnit lasketaan mukaan. Kiintiö nollautuu kuukauden ensimmäisenä päivänä kello 00:00 UTC; käyttämättömät merkit eivät siirry eteenpäin.
+
+Free käyttää neutraalia sävyä ja näyttää historian 20 viimeisintä merkintää. Kääntäminen ja tilin kiintiön seuranta edellyttävät Google-kirjautumista.
+
+PRO
+Pro maksaa 4.99 USD kuukaudessa tai 39.99 USD vuodessa ja sisältää:
+• 2,000,000 lähdemerkkiä tilauksen kuukausijaksoa kohti, enintään 50,000 käännöksessä. Myös vuosimaksulla saa erillisen kuukausikiintiön.
+• Tuettujen verkkosivujen kääntämisen, myös aktiivisen istunnon aikana ilmestyvän uuden tekstin. Voit keskeyttää kääntämisen tai palauttaa alkuperäisen tekstin.
+• Neutraalin, muodollisen, ystävällisen ja teknisen sävyn.
+• Valinnaisen kontekstin nykyiseltä sivulta, enintään 2,000 näkyvää merkkiä tekstin ympäriltä. Päätät itse, käytetäänkö sitä.
+• Pääsyn enintään 1,000 paikalliseen historiatietueeseen ja etusijalla olevan käsittelyjonon. Käsittelyajat voivat vaihdella.
+
+Pro-kiintiö uusiutuu kuukausittain tilauksen alkamispäivästä, myös vuositilauksessa. Käyttämättömät merkit eivät siirry. Hallitse tai peru uusiutuminen tililläsi; peruuttaminen säilyttää käyttöoikeuden maksetun jakson loppuun.
+
+ALOITTAMINEN
+1. Kiinnitä AI Translator työkalupalkkiin ja avaa ponnahdusikkuna.
+2. Kirjaudu Googlella ja valitse kielet.
+3. Liitä tai valitse teksti ja käännä. Valitse sivukäännökseen Pro ja aloita tuetulla sivulla.
+
+TIETOSUOJA JA PAIKALLINEN HISTORIA
+Pyydetty lähdeteksti lähetetään käännöspalvelimelle tekoälykäsittelyyn. Kun valinnan pikakäännös on käytössä, valittu teksti lähetetään automaattisesti. Aktiivinen Pro-sivuistunto lähettää myös näkyviin tulevan uuden tuetun tekstin. Valinnainen konteksti sulkee pois syötekentät, salasanat ja piilotetun tekstin; sivun HTML:ää ei lähetetä kontekstina.
+
+Historia tallennetaan tämän laitteen laajennukseen tileittäin ja ympäristöittäin erillään ilman pilvisynkronointia. Tallennuksen voi poistaa käytöstä, merkintöjä poistaa yksitellen tai historian tyhjentää. Tallennetaan enintään 1,000 merkintää tai 25 MiB; vanhimmat poistetaan tarvittaessa. Free näyttää viimeisimmät 20; pelkkä alempaan pakettiin siirtyminen ei poista vanhoja merkintöjä.
+
+Käyttöliittymä on englanniksi ja ukrainaksi. Chromen sisäisiä sivuja ja Chrome Web Storea ei voi kääntää.
+
+https://ai-translator-ext.web.app/privacy
+https://balubenko-stripe.web.app/ai-translator-terms
+https://ai-translator-ext.web.app/support

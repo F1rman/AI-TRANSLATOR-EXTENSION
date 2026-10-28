@@ -1,0 +1,44 @@
+{
+  "appName": {
+    "message": "AI Translator – Tłumacz tekstu i stron"
+  },
+  "appDescription": {
+    "message": "Tłumacz tekst z AI i zachowuj lokalną historię. Pro dodaje tłumaczenie stron, ton i opcjonalny kontekst."
+  },
+  "reviewPrompt": {
+    "message": "Podoba Ci się AI Translator? Oceń rozszerzenie w Chrome Web Store"
+  },
+  "reviewRate": {
+    "message": "★ Oceń"
+  },
+  "reviewDismiss": {
+    "message": "Zamknij prośbę o ocenę"
+  },
+  "welcomeTitle": {
+    "message": "Witaj w AI Translator"
+  },
+  "welcomeIntro": {
+    "message": "AI Translator pomaga tłumaczyć tekst podczas czytania i pracy w przeglądarce. Wklej tekst do okna rozszerzenia, przetłumacz zaznaczony fragment albo użyj tłumacza stron Pro, aby czytać obsługiwaną stronę w wybranym języku."
+  },
+  "welcomePin": {
+    "message": "Przypnij AI Translator do paska narzędzi i otwórz okno rozszerzenia."
+  },
+  "welcomeSignIn": {
+    "message": "Zaloguj się przez Google i wybierz języki."
+  },
+  "welcomeFirstResult": {
+    "message": "Wklej lub zaznacz tekst i przetłumacz. Aby tłumaczyć strony, wybierz Pro i uruchom tłumaczenie na obsługiwanej stronie."
+  },
+  "welcomeAllowance": {
+    "message": "Free obejmuje 100,000 znaków tekstu źródłowego na miesiąc kalendarzowy i do 4,000 znaków na tłumaczenie. Spacje są wliczane. Limit odnawia się pierwszego dnia miesiąca o 00:00 UTC; niewykorzystane znaki nie przechodzą dalej. Pro kosztuje US$$4.99 miesięcznie lub US$$39.99 rocznie i obejmuje 2,000,000 znaków źródłowych na miesięczny okres subskrypcji, do 50,000 na tłumaczenie. Również przy płatności rocznej przydział jest miesięczny."
+  },
+  "welcomePrivacy": {
+    "message": "Tekst przekazany do tłumaczenia jest wysyłany do serwera w celu przetworzenia przez AI. Po włączeniu trybu natychmiastowego zaznaczony tekst jest wysyłany automatycznie. Aktywna sesja strony Pro wysyła też odpowiedni nowy tekst strony. Opcjonalny kontekst pomija pola formularzy, hasła i ukryty tekst; kod HTML strony nie jest wysyłany jako kontekst. Historia jest zapisywana w rozszerzeniu na tym urządzeniu, oddzielnie dla konta i środowiska, bez synchronizacji z chmurą. Można wyłączyć zapisywanie, usuwać pojedyncze wpisy lub wyczyścić wszystko. Przechowywanych jest do 1,000 wpisów lub 25 MiB; w razie potrzeby najstarsze są usuwane. Free pokazuje ostatnie 20; samo obniżenie planu nie usuwa starszych wpisów."
+  },
+  "welcomeOpenSettings": {
+    "message": "Otwórz preferencje"
+  },
+  "welcomeReadPrivacy": {
+    "message": "Przeczytaj politykę prywatności"
+  }
+}

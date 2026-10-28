@@ -27,7 +27,7 @@ test('subscription UI shows character quotas, Pro controls, local history and re
     await context.addInitScript(({mode,locale}) => {
       const pro=mode.startsWith('pro'); let user={uid:'user-one',name:'Test',email:'test@example.com',picture:null};
       let settings={sourceLanguage:'auto',targetLanguage:'Ukrainian',uiLanguage:locale,theme:mode.includes('dark')?'dark':'light',selectionMode:'icon',tone:'neutral',usePageContext:false};
-      let recording=true; let entries=[{id:'saved',createdAt:1793120000000,sourceLanguage:'English',targetLanguage:'Ukrainian',source:'Saved source',translation:'Збережений переклад',tone:'neutral',mode:'text'}];
+      let recording=true; let reviewEligible=mode==='review'; let entries=[{id:'saved',createdAt:1793120000000,sourceLanguage:'English',targetLanguage:'Ukrainian',source:'Saved source',translation:'Збережений переклад',tone:'neutral',mode:'text'}];
       const monthly=pro?2000000:100000;
       const quota={monthlyCharacters:monthly,usedCharacters:mode==='exhausted'?monthly:1234,reservedCharacters:23,remainingCharacters:mode==='exhausted'?0:monthly-1257,periodStart:pro?'2026-10-15T10:00:00Z':'2026-10-01T00:00:00Z',resetsAt:pro?'2026-11-15T10:00:00Z':'2026-11-01T00:00:00Z'};
       const sessionValues = {};
@@ -55,6 +55,8 @@ test('subscription UI shows character quotas, Pro controls, local history and re
           case 'history:clear':entries=[];data={ok:true};break;
           case 'history:delete':entries=entries.filter(entry=>entry.id!==request.payload.id);data={ok:true};break;
           case 'history:recording':recording=request.payload.enabled;data={ok:true};break;
+          case 'review:status':data={eligible:reviewEligible};break;
+          case 'review:rate':case 'review:dismiss':reviewEligible=false;data={ok:true};break;
           case 'translation:submit':data={id:'job-one',status:'completed',translations:request.payload.segments.map(segment=>({id:segment.id,text:'Переклад'})),characterQuota:quota};break;
           case 'translation:displayed':data=null;break;
           case 'page:status':data={sessionId:'',status:'idle',total:0,completed:0,failed:0};break;
@@ -128,6 +130,18 @@ test('subscription UI shows character quotas, Pro controls, local history and re
     assert.equal((await switched.requests()).filter(request=>request.type==='translation:submit').length,0,'Account B must not auto-submit A pending text');
     await switched.context.close();
     const outdated=await open('outdated');await outdated.page.getByRole('alert').filter({hasText:'Update AI Translator'}).waitFor();await outdated.context.close();
+    const review=await open('review');await review.page.locator('.review-card').waitFor();
+    assert.equal(await review.page.locator('.popup').evaluate(element=>element.getBoundingClientRect().width),420);
+    assert.equal(await review.page.locator('.review-card').evaluate(element=>element.parentElement.classList.contains('popup')),true,'Review card is in the popup flow, never a modal');
+    await review.page.getByRole('button',{name:'★ Rate',exact:true}).click();
+    await review.page.waitForFunction(()=>!document.querySelector('.review-card'));
+    assert.equal((await review.requests()).filter(request=>request.type==='review:rate').length,1);
+    await review.context.close();
+    const dismissed=await open('review');await dismissed.page.locator('.review-card').waitFor();
+    await dismissed.page.getByRole('button',{name:'Dismiss review request',exact:true}).click();
+    await dismissed.page.waitForFunction(()=>!document.querySelector('.review-card'));
+    assert.equal((await dismissed.requests()).filter(request=>request.type==='review:dismiss').length,1);
+    await dismissed.context.close();
     const image=await open('free','image');await image.page.getByRole('heading',{name:'Image translation is unavailable'}).waitFor();assert.equal((await image.requests()).length,0);await image.context.close();
     assert.deepEqual(errors,[]);
   } finally {await browser.close();}

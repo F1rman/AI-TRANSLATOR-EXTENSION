@@ -96,6 +96,19 @@ try {
   const settings = await worker.evaluate(async () => (await chrome.storage.local.get('settings')).settings);
   assert.equal(settings.uiLanguage, 'en');
   assert.equal(settings.theme, 'dark');
+  await page.goto(`chrome-extension://${id}/welcome.html`);
+  await page.locator('.welcome-steps li').first().waitFor();
+  assert.equal(await page.locator('.welcome-steps li').count(), 3);
+  await page.waitForFunction(() => document.documentElement.dataset.theme === 'dark');
+  const welcomeCopy = await page.evaluate(() => ({
+    allowance: chrome.i18n.getMessage('welcomeAllowance'),
+    locale: chrome.i18n.getUILanguage(),
+  }));
+  if (welcomeCopy.locale.startsWith('en')) {
+    assert.ok(welcomeCopy.allowance.includes('$4.99'), 'Real Chrome i18n must preserve the monthly price');
+    assert.ok(welcomeCopy.allowance.includes('$39.99'), 'Real Chrome i18n must preserve the annual price');
+  }
+  await page.screenshot({ path: path.join(artifacts, 'welcome-dark.png'), fullPage: true });
   const unauthorized = await page.evaluate(async () => chrome.runtime.sendMessage({ type: 'account:get' }));
   assert.equal(unauthorized.ok, false);
   assert.ok(['AUTH_REQUIRED', 'NOT_CONFIGURED'].includes(unauthorized.error.code), unauthorized.error.code);

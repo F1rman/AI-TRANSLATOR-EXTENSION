@@ -1,0 +1,44 @@
+{
+  "appName": {
+    "message": "AI Translator – Tradutor de texto e páginas"
+  },
+  "appDescription": {
+    "message": "Traduza texto com IA e guarde o histórico local. O Pro acrescenta tradução de páginas, tom e contexto opcional."
+  },
+  "reviewPrompt": {
+    "message": "Gosta do AI Translator? Avalie-o na Chrome Web Store"
+  },
+  "reviewRate": {
+    "message": "★ Avaliar"
+  },
+  "reviewDismiss": {
+    "message": "Dispensar pedido de avaliação"
+  },
+  "welcomeTitle": {
+    "message": "Bem-vindo ao AI Translator"
+  },
+  "welcomeIntro": {
+    "message": "O AI Translator ajuda a traduzir texto enquanto lê e trabalha no navegador. Cole texto na janela da extensão, traduza uma seleção numa página ou utilize o tradutor de páginas Pro para ler uma página compatível no idioma escolhido."
+  },
+  "welcomePin": {
+    "message": "Fixe o AI Translator na barra de ferramentas e abra a janela da extensão."
+  },
+  "welcomeSignIn": {
+    "message": "Inicie sessão com o Google e escolha os idiomas."
+  },
+  "welcomeFirstResult": {
+    "message": "Cole ou selecione texto e traduza. Para traduzir páginas, escolha o Pro e inicie a tradução numa página compatível."
+  },
+  "welcomeAllowance": {
+    "message": "O Free inclui 100,000 caracteres de origem por mês de calendário e até 4,000 por tradução. Os espaços contam para o limite. A quota é reposta no primeiro dia de cada mês às 00:00 UTC; os caracteres não utilizados não transitam. O Pro custa US$$4.99 por mês ou US$$39.99 por ano e inclui 2,000,000 de caracteres de origem por período mensal da subscrição, até 50,000 por tradução. Mesmo com pagamento anual, existe uma quota mensal separada."
+  },
+  "welcomePrivacy": {
+    "message": "O texto solicitado é enviado ao servidor de tradução para processamento por IA. Quando o modo de seleção instantânea está ativo, o texto selecionado é enviado automaticamente. Uma sessão Pro ativa também envia novo texto elegível da página à medida que surge. O contexto opcional exclui campos de introdução, palavras-passe e texto oculto; o HTML da página não é enviado como contexto. O histórico é guardado na extensão neste dispositivo, separado por conta e ambiente, sem sincronização na nuvem. Pode desativar o registo, eliminar entradas individualmente ou limpar tudo. São guardados, no máximo, 1,000 registos ou 25 MiB, removendo os mais antigos quando necessário. O Free apresenta os últimos 20; passar para um plano inferior não elimina, por si só, registos antigos."
+  },
+  "welcomeOpenSettings": {
+    "message": "Abrir preferências"
+  },
+  "welcomeReadPrivacy": {
+    "message": "Ler a política de privacidade"
+  }
+}

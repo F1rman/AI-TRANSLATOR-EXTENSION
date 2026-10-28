@@ -1,0 +1,44 @@
+{
+  "appName": {
+    "message": "AI Translator – Texte und Webseiten übersetzen"
+  },
+  "appDescription": {
+    "message": "Texte mit KI übersetzen und lokal speichern. Pro ergänzt Webseitenübersetzung, Ton und optionalen Kontext."
+  },
+  "reviewPrompt": {
+    "message": "Gefällt dir AI Translator? Bewerte ihn im Chrome Web Store"
+  },
+  "reviewRate": {
+    "message": "★ Bewerten"
+  },
+  "reviewDismiss": {
+    "message": "Bewertungsanfrage schließen"
+  },
+  "welcomeTitle": {
+    "message": "Willkommen bei AI Translator"
+  },
+  "welcomeIntro": {
+    "message": "Übersetze eingegebenen oder markierten Text mit KI. Pro übersetzt auch Webseiten und stellt den Originaltext wieder her."
+  },
+  "welcomePin": {
+    "message": "Hefte AI Translator an die Symbolleiste und öffne ihn."
+  },
+  "welcomeSignIn": {
+    "message": "Melde dich mit Google an und wähle die Übersetzungssprachen."
+  },
+  "welcomeFirstResult": {
+    "message": "Füge Text im Popup ein oder markiere Text auf einer Seite und klicke auf das Übersetzungssymbol. Webseiten benötigen Pro."
+  },
+  "welcomeAllowance": {
+    "message": "Free enthält 100,000 Ausgangszeichen pro Kalendermonat und bis zu 4,000 pro Übersetzung. Pro enthält 2,000,000 pro monatlichem Zeitraum und bis zu 50,000 pro Übersetzung für 4.99 USD/Monat oder 39.99 USD/Jahr."
+  },
+  "welcomePrivacy": {
+    "message": "Text wird zur KI-Verarbeitung an den Server gesendet. Die aktivierte Sofortübersetzung sendet markierten Text automatisch. Pro verarbeitet auch neu erscheinenden Seitentext; optionaler Kontext umfasst bis zu 2,000 sichtbare Zeichen aus der Umgebung. Der Verlauf bleibt nach Konten getrennt auf diesem Gerät, ohne Cloud-Synchronisierung."
+  },
+  "welcomeOpenSettings": {
+    "message": "Einstellungen öffnen"
+  },
+  "welcomeReadPrivacy": {
+    "message": "Datenschutzerklärung lesen"
+  }
+}

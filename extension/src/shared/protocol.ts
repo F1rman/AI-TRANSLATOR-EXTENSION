@@ -89,6 +89,7 @@ export type RuntimeRequest =
   | { type: 'history:list' | 'history:clear' }
   | { type: 'history:delete'; payload: { id: string } }
   | { type: 'history:recording'; payload: { enabled: boolean } }
+  | { type: 'review:status' | 'review:rate' | 'review:dismiss' }
   | { type: 'context:get' }
   | { type: 'billing:open'; payload: { page: 'pay' | 'account' } }
   | { type: 'translation:submit'; payload: CreateJob; ownerUid?: string }

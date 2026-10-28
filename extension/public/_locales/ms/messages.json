@@ -1,0 +1,44 @@
+{
+  "appName": {
+    "message": "AI Translator – Penterjemah teks dan halaman"
+  },
+  "appDescription": {
+    "message": "Terjemah teks dengan AI dan simpan sejarah setempat. Pro menambah terjemahan halaman, nada dan konteks pilihan."
+  },
+  "reviewPrompt": {
+    "message": "Suka AI Translator? Beri penilaian di Chrome Web Store"
+  },
+  "reviewRate": {
+    "message": "★ Nilai"
+  },
+  "reviewDismiss": {
+    "message": "Tutup permintaan penilaian"
+  },
+  "welcomeTitle": {
+    "message": "Selamat datang ke AI Translator"
+  },
+  "welcomeIntro": {
+    "message": "AI Translator membantu anda menterjemah teks semasa membaca dan bekerja dalam penyemak imbas. Tampal teks dalam tetingkap timbul, terjemah pilihan pada laman web atau gunakan penterjemah halaman Pro untuk membaca halaman yang disokong dalam bahasa pilihan anda."
+  },
+  "welcomePin": {
+    "message": "Sematkan AI Translator pada bar alat dan buka tetingkap timbul."
+  },
+  "welcomeSignIn": {
+    "message": "Log masuk dengan Google dan pilih bahasa."
+  },
+  "welcomeFirstResult": {
+    "message": "Tampal atau pilih teks lalu terjemah. Untuk halaman, pilih Pro dan mulakan pada halaman yang disokong."
+  },
+  "welcomeAllowance": {
+    "message": "Free merangkumi 100,000 aksara sumber setiap bulan kalendar dan sehingga 4,000 setiap terjemahan. Ruang turut dikira. Kuota ditetapkan semula pada hari pertama setiap bulan pada 00:00 UTC; baki aksara tidak dibawa ke tempoh berikutnya. Pro berharga US$$4.99 sebulan atau US$$39.99 setahun dan merangkumi 2,000,000 aksara sumber bagi setiap tempoh bulanan langganan, sehingga 50,000 setiap terjemahan. Bayaran tahunan juga memberikan kuota bulanan yang berasingan."
+  },
+  "welcomePrivacy": {
+    "message": "Teks sumber yang diminta dihantar ke pelayan terjemahan untuk pemprosesan AI. Apabila mod pilihan segera diaktifkan, teks yang dipilih dihantar secara automatik. Sesi halaman Pro aktif turut menghantar teks baharu yang sesuai apabila ia muncul. Konteks pilihan mengecualikan medan input, kata laluan dan teks tersembunyi; HTML halaman tidak dihantar sebagai konteks. Sejarah disimpan dalam sambungan pada peranti ini, berasingan mengikut akaun dan persekitaran, tanpa penyegerakan awan. Rakaman boleh dimatikan; rekod boleh dipadam satu persatu atau dikosongkan semua. Maksimum 1,000 rekod atau 25 MiB disimpan dan rekod tertua dibuang apabila perlu. Free memaparkan 20 terkini; penurunan pelan sahaja tidak memadam rekod lama."
+  },
+  "welcomeOpenSettings": {
+    "message": "Buka keutamaan"
+  },
+  "welcomeReadPrivacy": {
+    "message": "Baca dasar privasi"
+  }
+}

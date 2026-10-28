@@ -1,0 +1,27 @@
+AI Translator helpt je tekst te vertalen terwijl je leest en werkt in je browser. Plak tekst in de pop-up, vertaal geselecteerde tekst op een webpagina of lees met de Pro-paginavertaler een ondersteunde pagina in je gekozen taal.
+
+Vertaal getypte of geplakte tekst. Selecteer tekst op een webpagina en gebruik het vertaalpictogram of contextmenu. Laat de brontaal automatisch herkennen of kies die zelf. Kopieer het resultaat en vind voltooide vertalingen terug in de lokale geschiedenis.
+
+Free biedt 100,000 brontekens per kalendermaand en maximaal 4,000 tekens per vertaling. Spaties tellen mee. Je limiet wordt op de eerste dag van elke maand om 00:00 UTC vernieuwd; ongebruikte tekens worden niet meegenomen.
+
+Free gebruikt een neutrale toon en toont de laatste 20 geschiedenisitems. Aanmelden met Google is nodig om te vertalen en je accountverbruik bij te houden.
+
+Pro kost US$4.99 per maand of US$39.99 per jaar en biedt 2,000,000 brontekens per maandelijkse abonnementsperiode, maximaal 50,000 per vertaling. Ook bij jaarlijkse betaling krijg je een afzonderlijke maandlimiet.
+
+Pro vertaalt ondersteunde webpagina’s, inclusief nieuwe tekst die tijdens een actieve sessie verschijnt. Pauzeer de vertaling of herstel het origineel. Kies een neutrale, formele, vriendelijke of technische toon. Gebruik optioneel maximaal 2,000 zichtbare tekens rondom de tekst op de huidige pagina; jij bepaalt of dit wordt gebruikt. Pro geeft toegang tot maximaal 1,000 lokale geschiedenisitems en een wachtrij met prioriteit. Verwerkingstijden kunnen verschillen.
+
+Je Pro-limiet wordt maandelijks vernieuwd vanaf de startdatum van je abonnement, ook bij het jaarabonnement. Ongebruikte tekens vervallen. Beheer of annuleer de verlenging via je account; na annulering houd je toegang tot het einde van de betaalde periode.
+
+1. Maak AI Translator vast aan de werkbalk en open de pop-up.
+2. Meld je aan met Google en kies je talen.
+3. Plak of selecteer tekst en vertaal. Kies Pro voor paginavertaling en start op een ondersteunde pagina.
+
+Aangevraagde brontekst wordt naar de vertaalbackend gestuurd voor AI-verwerking. Als directe selectievertaling is ingeschakeld, wordt geselecteerde tekst automatisch verzonden. Een actieve Pro-paginasessie verstuurt ook geschikte nieuwe paginatekst zodra die verschijnt. Optionele context sluit invoervelden, wachtwoorden en verborgen tekst uit; pagina-HTML wordt niet als context verzonden.
+
+Geschiedenis wordt in de extensie op dit apparaat bewaard, gescheiden per account en omgeving, zonder cloudsynchronisatie. Opslaan kan worden uitgeschakeld; je kunt items afzonderlijk verwijderen of alles wissen. Er worden maximaal 1,000 items of 25 MiB bewaard; zo nodig worden de oudste verwijderd. Free toont de laatste 20; downgraden verwijdert oudere items niet vanzelf.
+
+De interface is beschikbaar in het Engels en Oekraïens. Interne Chrome-pagina’s en de Chrome Web Store kunnen niet worden vertaald.
+
+Privacy: https://ai-translator-ext.web.app/privacy
+Voorwaarden: https://balubenko-stripe.web.app/ai-translator-terms
+Ondersteuning: https://ai-translator-ext.web.app/support

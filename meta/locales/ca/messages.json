@@ -1,0 +1,44 @@
+{
+  "appName": {
+    "message": "AI Translator – Traductor de text i pàgines web"
+  },
+  "appDescription": {
+    "message": "Tradueix amb IA i desa l’historial local. Pro afegeix pàgines web, to i context opcional."
+  },
+  "reviewPrompt": {
+    "message": "T’agrada AI Translator? Valora’l a Chrome Web Store"
+  },
+  "reviewRate": {
+    "message": "★ Valora"
+  },
+  "reviewDismiss": {
+    "message": "Tanca la petició de valoració"
+  },
+  "welcomeTitle": {
+    "message": "Et donem la benvinguda a AI Translator"
+  },
+  "welcomeIntro": {
+    "message": "Tradueix text escrit o seleccionat amb IA. Pro també tradueix pàgines web i permet restaurar el text original."
+  },
+  "welcomePin": {
+    "message": "Fixa AI Translator a la barra d’eines i obre’l."
+  },
+  "welcomeSignIn": {
+    "message": "Inicia la sessió amb Google i tria els idiomes de traducció."
+  },
+  "welcomeFirstResult": {
+    "message": "Enganxa text a la finestra emergent o selecciona’n en una pàgina i prem la icona de traducció. Les pàgines requereixen Pro."
+  },
+  "welcomeAllowance": {
+    "message": "Free inclou 100,000 caràcters d’origen per mes natural i fins a 4,000 per traducció. Pro inclou 2,000,000 per període mensual i fins a 50,000 per traducció, per 4.99 USD/mes o 39.99 USD/any."
+  },
+  "welcomePrivacy": {
+    "message": "El text s’envia al servidor perquè el processi la IA. La selecció instantània envia automàticament el text seleccionat quan està activada. Pro també processa el text nou de les pàgines; el context opcional envia fins a 2,000 caràcters visibles propers. L’historial roman al dispositiu, separat per compte i sense sincronització al núvol."
+  },
+  "welcomeOpenSettings": {
+    "message": "Obre les preferències"
+  },
+  "welcomeReadPrivacy": {
+    "message": "Llegeix la política de privadesa"
+  }
+}

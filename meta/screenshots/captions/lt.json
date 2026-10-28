@@ -1,0 +1,22 @@
+[
+  {
+    "cap": "Supraskite kiekvieną žodį",
+    "desc": "Verskite tekstą ir pažymėtas dalis su DI."
+  },
+  {
+    "cap": "Pažymėkite. Verskite. Skaitykite.",
+    "desc": "Prasmė rodoma šalia teksto."
+  },
+  {
+    "cap": "Skaitykite visą puslapį",
+    "desc": "Pro verčia puslapius ir atkuria originalą."
+  },
+  {
+    "cap": "Pasirinkite tinkamą toną",
+    "desc": "Pro prideda toną ir pasirenkamą puslapio kontekstą."
+  },
+  {
+    "cap": "Vertimai visada šalia",
+    "desc": "Vietinė istorija, kurią valdote jūs."
+  }
+]

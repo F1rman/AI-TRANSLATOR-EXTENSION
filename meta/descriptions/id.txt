@@ -1,0 +1,38 @@
+AI Translator membantu Anda menerjemahkan teks saat membaca dan bekerja di browser. Tempel teks di popup, terjemahkan pilihan di halaman web, atau gunakan penerjemah halaman Pro untuk membaca halaman yang didukung dalam bahasa pilihan Anda.
+
+TERJEMAHAN TEKS
+• Terjemahkan teks yang diketik atau ditempel di popup.
+• Pilih teks di halaman dan gunakan ikon terjemahan atau menu konteks.
+• Deteksi bahasa sumber secara otomatis atau pilih sendiri.
+• Salin hasil dan temukan terjemahan yang selesai di riwayat lokal.
+
+FREE
+Free mencakup 100,000 karakter teks sumber per bulan kalender dan hingga 4,000 per terjemahan. Spasi ikut dihitung. Kuota direset pada hari pertama setiap bulan pukul 00:00 UTC; karakter yang tidak terpakai tidak dibawa ke periode berikutnya.
+
+Free menggunakan nada netral dan menampilkan 20 entri riwayat terakhir. Masuk dengan Google diperlukan untuk menerjemahkan dan melacak kuota akun.
+
+PRO
+Pro berharga US$4.99 per bulan atau US$39.99 per tahun dan mencakup:
+• 2,000,000 karakter sumber per periode langganan bulanan, hingga 50,000 per terjemahan. Pembayaran tahunan tetap memberikan kuota terpisah setiap bulan.
+• Terjemahan halaman yang didukung, termasuk teks baru selama sesi aktif. Jeda terjemahan atau pulihkan teks asli bila perlu.
+• Nada netral, formal, ramah, dan teknis.
+• Konteks opsional hingga 2,000 karakter terlihat di sekitar teks pada halaman saat ini. Anda menentukan apakah konteks digunakan.
+• Akses hingga 1,000 entri riwayat lokal dan antrean pemrosesan prioritas. Waktu pemrosesan dapat bervariasi.
+
+Kuota Pro diperbarui setiap bulan dari tanggal mulai langganan, termasuk paket tahunan. Karakter tersisa tidak dibawa ke bulan berikutnya. Kelola atau batalkan perpanjangan melalui akun Anda; pembatalan tetap memberi akses hingga akhir periode yang sudah dibayar.
+
+CARA MEMULAI
+1. Sematkan AI Translator ke bilah alat dan buka popup.
+2. Masuk dengan Google dan pilih bahasa.
+3. Tempel atau pilih teks lalu terjemahkan. Untuk halaman web, pilih Pro lalu mulai terjemahan pada halaman yang didukung.
+
+PRIVASI DAN RIWAYAT LOKAL
+Teks sumber yang diminta dikirim ke backend terjemahan untuk diproses AI. Saat mode pilihan instan aktif, teks terpilih dikirim otomatis. Sesi halaman Pro yang aktif juga mengirim teks baru yang didukung saat muncul. Konteks opsional mengecualikan kolom input, kata sandi, dan teks tersembunyi; HTML halaman tidak dikirim sebagai konteks.
+
+Riwayat disimpan di ekstensi pada perangkat ini, terpisah menurut akun dan lingkungan, tanpa sinkronisasi cloud. Pencatatan dapat dimatikan, entri dihapus satu per satu, atau seluruh riwayat dibersihkan. Maksimal 1,000 entri atau 25 MiB disimpan; entri terlama dihapus bila diperlukan. Free menampilkan 20 terakhir; penurunan paket saja tidak menghapus entri lama.
+
+Antarmuka tersedia dalam bahasa Inggris dan Ukraina. Halaman internal Chrome dan Chrome Web Store tidak dapat diterjemahkan.
+
+https://ai-translator-ext.web.app/privacy
+https://balubenko-stripe.web.app/ai-translator-terms
+https://ai-translator-ext.web.app/support

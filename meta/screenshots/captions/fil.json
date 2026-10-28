@@ -1,0 +1,22 @@
+[
+  {
+    "cap": "Unawain ang bawat salita",
+    "desc": "Magsalin ng teksto at seleksyon gamit ang AI."
+  },
+  {
+    "cap": "Pumili. Magsalin. Magbasa pa.",
+    "desc": "Tingnan ang kahulugan katabi ng teksto."
+  },
+  {
+    "cap": "Basahin ang buong pahina",
+    "desc": "Nagsasalin at nagbabalik ng orihinal ang Pro."
+  },
+  {
+    "cap": "Piliin ang tamang tono",
+    "desc": "May tono at opsyonal na konteksto ang Pro."
+  },
+  {
+    "cap": "Malapit ang mga salin mo",
+    "desc": "Lokal na history na ikaw ang may kontrol."
+  }
+]

@@ -1,0 +1,44 @@
+{
+  "appName": {
+    "message": "AI Translator – テキスト・ウェブページ翻訳"
+  },
+  "appDescription": {
+    "message": "AIでテキストを翻訳し、履歴を端末に保存。Proならページ翻訳、文体調整、任意の周辺文脈も利用できます。"
+  },
+  "reviewPrompt": {
+    "message": "AI Translatorが役立ちましたか？Chrome ウェブストアで評価してください"
+  },
+  "reviewRate": {
+    "message": "★ 評価する"
+  },
+  "reviewDismiss": {
+    "message": "評価のお願いを閉じる"
+  },
+  "welcomeTitle": {
+    "message": "AI Translatorへようこそ"
+  },
+  "welcomeIntro": {
+    "message": "入力・選択したテキストをAIで翻訳。Proではウェブページの翻訳と原文への復元もできます。"
+  },
+  "welcomePin": {
+    "message": "AI Translatorをツールバーに固定して開きます。"
+  },
+  "welcomeSignIn": {
+    "message": "Googleでログインし、翻訳する言語を選びます。"
+  },
+  "welcomeFirstResult": {
+    "message": "ポップアップに文章を貼り付けるか、ページで文章を選択して翻訳アイコンを押します。ページ翻訳にはProが必要です。"
+  },
+  "welcomeAllowance": {
+    "message": "Freeは暦月ごとに原文100,000文字、1回4,000文字まで。Proは月間期間ごとに2,000,000文字、1回50,000文字まで利用でき、月額US$$4.99または年額US$$39.99です。"
+  },
+  "welcomePrivacy": {
+    "message": "翻訳対象の文章はサーバーへ送信されAIで処理されます。選択時の即時翻訳を有効にすると選択文章が自動送信されます。Proはページに追加された文章も処理し、任意の文脈機能では周囲の表示文章を最大2,000文字送信します。履歴はアカウント別に端末に保存され、クラウド同期しません。"
+  },
+  "welcomeOpenSettings": {
+    "message": "設定を開く"
+  },
+  "welcomeReadPrivacy": {
+    "message": "プライバシーポリシーを読む"
+  }
+}

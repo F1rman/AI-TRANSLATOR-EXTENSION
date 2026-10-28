@@ -1,0 +1,27 @@
+AI Translator giúp bạn dịch văn bản khi đọc và làm việc trong trình duyệt. Dán văn bản vào cửa sổ tiện ích, dịch phần được chọn trên trang web hoặc dùng trình dịch trang Pro để đọc trang được hỗ trợ bằng ngôn ngữ bạn chọn.
+
+Dịch văn bản đã nhập hoặc dán. Chọn văn bản trên trang và dùng biểu tượng dịch hoặc trình đơn ngữ cảnh. Tự động nhận diện ngôn ngữ gốc hoặc tự chọn. Sao chép kết quả và tìm lại bản dịch đã hoàn tất trong lịch sử cục bộ.
+
+Free gồm 100,000 ký tự nguồn mỗi tháng dương lịch và tối đa 4,000 ký tự mỗi lần dịch. Dấu cách cũng được tính. Hạn mức đặt lại vào ngày đầu tháng lúc 00:00 UTC; ký tự chưa dùng không được chuyển sang kỳ sau.
+
+Free dùng giọng điệu trung tính và hiển thị 20 mục lịch sử gần nhất. Bạn cần đăng nhập bằng Google để dịch và theo dõi mức sử dụng của tài khoản.
+
+Pro có giá US$4.99/tháng hoặc US$39.99/năm, gồm 2,000,000 ký tự nguồn cho mỗi kỳ tháng của gói đăng ký, tối đa 50,000 ký tự mỗi lần dịch. Khi thanh toán theo năm, hạn mức vẫn được cấp riêng hằng tháng.
+
+Pro dịch các trang được hỗ trợ, kể cả văn bản mới xuất hiện trong phiên đang hoạt động. Bạn có thể tạm dừng dịch hoặc khôi phục bản gốc. Chọn giọng điệu trung tính, trang trọng, thân thiện hoặc kỹ thuật. Tùy chọn sử dụng tối đa 2,000 ký tự văn bản xung quanh đang hiển thị trên trang hiện tại; bạn quyết định việc bật tính năng này. Pro cho phép truy cập tối đa 1,000 mục lịch sử cục bộ và hàng đợi xử lý ưu tiên. Thời gian xử lý có thể thay đổi.
+
+Hạn mức Pro gia hạn hằng tháng từ ngày bắt đầu đăng ký, kể cả gói năm. Ký tự chưa dùng không được cộng dồn. Quản lý hoặc hủy gia hạn trong tài khoản; hủy gia hạn vẫn giữ quyền truy cập đến hết kỳ đã thanh toán.
+
+1. Ghim AI Translator vào thanh công cụ và mở cửa sổ tiện ích.
+2. Đăng nhập bằng Google và chọn ngôn ngữ.
+3. Dán hoặc chọn văn bản để dịch. Để dịch trang, chọn Pro rồi bắt đầu trên trang được hỗ trợ.
+
+Văn bản nguồn được yêu cầu dịch sẽ được gửi tới máy chủ dịch để AI xử lý. Khi bật chế độ dịch tức thì phần được chọn, văn bản đã chọn sẽ tự động được gửi. Phiên dịch trang Pro đang hoạt động cũng gửi văn bản mới phù hợp khi xuất hiện. Ngữ cảnh tùy chọn không bao gồm ô nhập liệu, mật khẩu và văn bản ẩn; HTML của trang không được gửi làm ngữ cảnh.
+
+Lịch sử được lưu trong tiện ích trên thiết bị này, tách riêng theo tài khoản và môi trường, không đồng bộ lên đám mây. Bạn có thể tắt ghi lịch sử, xóa từng mục hoặc xóa tất cả. Tối đa 1,000 mục hoặc 25 MiB được lưu, mục cũ nhất sẽ bị xóa khi cần. Free hiển thị 20 mục mới nhất; việc hạ gói tự nó không xóa mục cũ.
+
+Giao diện có tiếng Anh và tiếng Ukraina. Không thể dịch các trang nội bộ của Chrome và Chrome Web Store.
+
+Quyền riêng tư: https://ai-translator-ext.web.app/privacy
+Điều khoản: https://balubenko-stripe.web.app/ai-translator-terms
+Hỗ trợ: https://ai-translator-ext.web.app/support

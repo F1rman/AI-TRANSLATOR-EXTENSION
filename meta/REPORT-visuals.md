@@ -1,29 +1,37 @@
-# AI Translator — current visual assets
+# AI Translator — visual release material for 1.3.1
 
-Refreshed for version 1.3.0 on 2026-10-27; final integration checked 2026-10-28. All marketing files are inside `meta/`. The Store and packaged icon are unchanged.
+Integration date: 2026-10-28. The original English scenes and research references were refreshed on 2026-10-27. Marketing files remain under `meta/`; the user also authorized applying the icon correction in the extension source. The Store has not been updated by this local work.
 
-The recommended `promo/small-440x280.png` and `promo/marquee-1400x560.png` are text-free Soft Flat compositions of the original pale-mint/green mark. Variant B says “Translate with AI”; variant C uses a dark surface with the original mark. The 1024px marketing mark reproduces the exact procedural geometry/colors from the build script for crisp promotional scaling; it is not a redesign or a packaged icon replacement.
+## Promo and main screenshots
 
-| Shot | Headline | Authentic capture |
+The recommended `promo/small-440x280.png` and `promo/marquee-1400x560.png` are text-free Soft Flat compositions of the original pale-mint and dark-green mark. Variant B says “Translate with AI”; variant C uses the dark theme. The high-resolution marketing mark follows the same procedural geometry and colors for crisp scaling.
+
+| Shot | English headline | Authentic UI content |
 | --- | --- | --- |
-| 1 | Understand every word | Completed Free text translation, with the 4,000-character request limit |
-| 2 | Select. Translate. Keep reading. | Current content-script selection result on the original demo article |
-| 3 | Read the whole page | Current Pro page replacement, toolbar, and restoration controls |
-| 4 | Make the tone fit | Current Pro tone/context controls in options |
-| 5 | Keep translations close | Current local-history interface in dark theme |
+| 1 | Understand every word | A completed Free text translation with its 4,000-character request limit |
+| 2 | Select. Translate. Keep reading. | The content-script selection result on the original demo article |
+| 3 | Read the whole page | Pro page replacement, translation toolbar and original-restoration controls |
+| 4 | Make the tone fit | Pro tone and optional context controls in options |
+| 5 | Keep translations close | The local-history interface in the dark theme |
 
-All five composed images are exactly 1280×800 with full-bleed square corners. The real interface is proportionally contained or placed in a stacked composition, never stretched or redrawn. Matching prompts are under `screenshots/prompts/`; promo prompts are under `promo/prompts/`.
+The five main frames are 1280×800, full bleed with square outer corners. The captured interface is proportionally contained or placed in a stacked composition; it is not stretched, redrawn or represented as a fabricated device. Templates and prompts remain under `screenshots/` and `promo/`.
+
+## Localized sets
+
+All 55 target locales have five localized 1280×800 marketing exports under `screenshots/<locale>/`: 275 locale images, in addition to the main English set. Locale caption sources are under `screenshots/captions/`; repeatable jobs are in `screenshots/localized-jobs.json`. The renderer and validation results are recorded in `data/localized-screenshots-validation.json`, with contact-sheet review evidence in `data/localized-visual-review.json`.
+
+Headlines and supporting marketing sentences are translated. The embedded real interface remains English, exactly as in the authentic capture. This is intentional: the images do not claim that popup/options UI has been translated into all 55 languages. RTL locale frames use suitable text direction while preserving the authentic UI image. Main product UI remains English and Ukrainian. Local render checks establish image dimensions, loaded assets and caption bounds; native-language editorial review is not claimed.
 
 ## Capture evidence
 
-`screenshots/capture-raw.mjs` reads the actual current build and records source hashes, transport requests and capture facts in `screenshots/raw/fixture-verification.json`. The popup is 420px wide. The UI itself comes from the built React/content bundles; the account, quota, history records and translation responses use deterministic, non-sensitive demo transport. This is an authentic UI capture with demo data, not proof of live AI quality, Google login or paid checkout. The source fixture article is original material under `screenshots/fixtures/`.
+`screenshots/capture-raw.mjs` reads the built UI and records capture hashes and deterministic transport evidence in `screenshots/raw/fixture-verification.json`. The popup is exactly 420 CSS pixels wide. Account details, quotas, history records and translated responses use non-sensitive demo fixtures around the actual React/content bundles. These are authentic interface captures with demo data, not proof of live AI quality, interactive Google login or a paid checkout. The fixture article is original material under `screenshots/fixtures/`.
 
-Raw current captures remain in `screenshots/raw/`. Older raw captures are retained as history and are not linked in the five current frames. No uploaded image or remote screenshot service was used.
+Raw captures remain under `screenshots/raw/`; old raw material is retained as history rather than linked as a current feature. The UI scenes continue to show the same current translation, context and local-history capabilities in 1.3.1. Local image/font loads, proportional placement and caption bounds are covered by the render/QA evidence.
 
-## Inspection and icon judgment
+## Icon correction and visual review
 
-The root reviewed all ten main exports: five screenshots, three small promos, marquee and icon comparison. They display the current valid features and readable captions. A half-size preview is retained at `promo/half-size-check.png`; current 640×400 screenshot previews are combined in `screenshots/half-size-check.png`. Local image/font loads and template caption bounds are checked by the renderer and QA scripts.
+The original mint square and green sparkle brand is retained. The build now centers 96px artwork inside the 128px Store icon with a 16px transparent margin on each side. The toolbar variants retain their useful optical size rather than inheriting large Store padding. The change addresses the earlier concrete padding warning without replacing the established mark.
 
-`icon/source128.png` and `icon/source16.png` copy the current package unchanged. The mint square and dark green sparkle remain clear at 16px on light/dark surfaces and distinguish it from the observed blue/cyan competitors. The symbol communicates AI more directly than translation. Its 128px artwork reaches the canvas edges; the usual 16px transparent margin around 96px square artwork is absent. `vis-icon-distinct` therefore remains **warn**, with an optional padding prompt in `icon/prompt.md`. No redesign was installed.
+`icon/check.png` compares the actual package mark on light and dark surfaces and beside downloaded competitor icons. The symbol remains recognizably different from the observed blue/cyan translator marks; it communicates AI rather than promising any unimplemented feature. Current icon judgment and measured evidence are stored in `data/checks.json` and final validation rather than inferred from the old proposal prompt.
 
-Reproduction: `render-jobs.json` contains the ten main layouts; `screenshots/jobs.json` contains the five screenshot frames. Keep `meta/` together so local fonts, images and dashboard links remain portable.
+Main exports were inspected at full size; half-size previews and localized contact sheets support inspection of the complete set. Localized text remains subject to native editorial review. Keep `meta/` together so fonts, assets, reports and dashboard links remain portable. Current test/live release ZIPs exclude this marketing directory.

@@ -1,0 +1,27 @@
+AI Translator, tarayıcıda okurken ve çalışırken metin çevirmenize yardımcı olur. Açılır pencereye metin yapıştırın, bir web sayfasında seçtiğiniz metni çevirin veya desteklenen bir sayfayı seçtiğiniz dilde okumak için Pro sayfa çevirisini kullanın.
+
+Yazdığınız veya yapıştırdığınız metni çevirin. Sayfadaki metni seçip çeviri simgesini ya da sağ tık menüsünü kullanın. Kaynak dili otomatik algılatın veya kendiniz seçin. Sonucu kopyalayın ve tamamlanan çevirileri yerel geçmişte bulun.
+
+Free, takvim ayı başına 100,000 kaynak karakter ve çeviri başına en fazla 4,000 karakter içerir. Boşluklar da sayılır. Kota her ayın ilk günü 00:00 UTC’de yenilenir; kullanılmayan karakterler devretmez.
+
+Free nötr üslup kullanır ve son 20 geçmiş kaydını gösterir. Çeviri yapmak ve hesap kullanımını izlemek için Google ile giriş gerekir.
+
+Pro aylık US$4.99 veya yıllık US$39.99 tutarındadır; her aylık abonelik döneminde 2,000,000 kaynak karakter, çeviri başına en fazla 50,000 karakter sunar. Yıllık ödemede de aylık kota ayrı ayrı verilir.
+
+Pro, etkin oturumda sonradan görünen metinler dahil desteklenen sayfaları çevirir. Çeviriyi duraklatabilir veya özgün metni geri getirebilirsiniz. Nötr, resmî, samimi ve teknik üsluplar mevcuttur. Geçerli sayfada metnin çevresindeki en fazla 2,000 görünür karakteri isteğe bağlı bağlam olarak kullanın; bunu siz denetlersiniz. Pro en fazla 1,000 yerel geçmiş kaydına ve öncelikli işlem kuyruğuna erişim sağlar. İşlem süreleri değişebilir.
+
+Pro kotası, yıllık planda da aboneliğin başlangıç tarihinden itibaren her ay yenilenir. Kullanılmayan karakterler devretmez. Hesabınızdan yenilemeyi yönetebilir veya iptal edebilirsiniz; iptalden sonra erişim ödenmiş dönemin sonuna kadar sürer.
+
+1. AI Translator’ı araç çubuğuna sabitleyin ve açılır pencereyi açın.
+2. Google ile giriş yapın ve dilleri seçin.
+3. Metin yapıştırın veya seçin ve çevirin. Sayfa çevirisi için Pro’yu seçip desteklenen sayfada başlatın.
+
+İstenen kaynak metin, yapay zekâ ile işlenmek üzere çeviri sunucusuna gönderilir. Anında seçim modu açıksa seçilen metin otomatik gönderilir. Etkin Pro sayfa oturumu da uygun yeni sayfa metnini göründükçe gönderir. İsteğe bağlı bağlam; giriş alanlarını, parolaları ve gizli metni dışlar; sayfa HTML’i bağlam olarak gönderilmez.
+
+Geçmiş, bu cihazdaki uzantıda hesap ve ortam için ayrı tutulur; bulut eşitlemesi yoktur. Kaydı kapatabilir, tek tek kayıt silebilir veya hepsini temizleyebilirsiniz. En fazla 1,000 kayıt veya 25 MiB saklanır; gerektiğinde en eskiler silinir. Free son 20 kaydı gösterir; daha düşük plana geçmek tek başına eski kayıtları silmez.
+
+Arayüz İngilizce ve Ukraynaca sunulur. Chrome’un dahili sayfaları ve Chrome Web Store çevrilemez.
+
+Gizlilik: https://ai-translator-ext.web.app/privacy
+Koşullar: https://balubenko-stripe.web.app/ai-translator-terms
+Destek: https://ai-translator-ext.web.app/support

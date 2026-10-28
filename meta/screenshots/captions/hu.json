@@ -1,0 +1,22 @@
+[
+  {
+    "cap": "Érts meg minden szót",
+    "desc": "Fordíts szöveget és kijelöléseket MI-vel."
+  },
+  {
+    "cap": "Jelölj. Fordíts. Olvass tovább.",
+    "desc": "A jelentés közvetlenül a szövegnél látszik."
+  },
+  {
+    "cap": "Olvasd el az egész oldalt",
+    "desc": "A Pro fordít és visszaállítja az eredetit."
+  },
+  {
+    "cap": "Találd meg a megfelelő hangnemet",
+    "desc": "A Pro hangnemet és kontextust is ad."
+  },
+  {
+    "cap": "A fordítások mindig kéznél",
+    "desc": "Helyi előzmények a te kezedben."
+  }
+]

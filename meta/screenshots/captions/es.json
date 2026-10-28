@@ -1,0 +1,22 @@
+[
+  {
+    "cap": "Entiende cada palabra",
+    "desc": "Traduce texto y selecciones con IA."
+  },
+  {
+    "cap": "Selecciona. Traduce. Sigue leyendo.",
+    "desc": "Comprende el significado junto al texto."
+  },
+  {
+    "cap": "Lee toda la página",
+    "desc": "Pro traduce páginas y recupera los originales."
+  },
+  {
+    "cap": "Encuentra el tono adecuado",
+    "desc": "Pro añade tono y contexto opcional."
+  },
+  {
+    "cap": "Tus traducciones, a mano",
+    "desc": "Historial local bajo tu control."
+  }
+]

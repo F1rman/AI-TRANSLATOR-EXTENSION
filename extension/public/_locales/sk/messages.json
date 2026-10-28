@@ -1,0 +1,44 @@
+{
+  "appName": {
+    "message": "AI Translator – Prekladač textu a stránok"
+  },
+  "appDescription": {
+    "message": "Prekladajte text s AI a uchovávajte miestnu históriu. Pro pridáva preklad stránok, tón a voliteľný kontext."
+  },
+  "reviewPrompt": {
+    "message": "Páči sa vám AI Translator? Ohodnoťte ho v Chrome Web Store"
+  },
+  "reviewRate": {
+    "message": "★ Ohodnotiť"
+  },
+  "reviewDismiss": {
+    "message": "Zavrieť žiadosť o hodnotenie"
+  },
+  "welcomeTitle": {
+    "message": "Vitajte v AI Translator"
+  },
+  "welcomeIntro": {
+    "message": "AI Translator pomáha prekladať text pri čítaní a práci v prehliadači. Vložte text do vyskakovacieho okna, preložte označený úsek alebo použite Pro na čítanie podporovanej stránky vo vybranom jazyku."
+  },
+  "welcomePin": {
+    "message": "Pripnite AI Translator na panel nástrojov a otvorte vyskakovacie okno."
+  },
+  "welcomeSignIn": {
+    "message": "Prihláste sa cez Google a vyberte jazyky."
+  },
+  "welcomeFirstResult": {
+    "message": "Vložte alebo označte text a preložte ho. Na preklad stránok zvoľte Pro a spustite ho na podporovanej stránke."
+  },
+  "welcomeAllowance": {
+    "message": "Free zahŕňa 100,000 zdrojových znakov za kalendárny mesiac a najviac 4,000 na preklad. Medzery sa započítavajú. Limit sa obnovuje prvý deň mesiaca o 00:00 UTC; nevyužité znaky sa neprenášajú. Pro stojí US$$4.99 mesačne alebo US$$39.99 ročne a zahŕňa 2,000,000 zdrojových znakov na mesačné obdobie predplatného, najviac 50,000 na preklad. Aj ročná platba poskytuje samostatný mesačný limit."
+  },
+  "welcomePrivacy": {
+    "message": "Zdrojový text požadovaný na preklad sa odosiela serveru na spracovanie AI. Pri zapnutom okamžitom preklade sa označený text odosiela automaticky. Aktívna relácia Pro odosiela aj vhodný nový text stránky. Voliteľný kontext vynecháva vstupné polia, heslá a skrytý text; HTML stránky sa ako kontext neodosiela. História sa uchováva v rozšírení na tomto zariadení, oddelene podľa účtu a prostredia, bez synchronizácie s cloudom. Ukladanie možno vypnúť, záznamy vymazať jednotlivo alebo všetky. Uchováva sa najviac 1,000 záznamov alebo 25 MiB; podľa potreby sa odstránia najstaršie. Free zobrazuje posledných 20; samotný prechod na nižší plán staršie záznamy nevymaže."
+  },
+  "welcomeOpenSettings": {
+    "message": "Otvoriť nastavenia"
+  },
+  "welcomeReadPrivacy": {
+    "message": "Prečítať zásady ochrany súkromia"
+  }
+}

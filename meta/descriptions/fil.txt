@@ -1,0 +1,38 @@
+Tinutulungan ka ng AI Translator na magsalin ng teksto habang nagbabasa at nagtatrabaho sa browser. Mag-paste ng teksto sa popup, magsalin ng napiling teksto sa webpage, o gamitin ang Pro upang basahin ang sinusuportahang pahina sa napili mong wika.
+
+PAGSASALIN NG TEKSTO
+• Isalin ang na-type o na-paste na teksto sa popup.
+• Pumili ng teksto sa pahina at gamitin ang icon ng pagsasalin o context menu.
+• Awtomatikong tukuyin ang pinagmulang wika o ikaw ang pumili.
+• Kopyahin ang resulta at hanapin ang mga natapos na salin sa lokal na history.
+
+FREE
+May 100,000 karakter ng orihinal na teksto bawat buwang kalendaryo at hanggang 4,000 bawat salin ang Free. Kasama sa bilang ang mga espasyo. Nire-reset ang quota sa unang araw ng buwan, 00:00 UTC; hindi naiipon ang hindi nagamit na karakter.
+
+Neutral ang tono ng Free at ipinapakita nito ang pinakahuling 20 entry sa history. Kailangan ang Google sign-in upang magsalin at subaybayan ang quota ng account.
+
+PRO
+Ang Pro ay US$4.99 bawat buwan o US$39.99 bawat taon at may:
+• 2,000,000 source character bawat buwanang panahon ng subscription, hanggang 50,000 bawat salin. Hiwalay pa rin ang buwanang quota kahit taunang pagbabayad.
+• Pagsasalin ng sinusuportahang mga webpage, kasama ang bagong tekstong lumilitaw sa aktibong session. Maaaring i-pause ang pagsasalin o ibalik ang orihinal na teksto.
+• Neutral, pormal, palakaibigan, at teknikal na tono.
+• Opsyonal na konteksto mula sa hanggang 2,000 nakikitang karakter sa paligid ng teksto sa kasalukuyang pahina. Ikaw ang magpapasya kung gagamitin ito.
+• Access sa hanggang 1,000 lokal na history entry at prayoridad na pila sa pagproseso. Maaaring mag-iba ang tagal ng pagproseso.
+
+Buwanang nire-renew ang quota ng Pro mula sa petsa ng simula ng subscription, kasama ang taunang plano. Hindi nadadala ang mga natirang karakter. Pamahalaan o kanselahin ang renewal sa account; mananatili ang access hanggang sa katapusan ng nabayarang panahon.
+
+PAANO MAGSIMULA
+1. I-pin ang AI Translator sa toolbar at buksan ang popup.
+2. Mag-sign in gamit ang Google at piliin ang mga wika.
+3. Mag-paste o pumili ng teksto at isalin ito. Para sa webpage, piliin ang Pro at simulan sa isang sinusuportahang pahina.
+
+PRIVACY AT LOKAL NA HISTORY
+Ipinapadala ang hiniling na source text sa translation backend para iproseso ng AI. Kapag naka-on ang instant-selection mode, awtomatikong ipinapadala ang napiling teksto. Ipinapadala rin ng aktibong Pro page session ang bagong sinusuportahang teksto habang lumilitaw ito. Hindi isinasama ng opsyonal na konteksto ang mga input field, password, at nakatagong teksto; hindi ipinapadala ang HTML ng pahina bilang konteksto.
+
+Nakaimbak ang history sa extension sa device na ito, hiwalay ayon sa account at environment, nang walang cloud synchronization. Maaaring patayin ang pagre-record, burahin ang isang entry, o linisin ang lahat. Hanggang 1,000 entry o 25 MiB ang itinatago; inaalis ang pinakaluma kapag kailangan. Huling 20 ang ipinapakita ng Free; hindi kusang binubura ng downgrade ang mga lumang entry.
+
+Ingles at Ukrainian ang mga wika ng interface. Hindi maisasalin ang mga panloob na pahina ng Chrome at ang Chrome Web Store.
+
+https://ai-translator-ext.web.app/privacy
+https://balubenko-stripe.web.app/ai-translator-terms
+https://ai-translator-ext.web.app/support

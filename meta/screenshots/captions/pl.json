@@ -1,0 +1,22 @@
+[
+  {
+    "cap": "Zrozum każde słowo",
+    "desc": "Tłumacz tekst i zaznaczenia z AI."
+  },
+  {
+    "cap": "Zaznacz. Tłumacz. Czytaj dalej.",
+    "desc": "Sprawdź znaczenie obok tekstu."
+  },
+  {
+    "cap": "Czytaj całą stronę",
+    "desc": "Pro tłumaczy strony i przywraca oryginały."
+  },
+  {
+    "cap": "Dobierz odpowiedni ton",
+    "desc": "Pro dodaje ton i opcjonalny kontekst strony."
+  },
+  {
+    "cap": "Miej tłumaczenia pod ręką",
+    "desc": "Lokalna historia pod Twoją kontrolą."
+  }
+]

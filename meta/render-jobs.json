@@ -24,31 +24,31 @@
     "height": 280
   },
   {
-    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=Understand+every+word&desc=Translate+text+and+selections+with+AI.&brand=AI+Translator&logo=..%2Fassets%2Fextension-icon.png&fit=contain",
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=Understand+every+word&desc=Translate+text+and+selections+with+AI.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain",
     "out": "meta/screenshots/1.png",
     "width": 1280,
     "height": 800
   },
   {
-    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Select.+Translate.+Keep+reading.&desc=See+the+meaning+beside+the+text.&brand=AI+Translator&logo=..%2Fassets%2Fextension-icon.png&layout=stacked",
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Select.+Translate.+Keep+reading.&desc=See+the+meaning+beside+the+text.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked",
     "out": "meta/screenshots/2.png",
     "width": 1280,
     "height": 800
   },
   {
-    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=Read+the+whole+page&desc=Pro+translates+pages+and+restores+originals.&brand=AI+Translator&logo=..%2Fassets%2Fextension-icon.png&layout=stacked",
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=Read+the+whole+page&desc=Pro+translates+pages+and+restores+originals.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked",
     "out": "meta/screenshots/3.png",
     "width": 1280,
     "height": 800
   },
   {
-    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=Make+the+tone+fit&desc=Pro+adds+tone+and+optional+page+context.&brand=AI+Translator&logo=..%2Fassets%2Fextension-icon.png&fit=contain",
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=Make+the+tone+fit&desc=Pro+adds+tone+and+optional+page+context.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain",
     "out": "meta/screenshots/4.png",
     "width": 1280,
     "height": 800
   },
   {
-    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=Keep+translations+close&desc=Local+history.+Yours+to+manage.&brand=AI+Translator&logo=..%2Fassets%2Fextension-icon.png&fit=contain",
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=Keep+translations+close&desc=Local+history.+Yours+to+manage.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain",
     "out": "meta/screenshots/5.png",
     "width": 1280,
     "height": 800

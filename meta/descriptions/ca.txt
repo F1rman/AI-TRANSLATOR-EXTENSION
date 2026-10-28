@@ -1,0 +1,38 @@
+AI Translator t’ajuda a traduir text mentre llegeixes i treballes al navegador. Enganxa text a la finestra emergent, tradueix una selecció d’una pàgina o utilitza el traductor de pàgines Pro per llegir una pàgina compatible en l’idioma que triïs.
+
+TRADUCCIÓ DE TEXT
+• Tradueix text escrit o enganxat a la finestra emergent.
+• Selecciona text d’una pàgina i utilitza la icona de traducció o el menú contextual.
+• Detecta automàticament l’idioma d’origen o tria’l tu.
+• Copia el resultat i troba les traduccions acabades a l’historial local.
+
+FREE
+Free inclou 100,000 caràcters del text d’origen per mes natural i fins a 4,000 per traducció. Els espais compten. La quota es restableix el primer dia del mes a les 00:00 UTC; els caràcters no utilitzats no s’acumulen.
+
+Free fa servir un to neutre i mostra les darreres 20 entrades de l’historial. Cal iniciar la sessió amb Google per traduir i controlar la quota del compte.
+
+PRO
+Pro costa 4.99 USD al mes o 39.99 USD l’any i inclou:
+• 2,000,000 de caràcters d’origen per període mensual de subscripció i fins a 50,000 per traducció. El pagament anual també proporciona una quota independent cada mes.
+• Traducció de pàgines compatibles, inclòs el text que apareix durant una sessió activa. Pots posar en pausa la traducció o restaurar l’original.
+• Tons neutre, formal, proper i tècnic.
+• Context opcional de fins a 2,000 caràcters visibles al voltant del text de la pàgina actual. Tu decideixes si s’utilitza.
+• Accés a fins a 1,000 entrades de l’historial local i una cua de processament prioritària. El temps de processament pot variar.
+
+La quota Pro es renova cada mes a partir de la data d’inici de la subscripció, també amb el pla anual. Els caràcters no utilitzats no es transfereixen. Gestiona o cancel·la la renovació des del compte; cancel·lar-la manté l’accés fins al final del període pagat.
+
+COM COMENÇAR
+1. Fixa AI Translator a la barra d’eines i obre la finestra.
+2. Inicia la sessió amb Google i tria els idiomes.
+3. Enganxa o selecciona text i tradueix-lo. Per a les pàgines, tria Pro i inicia la traducció en una pàgina compatible.
+
+PRIVADESA I HISTORIAL LOCAL
+El text sol·licitat s’envia al servidor de traducció per processar-lo amb IA. Si actives la selecció instantània, el text seleccionat s’envia automàticament. Una sessió Pro activa també envia el text nou compatible que apareix a la pàgina. El context opcional exclou camps d’entrada, contrasenyes i text ocult; no envia l’HTML de la pàgina com a context.
+
+L’historial es desa a l’extensió d’aquest dispositiu, separat per compte i entorn, sense sincronització al núvol. Pots desactivar-ne el registre, eliminar entrades individuals o buidar-lo. Es conserven com a màxim 1,000 entrades o 25 MiB i s’eliminen les més antigues quan cal. Free mostra les darreres 20; passar a un pla inferior no elimina per si sol les anteriors.
+
+La interfície està disponible en anglès i ucraïnès. Les pàgines internes de Chrome i Chrome Web Store no es poden traduir.
+
+https://ai-translator-ext.web.app/privacy
+https://balubenko-stripe.web.app/ai-translator-terms
+https://ai-translator-ext.web.app/support

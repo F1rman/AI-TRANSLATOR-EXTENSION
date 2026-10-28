@@ -1,16 +1,13 @@
 {
   "kind": "locale-audit",
   "directory": "/Users/ihorkharchyshyn/WORK/PROJECTS/AI-TRANSLATOR-EXTENSION/extension/dist",
-  "defaultLocale": null,
+  "defaultLocale": "en",
   "listingKeys": {
-    "name": null,
-    "description": null
+    "name": "appName",
+    "description": "appDescription"
   },
   "baselineCount": 55,
   "present": [
-    "en"
-  ],
-  "missingBaseline": [
     "am",
     "ar",
     "bg",
@@ -20,6 +17,7 @@
     "da",
     "de",
     "el",
+    "en",
     "en_AU",
     "en_GB",
     "en_US",
@@ -66,6 +64,7 @@
     "zh_CN",
     "zh_TW"
   ],
+  "missingBaseline": [],
   "extraLocales": [],
   "invalidFolders": [],
   "unreadable": [],
@@ -73,22 +72,18 @@
   "placeholderMismatches": [],
   "identicalToDefault": {},
   "overLimit": [],
-  "problems": [
-    "manifest.name is literal text. Use a __MSG_<key>__ value to localize this field.",
-    "manifest.description is literal text. Use a __MSG_<key>__ value to localize this field.",
-    "Localized messages require manifest.default_locale."
-  ],
+  "problems": [],
   "overlay": "/Users/ihorkharchyshyn/WORK/PROJECTS/AI-TRANSLATOR-EXTENSION/meta/locales",
   "summary": {
-    "baselineCovered": 1,
-    "missingBaseline": 54,
+    "baselineCovered": 55,
+    "missingBaseline": 0,
     "invalidFolders": 0,
     "localesWithMissingKeys": 0,
     "placeholderMismatches": 0,
     "localesWithUntranslatedValues": 0,
     "overLimit": 0,
     "unreadable": 0,
-    "problems": 3
+    "problems": 0
   },
-  "complete": false
+  "complete": true
 }

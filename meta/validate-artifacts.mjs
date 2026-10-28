@@ -64,7 +64,10 @@ for (const [file, width, height] of imageFiles) {
 }
 for (const file of ['promo/prompts/small-440x280.md', 'promo/prompts/marquee-1400x560.md', 'icon/prompt.md', ...[1, 2, 3, 4, 5].map(index => `screenshots/prompts/${index}.md`)]) await access(path.join(meta, file));
 checks.push({ name: 'Matching prompts exist for all main promo and screenshot exports', passed: true });
-const packages = (await readdir(path.join(project, 'artifacts'))).filter(file => /^ai-translator-1\.3\.0(?:-test)?\.zip$/.test(file));
+const packages = [`ai-translator-${manifest.version}.zip`, `ai-translator-${manifest.version}-test.zip`]
+  .filter(file => !!file);
+const artifactNames = await readdir(path.join(project, 'artifacts'));
+assert.ok(packages.every(file => artifactNames.includes(file)), 'Current live and test ZIPs must exist');
 for (const file of packages) {
   execFileSync('python3.12', ['-c', 'from zipfile import ZipFile; import sys; names=ZipFile(sys.argv[1]).namelist(); assert not any(n.startswith("meta/") or "/meta/" in n for n in names)', path.join(project, 'artifacts', file)]);
 }
@@ -76,6 +79,6 @@ for (const [file, digest] of Object.entries(baseline.sha256)) {
   const current = await readFile(path.join(project, file)).then(value => createHash('sha256').update(value).digest('hex')).catch(() => null);
   if (current !== digest) changedSinceBaseline.push(file);
 }
-const result = { checkedAt: new Date().toISOString(), success: true, version: manifest.version, wordCount: description.trim().split(/\s+/).length, checks, images, sourceScope: { marketingWrites: 'meta/ only', changedSinceBaseline, note: 'Root concurrently implemented the separately authorized Free-to-Pro navigation change and tests. These outside-meta differences are reported, not attributed to marketing.' } };
+const result = { checkedAt: new Date().toISOString(), success: true, version: manifest.version, wordCount: description.trim().split(/\s+/).length, checks, images, sourceScope: { marketingAssets: 'meta/', changedSinceBaseline, note: 'The user explicitly requested completion of all ten dashboard tasks, including product implementation. Catalogs, icon, review/welcome features, packaging, tests and current documentation are authorized outside-meta changes; the earlier Free-to-Pro navigation changes are preserved.' } };
 await writeFile(path.join(meta, 'data/validation.json'), JSON.stringify(result, null, 2) + '\n');
 console.log(JSON.stringify({ success: true, checks: checks.length, images: images.length, outsideMetaChanges: changedSinceBaseline }));

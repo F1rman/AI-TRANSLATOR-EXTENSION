@@ -1,0 +1,22 @@
+[
+  {
+    "cap": "Mõista iga sõna",
+    "desc": "Tõlgi teksti ja valikuid tehisaruga."
+  },
+  {
+    "cap": "Vali. Tõlgi. Loe edasi.",
+    "desc": "Näe tähendust otse teksti kõrval."
+  },
+  {
+    "cap": "Loe kogu veebilehte",
+    "desc": "Pro tõlgib lehti ja taastab algteksti."
+  },
+  {
+    "cap": "Leia sobiv toon",
+    "desc": "Pro lisab tooni ja valikulise konteksti."
+  },
+  {
+    "cap": "Tõlked alati käepärast",
+    "desc": "Kohalik ajalugu sinu kontrolli all."
+  }
+]

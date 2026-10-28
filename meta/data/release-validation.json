@@ -1,0 +1,25 @@
+{
+  "checkedAt": "2026-10-28",
+  "success": true,
+  "version": "1.3.1",
+  "extensionTests": {
+    "passed": 52,
+    "failed": 0
+  },
+  "typecheck": "passed",
+  "builds": {
+    "live": "passed",
+    "test": "passed"
+  },
+  "packages": {
+    "live": "artifacts/ai-translator-1.3.1.zip",
+    "test": "artifacts/ai-translator-1.3.1-test.zip"
+  },
+  "packagedChromium": "passed",
+  "actualPopupCssPixels": 420,
+  "realChromePriceDollars": "passed",
+  "welcomeStoredTheme": "passed",
+  "liveGoogleSignIn": "not-tested-in-this-run",
+  "liveAiQuality": "not-tested-in-this-run",
+  "storePublication": "not-performed"
+}

@@ -1,0 +1,38 @@
+AI Translator pomaže vam prevoditi tekst dok čitate i radite u pregledniku. Zalijepite tekst u skočni prozor, prevedite odabrani dio web-stranice ili uz Pro čitajte podržanu stranicu na odabranom jeziku.
+
+PRIJEVOD TEKSTA
+• Prevodite upisani ili zalijepljeni tekst u skočnom prozoru.
+• Odaberite tekst na stranici i upotrijebite ikonu prijevoda ili kontekstni izbornik.
+• Automatski prepoznajte izvorni jezik ili ga sami odaberite.
+• Kopirajte rezultat i pronađite dovršene prijevode u lokalnoj povijesti.
+
+FREE
+Free uključuje 100,000 znakova izvornog teksta po kalendarskom mjesecu i do 4,000 po prijevodu. Razmaci se broje. Kvota se obnavlja prvog dana mjeseca u 00:00 UTC; neiskorišteni znakovi ne prenose se.
+
+Free koristi neutralan ton i prikazuje zadnjih 20 zapisa povijesti. Za prijevod i praćenje kvote računa potrebna je prijava Googleom.
+
+PRO
+Pro košta 4.99 USD mjesečno ili 39.99 USD godišnje i uključuje:
+• 2,000,000 izvornih znakova po mjesečnom razdoblju pretplate, do 50,000 po prijevodu. Godišnje plaćanje također daje zasebnu mjesečnu kvotu.
+• Prijevod podržanih stranica, uključujući tekst koji se pojavi tijekom aktivne sesije. Prijevod možete pauzirati ili vratiti izvorni tekst.
+• Neutralan, formalan, prijateljski i tehnički ton.
+• Neobavezni kontekst do 2,000 vidljivih znakova oko teksta na trenutačnoj stranici. Vi odlučujete hoće li se koristiti.
+• Pristup do 1,000 zapisa lokalne povijesti i prioritetni red za obradu. Vrijeme obrade može varirati.
+
+Kvota Pro obnavlja se mjesečno od datuma početka pretplate, također uz godišnji plan. Neiskorišteni znakovi ne prenose se. Obnavljanje upravljajte ili otkažite u računu; otkazivanje zadržava pristup do isteka plaćenog razdoblja.
+
+KAKO POČETI
+1. Prikvačite AI Translator na alatnu traku i otvorite skočni prozor.
+2. Prijavite se Googleom i odaberite jezike.
+3. Zalijepite ili odaberite tekst i prevedite ga. Za stranice odaberite Pro i pokrenite prijevod na podržanoj stranici.
+
+PRIVATNOST I LOKALNA POVIJEST
+Zatraženi izvorni tekst šalje se poslužitelju za prijevod radi obrade uz AI. Kad je uključen trenutačni prijevod odabira, odabrani tekst šalje se automatski. Aktivna Pro sesija šalje i novi podržani tekst koji se pojavi na stranici. Neobavezni kontekst izostavlja polja za unos, lozinke i skriveni tekst; HTML stranice ne šalje se kao kontekst.
+
+Povijest se sprema u proširenju na ovom uređaju, odvojeno po računu i okruženju, bez sinkronizacije u oblaku. Snimanje možete isključiti, zapise brisati pojedinačno ili sve očistiti. Sprema se najviše 1,000 zapisa ili 25 MiB; najstariji se uklanjaju prema potrebi. Free prikazuje zadnjih 20; sam prelazak na niži plan ne briše starije zapise.
+
+Sučelje je dostupno na engleskom i ukrajinskom. Interne stranice Chromea i Chrome Web Store ne mogu se prevoditi.
+
+https://ai-translator-ext.web.app/privacy
+https://balubenko-stripe.web.app/ai-translator-terms
+https://ai-translator-ext.web.app/support

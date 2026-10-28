@@ -1,0 +1,44 @@
+{
+  "appName": {
+    "message": "AI Translator – 텍스트 및 웹페이지 번역기"
+  },
+  "appDescription": {
+    "message": "AI로 텍스트를 번역하고 로컬 기록을 보관하세요. Pro는 페이지 번역, 어조 및 선택적 문맥을 제공합니다."
+  },
+  "reviewPrompt": {
+    "message": "AI Translator가 마음에 드시나요? Chrome Web Store에서 평가해 주세요"
+  },
+  "reviewRate": {
+    "message": "★ 평가하기"
+  },
+  "reviewDismiss": {
+    "message": "평가 요청 닫기"
+  },
+  "welcomeTitle": {
+    "message": "AI Translator에 오신 것을 환영합니다"
+  },
+  "welcomeIntro": {
+    "message": "AI Translator는 브라우저에서 읽거나 작업할 때 텍스트 번역을 도와줍니다. 팝업에 텍스트를 붙여넣거나 웹페이지에서 선택한 부분을 번역하세요. Pro 페이지 번역기로 지원되는 페이지를 원하는 언어로 읽을 수도 있습니다."
+  },
+  "welcomePin": {
+    "message": "AI Translator를 도구 모음에 고정하고 팝업을 여세요."
+  },
+  "welcomeSignIn": {
+    "message": "Google로 로그인하고 번역 언어를 선택하세요."
+  },
+  "welcomeFirstResult": {
+    "message": "텍스트를 붙여넣거나 선택해 번역하세요. 페이지 번역은 Pro를 선택한 뒤 지원되는 페이지에서 시작하세요."
+  },
+  "welcomeAllowance": {
+    "message": "Free는 매월 원문 100,000자를 제공하며 한 번에 최대 4,000자를 번역할 수 있습니다. 공백도 포함됩니다. 한도는 매월 1일 00:00 UTC에 초기화되며 사용하지 않은 글자 수는 이월되지 않습니다. Pro는 월 US$$4.99 또는 연 US$$39.99이며, 구독의 각 월간 기간에 원문 2,000,000자를 제공합니다. 한 번에 최대 50,000자를 번역할 수 있습니다. 연간 결제를 하더라도 한도는 월별로 따로 제공됩니다."
+  },
+  "welcomePrivacy": {
+    "message": "번역을 요청한 원문은 AI 처리를 위해 번역 서버로 전송됩니다. 즉시 선택 번역 모드를 켜면 선택한 텍스트가 자동 전송됩니다. 활성 Pro 페이지 세션은 적합한 새 페이지 텍스트도 전송합니다. 선택적 문맥에는 입력란, 비밀번호, 숨겨진 텍스트가 포함되지 않으며 페이지 HTML을 문맥으로 전송하지 않습니다. 기록은 이 기기의 확장 프로그램에 계정 및 환경별로 분리되어 저장되며 클라우드와 동기화되지 않습니다. 기록 저장을 끄거나 개별 기록 또는 전체 기록을 삭제할 수 있습니다. 최대 1,000개 또는 25 MiB를 보관하고 필요하면 가장 오래된 기록부터 삭제합니다. Free는 최근 20개를 표시하며, 요금제를 낮추는 것만으로 이전 기록이 삭제되지는 않습니다."
+  },
+  "welcomeOpenSettings": {
+    "message": "설정 열기"
+  },
+  "welcomeReadPrivacy": {
+    "message": "개인정보처리방침 읽기"
+  }
+}

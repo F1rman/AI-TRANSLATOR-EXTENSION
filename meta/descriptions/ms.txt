@@ -1,0 +1,27 @@
+AI Translator membantu anda menterjemah teks semasa membaca dan bekerja dalam penyemak imbas. Tampal teks dalam tetingkap timbul, terjemah pilihan pada laman web atau gunakan penterjemah halaman Pro untuk membaca halaman yang disokong dalam bahasa pilihan anda.
+
+Terjemah teks yang ditaip atau ditampal. Pilih teks pada halaman dan gunakan ikon terjemahan atau menu konteks. Kesan bahasa sumber secara automatik atau pilih sendiri. Salin hasilnya dan cari terjemahan yang selesai dalam sejarah setempat.
+
+Free merangkumi 100,000 aksara sumber setiap bulan kalendar dan sehingga 4,000 setiap terjemahan. Ruang turut dikira. Kuota ditetapkan semula pada hari pertama setiap bulan pada 00:00 UTC; baki aksara tidak dibawa ke tempoh berikutnya.
+
+Free menggunakan nada neutral dan memaparkan 20 rekod sejarah terkini. Log masuk Google diperlukan untuk menterjemah dan menjejaki penggunaan akaun.
+
+Pro berharga US$4.99 sebulan atau US$39.99 setahun dan merangkumi 2,000,000 aksara sumber bagi setiap tempoh bulanan langganan, sehingga 50,000 setiap terjemahan. Bayaran tahunan juga memberikan kuota bulanan yang berasingan.
+
+Pro menterjemah halaman yang disokong, termasuk teks baharu yang muncul semasa sesi aktif. Jeda terjemahan atau pulihkan teks asal. Pilih nada neutral, formal, mesra atau teknikal. Gunakan secara pilihan sehingga 2,000 aksara teks sekeliling yang kelihatan pada halaman semasa; anda mengawal penggunaannya. Pro menyediakan sehingga 1,000 rekod sejarah setempat serta baris gilir pemprosesan keutamaan. Masa pemprosesan mungkin berbeza.
+
+Kuota Pro diperbaharui setiap bulan dari tarikh mula langganan, termasuk pelan tahunan. Aksara tidak digunakan tidak dibawa ke hadapan. Urus atau batalkan pembaharuan melalui akaun; pembatalan mengekalkan akses sehingga tempoh berbayar tamat.
+
+1. Sematkan AI Translator pada bar alat dan buka tetingkap timbul.
+2. Log masuk dengan Google dan pilih bahasa.
+3. Tampal atau pilih teks lalu terjemah. Untuk halaman, pilih Pro dan mulakan pada halaman yang disokong.
+
+Teks sumber yang diminta dihantar ke pelayan terjemahan untuk pemprosesan AI. Apabila mod pilihan segera diaktifkan, teks yang dipilih dihantar secara automatik. Sesi halaman Pro aktif turut menghantar teks baharu yang sesuai apabila ia muncul. Konteks pilihan mengecualikan medan input, kata laluan dan teks tersembunyi; HTML halaman tidak dihantar sebagai konteks.
+
+Sejarah disimpan dalam sambungan pada peranti ini, berasingan mengikut akaun dan persekitaran, tanpa penyegerakan awan. Rakaman boleh dimatikan; rekod boleh dipadam satu persatu atau dikosongkan semua. Maksimum 1,000 rekod atau 25 MiB disimpan dan rekod tertua dibuang apabila perlu. Free memaparkan 20 terkini; penurunan pelan sahaja tidak memadam rekod lama.
+
+Antara muka tersedia dalam bahasa Inggeris dan Ukraine. Halaman dalaman Chrome serta Chrome Web Store tidak boleh diterjemahkan.
+
+Privasi: https://ai-translator-ext.web.app/privacy
+Terma: https://balubenko-stripe.web.app/ai-translator-terms
+Sokongan: https://ai-translator-ext.web.app/support

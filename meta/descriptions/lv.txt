@@ -1,0 +1,27 @@
+AI Translator palīdz tulkot tekstu, lasot un strādājot pārlūkā. Ielīmējiet tekstu uznirstošajā logā, tulkojiet atlasītu fragmentu vai ar Pro lapu tulkotāju lasiet atbalstītu lapu izvēlētajā valodā.
+
+Tulkojiet ierakstītu vai ielīmētu tekstu. Atlasiet tekstu tīmekļa lapā un izmantojiet tulkošanas ikonu vai kontekstizvēlni. Avota valodu var noteikt automātiski vai izvēlēties pašam. Kopējiet rezultātu un atrodiet pabeigtos tulkojumus lokālajā vēsturē.
+
+Free ietver 100,000 avota teksta rakstzīmju kalendārajā mēnesī un līdz 4,000 vienā tulkojumā. Skaitās arī atstarpes. Limits atjaunojas mēneša pirmajā dienā plkst. 00:00 UTC; neizmantotās rakstzīmes nepāriet uz nākamo periodu.
+
+Free izmanto neitrālu toni un rāda 20 jaunākos vēstures ierakstus. Tulkošanai un konta patēriņa uzskaitei jāpierakstās ar Google.
+
+Pro maksā US$4.99 mēnesī vai US$39.99 gadā un ietver 2,000,000 avota rakstzīmju katrā abonementa mēneša periodā, līdz 50,000 vienā tulkojumā. Arī gada maksājumam ir atsevišķs mēneša limits.
+
+Pro tulko atbalstītas lapas, arī jaunu tekstu, kas parādās aktīvas sesijas laikā. Apturiet tulkošanu vai atjaunojiet oriģinālu. Pieejams neitrāls, formāls, draudzīgs un tehnisks tonis. Pēc izvēles izmantojiet līdz 2,000 redzamu apkārtējā teksta rakstzīmju no pašreizējās lapas; to kontrolējat jūs. Pro nodrošina līdz 1,000 lokālās vēstures ierakstu un prioritāru apstrādes rindu. Apstrādes laiks var atšķirties.
+
+Pro limits atjaunojas ik mēnesi no abonementa sākuma datuma, arī gada plānam. Atlikums netiek pārnests. Kontā varat pārvaldīt vai atcelt automātisko atjaunošanu; piekļuve saglabājas līdz apmaksātā perioda beigām.
+
+1. Piespraudiet AI Translator rīkjoslai un atveriet uznirstošo logu.
+2. Pierakstieties ar Google un izvēlieties valodas.
+3. Ielīmējiet vai atlasiet tekstu un tulkojiet. Lapu tulkošanai izvēlieties Pro un sāciet tulkošanu atbalstītā lapā.
+
+Pieprasītais avota teksts tiek nosūtīts tulkošanas serverim MI apstrādei. Ja ieslēgts tūlītējas atlases režīms, atlasītais teksts tiek nosūtīts automātiski. Aktīva Pro lapas sesija nosūta arī jaunu piemērotu lapas tekstu. Papildu kontekstā netiek iekļauti ievades lauki, paroles vai slēpts teksts; lapas HTML netiek sūtīts kā konteksts.
+
+Vēsture glabājas paplašinājumā šajā ierīcē atsevišķi katram kontam un videi, bez mākoņa sinhronizācijas. Ierakstīšanu var izslēgt, ierakstus dzēst atsevišķi vai notīrīt visus. Tiek saglabāti ne vairāk kā 1,000 ieraksti vai 25 MiB; vajadzības gadījumā vecākie tiek dzēsti. Free rāda pēdējos 20; plāna pazemināšana pati par sevi vecākus ierakstus neizdzēš.
+
+Saskarne pieejama angļu un ukraiņu valodā. Chrome iekšējās lapas un Chrome Web Store nav tulkojamas.
+
+Privātums: https://ai-translator-ext.web.app/privacy
+Noteikumi: https://balubenko-stripe.web.app/ai-translator-terms
+Atbalsts: https://ai-translator-ext.web.app/support

@@ -1,0 +1,44 @@
+{
+  "appName": {
+    "message": "AI Translator – Tekst- og nettsideoversetter"
+  },
+  "appDescription": {
+    "message": "Oversett tekst med KI og behold lokal historikk. Pro gir sideoversettelse, tone og valgfri kontekst."
+  },
+  "reviewPrompt": {
+    "message": "Liker du AI Translator? Vurder den i Chrome Web Store"
+  },
+  "reviewRate": {
+    "message": "★ Vurder"
+  },
+  "reviewDismiss": {
+    "message": "Avvis forespørsel om vurdering"
+  },
+  "welcomeTitle": {
+    "message": "Velkommen til AI Translator"
+  },
+  "welcomeIntro": {
+    "message": "AI Translator hjelper deg å oversette tekst mens du leser og arbeider i nettleseren. Lim inn tekst i popup-vinduet, oversett markert tekst på en nettside, eller bruk Pro til å lese en støttet side på språket du velger."
+  },
+  "welcomePin": {
+    "message": "Fest AI Translator til verktøylinjen og åpne popup-vinduet."
+  },
+  "welcomeSignIn": {
+    "message": "Logg på med Google og velg språk."
+  },
+  "welcomeFirstResult": {
+    "message": "Lim inn eller marker tekst og oversett. Velg Pro for sideoversettelse og start på en støttet side."
+  },
+  "welcomeAllowance": {
+    "message": "Free gir 100,000 kildetegn per kalendermåned og opptil 4,000 tegn per oversettelse. Mellomrom teller med. Grensen fornyes første dag i hver måned kl. 00:00 UTC; ubrukte tegn overføres ikke. Pro koster US$$4.99 per måned eller US$$39.99 per år og gir 2,000,000 kildetegn per månedlige abonnementsperiode, opptil 50,000 per oversettelse. Årsbetaling gir også en separat månedlig kvote."
+  },
+  "welcomePrivacy": {
+    "message": "Kildeteksten du ber om å oversette, sendes til oversettelsesserveren for KI-behandling. Når øyeblikkelig oversettelse av markering er aktivert, sendes markert tekst automatisk. En aktiv Pro-sideøkt sender også egnet ny sidetekst. Valgfri kontekst utelater inndatafelt, passord og skjult tekst; sidens HTML sendes ikke som kontekst. Historikken lagres i utvidelsen på denne enheten, separat for konto og miljø, uten skysynkronisering. Lagring kan slås av; slett én oppføring eller tøm alt. Maksimalt 1,000 oppføringer eller 25 MiB beholdes, og de eldste fjernes ved behov. Free viser de siste 20; nedgradering alene sletter ikke eldre oppføringer."
+  },
+  "welcomeOpenSettings": {
+    "message": "Åpne innstillinger"
+  },
+  "welcomeReadPrivacy": {
+    "message": "Les personvernerklæringen"
+  }
+}

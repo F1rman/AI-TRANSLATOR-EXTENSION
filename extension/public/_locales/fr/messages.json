@@ -1,0 +1,44 @@
+{
+  "appName": {
+    "message": "AI Translator – Traduction de textes et de pages web"
+  },
+  "appDescription": {
+    "message": "Traduisez avec l’IA et gardez un historique local. Pro ajoute pages web, ton et contexte facultatif."
+  },
+  "reviewPrompt": {
+    "message": "Vous appréciez AI Translator ? Notez-le sur le Chrome Web Store"
+  },
+  "reviewRate": {
+    "message": "★ Noter"
+  },
+  "reviewDismiss": {
+    "message": "Fermer la demande d’avis"
+  },
+  "welcomeTitle": {
+    "message": "Bienvenue dans AI Translator"
+  },
+  "welcomeIntro": {
+    "message": "Traduisez les textes saisis ou sélectionnés avec l’IA. Pro traduit aussi les pages web et permet de rétablir le texte original."
+  },
+  "welcomePin": {
+    "message": "Épinglez AI Translator dans la barre d’outils et ouvrez-le."
+  },
+  "welcomeSignIn": {
+    "message": "Connectez-vous avec Google et choisissez les langues de traduction."
+  },
+  "welcomeFirstResult": {
+    "message": "Collez du texte dans la fenêtre ou sélectionnez-en sur une page et cliquez sur l’icône de traduction. Les pages nécessitent Pro."
+  },
+  "welcomeAllowance": {
+    "message": "Free comprend 100,000 caractères source par mois civil et jusqu’à 4,000 par traduction. Pro comprend 2,000,000 par période mensuelle et jusqu’à 50,000 par traduction, pour 4.99 USD/mois ou 39.99 USD/an."
+  },
+  "welcomePrivacy": {
+    "message": "Le texte est envoyé au serveur pour traitement par l’IA. La sélection instantanée envoie automatiquement le texte sélectionné si elle est activée. Pro traite aussi le nouveau texte des pages ; le contexte facultatif transmet jusqu’à 2,000 caractères visibles alentour. L’historique reste sur cet appareil, séparé par compte, sans synchronisation dans le cloud."
+  },
+  "welcomeOpenSettings": {
+    "message": "Ouvrir les préférences"
+  },
+  "welcomeReadPrivacy": {
+    "message": "Lire la politique de confidentialité"
+  }
+}

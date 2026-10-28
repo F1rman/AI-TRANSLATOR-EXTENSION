@@ -1,0 +1,22 @@
+[
+  {
+    "cap": "Entén cada paraula",
+    "desc": "Tradueix text i seleccions amb IA."
+  },
+  {
+    "cap": "Selecciona. Tradueix. Continua.",
+    "desc": "Consulta el significat al costat del text."
+  },
+  {
+    "cap": "Llegeix tota la pàgina",
+    "desc": "Pro tradueix pàgines i restaura els originals."
+  },
+  {
+    "cap": "Troba el to adequat",
+    "desc": "Pro afegeix to i context opcional."
+  },
+  {
+    "cap": "Les traduccions, a mà",
+    "desc": "Historial local sota el teu control."
+  }
+]

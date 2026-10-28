@@ -401,6 +401,23 @@ textarea::placeholder { color: var(--app-subtle); opacity: 1; }
 .history-entry .history-translation { padding: 12px; border-radius: 12px; background: var(--app-surface-1); }
 .history-heading .quiet-button, .history-heading .icon-button { min-height: 44px; min-width: 44px; }
 
+.review-card { display: flex; align-items: center; gap: 8px; margin-top: 16px; padding: 12px; border-radius: 12px; background: var(--app-surface-1); font-size: 11px; line-height: 1.6; }
+.review-card p { min-width: 0; flex: 1; overflow-wrap: anywhere; }
+.review-card > div { display: flex; flex-shrink: 0; align-items: center; }
+.review-card .quiet-button { min-height: 44px; padding-inline: 8px; }
+.welcome-shell { width: min(720px, 100%); margin-inline: auto; padding: 48px 24px; }
+.welcome-shell header h1 { margin: 32px 0 16px; font-size: clamp(28px, 5vw, 42px); line-height: 1.2; }
+.welcome-shell header > p { color: var(--app-muted); font-size: 16px; line-height: 1.8; }
+.welcome-steps { list-style: none; padding: 0; display: grid; gap: 12px; margin: 32px 0 20px; }
+.welcome-steps li { display: flex; align-items: flex-start; gap: 16px; padding: 20px; border-radius: 20px; background: var(--app-surface-1); }
+.welcome-steps p { padding-top: 5px; font-size: 14px; line-height: 1.8; }
+.welcome-allowance { padding: 20px; border-radius: 20px; background: var(--app-surface-2); font-size: 13px; line-height: 1.8; }
+.welcome-shell footer { display: flex; align-items: flex-start; gap: 12px; margin-block: 24px; color: var(--app-muted); font-size: 12px; line-height: 1.8; }
+.welcome-shell footer svg { margin-top: 3px; }
+.welcome-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; }
+.welcome-actions .primary-button { width: auto; background: var(--app-foreground); color: var(--app-background); }
+.welcome-actions a { display: inline-flex; align-items: center; min-height: 44px; font-size: 13px; text-decoration: underline; text-underline-offset: 3px; }
+
 .translation-options summary { min-height: 44px; align-content: center; cursor: pointer; font-size: 13px; font-weight: 700; }
 .translation-options summary:focus-visible { outline: 2px solid var(--app-foreground); outline-offset: 3px; border-radius: 12px; }
 .translation-options[open] > label { margin-top: 12px; }

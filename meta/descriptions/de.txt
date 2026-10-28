@@ -1,0 +1,38 @@
+AI Translator hilft dir, Texte beim Lesen und Arbeiten im Browser zu übersetzen. Füge Text im Popup ein, übersetze eine Markierung auf einer Webseite oder nutze Pro, um eine unterstützte Seite in deiner gewählten Sprache zu lesen.
+
+TEXTÜBERSETZUNG
+• Übersetze eingegebenen oder eingefügten Text im Popup.
+• Markiere Text auf einer Webseite und nutze das Übersetzungssymbol oder Kontextmenü.
+• Lass die Ausgangssprache automatisch erkennen oder wähle sie selbst.
+• Kopiere das Ergebnis und finde abgeschlossene Übersetzungen im lokalen Verlauf.
+
+FREE
+Free enthält 100,000 Zeichen des Ausgangstextes pro Kalendermonat und bis zu 4,000 pro Übersetzung. Leerzeichen zählen mit. Das Kontingent wird am Monatsersten um 00:00 UTC zurückgesetzt; nicht genutzte Zeichen werden nicht übertragen.
+
+Free verwendet einen neutralen Ton und zeigt die letzten 20 Verlaufseinträge. Zum Übersetzen und Verwalten des Kontingents ist eine Google-Anmeldung erforderlich.
+
+PRO
+Pro kostet 4.99 USD pro Monat oder 39.99 USD pro Jahr und umfasst:
+• 2,000,000 Ausgangszeichen pro monatlichem Abonnementzeitraum, bis zu 50,000 pro Übersetzung. Auch bei jährlicher Zahlung gibt es jeden Monat ein eigenes Kontingent.
+• Webseitenübersetzung auf unterstützten Seiten, einschließlich neuer Texte während einer laufenden Sitzung. Pausiere die Übersetzung oder stelle den Originaltext wieder her.
+• Neutralen, formellen, freundlichen und technischen Ton.
+• Optionalen Kontext aus bis zu 2,000 sichtbaren Zeichen um den Text auf der aktuellen Seite. Du entscheidest über die Nutzung.
+• Zugriff auf bis zu 1,000 lokale Verlaufseinträge und eine priorisierte Warteschlange. Verarbeitungszeiten können variieren.
+
+Das Pro-Kontingent erneuert sich monatlich ab dem Beginn des Abonnements, auch beim Jahresplan. Ungenutzte Zeichen werden nicht übertragen. Verwalte oder kündige die Verlängerung in deinem Konto; nach einer Kündigung bleibt der Zugriff bis zum Ende des bezahlten Zeitraums erhalten.
+
+ERSTE SCHRITTE
+1. Hefte AI Translator an die Symbolleiste und öffne das Popup.
+2. Melde dich mit Google an und wähle die Sprachen.
+3. Füge Text ein oder markiere ihn und übersetze. Wähle für Webseiten Pro und starte die Übersetzung auf einer unterstützten Seite.
+
+DATENSCHUTZ UND LOKALER VERLAUF
+Angeforderter Ausgangstext wird zur KI-Verarbeitung an den Übersetzungsserver gesendet. Bei aktivierter Sofortübersetzung wird markierter Text automatisch gesendet. Eine aktive Pro-Seitensitzung sendet auch neu erscheinenden, unterstützten Seitentext. Optionaler Kontext schließt Eingabefelder, Passwörter und unsichtbaren Text aus; Seiten-HTML wird nicht als Kontext gesendet.
+
+Der Verlauf wird in der Erweiterung auf diesem Gerät gespeichert, getrennt nach Konto und Umgebung, ohne Cloud-Synchronisierung. Du kannst die Aufzeichnung abschalten, einzelne Einträge löschen oder alles leeren. Maximal werden 1,000 Einträge oder 25 MiB gespeichert; bei Bedarf werden die ältesten entfernt. Free zeigt die letzten 20; ein Tarifwechsel nach unten löscht ältere Einträge nicht automatisch.
+
+Die Oberfläche ist auf Englisch und Ukrainisch verfügbar. Interne Chrome-Seiten und der Chrome Web Store können nicht übersetzt werden.
+
+https://ai-translator-ext.web.app/privacy
+https://balubenko-stripe.web.app/ai-translator-terms
+https://ai-translator-ext.web.app/support

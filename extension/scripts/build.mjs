@@ -1,6 +1,6 @@
 import { build, loadEnv } from 'vite';
 import { build as bundle } from 'esbuild';
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 import { deflateSync } from 'node:zlib';
 import { createHash } from 'node:crypto';
 import { buildConfig, selectedEnvironment } from './build-config.mjs';
@@ -17,9 +17,9 @@ await build({ mode: 'production', build: { outDir },
   define: Object.fromEntries(Object.entries(env).map(([key, value]) => [`import.meta.env.${key}`, JSON.stringify(value)])) });
 await bundle({ entryPoints: ['src/content/index.ts'], bundle: true, outfile: `${outDir}/content.js`, format: 'iife', target: 'chrome120', minify: true });
 const manifest = {
-  manifest_version: 3, name: environment === 'test' ? 'AI Translator (Test)' : 'AI Translator', version: packageInfo.version,
+  manifest_version: 3, name: '__MSG_appName__', default_locale: 'en', version: packageInfo.version,
   version_name: environment === 'test' ? `${packageInfo.version} · Test` : packageInfo.version, minimum_chrome_version: '120',
-  description: 'Translate selected text and whole webpages with AI. Restore originals in one click.',
+  description: '__MSG_appDescription__',
   homepage_url: 'https://ai-translator-ext.web.app',
   permissions: ['activeTab', 'contextMenus', 'storage', 'scripting', 'identity', 'webNavigation'],
   host_permissions: ['http://*/*', 'https://*/*'],
@@ -33,6 +33,16 @@ const manifest = {
   ...(publicKey ? { key: publicKey } : {}),
 };
 await writeFile(`${outDir}/manifest.json`, JSON.stringify(manifest, null, 2));
+// Keep localized test builds visibly separate without introducing untranslated keys.
+if (environment === 'test') {
+  for (const locale of await readdir(`${outDir}/_locales`)) {
+    const file = `${outDir}/_locales/${locale}/messages.json`;
+    const messages = JSON.parse(await readFile(file, 'utf8'));
+    messages.appName.message += ' (Test)';
+    if (Array.from(messages.appName.message).length > 75) throw new Error(`${locale}: test extension name exceeds 75 characters`);
+    await writeFile(file, JSON.stringify(messages, null, 2) + '\n');
+  }
+}
 await writeFile(`${outDir}/billing-build.json`, JSON.stringify({ environment, version: packageInfo.version,
   apiBaseUrl: env.VITE_API_BASE_URL, billingBaseUrl: env.VITE_BILLING_BASE_URL, extensionId }, null, 2) + '\n');
 const crcTable = Array.from({ length: 256 }, (_, value) => { for (let bit = 0; bit < 8; bit++) value = value & 1 ? 0xedb88320 ^ (value >>> 1) : value >>> 1; return value >>> 0; });
@@ -43,7 +53,10 @@ for (const size of [16, 32, 48, 128]) {
   for (let y = 0; y < size; y++) for (let x = 0; x < size; x++) {
     let red = 0, green = 0, blue = 0, alpha = 0;
     for (let sy = 0; sy < 4; sy++) for (let sx = 0; sx < 4; sx++) {
-      const px = (x + (sx + .5) / 4) / size * 32, py = (y + (sy + .5) / 4) / size * 32;
+      // The 128px Store icon has centered 96px artwork and transparent 16px
+      // margins; toolbar bitmaps retain their existing legibility at small sizes.
+      const margin = size === 128 ? 16 : 0, artwork = size - margin * 2;
+      const px = (x + (sx + .5) / 4 - margin) / artwork * 32, py = (y + (sy + .5) / 4 - margin) / artwork * 32;
       const qx = Math.max(Math.abs(px - 16) - 9, 0), qy = Math.max(Math.abs(py - 16) - 9, 0);
       if (qx * qx + qy * qy > 49) continue;
       const sparkle = Math.sqrt(Math.abs(px - 16) / 10.7) + Math.sqrt(Math.abs(py - 16) / 10.7) < 1 || (px - 25) ** 2 + (py - 6.5) ** 2 < 2;

@@ -34,6 +34,7 @@ function installTransport({plan,theme}) {
    case 'history:delete':entries=entries.filter(entry=>entry.id!==request.payload.id);data={ok:true};break;
    case 'history:recording':recording=request.payload.enabled;data={ok:true};break;
    case 'billing:open':data={opened:true};break;
+   case 'review:status':data={eligible:false};break;
    default:throw new Error('Unsupported marketing fixture request: '+request.type);
   }
   return{ok:true,data};
@@ -89,7 +90,7 @@ try{
  evidence.push({capture:'selection-translation.png',actualBuiltContent:true,plan:'pro'},{capture:'page-translated.png',actualBuiltContent:true,plan:'pro',state:await page.evaluate(()=>({reports:window.marketingFixture.reports,submitted:window.marketingFixture.submitted(),restoredTitle:document.querySelector('h1').textContent}))});
  const manifest=JSON.parse(await readFile(path.join(dist,'manifest.json'),'utf8'));
  const hashes=Object.fromEntries(await Promise.all(['manifest.json','content.js','background.js'].map(async file=>[file,createHash('sha256').update(await readFile(path.join(dist,file))).digest('hex')])));
- await writeFile(path.join(raw,'fixture-verification.json'),JSON.stringify({date:'2026-10-27',version:manifest.version,extensionId:'aieamemimbcbbnmakifejomadhegogge',sourceHashes:hashes,actualBuiltUi:true,deterministicDemoTransport:true,liveGoogleLoginTested:false,liveAiRequest:false,demoAccountAndQuotas:true,uiLanguage:'en',evidence,errors},null,2));
+ await writeFile(path.join(raw,'fixture-verification.json'),JSON.stringify({date:new Date().toISOString().slice(0,10),version:manifest.version,extensionId:'aieamemimbcbbnmakifejomadhegogge',sourceHashes:hashes,actualBuiltUi:true,deterministicDemoTransport:true,liveGoogleLoginTested:false,liveAiRequest:false,demoAccountAndQuotas:true,uiLanguage:'en',evidence,errors},null,2));
  if(errors.length)throw new Error(errors.join('\n'));
  console.log(JSON.stringify({captures:6,version:manifest.version,errors}));
 }finally{await browser.close();}

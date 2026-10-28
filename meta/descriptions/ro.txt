@@ -1,0 +1,27 @@
+AI Translator vă ajută să traduceți texte în timp ce citiți și lucrați în browser. Lipiți text în fereastra extensiei, traduceți o selecție de pe o pagină sau folosiți traducătorul Pro pentru a citi o pagină acceptată în limba aleasă.
+
+Traduceți text tastat sau lipit. Selectați text pe o pagină și folosiți pictograma de traducere sau meniul contextual. Limba sursă poate fi detectată automat sau aleasă manual. Copiați rezultatul și găsiți traducerile finalizate în istoricul local.
+
+Free include 100,000 de caractere sursă pe lună calendaristică și până la 4,000 pentru o traducere. Spațiile se iau în calcul. Limita se resetează în prima zi a fiecărei luni la 00:00 UTC; caracterele nefolosite nu se reportează.
+
+Free folosește un ton neutru și afișează ultimele 20 de înregistrări. Autentificarea prin Google este necesară pentru traducere și evidența consumului contului.
+
+Pro costă US$4.99 pe lună sau US$39.99 pe an și include 2,000,000 de caractere sursă pentru fiecare interval lunar al abonamentului, până la 50,000 pentru o traducere. Plata anuală oferă tot o limită lunară separată.
+
+Pro traduce pagini acceptate, inclusiv texte noi apărute într-o sesiune activă. Puteți întrerupe traducerea sau restabili originalul. Sunt disponibile tonuri neutru, formal, prietenos și tehnic. Opțional, folosiți până la 2,000 de caractere vizibile din textul din jur, de pe pagina curentă; dumneavoastră decideți activarea. Pro oferă până la 1,000 de înregistrări locale și o coadă de procesare prioritară. Durata procesării poate varia.
+
+Limita Pro se reînnoiește lunar de la data începerii abonamentului, inclusiv pentru planul anual. Caracterele nefolosite nu se reportează. Gestionați sau anulați reînnoirea din cont; anularea păstrează accesul până la sfârșitul perioadei plătite.
+
+1. Fixați AI Translator în bara de instrumente și deschideți fereastra extensiei.
+2. Autentificați-vă prin Google și alegeți limbile.
+3. Lipiți sau selectați text și traduceți. Pentru pagini, alegeți Pro și porniți traducerea pe o pagină acceptată.
+
+Textul sursă solicitat este trimis serverului de traducere pentru procesare AI. Când modul de selecție instantanee este activat, textul selectat este trimis automat. O sesiune Pro activă trimite și texte noi eligibile de pe pagină. Contextul opțional exclude câmpurile de introducere, parolele și textul ascuns; HTML-ul paginii nu este trimis drept context.
+
+Istoricul este stocat în extensie pe acest dispozitiv, separat după cont și mediu, fără sincronizare în cloud. Înregistrarea poate fi dezactivată, iar înregistrările pot fi șterse individual sau toate odată. Se păstrează cel mult 1,000 de înregistrări ori 25 MiB, eliminându-le pe cele mai vechi la nevoie. Free arată ultimele 20; trecerea la un plan inferior nu șterge singură istoricul mai vechi.
+
+Interfața este disponibilă în engleză și ucraineană. Paginile interne Chrome și Chrome Web Store nu pot fi traduse.
+
+Confidențialitate: https://ai-translator-ext.web.app/privacy
+Condiții: https://balubenko-stripe.web.app/ai-translator-terms
+Asistență: https://ai-translator-ext.web.app/support

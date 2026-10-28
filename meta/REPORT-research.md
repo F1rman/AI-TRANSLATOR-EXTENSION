@@ -1,6 +1,6 @@
-# AI Translator marketing research — 1.3.0 refresh
+# AI Translator marketing research — 1.3.1 integration
 
-Current run: 2026-10-27. Raw 2026-10-23 material remains historical. The owner identified the Store item as an unpublished draft. No public own listing or Store-wide rank is claimed.
+Research snapshot: 2026-10-27; product and localization integration: 2026-10-28 for version 1.3.1. Raw 2026-10-23 material remains historical. Competitor figures below retain their snapshot date and were not silently refreshed. The owner identified the Store item as an unpublished draft. No public own listing or Store-wide rank is claimed.
 
 ## Keyword decision
 
@@ -17,7 +17,7 @@ The webpage query has demand heuristic 3 and competition 0 in this snapshot. Com
 | text translator | 3 | 2 | 0 | 42,385,000 | description |
 | context menu translator | 2 | 2 | 0 | 911,843 | description |
 
-All six English probes and three Ukrainian probes fetched Store results and Google autocomplete successfully. The own item was not found among 10 checked results per query. Installed-user totals and autocomplete are comparison heuristics, not monthly searches, expected installs or ranking forecasts. Ukrainian queries are research only; this normal run does not create a Ukrainian Store translation.
+All six English probes and three Ukrainian probes fetched Store results and Google autocomplete successfully. The own item was not found among 10 checked results per query. Installed-user totals and autocomplete are comparison heuristics, not monthly searches, expected installs or ranking forecasts. The Ukrainian queries were originally research-only. The later user request to finish all dashboard tasks now includes a Ukrainian description and catalog alongside the other target locales; that localization work does not change these dated research observations.
 
 ## Direct competitors
 
@@ -38,22 +38,24 @@ One competitor asset error remains: Immersive Translate screenshot 1 is a YouTub
 
 ## Verified product and Store form
 
-The built manifest is 1.3.0 with six API permissions and two HTTP(S) host patterns. All eight have copyable source-traced justifications. Current marketing offers Free/Pro character subscriptions and hides retired image and word-package offers.
+The 1.3.1 source/build configuration retains six API permissions and two HTTP(S) host patterns. All eight have copyable source-traced justifications. Localized manifest metadata and 55 source catalogs are now included. Current marketing offers Free/Pro character subscriptions and omits retired image and word-package offers.
 
 Free is 100,000 source characters per UTC calendar month, maximum 4,000 per request. Pro is US$4.99/month or US$39.99/year, with 2,000,000 characters in monthly anniversary windows and maximum 50,000 per request. Annual billing does not grant the entire year’s allowance upfront.
 
 History is account/environment-scoped local IndexedDB: at most 1,000 entries or 25 MiB with oldest-first eviction. Free displays 20, Pro up to 1,000; recording, deletion and clear controls exist. Pro context is opt-in and limited to 2,000 visible surrounding characters, excluding fields, passwords, hidden content and HTML. The listing distinguishes requested text, automatic instant-selection mode and newly appearing text during an active Pro page session.
 
-Existing onInstalled creates menus only. Review and welcome features remain adapted proposals inside meta/data/recommendations.json. The review proposal waits for five unique confirmed completed jobs, asks for an honest review with no gating or reward, and delays the first dismissal for fourteen days. The welcome proposal runs only on first install and preserves menu creation. A separate manifest-localization proposal is required before using chrome.i18n messages.
+The source now implements the review request and packaged welcome page. Review eligibility follows five unique confirmed completed jobs, with no reward or sentiment gating; first dismissal delays fourteen days and second dismissal suppresses future requests. The welcome handler preserves menu creation and opens the local page once on first install, not on update or reload. Manifest localization is also applied through message keys, default_locale and source catalogs. Historical adapted snippets remain available as context; the actual source establishes the current behavior.
 
 ## Checks and remaining editorial work
 
 - Five name options: 13–47 characters, all within 75. Five summaries: 103–113 characters, all within 132. Recommended name 41, summary 103.
 - The full description is plain text with one occurrence of the primary phrase. Its exact word count and eight-permission coverage are recorded in audits/copy-and-store-form.json.
-- All 14 existing English proposal keys are preserved and refreshed. The actual package has no _locales directories and literal manifest metadata. The English overlay covers 1 of 55 baseline locales; 54 remain pending. The draft has no placeholder, length or key structural errors; the audit still reports three expected manifest-localization blockers.
-- No existing Ukrainian description or message draft was found to overwrite. Only English is drafted in this normal run.
+- The fourteen established message keys are preserved across all 55 target catalogs, with a full description for every target locale. Source catalogs are installed under extension/public/_locales; the build uses localized name/description fields and default_locale. Final built and overlay audit files record actual structural and length results.
+- Existing English material was retained as the translation source. The explicit all-tasks request extended the previous English-only preparation to all target locales, including Ukrainian. Regional English similarities are legitimate; native-language review remains unverified.
 - Own-listing collection cannot parse the draft item. Browser fallback reached a generic Chrome Web Store shell at an empty-title URL, with no item name or listing content. This does not independently prove publication status. Owner context supplies draft status.
 - Owner editorial acceptance, native-language review and Store submission remain unperformed. Nothing was published or uploaded.
+
+The original research snapshots remain independent of product acceptance. Review/welcome behavior, icon padding, 55 descriptions/catalogs and localized screenshot exports have separate source and validation evidence; automated checks do not establish native wording quality or Store approval.
 
 Evidence: data/keywords.json; research/2026-10-27/keywords-{en,uk}.json; competitors/competitors.json and individual listing.json snapshots; audits/copy-and-store-form.json; audits/locales-{built,with-en-draft}.json; research/2026-10-27/own-status.json; own-browser-check.json and own-status-response.html. Previous current copy files are preserved under research/2026-10-27/previous/.
 

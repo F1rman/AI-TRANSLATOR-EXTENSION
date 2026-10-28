@@ -6,7 +6,7 @@ export default defineConfig({
   build: {
     target: 'chrome120', sourcemap: false,
     rollupOptions: {
-      input: { popup: resolve(import.meta.dirname, 'popup.html'), options: resolve(import.meta.dirname, 'options.html'), image: resolve(import.meta.dirname, 'image.html'), background: resolve(import.meta.dirname, 'src/background.ts') },
+      input: { popup: resolve(import.meta.dirname, 'popup.html'), options: resolve(import.meta.dirname, 'options.html'), image: resolve(import.meta.dirname, 'image.html'), welcome: resolve(import.meta.dirname, 'welcome.html'), background: resolve(import.meta.dirname, 'src/background.ts') },
       output: { entryFileNames: (chunk) => chunk.name === 'background' ? 'background.js' : 'assets/[name]-[hash].js' },
     },
   },

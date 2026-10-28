@@ -1,0 +1,44 @@
+{
+  "appName": {
+    "message": "AI Translator – Mtafsiri wa maandishi na kurasa"
+  },
+  "appDescription": {
+    "message": "Tafsiri maandishi kwa AI na uhifadhi historia ya kifaa. Pro huongeza tafsiri ya kurasa, mtindo na muktadha wa hiari."
+  },
+  "reviewPrompt": {
+    "message": "Unafurahia AI Translator? Ipe ukadiriaji kwenye Chrome Web Store"
+  },
+  "reviewRate": {
+    "message": "★ Kadiria"
+  },
+  "reviewDismiss": {
+    "message": "Ondoa ombi la ukadiriaji"
+  },
+  "welcomeTitle": {
+    "message": "Karibu kwenye AI Translator"
+  },
+  "welcomeIntro": {
+    "message": "AI Translator hukusaidia kutafsiri maandishi unaposoma na kufanya kazi kwenye kivinjari. Bandika maandishi kwenye dirisha ibukizi, tafsiri sehemu uliyochagua kwenye ukurasa au tumia Pro kusoma ukurasa unaokubalika katika lugha unayotaka."
+  },
+  "welcomePin": {
+    "message": "Bandika AI Translator kwenye upau wa zana na ufungue dirisha ibukizi."
+  },
+  "welcomeSignIn": {
+    "message": "Ingia kwa Google na uchague lugha."
+  },
+  "welcomeFirstResult": {
+    "message": "Bandika au chagua maandishi na utafsiri. Kwa kurasa, chagua Pro na uanze kwenye ukurasa unaokubalika."
+  },
+  "welcomeAllowance": {
+    "message": "Free inajumuisha herufi 100,000 za maandishi asili kwa mwezi wa kalenda na hadi 4,000 kwa tafsiri moja. Nafasi kati ya maneno zinahesabiwa. Kikomo huanza upya siku ya kwanza ya kila mwezi saa 00:00 UTC; herufi zisizotumika hazihamishwi kwenda kipindi kingine. Pro ni US$$4.99 kwa mwezi au US$$39.99 kwa mwaka. Inajumuisha herufi 2,000,000 za maandishi asili kwa kila kipindi cha mwezi cha usajili, hadi 50,000 kwa tafsiri moja. Malipo ya mwaka pia yana kikomo tofauti cha kila mwezi."
+  },
+  "welcomePrivacy": {
+    "message": "Maandishi asili yaliyoombwa hutumwa kwenye seva ya tafsiri kwa uchakataji wa AI. Ukiwasha hali ya tafsiri ya papo hapo ya sehemu iliyochaguliwa, maandishi hayo hutumwa kiotomatiki. Kipindi hai cha Pro pia hutuma maandishi mapya yanayofaa yanapoonekana. Muktadha wa hiari haujumuishi sehemu za kuingiza taarifa, nywila au maandishi yaliyofichwa; HTML ya ukurasa haitumwi kama muktadha. Historia huhifadhiwa katika kiendelezi kwenye kifaa hiki, kando kwa kila akaunti na mazingira, bila usawazishaji wa wingu. Unaweza kuzima uhifadhi, kufuta rekodi moja moja au kufuta zote. Huhifadhiwa rekodi zisizozidi 1,000 au 25 MiB; za zamani huondolewa inapohitajika. Free huonyesha 20 za karibuni; kushusha mpango pekee hakufuti rekodi za zamani."
+  },
+  "welcomeOpenSettings": {
+    "message": "Fungua mapendeleo"
+  },
+  "welcomeReadPrivacy": {
+    "message": "Soma sera ya faragha"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "appName": {
+    "message": "AI Translator – תרגום טקסט ודפי אינטרנט"
+  },
+  "appDescription": {
+    "message": "תרגום עם AI והיסטוריה מקומית. Pro מוסיף תרגום דפים, סגנון והקשר לבחירה."
+  },
+  "reviewPrompt": {
+    "message": "נהנים מ-AI Translator? דרגו אותו ב-Chrome Web Store"
+  },
+  "reviewRate": {
+    "message": "★ דירוג"
+  },
+  "reviewDismiss": {
+    "message": "סגירת בקשת הדירוג"
+  },
+  "welcomeTitle": {
+    "message": "ברוכים הבאים ל-AI Translator"
+  },
+  "welcomeIntro": {
+    "message": "תרגמו טקסט מוקלד או מסומן בעזרת AI. Pro מתרגם גם דפי אינטרנט ומשחזר את הטקסט המקורי."
+  },
+  "welcomePin": {
+    "message": "הצמידו את AI Translator לסרגל הכלים ופתחו אותו."
+  },
+  "welcomeSignIn": {
+    "message": "היכנסו באמצעות Google ובחרו שפות תרגום."
+  },
+  "welcomeFirstResult": {
+    "message": "הדביקו טקסט בחלון הקופץ או סמנו טקסט בדף ולחצו על סמל התרגום. תרגום דפים דורש Pro."
+  },
+  "welcomeAllowance": {
+    "message": "Free כולל 100,000 תווי מקור לחודש קלנדרי ועד 4,000 לתרגום. Pro כולל 2,000,000 לתקופה חודשית ועד 50,000 לתרגום, במחיר 4.99 דולר לחודש או 39.99 דולר לשנה."
+  },
+  "welcomePrivacy": {
+    "message": "הטקסט נשלח לשרת לעיבוד AI. בחירה מיידית שולחת טקסט מסומן אוטומטית כשהיא פעילה. Pro מעבד גם טקסט חדש בדף; הקשר לבחירה שולח עד 2,000 תווים גלויים מסביב. ההיסטוריה נשארת במכשיר, בנפרד לפי חשבון וללא סנכרון לענן."
+  },
+  "welcomeOpenSettings": {
+    "message": "פתיחת העדפות"
+  },
+  "welcomeReadPrivacy": {
+    "message": "קריאת מדיניות הפרטיות"
+  }
+}

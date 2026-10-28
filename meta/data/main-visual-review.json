@@ -1,0 +1,129 @@
+{
+  "version": "1.3.1",
+  "reviewedAt": "2026-10-28T08:38:54.094653+00:00",
+  "method": "Viewed all ten full-size PNG exports with view_image; checked PNG dimensions and recorded the exact reviewed file hashes.",
+  "success": true,
+  "imagesReviewed": 10,
+  "images": [
+    {
+      "path": "screenshots/1.png",
+      "pass": true,
+      "width": 1280,
+      "height": 800,
+      "sha256": "6cab53969730f9cf9656f1760f5c725805c3927a64a7fd0e24b7d2a1c4c18456",
+      "findings": [
+        "Headline and supporting copy are readable with no clipped words or overlap.",
+        "The typed French source, English result and copy control are visible; the partial quota card below the panel is an acceptable bottom crop because the advertised feature is text translation.",
+        "Authentic UI remains proportionate; the mint/green brand is crisp."
+      ]
+    },
+    {
+      "path": "screenshots/2.png",
+      "pass": true,
+      "width": 1280,
+      "height": 800,
+      "sha256": "37b4ca990639091866994abaf53328d10c2524df73cb2e37c9036a7d0e7308e8",
+      "findings": [
+        "Stacked headline and supporting sentence fit clearly.",
+        "Selected French quotation and the adjacent English translation popup remain visible together, supporting the selection workflow.",
+        "No fabricated browser chrome, stretched capture or obscured translation result was observed."
+      ]
+    },
+    {
+      "path": "screenshots/3.png",
+      "pass": true,
+      "width": 1280,
+      "height": 800,
+      "sha256": "dfa4712e99fe994cb935470ad91450983513331a5c2cb54b92d192cc45747f19",
+      "findings": [
+        "Headline and Pro qualification are readable.",
+        "Translated article, active-session toolbar and Original control are visible, matching the page-translation and restoration claim.",
+        "The complete relevant controls are preserved in a proportional stacked capture."
+      ]
+    },
+    {
+      "path": "screenshots/4.png",
+      "pass": true,
+      "width": 1280,
+      "height": 800,
+      "sha256": "be26931382dc3ae21afa89dd2734a1df202748838b0bb343f618b73c7360a594",
+      "findings": [
+        "Headline and Pro tone/context qualification are readable and do not overlap the UI.",
+        "Formal tone, checked context option and the 2,000-character privacy explanation are visible.",
+        "The lower unrelated card edge is cropped while the advertised tone/context controls remain intact."
+      ]
+    },
+    {
+      "path": "screenshots/5.png",
+      "pass": true,
+      "width": 1280,
+      "height": 800,
+      "sha256": "d722bff9195e0b51e7f0cb88d4172fe10114b018ec74d5949c0a2f9539e94b32",
+      "findings": [
+        "Dark history UI contrasts clearly with the light marketing background.",
+        "History heading, recording toggle, clear/delete controls and a completed translation entry remain readable.",
+        "The first full entry is visible; the crop of a later entry does not hide the advertised history controls."
+      ]
+    },
+    {
+      "path": "promo/small-440x280.png",
+      "pass": true,
+      "width": 440,
+      "height": 280,
+      "sha256": "002bc3759bc8afa251489f21c32033391ab7e9c6714adf8c7a8cbf349ceb042f",
+      "findings": [
+        "Recommended symbol-only composition is recognizable and unclipped.",
+        "The original mint square and green sparkle use solid Soft Flat surfaces without added claims or controls."
+      ]
+    },
+    {
+      "path": "promo/small-440x280-b.png",
+      "pass": true,
+      "width": 440,
+      "height": 280,
+      "sha256": "83813d33e0f80160e1ffaaf8952e3731e3e9ef462e943932de83eb7edd1efb2e",
+      "findings": [
+        "The exact short wording Translate with AI remains readable.",
+        "Copy and brand symbol are clearly separated without overflow or unsupported badges."
+      ]
+    },
+    {
+      "path": "promo/small-440x280-c.png",
+      "pass": true,
+      "width": 440,
+      "height": 280,
+      "sha256": "7e921c857294af892d6ffb6a31736130d53dffa040c81e60c33290b8de522e0d",
+      "findings": [
+        "Original mint/green mark is clear against the dark surface.",
+        "Symbol-only composition has clean edges and no clipping or additional claims."
+      ]
+    },
+    {
+      "path": "promo/marquee-1400x560.png",
+      "pass": true,
+      "width": 1400,
+      "height": 560,
+      "sha256": "6fe077d46cfb72fb6061d408ff9f93449892bff7a5b2f4b2b8ce4a5ac7577bf5",
+      "findings": [
+        "Large symbol-only mark is crisp and centrally balanced.",
+        "Generous solid background preserves the brand geometry without added copy, awards or decorative effects."
+      ]
+    },
+    {
+      "path": "icon/check.png",
+      "pass": true,
+      "width": 1280,
+      "height": 500,
+      "sha256": "73ae0ed3bf0231a300f969267afda5f9d2bbcec7f3bfd656d71c5657f65922e4",
+      "findings": [
+        "The 128px examples show the corrected inset artwork instead of edge-to-edge fill; the mint square and green sparkle remain recognizable.",
+        "Light, store and dark-toolbar comparisons remain readable at the shown sizes.",
+        "Current mark differs visibly from the displayed blue/cyan competitor translator icons; no trademark clearance or native-language claim is inferred."
+      ]
+    }
+  ],
+  "limitations": [
+    "Visual acceptance covers these ten main assets; localized screenshot review is recorded separately.",
+    "Captures show the real UI with documented demo transport; visual inspection does not establish live AI quality, production payment, interactive Google sign-in or native-language review."
+  ]
+}

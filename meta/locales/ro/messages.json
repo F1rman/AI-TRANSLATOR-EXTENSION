@@ -1,0 +1,44 @@
+{
+  "appName": {
+    "message": "AI Translator – Traducător de texte și pagini"
+  },
+  "appDescription": {
+    "message": "Traduceți texte cu AI și păstrați istoricul local. Pro adaugă traducerea paginilor, ton și context opțional."
+  },
+  "reviewPrompt": {
+    "message": "Vă place AI Translator? Evaluați extensia în Chrome Web Store"
+  },
+  "reviewRate": {
+    "message": "★ Evaluați"
+  },
+  "reviewDismiss": {
+    "message": "Închideți cererea de evaluare"
+  },
+  "welcomeTitle": {
+    "message": "Bun venit la AI Translator"
+  },
+  "welcomeIntro": {
+    "message": "AI Translator vă ajută să traduceți texte în timp ce citiți și lucrați în browser. Lipiți text în fereastra extensiei, traduceți o selecție de pe o pagină sau folosiți traducătorul Pro pentru a citi o pagină acceptată în limba aleasă."
+  },
+  "welcomePin": {
+    "message": "Fixați AI Translator în bara de instrumente și deschideți fereastra extensiei."
+  },
+  "welcomeSignIn": {
+    "message": "Autentificați-vă prin Google și alegeți limbile."
+  },
+  "welcomeFirstResult": {
+    "message": "Lipiți sau selectați text și traduceți. Pentru pagini, alegeți Pro și porniți traducerea pe o pagină acceptată."
+  },
+  "welcomeAllowance": {
+    "message": "Free include 100,000 de caractere sursă pe lună calendaristică și până la 4,000 pentru o traducere. Spațiile se iau în calcul. Limita se resetează în prima zi a fiecărei luni la 00:00 UTC; caracterele nefolosite nu se reportează. Pro costă US$$4.99 pe lună sau US$$39.99 pe an și include 2,000,000 de caractere sursă pentru fiecare interval lunar al abonamentului, până la 50,000 pentru o traducere. Plata anuală oferă tot o limită lunară separată."
+  },
+  "welcomePrivacy": {
+    "message": "Textul sursă solicitat este trimis serverului de traducere pentru procesare AI. Când modul de selecție instantanee este activat, textul selectat este trimis automat. O sesiune Pro activă trimite și texte noi eligibile de pe pagină. Contextul opțional exclude câmpurile de introducere, parolele și textul ascuns; HTML-ul paginii nu este trimis drept context. Istoricul este stocat în extensie pe acest dispozitiv, separat după cont și mediu, fără sincronizare în cloud. Înregistrarea poate fi dezactivată, iar înregistrările pot fi șterse individual sau toate odată. Se păstrează cel mult 1,000 de înregistrări ori 25 MiB, eliminându-le pe cele mai vechi la nevoie. Free arată ultimele 20; trecerea la un plan inferior nu șterge singură istoricul mai vechi."
+  },
+  "welcomeOpenSettings": {
+    "message": "Deschideți preferințele"
+  },
+  "welcomeReadPrivacy": {
+    "message": "Citiți politica de confidențialitate"
+  }
+}

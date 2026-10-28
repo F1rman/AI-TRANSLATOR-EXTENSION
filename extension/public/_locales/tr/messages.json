@@ -1,0 +1,44 @@
+{
+  "appName": {
+    "message": "AI Translator – Metin ve web sayfası çevirmeni"
+  },
+  "appDescription": {
+    "message": "Yapay zekâyla metin çevirin, yerel geçmişi saklayın. Pro; sayfa çevirisi, üslup ve isteğe bağlı bağlam sunar."
+  },
+  "reviewPrompt": {
+    "message": "AI Translator’ı beğendiniz mi? Chrome Web Store’da değerlendirin"
+  },
+  "reviewRate": {
+    "message": "★ Değerlendir"
+  },
+  "reviewDismiss": {
+    "message": "Değerlendirme isteğini kapat"
+  },
+  "welcomeTitle": {
+    "message": "AI Translator’a hoş geldiniz"
+  },
+  "welcomeIntro": {
+    "message": "AI Translator, tarayıcıda okurken ve çalışırken metin çevirmenize yardımcı olur. Açılır pencereye metin yapıştırın, bir web sayfasında seçtiğiniz metni çevirin veya desteklenen bir sayfayı seçtiğiniz dilde okumak için Pro sayfa çevirisini kullanın."
+  },
+  "welcomePin": {
+    "message": "AI Translator’ı araç çubuğuna sabitleyin ve açılır pencereyi açın."
+  },
+  "welcomeSignIn": {
+    "message": "Google ile giriş yapın ve dilleri seçin."
+  },
+  "welcomeFirstResult": {
+    "message": "Metin yapıştırın veya seçin ve çevirin. Sayfa çevirisi için Pro’yu seçip desteklenen sayfada başlatın."
+  },
+  "welcomeAllowance": {
+    "message": "Free, takvim ayı başına 100,000 kaynak karakter ve çeviri başına en fazla 4,000 karakter içerir. Boşluklar da sayılır. Kota her ayın ilk günü 00:00 UTC’de yenilenir; kullanılmayan karakterler devretmez. Pro aylık US$$4.99 veya yıllık US$$39.99 tutarındadır; her aylık abonelik döneminde 2,000,000 kaynak karakter, çeviri başına en fazla 50,000 karakter sunar. Yıllık ödemede de aylık kota ayrı ayrı verilir."
+  },
+  "welcomePrivacy": {
+    "message": "İstenen kaynak metin, yapay zekâ ile işlenmek üzere çeviri sunucusuna gönderilir. Anında seçim modu açıksa seçilen metin otomatik gönderilir. Etkin Pro sayfa oturumu da uygun yeni sayfa metnini göründükçe gönderir. İsteğe bağlı bağlam; giriş alanlarını, parolaları ve gizli metni dışlar; sayfa HTML’i bağlam olarak gönderilmez. Geçmiş, bu cihazdaki uzantıda hesap ve ortam için ayrı tutulur; bulut eşitlemesi yoktur. Kaydı kapatabilir, tek tek kayıt silebilir veya hepsini temizleyebilirsiniz. En fazla 1,000 kayıt veya 25 MiB saklanır; gerektiğinde en eskiler silinir. Free son 20 kaydı gösterir; daha düşük plana geçmek tek başına eski kayıtları silmez."
+  },
+  "welcomeOpenSettings": {
+    "message": "Tercihleri aç"
+  },
+  "welcomeReadPrivacy": {
+    "message": "Gizlilik politikasını oku"
+  }
+}

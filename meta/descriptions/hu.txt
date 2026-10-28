@@ -1,0 +1,38 @@
+Az AI Translator segít szöveget fordítani böngészés és munka közben. Illessz szöveget a felugró ablakba, fordíts le egy kijelölt részt egy weboldalon, vagy a Pro weboldalfordítójával olvass egy támogatott oldalt a választott nyelven.
+
+SZÖVEGFORDÍTÁS
+• Fordíts begépelt vagy beillesztett szöveget a felugró ablakban.
+• Jelölj ki szöveget egy oldalon, és használd a fordításikont vagy a helyi menüt.
+• Ismertesd fel automatikusan a forrásnyelvet, vagy válaszd ki magad.
+• Másold az eredményt, és keresd meg a kész fordításokat a helyi előzményekben.
+
+FREE
+A Free naptári havonta 100,000 forráskaraktert és fordításonként legfeljebb 4,000 karaktert tartalmaz. A szóközök is számítanak. A keret a hónap első napján 00:00 UTC-kor újul meg; a fel nem használt karakterek nem vihetők tovább.
+
+A Free semleges hangnemet használ, és az utolsó 20 előzményt mutatja. A fordításhoz és a fiók keretének nyilvántartásához Google-bejelentkezés szükséges.
+
+PRO
+A Pro ára 4.99 USD havonta vagy 39.99 USD évente, és tartalmazza:
+• 2,000,000 forráskaraktert havi előfizetési időszakonként, fordításonként legfeljebb 50,000 karakterrel. Éves fizetéskor is külön havi keret jár.
+• Támogatott weboldalak fordítását, az aktív munkamenet közben megjelenő új szöveggel együtt. A fordítás szüneteltethető, az eredeti szöveg visszaállítható.
+• Semleges, formális, barátságos és technikai hangnemet.
+• Legfeljebb 2,000 látható környező karakterből álló választható kontextust az aktuális oldalon. Te döntesz a használatáról.
+• Hozzáférést legfeljebb 1,000 helyi előzményhez és elsőbbségi feldolgozási sort. A feldolgozási idő változhat.
+
+A Pro kerete az előfizetés kezdőnapjától havonta újul meg, az éves csomagnál is. A maradék nem vihető tovább. A megújítást a fiókodban kezelheted vagy lemondhatod; a lemondás után a fizetett időszak végéig megmarad a hozzáférés.
+
+ELSŐ LÉPÉSEK
+1. Rögzítsd az AI Translatort az eszköztárra, és nyisd meg a felugró ablakot.
+2. Jelentkezz be Google-fiókkal, és válaszd ki a nyelveket.
+3. Illessz be vagy jelölj ki szöveget, és fordítsd le. Weboldalakhoz válaszd a Prót, majd indítsd el a fordítást egy támogatott oldalon.
+
+ADATVÉDELEM ÉS HELYI ELŐZMÉNYEK
+A kért forrásszöveg MI-feldolgozásra a fordítószerverre kerül. Bekapcsolt azonnali kijelölésfordítás esetén a kijelölt szöveg automatikusan elküldődik. Az aktív Pro-oldalmunkamenet az újonnan megjelenő, támogatott szöveget is elküldi. A választható kontextus kihagyja a beviteli mezőket, jelszavakat és rejtett szöveget; az oldal HTML-kódját nem küldi el kontextusként.
+
+Az előzmények ezen az eszközön, a bővítményben tárolódnak, fiókonként és környezetenként elkülönítve, felhőszinkron nélkül. A mentés kikapcsolható, a bejegyzések egyenként törölhetők vagy az összes kiüríthető. Legfeljebb 1,000 bejegyzés vagy 25 MiB marad meg; szükség esetén a legrégebbiek törlődnek. A Free az utolsó 20-at mutatja; a kisebb csomagra váltás önmagában nem törli a régebbieket.
+
+A kezelőfelület angolul és ukránul érhető el. A Chrome belső oldalai és a Chrome Web Store nem fordíthatók.
+
+https://ai-translator-ext.web.app/privacy
+https://balubenko-stripe.web.app/ai-translator-terms
+https://ai-translator-ext.web.app/support

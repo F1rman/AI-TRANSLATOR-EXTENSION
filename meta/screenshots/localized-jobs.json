@@ -1,0 +1,1652 @@
+[
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=%D8%A7%D9%81%D9%87%D9%85+%D9%83%D9%84+%D9%83%D9%84%D9%85%D8%A9&desc=%D8%AA%D8%B1%D8%AC%D9%85+%D8%A7%D9%84%D9%86%D8%B5%D9%88%D8%B5+%D9%88%D8%A7%D9%84%D8%AA%D8%AD%D8%AF%D9%8A%D8%AF%D8%A7%D8%AA+%D8%A8%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1+%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=ar&dir=rtl",
+    "out": "meta/screenshots/ar/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=%D0%A0%D0%B0%D0%B7%D0%B1%D0%B5%D1%80%D0%B5%D1%82%D0%B5+%D0%B2%D1%81%D1%8F%D0%BA%D0%B0+%D0%B4%D1%83%D0%BC%D0%B0&desc=%D0%9F%D1%80%D0%B5%D0%B2%D0%B5%D0%B6%D0%B4%D0%B0%D0%B9%D1%82%D0%B5+%D1%82%D0%B5%D0%BA%D1%81%D1%82+%D0%B8+%D0%B8%D0%B7%D0%B1%D1%80%D0%B0%D0%BD%D0%B8+%D0%BE%D1%82%D0%BA%D1%8A%D1%81%D0%B8+%D1%81+%D0%98%D0%98.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=bg&dir=ltr",
+    "out": "meta/screenshots/bg/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=%E1%8A%A5%E1%8B%AB%E1%8A%95%E1%8B%B3%E1%8A%95%E1%8B%B1%E1%8A%95+%E1%89%83%E1%88%8D+%E1%8B%AD%E1%88%A8%E1%8B%B1&desc=%E1%8C%BD%E1%88%91%E1%8D%8D%E1%8A%93+%E1%88%9D%E1%88%AD%E1%8C%AB%E1%8B%8E%E1%89%BD%E1%8A%95+%E1%89%A0AI+%E1%8B%AD%E1%89%B0%E1%88%AD%E1%8C%89%E1%88%99%E1%8D%A2&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=am&dir=ltr",
+    "out": "meta/screenshots/am/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=%D0%98%D0%B7%D0%B1%D0%B5%D1%80%D0%B5%D1%82%D0%B5.+%D0%9F%D1%80%D0%B5%D0%B2%D0%B5%D0%B4%D0%B5%D1%82%D0%B5.+%D0%9F%D1%80%D0%BE%D0%B4%D1%8A%D0%BB%D0%B6%D0%B5%D1%82%D0%B5.&desc=%D0%92%D0%B8%D0%B6%D1%82%D0%B5+%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%D1%82%D0%BE+%D0%B4%D0%BE+%D1%82%D0%B5%D0%BA%D1%81%D1%82%D0%B0.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=bg&dir=ltr",
+    "out": "meta/screenshots/bg/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=%D8%AD%D8%AF%D9%91%D8%AF%D8%8C+%D8%AA%D8%B1%D8%AC%D9%85%D8%8C+%D8%AA%D8%A7%D8%A8%D8%B9+%D8%A7%D9%84%D9%82%D8%B1%D8%A7%D8%A1%D8%A9&desc=%D8%A7%D8%B9%D8%B1%D9%81+%D8%A7%D9%84%D9%85%D8%B9%D9%86%D9%89+%D8%A8%D8%AC%D8%A7%D9%86%D8%A8+%D8%A7%D9%84%D9%86%D8%B5.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=ar&dir=rtl",
+    "out": "meta/screenshots/ar/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=%E1%8B%AD%E1%88%9D%E1%88%A8%E1%8C%A1%E1%8D%A2+%E1%8B%AD%E1%89%B0%E1%88%AD%E1%8C%89%E1%88%99%E1%8D%A2+%E1%8B%AB%E1%8A%95%E1%89%A5%E1%89%A1%E1%8D%A2&desc=%E1%89%B5%E1%88%AD%E1%8C%89%E1%88%99%E1%8A%95+%E1%8A%A8%E1%8C%BD%E1%88%91%E1%8D%89+%E1%8A%A0%E1%8C%A0%E1%8C%88%E1%89%A5+%E1%8B%AD%E1%88%98%E1%88%8D%E1%8A%A8%E1%89%B1%E1%8D%A2&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=am&dir=ltr",
+    "out": "meta/screenshots/am/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=%D0%9F%D1%80%D0%BE%D1%87%D0%B5%D1%82%D0%B5%D1%82%D0%B5+%D1%86%D1%8F%D0%BB%D0%B0%D1%82%D0%B0+%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0&desc=Pro+%D0%BF%D1%80%D0%B5%D0%B2%D0%B5%D0%B6%D0%B4%D0%B0+%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B8+%D0%B8+%D0%B2%D1%8A%D0%B7%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D1%8F%D0%B2%D0%B0+%D0%BE%D1%80%D0%B8%D0%B3%D0%B8%D0%BD%D0%B0%D0%BB%D0%B0.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=bg&dir=ltr",
+    "out": "meta/screenshots/bg/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=%D8%A7%D9%82%D8%B1%D8%A3+%D8%A7%D9%84%D8%B5%D9%81%D8%AD%D8%A9+%D9%83%D8%A7%D9%85%D9%84%D8%A9&desc=%D9%8A%D8%AA%D8%B1%D8%AC%D9%85+Pro+%D8%A7%D9%84%D8%B5%D9%81%D8%AD%D8%A7%D8%AA+%D9%88%D9%8A%D8%B9%D9%8A%D8%AF+%D8%A7%D9%84%D9%86%D8%B5+%D8%A7%D9%84%D8%A3%D8%B5%D9%84%D9%8A.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=ar&dir=rtl",
+    "out": "meta/screenshots/ar/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=%E1%88%99%E1%88%89+%E1%8C%88%E1%8C%B9%E1%8A%95+%E1%8B%AB%E1%8A%95%E1%89%A5%E1%89%A1&desc=Pro+%E1%8C%88%E1%8C%BE%E1%89%BD%E1%8A%95+%E1%8B%AD%E1%89%B0%E1%88%A8%E1%8C%89%E1%88%9B%E1%88%8D%E1%8D%A3+%E1%8B%8B%E1%8A%93%E1%8B%8D%E1%8A%95%E1%88%9D+%E1%8B%AD%E1%88%98%E1%88%8D%E1%88%B3%E1%88%8D%E1%8D%A2&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=am&dir=ltr",
+    "out": "meta/screenshots/am/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=%D0%9D%D0%B0%D0%BC%D0%B5%D1%80%D0%B5%D1%82%D0%B5+%D0%BF%D0%BE%D0%B4%D1%85%D0%BE%D0%B4%D1%8F%D1%89%D0%B8%D1%8F+%D1%82%D0%BE%D0%BD&desc=Pro+%D0%B4%D0%BE%D0%B1%D0%B0%D0%B2%D1%8F+%D1%82%D0%BE%D0%BD+%D0%B8+%D0%BA%D0%BE%D0%BD%D1%82%D0%B5%D0%BA%D1%81%D1%82+%D0%BF%D0%BE+%D0%B8%D0%B7%D0%B1%D0%BE%D1%80.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=bg&dir=ltr",
+    "out": "meta/screenshots/bg/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=%D8%A7%D8%AE%D8%AA%D8%B1+%D8%A7%D9%84%D8%A3%D8%B3%D9%84%D9%88%D8%A8+%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B3%D8%A8&desc=%D9%8A%D8%B6%D9%8A%D9%81+Pro+%D8%A7%D9%84%D8%A3%D8%B3%D9%84%D9%88%D8%A8+%D9%88%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D9%82+%D8%A7%D9%84%D8%A7%D8%AE%D8%AA%D9%8A%D8%A7%D8%B1%D9%8A.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=ar&dir=rtl",
+    "out": "meta/screenshots/ar/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=%E1%89%B0%E1%88%B5%E1%88%9B%E1%88%9A%E1%8B%8D%E1%8A%95+%E1%89%85%E1%88%8B%E1%8C%BC+%E1%8B%AD%E1%88%9D%E1%88%A8%E1%8C%A1&desc=Pro+%E1%89%85%E1%88%8B%E1%8C%BC%E1%8A%93+%E1%8A%A0%E1%88%9B%E1%88%AB%E1%8C%AD+%E1%8A%A0%E1%8B%8D%E1%8B%B5+%E1%8B%AB%E1%8A%AD%E1%88%8B%E1%88%8D%E1%8D%A2&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=am&dir=ltr",
+    "out": "meta/screenshots/am/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=%D0%9F%D1%80%D0%B5%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5+%D0%B2%D0%B8%D0%BD%D0%B0%D0%B3%D0%B8+%D1%81%D0%B0+%D0%BD%D0%B0%D0%B1%D0%BB%D0%B8%D0%B7%D0%BE&desc=%D0%9B%D0%BE%D0%BA%D0%B0%D0%BB%D0%BD%D0%B0+%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F+%D0%BF%D0%BE%D0%B4+%D0%B2%D0%B0%D1%88+%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=bg&dir=ltr",
+    "out": "meta/screenshots/bg/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=%D8%AA%D8%B1%D8%AC%D9%85%D8%A7%D8%AA%D9%83+%D8%AF%D8%A7%D8%A6%D9%85%D9%8B%D8%A7+%D9%82%D8%B1%D9%8A%D8%A8%D8%A9&desc=%D8%B3%D8%AC%D9%84+%D9%85%D8%AD%D9%84%D9%8A+%D8%AA%D8%AD%D8%AA+%D8%B3%D9%8A%D8%B7%D8%B1%D8%AA%D9%83.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=ar&dir=rtl",
+    "out": "meta/screenshots/ar/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=%E1%89%B5%E1%88%AD%E1%8C%89%E1%88%9E%E1%89%BD%E1%8B%8E+%E1%88%81%E1%88%8C%E1%88%9D+%E1%89%A0%E1%8A%A0%E1%8C%A0%E1%8C%88%E1%89%A5%E1%8B%8E&desc=%E1%8A%A0%E1%8A%AB%E1%89%A3%E1%89%A2%E1%8B%AB%E1%8B%8A+%E1%89%B3%E1%88%AA%E1%8A%AD%E1%8D%A3+%E1%89%A0%E1%8A%A5%E1%88%AD%E1%88%B5%E1%8B%8E+%E1%89%81%E1%8C%A5%E1%8C%A5%E1%88%AD%E1%8D%A2&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=am&dir=ltr",
+    "out": "meta/screenshots/am/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=Ent%C3%A9n+cada+paraula&desc=Tradueix+text+i+seleccions+amb+IA.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=ca&dir=ltr",
+    "out": "meta/screenshots/ca/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=%E0%A6%AA%E0%A7%8D%E0%A6%B0%E0%A6%A4%E0%A6%BF%E0%A6%9F%E0%A6%BF+%E0%A6%B6%E0%A6%AC%E0%A7%8D%E0%A6%A6+%E0%A6%AC%E0%A7%81%E0%A6%9D%E0%A7%81%E0%A6%A8&desc=%E0%A6%9F%E0%A7%87%E0%A6%95%E0%A7%8D%E0%A6%B8%E0%A6%9F+%E0%A6%93+%E0%A6%A8%E0%A6%BF%E0%A6%B0%E0%A7%8D%E0%A6%AC%E0%A6%BE%E0%A6%9A%E0%A6%BF%E0%A6%A4+%E0%A6%85%E0%A6%82%E0%A6%B6+AI+%E0%A6%A6%E0%A6%BF%E0%A6%AF%E0%A6%BC%E0%A7%87+%E0%A6%85%E0%A6%A8%E0%A7%81%E0%A6%AC%E0%A6%BE%E0%A6%A6+%E0%A6%95%E0%A6%B0%E0%A7%81%E0%A6%A8%E0%A5%A4&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=bn&dir=ltr",
+    "out": "meta/screenshots/bn/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=Rozum%C4%9Bjte+ka%C5%BEd%C3%A9mu+slovu&desc=P%C5%99ekl%C3%A1dejte+text+a+v%C3%BDb%C4%9Bry+pomoc%C3%AD+AI.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=cs&dir=ltr",
+    "out": "meta/screenshots/cs/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Selecciona.+Tradueix.+Continua.&desc=Consulta+el+significat+al+costat+del+text.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=ca&dir=ltr",
+    "out": "meta/screenshots/ca/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Ozna%C4%8Dte.+P%C5%99elo%C5%BEte.+%C4%8Ct%C4%9Bte+d%C3%A1l.&desc=V%C3%BDznam+uvid%C3%ADte+p%C5%99%C3%ADmo+u+textu.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=cs&dir=ltr",
+    "out": "meta/screenshots/cs/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=%E0%A6%AC%E0%A6%BE%E0%A6%9B%E0%A7%81%E0%A6%A8%E0%A5%A4+%E0%A6%85%E0%A6%A8%E0%A7%81%E0%A6%AC%E0%A6%BE%E0%A6%A6+%E0%A6%95%E0%A6%B0%E0%A7%81%E0%A6%A8%E0%A5%A4+%E0%A6%AA%E0%A6%A1%E0%A6%BC%E0%A7%81%E0%A6%A8%E0%A5%A4&desc=%E0%A6%9F%E0%A7%87%E0%A6%95%E0%A7%8D%E0%A6%B8%E0%A6%9F%E0%A7%87%E0%A6%B0+%E0%A6%AA%E0%A6%BE%E0%A6%B6%E0%A7%87%E0%A6%87+%E0%A6%85%E0%A6%B0%E0%A7%8D%E0%A6%A5+%E0%A6%A6%E0%A7%87%E0%A6%96%E0%A7%81%E0%A6%A8%E0%A5%A4&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=bn&dir=ltr",
+    "out": "meta/screenshots/bn/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=Llegeix+tota+la+p%C3%A0gina&desc=Pro+tradueix+p%C3%A0gines+i+restaura+els+originals.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=ca&dir=ltr",
+    "out": "meta/screenshots/ca/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=P%C5%99e%C4%8Dt%C4%9Bte+celou+str%C3%A1nku&desc=Pro+p%C5%99ekl%C3%A1d%C3%A1+str%C3%A1nky+a+obnovuje+origin%C3%A1ly.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=cs&dir=ltr",
+    "out": "meta/screenshots/cs/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=%E0%A6%AA%E0%A7%81%E0%A6%B0%E0%A7%8B+%E0%A6%AA%E0%A7%87%E0%A6%9C+%E0%A6%AA%E0%A6%A1%E0%A6%BC%E0%A7%81%E0%A6%A8&desc=Pro+%E0%A6%AA%E0%A7%87%E0%A6%9C+%E0%A6%85%E0%A6%A8%E0%A7%81%E0%A6%AC%E0%A6%BE%E0%A6%A6+%E0%A6%93+%E0%A6%AE%E0%A7%82%E0%A6%B2+%E0%A6%9F%E0%A7%87%E0%A6%95%E0%A7%8D%E0%A6%B8%E0%A6%9F+%E0%A6%AB%E0%A7%87%E0%A6%B0%E0%A6%BE%E0%A6%AF%E0%A6%BC%E0%A5%A4&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=bn&dir=ltr",
+    "out": "meta/screenshots/bn/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=Troba+el+to+adequat&desc=Pro+afegeix+to+i+context+opcional.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=ca&dir=ltr",
+    "out": "meta/screenshots/ca/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=Zvolte+vhodn%C3%BD+t%C3%B3n&desc=Pro+p%C5%99id%C3%A1v%C3%A1+t%C3%B3n+a+voliteln%C3%BD+kontext.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=cs&dir=ltr",
+    "out": "meta/screenshots/cs/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=%E0%A6%B8%E0%A6%A0%E0%A6%BF%E0%A6%95+%E0%A6%AD%E0%A6%99%E0%A7%8D%E0%A6%97%E0%A6%BF+%E0%A6%AC%E0%A7%87%E0%A6%9B%E0%A7%87+%E0%A6%A8%E0%A6%BF%E0%A6%A8&desc=Pro-%E0%A6%A4%E0%A7%87+%E0%A6%AD%E0%A6%99%E0%A7%8D%E0%A6%97%E0%A6%BF+%E0%A6%93+%E0%A6%90%E0%A6%9A%E0%A7%8D%E0%A6%9B%E0%A6%BF%E0%A6%95+%E0%A6%AA%E0%A7%8D%E0%A6%B0%E0%A6%B8%E0%A6%99%E0%A7%8D%E0%A6%97+%E0%A6%86%E0%A6%9B%E0%A7%87%E0%A5%A4&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=bn&dir=ltr",
+    "out": "meta/screenshots/bn/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=Les+traduccions%2C+a+m%C3%A0&desc=Historial+local+sota+el+teu+control.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=ca&dir=ltr",
+    "out": "meta/screenshots/ca/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=P%C5%99eklady+v%C5%BEdy+po+ruce&desc=M%C3%ADstn%C3%AD+historie+pod+va%C5%A1%C3%AD+kontrolou.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=cs&dir=ltr",
+    "out": "meta/screenshots/cs/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=%E0%A6%85%E0%A6%A8%E0%A7%81%E0%A6%AC%E0%A6%BE%E0%A6%A6+%E0%A6%B9%E0%A6%BE%E0%A6%A4%E0%A7%87%E0%A6%B0+%E0%A6%95%E0%A6%BE%E0%A6%9B%E0%A7%87%E0%A6%87&desc=%E0%A6%B8%E0%A7%8D%E0%A6%A5%E0%A6%BE%E0%A6%A8%E0%A7%80%E0%A6%AF%E0%A6%BC+%E0%A6%87%E0%A6%A4%E0%A6%BF%E0%A6%B9%E0%A6%BE%E0%A6%B8+%E0%A6%86%E0%A6%AA%E0%A6%A8%E0%A6%BE%E0%A6%B0+%E0%A6%A8%E0%A6%BF%E0%A6%AF%E0%A6%BC%E0%A6%A8%E0%A7%8D%E0%A6%A4%E0%A7%8D%E0%A6%B0%E0%A6%A3%E0%A7%87%E0%A5%A4&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=bn&dir=ltr",
+    "out": "meta/screenshots/bn/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=Forst%C3%A5+hvert+et+ord&desc=Overs%C3%A6t+tekst+og+markeringer+med+AI.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=da&dir=ltr",
+    "out": "meta/screenshots/da/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=Verstehe+jedes+Wort&desc=%C3%9Cbersetze+Texte+und+Markierungen+mit+KI.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=de&dir=ltr",
+    "out": "meta/screenshots/de/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=%CE%9A%CE%B1%CF%84%CE%B1%CE%BD%CE%BF%CE%AE%CF%83%CF%84%CE%B5+%CE%BA%CE%AC%CE%B8%CE%B5+%CE%BB%CE%AD%CE%BE%CE%B7&desc=%CE%9C%CE%B5%CF%84%CE%AC%CF%86%CF%81%CE%B1%CF%83%CE%B7+%CE%BA%CE%B5%CE%B9%CE%BC%CE%AD%CE%BD%CE%BF%CF%85+%CE%BA%CE%B1%CE%B9+%CE%B5%CF%80%CE%B9%CE%BB%CE%BF%CE%B3%CF%8E%CE%BD+%CE%BC%CE%B5+%CE%A4%CE%9D.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=el&dir=ltr",
+    "out": "meta/screenshots/el/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Mark%C3%A9r.+Overs%C3%A6t.+L%C3%A6s+videre.&desc=Se+betydningen+ved+siden+af+teksten.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=da&dir=ltr",
+    "out": "meta/screenshots/da/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Markieren.+%C3%9Cbersetzen.+Weiterlesen.&desc=Die+Bedeutung+direkt+am+Text+sehen.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=de&dir=ltr",
+    "out": "meta/screenshots/de/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=%CE%95%CF%80%CE%B9%CE%BB%CE%BF%CE%B3%CE%AE.+%CE%9C%CE%B5%CF%84%CE%AC%CF%86%CF%81%CE%B1%CF%83%CE%B7.+%CE%91%CE%BD%CE%AC%CE%B3%CE%BD%CF%89%CF%83%CE%B7.&desc=%CE%94%CE%B5%CE%AF%CF%84%CE%B5+%CF%84%CE%BF+%CE%BD%CF%8C%CE%B7%CE%BC%CE%B1+%CE%B4%CE%AF%CF%80%CE%BB%CE%B1+%CF%83%CF%84%CE%BF+%CE%BA%CE%B5%CE%AF%CE%BC%CE%B5%CE%BD%CE%BF.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=el&dir=ltr",
+    "out": "meta/screenshots/el/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=L%C3%A6s+hele+siden&desc=Pro+overs%C3%A6tter+sider+og+gendanner+originaler.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=da&dir=ltr",
+    "out": "meta/screenshots/da/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=Lies+die+ganze+Seite&desc=Pro+%C3%BCbersetzt+Seiten+und+stellt+Originale+wieder+her.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=de&dir=ltr",
+    "out": "meta/screenshots/de/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=Find+den+rette+tone&desc=Pro+tilf%C3%B8jer+tone+og+valgfri+kontekst.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=da&dir=ltr",
+    "out": "meta/screenshots/da/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=%CE%94%CE%B9%CE%B1%CE%B2%CE%AC%CF%83%CF%84%CE%B5+%CF%8C%CE%BB%CE%B7+%CF%84%CE%B7+%CF%83%CE%B5%CE%BB%CE%AF%CE%B4%CE%B1&desc=%CE%A4%CE%BF+Pro+%CE%BC%CE%B5%CF%84%CE%B1%CF%86%CF%81%CE%AC%CE%B6%CE%B5%CE%B9+%CE%BA%CE%B1%CE%B9+%CE%B5%CF%80%CE%B1%CE%BD%CE%B1%CF%86%CE%AD%CF%81%CE%B5%CE%B9+%CF%84%CE%BF+%CE%B1%CF%81%CF%87%CE%B9%CE%BA%CF%8C.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=el&dir=ltr",
+    "out": "meta/screenshots/el/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=Finde+den+passenden+Ton&desc=Pro+erg%C3%A4nzt+Ton+und+optionalen+Kontext.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=de&dir=ltr",
+    "out": "meta/screenshots/de/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=Hav+overs%C3%A6ttelser+ved+h%C3%A5nden&desc=Lokal+historik+under+din+kontrol.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=da&dir=ltr",
+    "out": "meta/screenshots/da/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=%CE%92%CF%81%CE%B5%CE%AF%CF%84%CE%B5+%CF%84%CE%BF+%CF%83%CF%89%CF%83%CF%84%CF%8C+%CF%8D%CF%86%CE%BF%CF%82&desc=%CE%A4%CE%BF+Pro+%CF%80%CF%81%CE%BF%CF%83%CE%B8%CE%AD%CF%84%CE%B5%CE%B9+%CF%8D%CF%86%CE%BF%CF%82+%CE%BA%CE%B1%CE%B9+%CF%83%CF%85%CE%BC%CF%86%CF%81%CE%B1%CE%B6%CF%8C%CE%BC%CE%B5%CE%BD%CE%B1.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=el&dir=ltr",
+    "out": "meta/screenshots/el/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=%C3%9Cbersetzungen+immer+griffbereit&desc=Lokaler+Verlauf+unter+deiner+Kontrolle.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=de&dir=ltr",
+    "out": "meta/screenshots/de/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=Understand+every+word&desc=Translate+text+and+selections+with+AI.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=en&dir=ltr",
+    "out": "meta/screenshots/en/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=%CE%9F%CE%B9+%CE%BC%CE%B5%CF%84%CE%B1%CF%86%CF%81%CE%AC%CF%83%CE%B5%CE%B9%CF%82+%CF%80%CE%AC%CE%BD%CF%84%CE%B1+%CE%BA%CE%BF%CE%BD%CF%84%CE%AC&desc=%CE%A4%CE%BF%CF%80%CE%B9%CE%BA%CF%8C+%CE%B9%CF%83%CF%84%CE%BF%CF%81%CE%B9%CE%BA%CF%8C+%CF%83%CF%84%CE%BF%CE%BD+%CE%AD%CE%BB%CE%B5%CE%B3%CF%87%CF%8C+%CF%83%CE%B1%CF%82.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=el&dir=ltr",
+    "out": "meta/screenshots/el/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=Understand+every+word&desc=Translate+text+and+selections+with+AI.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=en-AU&dir=ltr",
+    "out": "meta/screenshots/en_AU/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Select.+Translate.+Keep+reading.&desc=See+the+meaning+beside+the+text.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=en&dir=ltr",
+    "out": "meta/screenshots/en/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=Understand+every+word&desc=Translate+text+and+selections+with+AI.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=en-GB&dir=ltr",
+    "out": "meta/screenshots/en_GB/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Select.+Translate.+Keep+reading.&desc=See+the+meaning+beside+the+text.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=en-AU&dir=ltr",
+    "out": "meta/screenshots/en_AU/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=Read+the+whole+page&desc=Pro+translates+pages+and+restores+originals.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=en&dir=ltr",
+    "out": "meta/screenshots/en/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Select.+Translate.+Keep+reading.&desc=See+the+meaning+beside+the+text.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=en-GB&dir=ltr",
+    "out": "meta/screenshots/en_GB/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=Read+the+whole+page&desc=Pro+translates+pages+and+restores+originals.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=en-AU&dir=ltr",
+    "out": "meta/screenshots/en_AU/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=Make+the+tone+fit&desc=Pro+adds+tone+and+optional+page+context.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=en&dir=ltr",
+    "out": "meta/screenshots/en/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=Read+the+whole+page&desc=Pro+translates+pages+and+restores+originals.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=en-GB&dir=ltr",
+    "out": "meta/screenshots/en_GB/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=Make+the+tone+fit&desc=Pro+adds+tone+and+optional+page+context.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=en-AU&dir=ltr",
+    "out": "meta/screenshots/en_AU/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=Keep+translations+close&desc=Local+history.+Yours+to+manage.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=en&dir=ltr",
+    "out": "meta/screenshots/en/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=Make+the+tone+fit&desc=Pro+adds+tone+and+optional+page+context.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=en-GB&dir=ltr",
+    "out": "meta/screenshots/en_GB/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=Keep+translations+close&desc=Local+history.+Yours+to+manage.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=en-AU&dir=ltr",
+    "out": "meta/screenshots/en_AU/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=Understand+every+word&desc=Translate+text+and+selections+with+AI.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=en-US&dir=ltr",
+    "out": "meta/screenshots/en_US/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=Keep+translations+close&desc=Local+history.+Yours+to+manage.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=en-GB&dir=ltr",
+    "out": "meta/screenshots/en_GB/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=Entiende+cada+palabra&desc=Traduce+texto+y+selecciones+con+IA.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=es&dir=ltr",
+    "out": "meta/screenshots/es/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Select.+Translate.+Keep+reading.&desc=See+the+meaning+beside+the+text.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=en-US&dir=ltr",
+    "out": "meta/screenshots/en_US/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=Entiende+cada+palabra&desc=Traduce+texto+y+selecciones+con+IA.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=es-419&dir=ltr",
+    "out": "meta/screenshots/es_419/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Selecciona.+Traduce.+Sigue+leyendo.&desc=Comprende+el+significado+junto+al+texto.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=es&dir=ltr",
+    "out": "meta/screenshots/es/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=Read+the+whole+page&desc=Pro+translates+pages+and+restores+originals.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=en-US&dir=ltr",
+    "out": "meta/screenshots/en_US/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Selecciona.+Traduce.+Sigue+leyendo.&desc=Comprende+el+significado+junto+al+texto.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=es-419&dir=ltr",
+    "out": "meta/screenshots/es_419/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=Make+the+tone+fit&desc=Pro+adds+tone+and+optional+page+context.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=en-US&dir=ltr",
+    "out": "meta/screenshots/en_US/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=Lee+toda+la+p%C3%A1gina&desc=Pro+traduce+p%C3%A1ginas+y+recupera+los+originales.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=es&dir=ltr",
+    "out": "meta/screenshots/es/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=Lee+toda+la+p%C3%A1gina&desc=Pro+traduce+p%C3%A1ginas+y+recupera+los+originales.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=es-419&dir=ltr",
+    "out": "meta/screenshots/es_419/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=Keep+translations+close&desc=Local+history.+Yours+to+manage.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=en-US&dir=ltr",
+    "out": "meta/screenshots/en_US/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=Encuentra+el+tono+adecuado&desc=Pro+a%C3%B1ade+tono+y+contexto+opcional.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=es&dir=ltr",
+    "out": "meta/screenshots/es/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=Encuentra+el+tono+adecuado&desc=Pro+a%C3%B1ade+tono+y+contexto+opcional.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=es-419&dir=ltr",
+    "out": "meta/screenshots/es_419/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=M%C3%B5ista+iga+s%C3%B5na&desc=T%C3%B5lgi+teksti+ja+valikuid+tehisaruga.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=et&dir=ltr",
+    "out": "meta/screenshots/et/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=Tus+traducciones%2C+a+mano&desc=Historial+local+bajo+tu+control.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=es&dir=ltr",
+    "out": "meta/screenshots/es/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=Tus+traducciones%2C+a+mano&desc=Historial+local+bajo+tu+control.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=es-419&dir=ltr",
+    "out": "meta/screenshots/es_419/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Vali.+T%C3%B5lgi.+Loe+edasi.&desc=N%C3%A4e+t%C3%A4hendust+otse+teksti+k%C3%B5rval.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=et&dir=ltr",
+    "out": "meta/screenshots/et/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=%D9%87%D8%B1+%D9%88%D8%A7%DA%98%D9%87+%D8%B1%D8%A7+%D8%A8%D9%81%D9%87%D9%85%DB%8C%D8%AF&desc=%D9%85%D8%AA%D9%86+%D9%88+%D8%A7%D9%86%D8%AA%D8%AE%D8%A7%D8%A8%E2%80%8C%D9%87%D8%A7+%D8%B1%D8%A7+%D8%A8%D8%A7+%D9%87%D9%88%D8%B4+%D9%85%D8%B5%D9%86%D9%88%D8%B9%DB%8C+%D8%AA%D8%B1%D8%AC%D9%85%D9%87+%DA%A9%D9%86%DB%8C%D8%AF.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=fa&dir=rtl",
+    "out": "meta/screenshots/fa/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=Ymm%C3%A4rr%C3%A4+jokainen+sana&desc=K%C3%A4%C3%A4nn%C3%A4+teksti%C3%A4+ja+valintoja+teko%C3%A4lyll%C3%A4.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=fi&dir=ltr",
+    "out": "meta/screenshots/fi/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=Loe+kogu+veebilehte&desc=Pro+t%C3%B5lgib+lehti+ja+taastab+algteksti.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=et&dir=ltr",
+    "out": "meta/screenshots/et/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=%D8%A7%D9%86%D8%AA%D8%AE%D8%A7%D8%A8%D8%8C+%D8%AA%D8%B1%D8%AC%D9%85%D9%87%D8%8C+%D8%A7%D8%AF%D8%A7%D9%85%D9%87%D9%94+%D8%AE%D9%88%D8%A7%D9%86%D8%AF%D9%86&desc=%D9%85%D8%B9%D9%86%DB%8C+%D8%B1%D8%A7+%DA%A9%D9%86%D8%A7%D8%B1+%D9%85%D8%AA%D9%86+%D8%A8%D8%A8%DB%8C%D9%86%DB%8C%D8%AF.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=fa&dir=rtl",
+    "out": "meta/screenshots/fa/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Valitse.+K%C3%A4%C3%A4nn%C3%A4.+Lue+lis%C3%A4%C3%A4.&desc=N%C3%A4e+merkitys+tekstin+vieress%C3%A4.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=fi&dir=ltr",
+    "out": "meta/screenshots/fi/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=Leia+sobiv+toon&desc=Pro+lisab+tooni+ja+valikulise+konteksti.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=et&dir=ltr",
+    "out": "meta/screenshots/et/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=%D8%AA%D9%85%D8%A7%D9%85+%D8%B5%D9%81%D8%AD%D9%87+%D8%B1%D8%A7+%D8%A8%D8%AE%D9%88%D8%A7%D9%86%DB%8C%D8%AF&desc=Pro+%D8%B5%D9%81%D8%AD%D9%87%E2%80%8C%D9%87%D8%A7+%D8%B1%D8%A7+%D8%AA%D8%B1%D8%AC%D9%85%D9%87+%D9%88+%D8%A7%D8%B5%D9%84+%D8%B1%D8%A7+%D8%A8%D8%A7%D8%B2%DB%8C%D8%A7%D8%A8%DB%8C+%D9%85%DB%8C%E2%80%8C%DA%A9%D9%86%D8%AF.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=fa&dir=rtl",
+    "out": "meta/screenshots/fa/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=Lue+koko+sivu&desc=Pro+k%C3%A4%C3%A4nt%C3%A4%C3%A4+sivut+ja+palauttaa+alkuper%C3%A4isen.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=fi&dir=ltr",
+    "out": "meta/screenshots/fi/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=T%C3%B5lked+alati+k%C3%A4ep%C3%A4rast&desc=Kohalik+ajalugu+sinu+kontrolli+all.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=et&dir=ltr",
+    "out": "meta/screenshots/et/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=%D9%84%D8%AD%D9%86+%D9%85%D9%86%D8%A7%D8%B3%D8%A8+%D8%B1%D8%A7+%D9%BE%DB%8C%D8%AF%D8%A7+%DA%A9%D9%86%DB%8C%D8%AF&desc=Pro+%D9%84%D8%AD%D9%86+%D9%88+%D8%B2%D9%85%DB%8C%D9%86%D9%87%D9%94+%D8%A7%D8%AE%D8%AA%DB%8C%D8%A7%D8%B1%DB%8C+%D8%B1%D8%A7+%D8%A7%D8%B6%D8%A7%D9%81%D9%87+%D9%85%DB%8C%E2%80%8C%DA%A9%D9%86%D8%AF.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=fa&dir=rtl",
+    "out": "meta/screenshots/fa/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=Unawain+ang+bawat+salita&desc=Magsalin+ng+teksto+at+seleksyon+gamit+ang+AI.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=fil&dir=ltr",
+    "out": "meta/screenshots/fil/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=L%C3%B6yd%C3%A4+sopiva+s%C3%A4vy&desc=Pro+lis%C3%A4%C3%A4+s%C3%A4vyn+ja+valinnaisen+kontekstin.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=fi&dir=ltr",
+    "out": "meta/screenshots/fi/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=%D8%AA%D8%B1%D8%AC%D9%85%D9%87%E2%80%8C%D9%87%D8%A7+%D9%87%D9%85%DB%8C%D8%B4%D9%87+%D8%AF%D8%B1+%D8%AF%D8%B3%D8%AA%D8%B1%D8%B3&desc=%D8%B3%D8%A7%D8%A8%D9%82%D9%87%D9%94+%D9%85%D8%AD%D9%84%DB%8C+%D8%AF%D8%B1+%D8%A7%D8%AE%D8%AA%DB%8C%D8%A7%D8%B1+%D8%B4%D9%85%D8%A7.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=fa&dir=rtl",
+    "out": "meta/screenshots/fa/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Pumili.+Magsalin.+Magbasa+pa.&desc=Tingnan+ang+kahulugan+katabi+ng+teksto.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=fil&dir=ltr",
+    "out": "meta/screenshots/fil/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=K%C3%A4%C3%A4nn%C3%B6kset+aina+l%C3%A4hell%C3%A4&desc=Paikallinen+historia+hallinnassasi.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=fi&dir=ltr",
+    "out": "meta/screenshots/fi/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=Comprenez+chaque+mot&desc=Traduisez+textes+et+s%C3%A9lections+avec+l%E2%80%99IA.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=fr&dir=ltr",
+    "out": "meta/screenshots/fr/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=Basahin+ang+buong+pahina&desc=Nagsasalin+at+nagbabalik+ng+orihinal+ang+Pro.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=fil&dir=ltr",
+    "out": "meta/screenshots/fil/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=S%C3%A9lectionnez.+Traduisez.+Continuez.&desc=Le+sens+appara%C3%AEt+pr%C3%A8s+du+texte.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=fr&dir=ltr",
+    "out": "meta/screenshots/fr/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=%E0%AA%A6%E0%AA%B0%E0%AB%87%E0%AA%95+%E0%AA%B6%E0%AA%AC%E0%AB%8D%E0%AA%A6+%E0%AA%B8%E0%AA%AE%E0%AA%9C%E0%AB%8B&desc=%E0%AA%9F%E0%AB%87%E0%AA%95%E0%AB%8D%E0%AA%B8%E0%AB%8D%E0%AA%9F+%E0%AA%85%E0%AA%A8%E0%AB%87+%E0%AA%AA%E0%AA%B8%E0%AA%82%E0%AA%A6+%E0%AA%95%E0%AA%B0%E0%AB%87%E0%AA%B2%E0%AA%BE+%E0%AA%AD%E0%AA%BE%E0%AA%97%E0%AB%8B+AI%E0%AA%A5%E0%AB%80+%E0%AA%85%E0%AA%A8%E0%AB%81%E0%AA%B5%E0%AA%BE%E0%AA%A6+%E0%AA%95%E0%AA%B0%E0%AB%8B.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=gu&dir=ltr",
+    "out": "meta/screenshots/gu/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=%E0%AA%AA%E0%AA%B8%E0%AA%82%E0%AA%A6+%E0%AA%95%E0%AA%B0%E0%AB%8B.+%E0%AA%85%E0%AA%A8%E0%AB%81%E0%AA%B5%E0%AA%BE%E0%AA%A6+%E0%AA%95%E0%AA%B0%E0%AB%8B.+%E0%AA%B5%E0%AA%BE%E0%AA%82%E0%AA%9A%E0%AB%8B.&desc=%E0%AA%9F%E0%AB%87%E0%AA%95%E0%AB%8D%E0%AA%B8%E0%AB%8D%E0%AA%9F%E0%AA%A8%E0%AB%80+%E0%AA%AC%E0%AA%BE%E0%AA%9C%E0%AB%81%E0%AA%AE%E0%AA%BE%E0%AA%82+%E0%AA%85%E0%AA%B0%E0%AB%8D%E0%AA%A5+%E0%AA%9C%E0%AB%81%E0%AA%93.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=gu&dir=ltr",
+    "out": "meta/screenshots/gu/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=Lisez+toute+la+page&desc=Pro+traduit+les+pages+et+r%C3%A9tablit+l%E2%80%99original.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=fr&dir=ltr",
+    "out": "meta/screenshots/fr/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=Piliin+ang+tamang+tono&desc=May+tono+at+opsyonal+na+konteksto+ang+Pro.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=fil&dir=ltr",
+    "out": "meta/screenshots/fil/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=%E0%AA%86%E0%AA%96%E0%AB%81%E0%AA%82+%E0%AA%AA%E0%AB%87%E0%AA%9C+%E0%AA%B5%E0%AA%BE%E0%AA%82%E0%AA%9A%E0%AB%8B&desc=Pro+%E0%AA%AA%E0%AB%87%E0%AA%9C+%E0%AA%85%E0%AA%A8%E0%AB%81%E0%AA%B5%E0%AA%BE%E0%AA%A6+%E0%AA%95%E0%AA%B0%E0%AB%87+%E0%AA%85%E0%AA%A8%E0%AB%87+%E0%AA%AE%E0%AB%82%E0%AA%B3+%E0%AA%AA%E0%AA%BE%E0%AA%9B%E0%AB%81%E0%AA%82+%E0%AA%B2%E0%AA%BE%E0%AA%B5%E0%AB%87+%E0%AA%9B%E0%AB%87.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=gu&dir=ltr",
+    "out": "meta/screenshots/gu/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=Trouvez+le+ton+juste&desc=Pro+ajoute+ton+et+contexte+facultatif.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=fr&dir=ltr",
+    "out": "meta/screenshots/fr/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=Malapit+ang+mga+salin+mo&desc=Lokal+na+history+na+ikaw+ang+may+kontrol.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=fil&dir=ltr",
+    "out": "meta/screenshots/fil/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=Gardez+vos+traductions+pr%C3%A8s+de+vous&desc=Un+historique+local+sous+votre+contr%C3%B4le.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=fr&dir=ltr",
+    "out": "meta/screenshots/fr/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=%E0%AA%AF%E0%AB%8B%E0%AA%97%E0%AB%8D%E0%AA%AF+%E0%AA%B6%E0%AB%88%E0%AA%B2%E0%AB%80+%E0%AA%AA%E0%AA%B8%E0%AA%82%E0%AA%A6+%E0%AA%95%E0%AA%B0%E0%AB%8B&desc=Pro+%E0%AA%B6%E0%AB%88%E0%AA%B2%E0%AB%80+%E0%AA%85%E0%AA%A8%E0%AB%87+%E0%AA%B5%E0%AB%88%E0%AA%95%E0%AA%B2%E0%AB%8D%E0%AA%AA%E0%AA%BF%E0%AA%95+%E0%AA%B8%E0%AA%82%E0%AA%A6%E0%AA%B0%E0%AB%8D%E0%AA%AD+%E0%AA%86%E0%AA%AA%E0%AB%87+%E0%AA%9B%E0%AB%87.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=gu&dir=ltr",
+    "out": "meta/screenshots/gu/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=%D7%9C%D7%94%D7%91%D7%99%D7%9F+%D7%9B%D7%9C+%D7%9E%D7%99%D7%9C%D7%94&desc=%D7%AA%D7%A8%D7%92%D7%9E%D7%95+%D7%98%D7%A7%D7%A1%D7%98+%D7%95%D7%A7%D7%98%D7%A2%D7%99%D7%9D+%D7%9E%D7%A1%D7%95%D7%9E%D7%A0%D7%99%D7%9D+%D7%A2%D7%9D+AI.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=he&dir=rtl",
+    "out": "meta/screenshots/he/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=%E0%A4%B9%E0%A4%B0+%E0%A4%B6%E0%A4%AC%E0%A5%8D%E0%A4%A6+%E0%A4%B8%E0%A4%AE%E0%A4%9D%E0%A5%87%E0%A4%82&desc=%E0%A4%9F%E0%A5%87%E0%A4%95%E0%A5%8D%E0%A4%B8%E0%A5%8D%E0%A4%9F+%E0%A4%94%E0%A4%B0+%E0%A4%9A%E0%A5%81%E0%A4%A8%E0%A5%87+%E0%A4%B9%E0%A4%BF%E0%A4%B8%E0%A5%8D%E0%A4%B8%E0%A5%8B%E0%A4%82+%E0%A4%95%E0%A4%BE+AI+%E0%A4%B8%E0%A5%87+%E0%A4%85%E0%A4%A8%E0%A5%81%E0%A4%B5%E0%A4%BE%E0%A4%A6+%E0%A4%95%E0%A4%B0%E0%A5%87%E0%A4%82%E0%A5%A4&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=hi&dir=ltr",
+    "out": "meta/screenshots/hi/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=%E0%AA%85%E0%AA%A8%E0%AB%81%E0%AA%B5%E0%AA%BE%E0%AA%A6+%E0%AA%B9%E0%AA%82%E0%AA%AE%E0%AB%87%E0%AA%B6%E0%AA%BE%E0%AA%82+%E0%AA%A8%E0%AA%9C%E0%AB%80%E0%AA%95&desc=%E0%AA%B8%E0%AB%8D%E0%AA%A5%E0%AA%BE%E0%AA%A8%E0%AA%BF%E0%AA%95+%E0%AA%87%E0%AA%A4%E0%AA%BF%E0%AA%B9%E0%AA%BE%E0%AA%B8+%E0%AA%A4%E0%AA%AE%E0%AA%BE%E0%AA%B0%E0%AA%BE+%E0%AA%A8%E0%AA%BF%E0%AA%AF%E0%AA%82%E0%AA%A4%E0%AB%8D%E0%AA%B0%E0%AA%A3%E0%AA%AE%E0%AA%BE%E0%AA%82.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=gu&dir=ltr",
+    "out": "meta/screenshots/gu/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=%D7%A1%D7%9E%D7%A0%D7%95.+%D7%AA%D7%A8%D7%92%D7%9E%D7%95.+%D7%94%D7%9E%D7%A9%D7%99%D7%9B%D7%95+%D7%9C%D7%A7%D7%A8%D7%95%D7%90.&desc=%D7%A8%D7%90%D7%95+%D7%90%D7%AA+%D7%94%D7%9E%D7%A9%D7%9E%D7%A2%D7%95%D7%AA+%D7%9C%D7%A6%D7%93+%D7%94%D7%98%D7%A7%D7%A1%D7%98.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=he&dir=rtl",
+    "out": "meta/screenshots/he/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=%D7%9C%D7%A7%D7%A8%D7%95%D7%90+%D7%90%D7%AA+%D7%9B%D7%9C+%D7%94%D7%93%D7%A3&desc=Pro+%D7%9E%D7%AA%D7%A8%D7%92%D7%9D+%D7%93%D7%A4%D7%99%D7%9D+%D7%95%D7%9E%D7%A9%D7%97%D7%96%D7%A8+%D7%90%D7%AA+%D7%94%D7%9E%D7%A7%D7%95%D7%A8.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=he&dir=rtl",
+    "out": "meta/screenshots/he/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=Razumijte+svaku+rije%C4%8D&desc=Prevodite+tekst+i+odabire+uz+AI.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=hr&dir=ltr",
+    "out": "meta/screenshots/hr/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=%E0%A4%9A%E0%A5%81%E0%A4%A8%E0%A5%87%E0%A4%82%E0%A5%A4+%E0%A4%85%E0%A4%A8%E0%A5%81%E0%A4%B5%E0%A4%BE%E0%A4%A6+%E0%A4%95%E0%A4%B0%E0%A5%87%E0%A4%82%E0%A5%A4+%E0%A4%AA%E0%A4%A2%E0%A4%BC%E0%A4%A4%E0%A5%87+%E0%A4%B0%E0%A4%B9%E0%A5%87%E0%A4%82%E0%A5%A4&desc=%E0%A4%9F%E0%A5%87%E0%A4%95%E0%A5%8D%E0%A4%B8%E0%A5%8D%E0%A4%9F+%E0%A4%95%E0%A5%87+%E0%A4%AA%E0%A4%BE%E0%A4%B8+%E0%A4%B9%E0%A5%80+%E0%A4%85%E0%A4%B0%E0%A5%8D%E0%A4%A5+%E0%A4%A6%E0%A5%87%E0%A4%96%E0%A5%87%E0%A4%82%E0%A5%A4&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=hi&dir=ltr",
+    "out": "meta/screenshots/hi/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=%E0%A4%AA%E0%A5%82%E0%A4%B0%E0%A4%BE+%E0%A4%AA%E0%A5%87%E0%A4%9C+%E0%A4%AA%E0%A4%A2%E0%A4%BC%E0%A5%87%E0%A4%82&desc=Pro+%E0%A4%AA%E0%A5%87%E0%A4%9C+%E0%A4%95%E0%A4%BE+%E0%A4%85%E0%A4%A8%E0%A5%81%E0%A4%B5%E0%A4%BE%E0%A4%A6+%E0%A4%94%E0%A4%B0+%E0%A4%AE%E0%A5%82%E0%A4%B2+%E0%A4%95%E0%A5%80+%E0%A4%B5%E0%A4%BE%E0%A4%AA%E0%A4%B8%E0%A5%80+%E0%A4%A6%E0%A5%87%E0%A4%A4%E0%A4%BE+%E0%A4%B9%E0%A5%88%E0%A5%A4&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=hi&dir=ltr",
+    "out": "meta/screenshots/hi/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=%D7%9C%D7%9E%D7%A6%D7%95%D7%90+%D7%90%D7%AA+%D7%94%D7%A1%D7%92%D7%A0%D7%95%D7%9F+%D7%94%D7%9E%D7%AA%D7%90%D7%99%D7%9D&desc=Pro+%D7%9E%D7%95%D7%A1%D7%99%D7%A3+%D7%A1%D7%92%D7%A0%D7%95%D7%9F+%D7%95%D7%94%D7%A7%D7%A9%D7%A8+%D7%9C%D7%91%D7%97%D7%99%D7%A8%D7%94.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=he&dir=rtl",
+    "out": "meta/screenshots/he/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Odaberite.+Prevedite.+%C4%8Citajte+dalje.&desc=Zna%C4%8Denje+pogledajte+uz+tekst.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=hr&dir=ltr",
+    "out": "meta/screenshots/hr/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=%E0%A4%B8%E0%A4%B9%E0%A5%80+%E0%A4%B2%E0%A4%B9%E0%A4%9C%E0%A4%BE+%E0%A4%9A%E0%A5%81%E0%A4%A8%E0%A5%87%E0%A4%82&desc=Pro+%E0%A4%AE%E0%A5%87%E0%A4%82+%E0%A4%B2%E0%A4%B9%E0%A4%9C%E0%A4%BE+%E0%A4%94%E0%A4%B0+%E0%A4%B5%E0%A5%88%E0%A4%95%E0%A4%B2%E0%A5%8D%E0%A4%AA%E0%A4%BF%E0%A4%95+%E0%A4%B8%E0%A4%82%E0%A4%A6%E0%A4%B0%E0%A5%8D%E0%A4%AD+%E0%A4%B9%E0%A5%88%E0%A5%A4&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=hi&dir=ltr",
+    "out": "meta/screenshots/hi/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=%D7%94%D7%AA%D7%A8%D7%92%D7%95%D7%9E%D7%99%D7%9D+%D7%AA%D7%9E%D7%99%D7%93+%D7%A7%D7%A8%D7%95%D7%91%D7%99%D7%9D&desc=%D7%94%D7%99%D7%A1%D7%98%D7%95%D7%A8%D7%99%D7%94+%D7%9E%D7%A7%D7%95%D7%9E%D7%99%D7%AA+%D7%91%D7%A9%D7%9C%D7%99%D7%98%D7%AA%D7%9B%D7%9D.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=he&dir=rtl",
+    "out": "meta/screenshots/he/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=Pro%C4%8Ditajte+cijelu+stranicu&desc=Pro+prevodi+stranice+i+vra%C4%87a+izvornike.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=hr&dir=ltr",
+    "out": "meta/screenshots/hr/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=%E0%A4%85%E0%A4%A8%E0%A5%81%E0%A4%B5%E0%A4%BE%E0%A4%A6+%E0%A4%B9%E0%A4%AE%E0%A5%87%E0%A4%B6%E0%A4%BE+%E0%A4%AA%E0%A4%BE%E0%A4%B8+%E0%A4%B0%E0%A4%96%E0%A5%87%E0%A4%82&desc=%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A4%BE%E0%A4%A8%E0%A5%80%E0%A4%AF+%E0%A4%87%E0%A4%A4%E0%A4%BF%E0%A4%B9%E0%A4%BE%E0%A4%B8+%E0%A4%86%E0%A4%AA%E0%A4%95%E0%A5%87+%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%82%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%A3+%E0%A4%AE%E0%A5%87%E0%A4%82%E0%A5%A4&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=hi&dir=ltr",
+    "out": "meta/screenshots/hi/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=Odaberite+prikladan+ton&desc=Pro+dodaje+ton+i+neobavezni+kontekst.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=hr&dir=ltr",
+    "out": "meta/screenshots/hr/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=%C3%89rts+meg+minden+sz%C3%B3t&desc=Ford%C3%ADts+sz%C3%B6veget+%C3%A9s+kijel%C3%B6l%C3%A9seket+MI-vel.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=hu&dir=ltr",
+    "out": "meta/screenshots/hu/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=Pahami+setiap+kata&desc=Terjemahkan+teks+dan+pilihan+dengan+AI.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=id&dir=ltr",
+    "out": "meta/screenshots/id/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Jel%C3%B6lj.+Ford%C3%ADts.+Olvass+tov%C3%A1bb.&desc=A+jelent%C3%A9s+k%C3%B6zvetlen%C3%BCl+a+sz%C3%B6vegn%C3%A9l+l%C3%A1tszik.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=hu&dir=ltr",
+    "out": "meta/screenshots/hu/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=Prijevodi+uvijek+pri+ruci&desc=Lokalna+povijest+pod+va%C5%A1im+nadzorom.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=hr&dir=ltr",
+    "out": "meta/screenshots/hr/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Pilih.+Terjemahkan.+Lanjut+baca.&desc=Lihat+makna+di+dekat+teks.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=id&dir=ltr",
+    "out": "meta/screenshots/id/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=Olvasd+el+az+eg%C3%A9sz+oldalt&desc=A+Pro+ford%C3%ADt+%C3%A9s+vissza%C3%A1ll%C3%ADtja+az+eredetit.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=hu&dir=ltr",
+    "out": "meta/screenshots/hu/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=Comprendi+ogni+parola&desc=Traduci+testi+e+selezioni+con+l%E2%80%99IA.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=it&dir=ltr",
+    "out": "meta/screenshots/it/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=Baca+seluruh+halaman&desc=Pro+menerjemahkan+dan+memulihkan+teks+asli.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=id&dir=ltr",
+    "out": "meta/screenshots/id/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=Tal%C3%A1ld+meg+a+megfelel%C5%91+hangnemet&desc=A+Pro+hangnemet+%C3%A9s+kontextust+is+ad.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=hu&dir=ltr",
+    "out": "meta/screenshots/hu/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Seleziona.+Traduci.+Continua.&desc=Scopri+il+significato+accanto+al+testo.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=it&dir=ltr",
+    "out": "meta/screenshots/it/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=Temukan+nada+yang+tepat&desc=Pro+menambah+nada+dan+konteks+opsional.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=id&dir=ltr",
+    "out": "meta/screenshots/id/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=Leggi+tutta+la+pagina&desc=Pro+traduce+le+pagine+e+ripristina+gli+originali.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=it&dir=ltr",
+    "out": "meta/screenshots/it/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=A+ford%C3%ADt%C3%A1sok+mindig+k%C3%A9zn%C3%A9l&desc=Helyi+el%C5%91zm%C3%A9nyek+a+te+kezedben.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=hu&dir=ltr",
+    "out": "meta/screenshots/hu/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=Terjemahan+selalu+dekat&desc=Riwayat+lokal+dalam+kendali+Anda.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=id&dir=ltr",
+    "out": "meta/screenshots/id/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=Trova+il+tono+giusto&desc=Pro+aggiunge+tono+e+contesto+facoltativo.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=it&dir=ltr",
+    "out": "meta/screenshots/it/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=%E3%81%99%E3%81%B9%E3%81%A6%E3%81%AE%E8%A8%80%E8%91%89%E3%82%92%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B&desc=%E6%96%87%E7%AB%A0%E3%82%82%E9%81%B8%E6%8A%9E%E9%83%A8%E5%88%86%E3%82%82AI%E3%81%A7%E7%BF%BB%E8%A8%B3%E3%80%82&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=ja&dir=ltr",
+    "out": "meta/screenshots/ja/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=%E0%B2%AA%E0%B3%8D%E0%B2%B0%E0%B2%A4%E0%B2%BF+%E0%B2%AA%E0%B2%A6%E0%B2%B5%E0%B2%A8%E0%B3%8D%E0%B2%A8%E0%B3%82+%E0%B2%85%E0%B2%B0%E0%B3%8D%E0%B2%A5%E0%B2%AE%E0%B2%BE%E0%B2%A1%E0%B2%BF%E0%B2%95%E0%B3%8A%E0%B2%B3%E0%B3%8D%E0%B2%B3%E0%B2%BF&desc=AI+%E0%B2%AE%E0%B3%82%E0%B2%B2%E0%B2%95+%E0%B2%AA%E0%B2%A0%E0%B3%8D%E0%B2%AF+%E0%B2%AE%E0%B2%A4%E0%B3%8D%E0%B2%A4%E0%B3%81+%E0%B2%86%E0%B2%AF%E0%B3%8D%E0%B2%95%E0%B3%86%E0%B2%97%E0%B2%B3%E0%B2%A8%E0%B3%8D%E0%B2%A8%E0%B3%81+%E0%B2%85%E0%B2%A8%E0%B3%81%E0%B2%B5%E0%B2%BE%E0%B2%A6%E0%B2%BF%E0%B2%B8%E0%B2%BF.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=kn&dir=ltr",
+    "out": "meta/screenshots/kn/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=Le+traduzioni+sempre+vicine&desc=Cronologia+locale+sotto+il+tuo+controllo.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=it&dir=ltr",
+    "out": "meta/screenshots/it/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=%E9%81%B8%E3%82%93%E3%81%A7%E7%BF%BB%E8%A8%B3%E3%80%81%E8%AA%AD%E3%81%BF%E9%80%B2%E3%82%81%E3%82%8B&desc=%E6%96%87%E7%AB%A0%E3%81%AE%E3%81%9D%E3%81%B0%E3%81%A7%E6%84%8F%E5%91%B3%E3%82%92%E7%A2%BA%E8%AA%8D%E3%80%82&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=ja&dir=ltr",
+    "out": "meta/screenshots/ja/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=%E0%B2%86%E0%B2%AF%E0%B3%8D%E0%B2%95%E0%B3%86%E0%B2%AE%E0%B2%BE%E0%B2%A1%E0%B2%BF.+%E0%B2%85%E0%B2%A8%E0%B3%81%E0%B2%B5%E0%B2%BE%E0%B2%A6%E0%B2%BF%E0%B2%B8%E0%B2%BF.+%E0%B2%93%E0%B2%A6%E0%B2%BF.&desc=%E0%B2%AA%E0%B2%A0%E0%B3%8D%E0%B2%AF%E0%B2%A6+%E0%B2%AA%E0%B2%95%E0%B3%8D%E0%B2%95%E0%B2%A6%E0%B2%B2%E0%B3%8D%E0%B2%B2%E0%B3%87+%E0%B2%85%E0%B2%B0%E0%B3%8D%E0%B2%A5+%E0%B2%A8%E0%B3%8B%E0%B2%A1%E0%B2%BF.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=kn&dir=ltr",
+    "out": "meta/screenshots/kn/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=%EB%AA%A8%EB%93%A0+%EB%8B%A8%EC%96%B4%EB%A5%BC+%EC%9D%B4%ED%95%B4%ED%95%98%EC%84%B8%EC%9A%94&desc=AI%EB%A1%9C+%ED%85%8D%EC%8A%A4%ED%8A%B8%EC%99%80+%EC%84%A0%ED%83%9D+%EC%98%81%EC%97%AD%EC%9D%84+%EB%B2%88%EC%97%AD%ED%95%98%EC%84%B8%EC%9A%94.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=ko&dir=ltr",
+    "out": "meta/screenshots/ko/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=%E3%83%9A%E3%83%BC%E3%82%B8%E5%85%A8%E4%BD%93%E3%82%92%E8%AA%AD%E3%82%80&desc=Pro%E3%81%A7%E3%83%9A%E3%83%BC%E3%82%B8%E3%82%92%E7%BF%BB%E8%A8%B3%E3%81%97%E3%80%81%E5%8E%9F%E6%96%87%E3%81%AB%E5%BE%A9%E5%85%83%E3%80%82&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=ja&dir=ltr",
+    "out": "meta/screenshots/ja/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=%E0%B2%87%E0%B2%A1%E0%B3%80+%E0%B2%AA%E0%B3%81%E0%B2%9F%E0%B2%B5%E0%B2%A8%E0%B3%8D%E0%B2%A8%E0%B3%81+%E0%B2%93%E0%B2%A6%E0%B2%BF&desc=Pro+%E0%B2%AA%E0%B3%81%E0%B2%9F%E0%B2%97%E0%B2%B3%E0%B2%A8%E0%B3%8D%E0%B2%A8%E0%B3%81+%E0%B2%85%E0%B2%A8%E0%B3%81%E0%B2%B5%E0%B2%BE%E0%B2%A6%E0%B2%BF%E0%B2%B8%E0%B2%BF+%E0%B2%AE%E0%B3%82%E0%B2%B2%E0%B2%B5%E0%B2%A8%E0%B3%8D%E0%B2%A8%E0%B3%81+%E0%B2%AE%E0%B2%B0%E0%B2%B3%E0%B2%BF%E0%B2%B8%E0%B3%81%E0%B2%A4%E0%B3%8D%E0%B2%A4%E0%B2%A6%E0%B3%86.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=kn&dir=ltr",
+    "out": "meta/screenshots/kn/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=%EC%84%A0%ED%83%9D%ED%95%98%EA%B3%A0+%EB%B2%88%EC%97%AD%ED%95%98%EA%B3%A0+%EA%B3%84%EC%86%8D+%EC%9D%BD%EC%9C%BC%EC%84%B8%EC%9A%94&desc=%ED%85%8D%EC%8A%A4%ED%8A%B8+%EC%98%86%EC%97%90%EC%84%9C+%EB%9C%BB%EC%9D%84+%ED%99%95%EC%9D%B8%ED%95%98%EC%84%B8%EC%9A%94.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=ko&dir=ltr",
+    "out": "meta/screenshots/ko/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=%E6%96%87%E4%BD%93%E3%82%92%E3%81%B4%E3%81%A3%E3%81%9F%E3%82%8A%E5%90%88%E3%82%8F%E3%81%9B%E3%82%8B&desc=Pro%E3%81%A7%E6%96%87%E4%BD%93%E3%81%A8%E4%BB%BB%E6%84%8F%E3%81%AE%E6%96%87%E8%84%88%E3%82%92%E8%BF%BD%E5%8A%A0%E3%80%82&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=ja&dir=ltr",
+    "out": "meta/screenshots/ja/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=%E0%B2%B8%E0%B2%B0%E0%B2%BF%E0%B2%AF%E0%B2%BE%E0%B2%A6+%E0%B2%A7%E0%B2%BE%E0%B2%9F%E0%B2%BF+%E0%B2%86%E0%B2%AF%E0%B3%8D%E0%B2%95%E0%B3%86%E0%B2%AE%E0%B2%BE%E0%B2%A1%E0%B2%BF&desc=Pro%E0%B2%A8%E0%B2%B2%E0%B3%8D%E0%B2%B2%E0%B2%BF+%E0%B2%A7%E0%B2%BE%E0%B2%9F%E0%B2%BF+%E0%B2%AE%E0%B2%A4%E0%B3%8D%E0%B2%A4%E0%B3%81+%E0%B2%90%E0%B2%9A%E0%B3%8D%E0%B2%9B%E0%B2%BF%E0%B2%95+%E0%B2%AA%E0%B3%81%E0%B2%9F+%E0%B2%B8%E0%B2%82%E0%B2%A6%E0%B2%B0%E0%B3%8D%E0%B2%AD.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=kn&dir=ltr",
+    "out": "meta/screenshots/kn/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=%E7%BF%BB%E8%A8%B3%E3%82%92%E3%81%84%E3%81%A4%E3%81%A7%E3%82%82%E6%89%8B%E5%85%83%E3%81%AB&desc=%E8%87%AA%E5%88%86%E3%81%A7%E7%AE%A1%E7%90%86%E3%81%99%E3%82%8B%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E5%B1%A5%E6%AD%B4%E3%80%82&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=ja&dir=ltr",
+    "out": "meta/screenshots/ja/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=%ED%8E%98%EC%9D%B4%EC%A7%80+%EC%A0%84%EC%B2%B4%EB%A5%BC+%EC%9D%BD%EC%9C%BC%EC%84%B8%EC%9A%94&desc=Pro%EB%A1%9C+%ED%8E%98%EC%9D%B4%EC%A7%80%EB%A5%BC+%EB%B2%88%EC%97%AD%ED%95%98%EA%B3%A0+%EC%9B%90%EB%AC%B8%EC%9D%84+%EB%B3%B5%EC%9B%90%ED%95%98%EC%84%B8%EC%9A%94.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=ko&dir=ltr",
+    "out": "meta/screenshots/ko/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=%E0%B2%85%E0%B2%A8%E0%B3%81%E0%B2%B5%E0%B2%BE%E0%B2%A6%E0%B2%97%E0%B2%B3%E0%B2%A8%E0%B3%8D%E0%B2%A8%E0%B3%81+%E0%B2%B9%E0%B2%A4%E0%B3%8D%E0%B2%A4%E0%B2%BF%E0%B2%B0%E0%B2%B5%E0%B2%BF%E0%B2%A1%E0%B2%BF&desc=%E0%B2%A8%E0%B2%BF%E0%B2%AE%E0%B3%8D%E0%B2%AE+%E0%B2%A8%E0%B2%BF%E0%B2%AF%E0%B2%82%E0%B2%A4%E0%B3%8D%E0%B2%B0%E0%B2%A3%E0%B2%A6%E0%B2%B2%E0%B3%8D%E0%B2%B2%E0%B2%BF+%E0%B2%B8%E0%B3%8D%E0%B2%A5%E0%B2%B3%E0%B3%80%E0%B2%AF+%E0%B2%87%E0%B2%A4%E0%B2%BF%E0%B2%B9%E0%B2%BE%E0%B2%B8.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=kn&dir=ltr",
+    "out": "meta/screenshots/kn/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=Supraskite+kiekvien%C4%85+%C5%BEod%C4%AF&desc=Verskite+tekst%C4%85+ir+pa%C5%BEym%C4%97tas+dalis+su+DI.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=lt&dir=ltr",
+    "out": "meta/screenshots/lt/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=%EC%95%8C%EB%A7%9E%EC%9D%80+%EC%96%B4%EC%A1%B0%EB%A5%BC+%EC%84%A0%ED%83%9D%ED%95%98%EC%84%B8%EC%9A%94&desc=Pro%EB%8A%94+%EC%96%B4%EC%A1%B0%EC%99%80+%EC%84%A0%ED%83%9D%EC%A0%81+%ED%8E%98%EC%9D%B4%EC%A7%80+%EB%AC%B8%EB%A7%A5%EC%9D%84+%EC%A0%9C%EA%B3%B5%ED%95%A9%EB%8B%88%EB%8B%A4.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=ko&dir=ltr",
+    "out": "meta/screenshots/ko/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=Saprotiet+katru+v%C4%81rdu&desc=Tulkojiet+tekstu+un+atlases+ar+MI.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=lv&dir=ltr",
+    "out": "meta/screenshots/lv/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Pa%C5%BEym%C4%97kite.+Verskite.+Skaitykite.&desc=Prasm%C4%97+rodoma+%C5%A1alia+teksto.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=lt&dir=ltr",
+    "out": "meta/screenshots/lt/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=%EB%B2%88%EC%97%AD%EC%9D%84+%EA%B0%80%EA%B9%8C%EC%9D%B4+%EB%B3%B4%EA%B4%80%ED%95%98%EC%84%B8%EC%9A%94&desc=%EC%A7%81%EC%A0%91+%EA%B4%80%EB%A6%AC%ED%95%98%EB%8A%94+%EB%A1%9C%EC%BB%AC+%EA%B8%B0%EB%A1%9D.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=ko&dir=ltr",
+    "out": "meta/screenshots/ko/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Atlasiet.+Tulkojiet.+Lasiet.&desc=Uzziniet+noz%C4%ABmi+blakus+tekstam.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=lv&dir=ltr",
+    "out": "meta/screenshots/lv/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=%E0%B4%93%E0%B4%B0%E0%B5%8B+%E0%B4%B5%E0%B4%BE%E0%B4%95%E0%B5%8D%E0%B4%95%E0%B5%81%E0%B4%82+%E0%B4%AE%E0%B4%A8%E0%B4%B8%E0%B5%8D%E0%B4%B8%E0%B4%BF%E0%B4%B2%E0%B4%BE%E0%B4%95%E0%B5%8D%E0%B4%95%E0%B5%81%E0%B4%95&desc=AI+%E0%B4%89%E0%B4%AA%E0%B4%AF%E0%B5%8B%E0%B4%97%E0%B4%BF%E0%B4%9A%E0%B5%8D%E0%B4%9A%E0%B5%8D+%E0%B4%9F%E0%B5%86%E0%B4%95%E0%B5%8D%E0%B4%B8%E0%B5%8D%E0%B4%B1%E0%B5%8D%E0%B4%B1%E0%B5%81%E0%B4%82+%E0%B4%A4%E0%B4%BF%E0%B4%B0%E0%B4%9E%E0%B5%8D%E0%B4%9E%E0%B5%86%E0%B4%9F%E0%B5%81%E0%B4%AA%E0%B5%8D%E0%B4%AA%E0%B5%81%E0%B4%95%E0%B4%B3%E0%B5%81%E0%B4%82+%E0%B4%B5%E0%B4%BF%E0%B4%B5%E0%B5%BC%E0%B4%A4%E0%B5%8D%E0%B4%A4%E0%B4%A8%E0%B4%82+%E0%B4%9A%E0%B5%86%E0%B4%AF%E0%B5%8D%E0%B4%AF%E0%B5%81%E0%B4%95.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=ml&dir=ltr",
+    "out": "meta/screenshots/ml/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=Skaitykite+vis%C4%85+puslap%C4%AF&desc=Pro+ver%C4%8Dia+puslapius+ir+atkuria+original%C4%85.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=lt&dir=ltr",
+    "out": "meta/screenshots/lt/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=Lasiet+visu+lapu&desc=Pro+tulko+lapas+un+atjauno+ori%C4%A3in%C4%81lu.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=lv&dir=ltr",
+    "out": "meta/screenshots/lv/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=%E0%B4%A4%E0%B4%BF%E0%B4%B0%E0%B4%9E%E0%B5%8D%E0%B4%9E%E0%B5%86%E0%B4%9F%E0%B5%81%E0%B4%95%E0%B5%8D%E0%B4%95%E0%B5%81%E0%B4%95.+%E0%B4%B5%E0%B4%BF%E0%B4%B5%E0%B5%BC%E0%B4%A4%E0%B5%8D%E0%B4%A4%E0%B4%A8%E0%B4%82+%E0%B4%9A%E0%B5%86%E0%B4%AF%E0%B5%8D%E0%B4%AF%E0%B5%81%E0%B4%95.+%E0%B4%B5%E0%B4%BE%E0%B4%AF%E0%B4%BF%E0%B4%95%E0%B5%8D%E0%B4%95%E0%B5%81%E0%B4%95.&desc=%E0%B4%9F%E0%B5%86%E0%B4%95%E0%B5%8D%E0%B4%B8%E0%B5%8D%E0%B4%B1%E0%B5%8D%E0%B4%B1%E0%B4%BF%E0%B4%A8%E0%B4%B0%E0%B4%BF%E0%B4%95%E0%B4%BF%E0%B5%BD+%E0%B4%85%E0%B5%BC%E0%B4%A4%E0%B5%8D%E0%B4%A5%E0%B4%82+%E0%B4%95%E0%B4%BE%E0%B4%A3%E0%B5%81%E0%B4%95.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=ml&dir=ltr",
+    "out": "meta/screenshots/ml/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=Pasirinkite+tinkam%C4%85+ton%C4%85&desc=Pro+prideda+ton%C4%85+ir+pasirenkam%C4%85+puslapio+kontekst%C4%85.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=lt&dir=ltr",
+    "out": "meta/screenshots/lt/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=Vertimai+visada+%C5%A1alia&desc=Vietin%C4%97+istorija%2C+kuri%C4%85+valdote+j%C5%ABs.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=lt&dir=ltr",
+    "out": "meta/screenshots/lt/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=Izv%C4%93lieties+atbilsto%C5%A1u+toni&desc=Pro+pied%C4%81v%C4%81+toni+un+papildu+lapas+kontekstu.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=lv&dir=ltr",
+    "out": "meta/screenshots/lv/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=%E0%B4%AE%E0%B5%81%E0%B4%B4%E0%B5%81%E0%B4%B5%E0%B5%BB+%E0%B4%AA%E0%B5%87%E0%B4%9C%E0%B5%81%E0%B4%82+%E0%B4%B5%E0%B4%BE%E0%B4%AF%E0%B4%BF%E0%B4%95%E0%B5%8D%E0%B4%95%E0%B5%81%E0%B4%95&desc=Pro+%E0%B4%AA%E0%B5%87%E0%B4%9C%E0%B5%81%E0%B4%95%E0%B5%BE+%E0%B4%B5%E0%B4%BF%E0%B4%B5%E0%B5%BC%E0%B4%A4%E0%B5%8D%E0%B4%A4%E0%B4%A8%E0%B4%82+%E0%B4%9A%E0%B5%86%E0%B4%AF%E0%B5%8D%E0%B4%A4%E0%B5%8D+%E0%B4%AE%E0%B5%82%E0%B4%B2%E0%B4%B0%E0%B5%82%E0%B4%AA%E0%B4%82+%E0%B4%A4%E0%B4%BF%E0%B4%B0%E0%B4%BF%E0%B4%95%E0%B5%86+%E0%B4%A8%E0%B5%BD%E0%B4%95%E0%B5%81%E0%B4%A8%E0%B5%8D%E0%B4%A8%E0%B5%81.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=ml&dir=ltr",
+    "out": "meta/screenshots/ml/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=%E0%B4%85%E0%B4%A8%E0%B5%81%E0%B4%AF%E0%B5%8B%E0%B4%9C%E0%B5%8D%E0%B4%AF%E0%B4%AE%E0%B4%BE%E0%B4%AF+%E0%B4%B6%E0%B5%88%E0%B4%B2%E0%B4%BF+%E0%B4%A4%E0%B4%BF%E0%B4%B0%E0%B4%9E%E0%B5%8D%E0%B4%9E%E0%B5%86%E0%B4%9F%E0%B5%81%E0%B4%95%E0%B5%8D%E0%B4%95%E0%B5%81%E0%B4%95&desc=Pro%E0%B4%AF%E0%B4%BF%E0%B5%BD+%E0%B4%B6%E0%B5%88%E0%B4%B2%E0%B4%BF%E0%B4%AF%E0%B5%81%E0%B4%82+%E0%B4%90%E0%B4%9A%E0%B5%8D%E0%B4%9B%E0%B4%BF%E0%B4%95+%E0%B4%AA%E0%B5%87%E0%B4%9C%E0%B5%8D+%E0%B4%B8%E0%B4%A8%E0%B5%8D%E0%B4%A6%E0%B5%BC%E0%B4%AD%E0%B4%B5%E0%B5%81%E0%B4%82.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=ml&dir=ltr",
+    "out": "meta/screenshots/ml/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=Tulkojumi+vienm%C4%93r+l%C4%ABdz%C4%81s&desc=Lok%C4%81l%C4%81+v%C4%93sture+j%C5%ABsu+p%C4%81rzi%C5%86%C4%81.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=lv&dir=ltr",
+    "out": "meta/screenshots/lv/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%A4%E0%A5%8D%E0%A4%AF%E0%A5%87%E0%A4%95+%E0%A4%B6%E0%A4%AC%E0%A5%8D%E0%A4%A6+%E0%A4%B8%E0%A4%AE%E0%A4%9C%E0%A5%82%E0%A4%A8+%E0%A4%98%E0%A5%8D%E0%A4%AF%E0%A4%BE&desc=AI%E0%A4%A8%E0%A5%87+%E0%A4%AE%E0%A4%9C%E0%A4%95%E0%A5%82%E0%A4%B0+%E0%A4%86%E0%A4%A3%E0%A4%BF+%E0%A4%A8%E0%A4%BF%E0%A4%B5%E0%A4%A1%E0%A4%B2%E0%A5%87%E0%A4%B2%E0%A5%87+%E0%A4%AD%E0%A4%BE%E0%A4%97+%E0%A4%85%E0%A4%A8%E0%A5%81%E0%A4%B5%E0%A4%BE%E0%A4%A6%E0%A4%BF%E0%A4%A4+%E0%A4%95%E0%A4%B0%E0%A4%BE.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=mr&dir=ltr",
+    "out": "meta/screenshots/mr/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=%E0%B4%B5%E0%B4%BF%E0%B4%B5%E0%B5%BC%E0%B4%A4%E0%B5%8D%E0%B4%A4%E0%B4%A8%E0%B4%99%E0%B5%8D%E0%B4%99%E0%B5%BE+%E0%B4%95%E0%B5%88%E0%B4%B5%E0%B4%B6%E0%B4%82+%E0%B4%B5%E0%B4%AF%E0%B5%8D%E0%B4%95%E0%B5%8D%E0%B4%95%E0%B5%81%E0%B4%95&desc=%E0%B4%A8%E0%B4%BF%E0%B4%99%E0%B5%8D%E0%B4%99%E0%B5%BE+%E0%B4%A8%E0%B4%BF%E0%B4%AF%E0%B4%A8%E0%B5%8D%E0%B4%A4%E0%B5%8D%E0%B4%B0%E0%B4%BF%E0%B4%95%E0%B5%8D%E0%B4%95%E0%B5%81%E0%B4%A8%E0%B5%8D%E0%B4%A8+%E0%B4%AA%E0%B5%8D%E0%B4%B0%E0%B4%BE%E0%B4%A6%E0%B5%87%E0%B4%B6%E0%B4%BF%E0%B4%95+%E0%B4%9A%E0%B4%B0%E0%B4%BF%E0%B4%A4%E0%B5%8D%E0%B4%B0%E0%B4%82.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=ml&dir=ltr",
+    "out": "meta/screenshots/ml/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=%E0%A4%A8%E0%A4%BF%E0%A4%B5%E0%A4%A1%E0%A4%BE.+%E0%A4%85%E0%A4%A8%E0%A5%81%E0%A4%B5%E0%A4%BE%E0%A4%A6+%E0%A4%95%E0%A4%B0%E0%A4%BE.+%E0%A4%B5%E0%A4%BE%E0%A4%9A%E0%A4%A4+%E0%A4%B0%E0%A4%B9%E0%A4%BE.&desc=%E0%A4%AE%E0%A4%9C%E0%A4%95%E0%A5%81%E0%A4%B0%E0%A4%BE%E0%A4%B6%E0%A5%87%E0%A4%9C%E0%A4%BE%E0%A4%B0%E0%A5%80+%E0%A4%85%E0%A4%B0%E0%A5%8D%E0%A4%A5+%E0%A4%AA%E0%A4%BE%E0%A4%B9%E0%A4%BE.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=mr&dir=ltr",
+    "out": "meta/screenshots/mr/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=Fahami+setiap+perkataan&desc=Terjemah+teks+dan+pilihan+dengan+AI.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=ms&dir=ltr",
+    "out": "meta/screenshots/ms/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=Begrijp+elk+woord&desc=Vertaal+tekst+en+selecties+met+AI.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=nl&dir=ltr",
+    "out": "meta/screenshots/nl/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=%E0%A4%B8%E0%A4%82%E0%A4%AA%E0%A5%82%E0%A4%B0%E0%A5%8D%E0%A4%A3+%E0%A4%AA%E0%A5%83%E0%A4%B7%E0%A5%8D%E0%A4%A0+%E0%A4%B5%E0%A4%BE%E0%A4%9A%E0%A4%BE&desc=Pro+%E0%A4%AA%E0%A5%83%E0%A4%B7%E0%A5%8D%E0%A4%A0%E0%A5%87+%E0%A4%85%E0%A4%A8%E0%A5%81%E0%A4%B5%E0%A4%BE%E0%A4%A6%E0%A4%BF%E0%A4%A4+%E0%A4%95%E0%A4%B0%E0%A5%82%E0%A4%A8+%E0%A4%AE%E0%A5%82%E0%A4%B3+%E0%A4%AE%E0%A4%9C%E0%A4%95%E0%A5%82%E0%A4%B0+%E0%A4%AA%E0%A4%B0%E0%A4%A4+%E0%A4%86%E0%A4%A3%E0%A4%A4%E0%A5%87.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=mr&dir=ltr",
+    "out": "meta/screenshots/mr/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Pilih.+Terjemah.+Teruskan+membaca.&desc=Lihat+makna+di+sebelah+teks.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=ms&dir=ltr",
+    "out": "meta/screenshots/ms/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Selecteer.+Vertaal.+Lees+verder.&desc=Bekijk+de+betekenis+naast+de+tekst.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=nl&dir=ltr",
+    "out": "meta/screenshots/nl/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=%E0%A4%AF%E0%A5%8B%E0%A4%97%E0%A5%8D%E0%A4%AF+%E0%A4%B6%E0%A5%88%E0%A4%B2%E0%A5%80+%E0%A4%A8%E0%A4%BF%E0%A4%B5%E0%A4%A1%E0%A4%BE&desc=Pro%E0%A4%AE%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A5%87+%E0%A4%B6%E0%A5%88%E0%A4%B2%E0%A5%80+%E0%A4%86%E0%A4%A3%E0%A4%BF+%E0%A4%90%E0%A4%9A%E0%A5%8D%E0%A4%9B%E0%A4%BF%E0%A4%95+%E0%A4%AA%E0%A5%83%E0%A4%B7%E0%A5%8D%E0%A4%A0+%E0%A4%B8%E0%A4%82%E0%A4%A6%E0%A4%B0%E0%A5%8D%E0%A4%AD.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=mr&dir=ltr",
+    "out": "meta/screenshots/mr/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=Baca+seluruh+halaman&desc=Pro+menterjemah+halaman+dan+memulihkan+teks+asal.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=ms&dir=ltr",
+    "out": "meta/screenshots/ms/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=%E0%A4%85%E0%A4%A8%E0%A5%81%E0%A4%B5%E0%A4%BE%E0%A4%A6+%E0%A4%9C%E0%A4%B5%E0%A4%B3+%E0%A4%A0%E0%A5%87%E0%A4%B5%E0%A4%BE&desc=%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A4%BE%E0%A4%A8%E0%A4%BF%E0%A4%95+%E0%A4%87%E0%A4%A4%E0%A4%BF%E0%A4%B9%E0%A4%BE%E0%A4%B8+%E0%A4%A4%E0%A5%81%E0%A4%AE%E0%A4%9A%E0%A5%8D%E0%A4%AF%E0%A4%BE+%E0%A4%A8%E0%A4%BF%E0%A4%AF%E0%A4%82%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%A3%E0%A4%BE%E0%A4%A4.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=mr&dir=ltr",
+    "out": "meta/screenshots/mr/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=Lees+de+hele+pagina&desc=Pro+vertaalt+pagina%E2%80%99s+en+herstelt+originelen.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=nl&dir=ltr",
+    "out": "meta/screenshots/nl/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=Pilih+nada+yang+sesuai&desc=Pro+menambah+nada+dan+konteks+halaman+pilihan.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=ms&dir=ltr",
+    "out": "meta/screenshots/ms/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=Kies+de+juiste+toon&desc=Pro+voegt+toon+en+optionele+paginacontext+toe.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=nl&dir=ltr",
+    "out": "meta/screenshots/nl/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=Forst%C3%A5+hvert+ord&desc=Oversett+tekst+og+markeringer+med+KI.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=no&dir=ltr",
+    "out": "meta/screenshots/no/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=Simpan+terjemahan+berdekatan&desc=Sejarah+setempat+di+bawah+kawalan+anda.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=ms&dir=ltr",
+    "out": "meta/screenshots/ms/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=Bewaar+vertalingen+dichtbij&desc=Lokale+geschiedenis.+Zelf+te+beheren.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=nl&dir=ltr",
+    "out": "meta/screenshots/nl/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Marker.+Oversett.+Les+videre.&desc=Se+betydningen+ved+siden+av+teksten.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=no&dir=ltr",
+    "out": "meta/screenshots/no/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=Zrozum+ka%C5%BCde+s%C5%82owo&desc=T%C5%82umacz+tekst+i+zaznaczenia+z+AI.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=pl&dir=ltr",
+    "out": "meta/screenshots/pl/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=Les+hele+siden&desc=Pro+oversetter+sider+og+gjenoppretter+originaler.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=no&dir=ltr",
+    "out": "meta/screenshots/no/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=Entenda+cada+palavra&desc=Traduza+textos+e+sele%C3%A7%C3%B5es+com+IA.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=pt-BR&dir=ltr",
+    "out": "meta/screenshots/pt_BR/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Zaznacz.+T%C5%82umacz.+Czytaj+dalej.&desc=Sprawd%C5%BA+znaczenie+obok+tekstu.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=pl&dir=ltr",
+    "out": "meta/screenshots/pl/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=Velg+riktig+tone&desc=Pro+gir+tone+og+valgfri+sidekontekst.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=no&dir=ltr",
+    "out": "meta/screenshots/no/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=Czytaj+ca%C5%82%C4%85+stron%C4%99&desc=Pro+t%C5%82umaczy+strony+i+przywraca+orygina%C5%82y.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=pl&dir=ltr",
+    "out": "meta/screenshots/pl/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Selecione.+Traduza.+Continue+lendo.&desc=Veja+o+significado+ao+lado+do+texto.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=pt-BR&dir=ltr",
+    "out": "meta/screenshots/pt_BR/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=Ha+oversettelsene+n%C3%A6r&desc=Lokal+historikk+som+du+styrer+selv.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=no&dir=ltr",
+    "out": "meta/screenshots/no/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=Dobierz+odpowiedni+ton&desc=Pro+dodaje+ton+i+opcjonalny+kontekst+strony.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=pl&dir=ltr",
+    "out": "meta/screenshots/pl/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=Leia+a+p%C3%A1gina+inteira&desc=O+Pro+traduz+p%C3%A1ginas+e+restaura+originais.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=pt-BR&dir=ltr",
+    "out": "meta/screenshots/pt_BR/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=Compreenda+cada+palavra&desc=Traduza+texto+e+sele%C3%A7%C3%B5es+com+IA.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=pt-PT&dir=ltr",
+    "out": "meta/screenshots/pt_PT/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=Escolha+o+tom+certo&desc=O+Pro+adiciona+tom+e+contexto+opcional+da+p%C3%A1gina.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=pt-BR&dir=ltr",
+    "out": "meta/screenshots/pt_BR/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=Miej+t%C5%82umaczenia+pod+r%C4%99k%C4%85&desc=Lokalna+historia+pod+Twoj%C4%85+kontrol%C4%85.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=pl&dir=ltr",
+    "out": "meta/screenshots/pl/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=Tenha+suas+tradu%C3%A7%C3%B5es+por+perto&desc=Hist%C3%B3rico+local+sob+seu+controle.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=pt-BR&dir=ltr",
+    "out": "meta/screenshots/pt_BR/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Selecione.+Traduza.+Continue+a+ler.&desc=Veja+o+significado+junto+ao+texto.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=pt-PT&dir=ltr",
+    "out": "meta/screenshots/pt_PT/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=%C3%8En%C8%9Belege%C8%9Bi+fiecare+cuv%C3%A2nt&desc=Traduce%C8%9Bi+texte+%C8%99i+selec%C8%9Bii+cu+AI.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=ro&dir=ltr",
+    "out": "meta/screenshots/ro/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=%D0%9F%D0%BE%D0%BD%D0%B8%D0%BC%D0%B0%D0%B9%D1%82%D0%B5+%D0%BA%D0%B0%D0%B6%D0%B4%D0%BE%D0%B5+%D1%81%D0%BB%D0%BE%D0%B2%D0%BE&desc=%D0%9F%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5+%D1%82%D0%B5%D0%BA%D1%81%D1%82+%D0%B8+%D0%B2%D1%8B%D0%B4%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F+%D1%81+%D0%98%D0%98.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=ru&dir=ltr",
+    "out": "meta/screenshots/ru/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=Leia+a+p%C3%A1gina+inteira&desc=O+Pro+traduz+p%C3%A1ginas+e+rep%C3%B5e+originais.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=pt-PT&dir=ltr",
+    "out": "meta/screenshots/pt_PT/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Selecta%C8%9Bi.+Traduce%C8%9Bi.+Citi%C8%9Bi.&desc=Vede%C8%9Bi+sensul+l%C3%A2ng%C4%83+text.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=ro&dir=ltr",
+    "out": "meta/screenshots/ro/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=%D0%92%D1%8B%D0%B4%D0%B5%D0%BB%D1%8F%D0%B9%D1%82%D0%B5.+%D0%9F%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5.+%D0%A7%D0%B8%D1%82%D0%B0%D0%B9%D1%82%D0%B5.&desc=%D0%A3%D0%B7%D0%BD%D0%B0%D0%B9%D1%82%D0%B5+%D1%81%D0%BC%D1%8B%D1%81%D0%BB+%D1%80%D1%8F%D0%B4%D0%BE%D0%BC+%D1%81+%D1%82%D0%B5%D0%BA%D1%81%D1%82%D0%BE%D0%BC.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=ru&dir=ltr",
+    "out": "meta/screenshots/ru/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=Escolha+o+tom+adequado&desc=O+Pro+acrescenta+tom+e+contexto+opcional+da+p%C3%A1gina.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=pt-PT&dir=ltr",
+    "out": "meta/screenshots/pt_PT/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=Citi%C8%9Bi+%C3%AEntreaga+pagin%C4%83&desc=Pro+traduce+pagini+%C8%99i+restabile%C8%99te+originalele.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=ro&dir=ltr",
+    "out": "meta/screenshots/ro/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=%D0%A7%D0%B8%D1%82%D0%B0%D0%B9%D1%82%D0%B5+%D0%B2%D1%81%D1%8E+%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D1%83&desc=Pro+%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4%D0%B8%D1%82+%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D1%8B+%D0%B8+%D0%B2%D0%BE%D1%81%D1%81%D1%82%D0%B0%D0%BD%D0%B0%D0%B2%D0%BB%D0%B8%D0%B2%D0%B0%D0%B5%D1%82+%D0%BE%D1%80%D0%B8%D0%B3%D0%B8%D0%BD%D0%B0%D0%BB.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=ru&dir=ltr",
+    "out": "meta/screenshots/ru/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=Tenha+as+tradu%C3%A7%C3%B5es+por+perto&desc=Hist%C3%B3rico+local+sob+o+seu+controlo.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=pt-PT&dir=ltr",
+    "out": "meta/screenshots/pt_PT/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=Alege%C8%9Bi+tonul+potrivit&desc=Pro+adaug%C4%83+ton+%C8%99i+context+op%C8%9Bional+al+paginii.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=ro&dir=ltr",
+    "out": "meta/screenshots/ro/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=%D0%92%D1%8B%D0%B1%D0%B5%D1%80%D0%B8%D1%82%D0%B5+%D0%BF%D0%BE%D0%B4%D1%85%D0%BE%D0%B4%D1%8F%D1%89%D0%B8%D0%B9+%D1%82%D0%BE%D0%BD&desc=Pro+%D0%B4%D0%BE%D0%B1%D0%B0%D0%B2%D0%BB%D1%8F%D0%B5%D1%82+%D1%82%D0%BE%D0%BD+%D0%B8+%D0%BD%D0%B5%D0%BE%D0%B1%D1%8F%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9+%D0%BA%D0%BE%D0%BD%D1%82%D0%B5%D0%BA%D1%81%D1%82+%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D1%8B.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=ru&dir=ltr",
+    "out": "meta/screenshots/ru/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=Rozumejte+ka%C5%BEd%C3%A9mu+slovu&desc=Prekladajte+text+a+v%C3%BDbery+s+AI.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=sk&dir=ltr",
+    "out": "meta/screenshots/sk/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=P%C4%83stra%C8%9Bi+traducerile+aproape&desc=Istoric+local%2C+sub+controlul+dumneavoastr%C4%83.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=ro&dir=ltr",
+    "out": "meta/screenshots/ro/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=%D0%9F%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4%D1%8B+%D0%B2%D1%81%D0%B5%D0%B3%D0%B4%D0%B0+%D0%BF%D0%BE%D0%B4+%D1%80%D1%83%D0%BA%D0%BE%D0%B9&desc=%D0%9B%D0%BE%D0%BA%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F+%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F+%D0%BF%D0%BE%D0%B4+%D0%B2%D0%B0%D1%88%D0%B8%D0%BC+%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D0%B5%D0%BC.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=ru&dir=ltr",
+    "out": "meta/screenshots/ru/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Ozna%C4%8Dte.+Prelo%C5%BEte.+%C4%8C%C3%ADtajte.&desc=V%C3%BDznam+n%C3%A1jdete+ved%C4%BEa+textu.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=sk&dir=ltr",
+    "out": "meta/screenshots/sk/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=Razumite+vsako+besedo&desc=Prevajajte+besedilo+in+izbore+z+UI.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=sl&dir=ltr",
+    "out": "meta/screenshots/sl/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=%C4%8C%C3%ADtajte+cel%C3%BA+str%C3%A1nku&desc=Pro+preklad%C3%A1+str%C3%A1nky+a+obnovuje+origin%C3%A1l.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=sk&dir=ltr",
+    "out": "meta/screenshots/sk/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=%D0%A0%D0%B0%D0%B7%D1%83%D0%BC%D0%B8%D1%82%D0%B5+%D1%81%D0%B2%D0%B0%D0%BA%D1%83+%D1%80%D0%B5%D1%87&desc=%D0%9F%D1%80%D0%B5%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5+%D1%82%D0%B5%D0%BA%D1%81%D1%82+%D0%B8+%D0%B8%D0%B7%D0%B1%D0%BE%D1%80%D0%B5+%D1%83%D0%B7+AI.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=sr&dir=ltr",
+    "out": "meta/screenshots/sr/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Ozna%C4%8Dite.+Prevedite.+Berite.&desc=Pomen+si+oglejte+ob+besedilu.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=sl&dir=ltr",
+    "out": "meta/screenshots/sl/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=Vyberte+spr%C3%A1vny+t%C3%B3n&desc=Pro+prid%C3%A1va+t%C3%B3n+a+volite%C4%BEn%C3%BD+kontext+str%C3%A1nky.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=sk&dir=ltr",
+    "out": "meta/screenshots/sk/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=Preberite+celotno+stran&desc=Pro+prevaja+strani+in+obnovi+izvirnike.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=sl&dir=ltr",
+    "out": "meta/screenshots/sl/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=%D0%9E%D0%B7%D0%BD%D0%B0%D1%87%D0%B8%D1%82%D0%B5.+%D0%9F%D1%80%D0%B5%D0%B2%D0%B5%D0%B4%D0%B8%D1%82%D0%B5.+%D0%A7%D0%B8%D1%82%D0%B0%D1%98%D1%82%D0%B5.&desc=%D0%9F%D0%BE%D0%B3%D0%BB%D0%B5%D0%B4%D0%B0%D1%98%D1%82%D0%B5+%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D1%9A%D0%B5+%D0%BF%D0%BE%D1%80%D0%B5%D0%B4+%D1%82%D0%B5%D0%BA%D1%81%D1%82%D0%B0.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=sr&dir=ltr",
+    "out": "meta/screenshots/sr/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=%D0%A7%D0%B8%D1%82%D0%B0%D1%98%D1%82%D0%B5+%D1%86%D0%B5%D0%BB%D1%83+%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D1%83&desc=Pro+%D0%BF%D1%80%D0%B5%D0%B2%D0%BE%D0%B4%D0%B8+%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B5+%D0%B8+%D0%B2%D1%80%D0%B0%D1%9B%D0%B0+%D0%BE%D1%80%D0%B8%D0%B3%D0%B8%D0%BD%D0%B0%D0%BB%D0%B5.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=sr&dir=ltr",
+    "out": "meta/screenshots/sr/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=Izberite+pravi+ton&desc=Pro+doda+ton+in+izbirni+kontekst+strani.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=sl&dir=ltr",
+    "out": "meta/screenshots/sl/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=Majte+preklady+poruke&desc=Miestna+hist%C3%B3ria+pod+va%C5%A1ou+kontrolou.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=sk&dir=ltr",
+    "out": "meta/screenshots/sk/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=%D0%98%D0%B7%D0%B0%D0%B1%D0%B5%D1%80%D0%B8%D1%82%D0%B5+%D0%BE%D0%B4%D0%B3%D0%BE%D0%B2%D0%B0%D1%80%D0%B0%D1%98%D1%83%D1%9B%D0%B8+%D1%82%D0%BE%D0%BD&desc=Pro+%D0%B4%D0%BE%D0%B4%D0%B0%D1%98%D0%B5+%D1%82%D0%BE%D0%BD+%D0%B8+%D0%BE%D0%BF%D1%86%D0%B8%D0%BE%D0%BD%D0%B8+%D0%BA%D0%BE%D0%BD%D1%82%D0%B5%D0%BA%D1%81%D1%82+%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B5.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=sr&dir=ltr",
+    "out": "meta/screenshots/sr/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=Prevodi+vedno+pri+roki&desc=Lokalna+zgodovina+pod+va%C5%A1im+nadzorom.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=sl&dir=ltr",
+    "out": "meta/screenshots/sl/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=F%C3%B6rst%C3%A5+varje+ord&desc=%C3%96vers%C3%A4tt+text+och+markeringar+med+AI.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=sv&dir=ltr",
+    "out": "meta/screenshots/sv/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=Elewa+kila+neno&desc=Tafsiri+maandishi+na+sehemu+zilizochaguliwa+kwa+AI.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=sw&dir=ltr",
+    "out": "meta/screenshots/sw/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=%D0%9F%D1%80%D0%B5%D0%B2%D0%BE%D0%B4%D0%B8+%D1%83%D0%B2%D0%B5%D0%BA+%D0%BF%D1%80%D0%B8+%D1%80%D1%83%D1%86%D0%B8&desc=%D0%9B%D0%BE%D0%BA%D0%B0%D0%BB%D0%BD%D0%B0+%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%98%D0%B0+%D0%BF%D0%BE%D0%B4+%D0%B2%D0%B0%D1%88%D0%BE%D0%BC+%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D0%BE%D0%BC.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=sr&dir=ltr",
+    "out": "meta/screenshots/sr/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Markera.+%C3%96vers%C3%A4tt.+L%C3%A4s+vidare.&desc=Se+betydelsen+bredvid+texten.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=sv&dir=ltr",
+    "out": "meta/screenshots/sv/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Chagua.+Tafsiri.+Endelea+kusoma.&desc=Ona+maana+karibu+na+maandishi.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=sw&dir=ltr",
+    "out": "meta/screenshots/sw/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=%E0%AE%92%E0%AE%B5%E0%AF%8D%E0%AE%B5%E0%AF%8A%E0%AE%B0%E0%AF%81+%E0%AE%9A%E0%AF%8A%E0%AE%B2%E0%AF%8D%E0%AE%B2%E0%AF%81%E0%AE%AE%E0%AF%8D+%E0%AE%AA%E0%AF%81%E0%AE%B0%E0%AE%BF%E0%AE%AF%E0%AF%81%E0%AE%AE%E0%AF%8D&desc=AI+%E0%AE%AE%E0%AF%82%E0%AE%B2%E0%AE%AE%E0%AF%8D+%E0%AE%89%E0%AE%B0%E0%AF%88%E0%AE%AF%E0%AF%88%E0%AE%AF%E0%AF%81%E0%AE%AE%E0%AF%8D+%E0%AE%A4%E0%AF%87%E0%AE%B0%E0%AF%8D%E0%AE%B5%E0%AF%81%E0%AE%95%E0%AE%B3%E0%AF%88%E0%AE%AF%E0%AF%81%E0%AE%AE%E0%AF%8D+%E0%AE%AE%E0%AF%8A%E0%AE%B4%E0%AE%BF%E0%AE%AA%E0%AF%86%E0%AE%AF%E0%AE%B0%E0%AF%81%E0%AE%99%E0%AF%8D%E0%AE%95%E0%AE%B3%E0%AF%8D.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=ta&dir=ltr",
+    "out": "meta/screenshots/ta/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=L%C3%A4s+hela+sidan&desc=Pro+%C3%B6vers%C3%A4tter+sidor+och+%C3%A5terst%C3%A4ller+original.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=sv&dir=ltr",
+    "out": "meta/screenshots/sv/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=Soma+ukurasa+mzima&desc=Pro+hutafsiri+kurasa+na+kurejesha+asili.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=sw&dir=ltr",
+    "out": "meta/screenshots/sw/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=V%C3%A4lj+r%C3%A4tt+ton&desc=Pro+ger+ton+och+valfritt+sidsammanhang.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=sv&dir=ltr",
+    "out": "meta/screenshots/sv/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=%E0%AE%A4%E0%AF%87%E0%AE%B0%E0%AF%8D%E0%AE%B5%E0%AF%81.+%E0%AE%AE%E0%AF%8A%E0%AE%B4%E0%AE%BF%E0%AE%AA%E0%AF%86%E0%AE%AF%E0%AE%B0%E0%AF%8D%E0%AE%AA%E0%AF%8D%E0%AE%AA%E0%AF%81.+%E0%AE%B5%E0%AE%BE%E0%AE%9A%E0%AE%BF%E0%AE%AA%E0%AF%8D%E0%AE%AA%E0%AF%81.&desc=%E0%AE%89%E0%AE%B0%E0%AF%88%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AF%81+%E0%AE%85%E0%AE%B0%E0%AF%81%E0%AE%95%E0%AE%BF%E0%AE%B2%E0%AF%87%E0%AE%AF%E0%AF%87+%E0%AE%AA%E0%AF%8A%E0%AE%B0%E0%AF%81%E0%AE%B3%E0%AF%88%E0%AE%AA%E0%AF%8D+%E0%AE%AA%E0%AE%BE%E0%AE%B0%E0%AF%81%E0%AE%99%E0%AF%8D%E0%AE%95%E0%AE%B3%E0%AF%8D.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=ta&dir=ltr",
+    "out": "meta/screenshots/ta/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=Chagua+mtindo+unaofaa&desc=Pro+huongeza+mtindo+na+muktadha+wa+hiari+wa+ukurasa.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=sw&dir=ltr",
+    "out": "meta/screenshots/sw/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=Ha+%C3%B6vers%C3%A4ttningar+n%C3%A4ra&desc=Lokal+historik+som+du+styr+sj%C3%A4lv.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=sv&dir=ltr",
+    "out": "meta/screenshots/sv/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=%E0%AE%AE%E0%AF%81%E0%AE%B4%E0%AF%81%E0%AE%AA%E0%AF%8D+%E0%AE%AA%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AE%A4%E0%AF%8D%E0%AE%A4%E0%AF%88%E0%AE%AF%E0%AF%81%E0%AE%AE%E0%AF%8D+%E0%AE%AA%E0%AE%9F%E0%AE%BF%E0%AE%AF%E0%AF%81%E0%AE%99%E0%AF%8D%E0%AE%95%E0%AE%B3%E0%AF%8D&desc=Pro+%E0%AE%AA%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AE%99%E0%AF%8D%E0%AE%95%E0%AE%B3%E0%AF%88+%E0%AE%AE%E0%AF%8A%E0%AE%B4%E0%AE%BF%E0%AE%AA%E0%AF%86%E0%AE%AF%E0%AE%B0%E0%AF%8D%E0%AE%A4%E0%AF%8D%E0%AE%A4%E0%AF%81+%E0%AE%AE%E0%AF%82%E0%AE%B2%E0%AE%A4%E0%AF%8D%E0%AE%A4%E0%AF%88+%E0%AE%AE%E0%AF%80%E0%AE%9F%E0%AF%8D%E0%AE%9F%E0%AF%86%E0%AE%9F%E0%AF%81%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AF%81%E0%AE%AE%E0%AF%8D.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=ta&dir=ltr",
+    "out": "meta/screenshots/ta/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=Weka+tafsiri+zako+karibu&desc=Historia+ya+kifaa.+Wewe+ndiye+msimamizi.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=sw&dir=ltr",
+    "out": "meta/screenshots/sw/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=%E0%AE%9A%E0%AE%B0%E0%AE%BF%E0%AE%AF%E0%AE%BE%E0%AE%A9+%E0%AE%A8%E0%AE%9F%E0%AF%88%E0%AE%AF%E0%AF%88%E0%AE%A4%E0%AF%8D+%E0%AE%A4%E0%AF%87%E0%AE%B0%E0%AF%8D%E0%AE%A8%E0%AF%8D%E0%AE%A4%E0%AF%86%E0%AE%9F%E0%AF%81%E0%AE%99%E0%AF%8D%E0%AE%95%E0%AE%B3%E0%AF%8D&desc=Pro%E0%AE%B5%E0%AE%BF%E0%AE%B2%E0%AF%8D+%E0%AE%A8%E0%AE%9F%E0%AF%88+%E0%AE%AE%E0%AE%B1%E0%AF%8D%E0%AE%B1%E0%AF%81%E0%AE%AE%E0%AF%8D+%E0%AE%B5%E0%AE%BF%E0%AE%B0%E0%AF%81%E0%AE%AA%E0%AF%8D%E0%AE%AA%E0%AE%AA%E0%AF%8D+%E0%AE%AA%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AE%9A%E0%AF%8D+%E0%AE%9A%E0%AF%82%E0%AE%B4%E0%AE%B2%E0%AF%8D.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=ta&dir=ltr",
+    "out": "meta/screenshots/ta/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=%E0%B0%AA%E0%B1%8D%E0%B0%B0%E0%B0%A4%E0%B0%BF+%E0%B0%AA%E0%B0%A6%E0%B0%BE%E0%B0%A8%E0%B1%8D%E0%B0%A8%E0%B0%BF+%E0%B0%85%E0%B0%B0%E0%B1%8D%E0%B0%A5%E0%B0%82+%E0%B0%9A%E0%B1%87%E0%B0%B8%E0%B1%81%E0%B0%95%E0%B1%8B%E0%B0%82%E0%B0%A1%E0%B0%BF&desc=AI%E0%B0%A4%E0%B1%8B+%E0%B0%B5%E0%B0%9A%E0%B0%A8%E0%B0%82%2C+%E0%B0%8E%E0%B0%82%E0%B0%AA%E0%B0%BF%E0%B0%95%E0%B0%B2%E0%B0%A8%E0%B1%81+%E0%B0%85%E0%B0%A8%E0%B1%81%E0%B0%B5%E0%B0%A6%E0%B0%BF%E0%B0%82%E0%B0%9A%E0%B0%82%E0%B0%A1%E0%B0%BF.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=te&dir=ltr",
+    "out": "meta/screenshots/te/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=%E0%AE%89%E0%AE%B3%E0%AF%8D%E0%AE%B3%E0%AF%82%E0%AE%B0%E0%AF%8D+%E0%AE%B5%E0%AE%B0%E0%AE%B2%E0%AE%BE%E0%AE%B1%E0%AF%81+%E0%AE%89%E0%AE%99%E0%AF%8D%E0%AE%95%E0%AE%B3%E0%AF%8D+%E0%AE%B5%E0%AE%9A%E0%AE%AE%E0%AF%8D&desc=%E0%AE%89%E0%AE%99%E0%AF%8D%E0%AE%95%E0%AE%B3%E0%AF%8D+%E0%AE%95%E0%AE%9F%E0%AF%8D%E0%AE%9F%E0%AF%81%E0%AE%AA%E0%AF%8D%E0%AE%AA%E0%AE%BE%E0%AE%9F%E0%AF%8D%E0%AE%9F%E0%AE%BF%E0%AE%B2%E0%AF%8D+%E0%AE%89%E0%AE%B3%E0%AF%8D%E0%AE%B3%E0%AF%82%E0%AE%B0%E0%AF%8D+%E0%AE%B5%E0%AE%B0%E0%AE%B2%E0%AE%BE%E0%AE%B1%E0%AF%81.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=ta&dir=ltr",
+    "out": "meta/screenshots/ta/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=%E0%B0%8E%E0%B0%82%E0%B0%9A%E0%B1%81%E0%B0%95%E0%B1%8B%E0%B0%82%E0%B0%A1%E0%B0%BF.+%E0%B0%85%E0%B0%A8%E0%B1%81%E0%B0%B5%E0%B0%A6%E0%B0%BF%E0%B0%82%E0%B0%9A%E0%B0%82%E0%B0%A1%E0%B0%BF.+%E0%B0%9A%E0%B0%A6%E0%B0%B5%E0%B0%82%E0%B0%A1%E0%B0%BF.&desc=%E0%B0%B5%E0%B0%9A%E0%B0%A8%E0%B0%82+%E0%B0%AA%E0%B0%95%E0%B1%8D%E0%B0%95%E0%B0%A8%E0%B1%87+%E0%B0%85%E0%B0%B0%E0%B1%8D%E0%B0%A5%E0%B0%BE%E0%B0%A8%E0%B1%8D%E0%B0%A8%E0%B0%BF+%E0%B0%9A%E0%B1%82%E0%B0%A1%E0%B0%82%E0%B0%A1%E0%B0%BF.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=te&dir=ltr",
+    "out": "meta/screenshots/te/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=%E0%B9%80%E0%B8%82%E0%B9%89%E0%B8%B2%E0%B9%83%E0%B8%88%E0%B8%97%E0%B8%B8%E0%B8%81%E0%B8%84%E0%B8%B3&desc=%E0%B9%81%E0%B8%9B%E0%B8%A5%E0%B8%82%E0%B9%89%E0%B8%AD%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B8%AA%E0%B9%88%E0%B8%A7%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B9%80%E0%B8%A5%E0%B8%B7%E0%B8%AD%E0%B8%81%E0%B8%94%E0%B9%89%E0%B8%A7%E0%B8%A2+AI&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=th&dir=ltr",
+    "out": "meta/screenshots/th/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=Her+kelimeyi+anlay%C4%B1n&desc=Metni+ve+se%C3%A7imleri+yapay+zek%C3%A2yla+%C3%A7evirin.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=tr&dir=ltr",
+    "out": "meta/screenshots/tr/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=%E0%B0%AE%E0%B1%8A%E0%B0%A4%E0%B1%8D%E0%B0%A4%E0%B0%82+%E0%B0%AA%E0%B1%87%E0%B0%9C%E0%B1%80%E0%B0%A8%E0%B0%BF+%E0%B0%9A%E0%B0%A6%E0%B0%B5%E0%B0%82%E0%B0%A1%E0%B0%BF&desc=Pro+%E0%B0%AA%E0%B1%87%E0%B0%9C%E0%B1%80%E0%B0%B2%E0%B0%A8%E0%B1%81+%E0%B0%85%E0%B0%A8%E0%B1%81%E0%B0%B5%E0%B0%A6%E0%B0%BF%E0%B0%82%E0%B0%9A%E0%B0%BF+%E0%B0%AE%E0%B1%82%E0%B0%B2%E0%B0%BE%E0%B0%A8%E0%B1%8D%E0%B0%A8%E0%B0%BF+%E0%B0%AA%E0%B1%81%E0%B0%A8%E0%B0%B0%E0%B1%81%E0%B0%A6%E0%B1%8D%E0%B0%A7%E0%B0%B0%E0%B0%BF%E0%B0%B8%E0%B1%8D%E0%B0%A4%E0%B1%81%E0%B0%82%E0%B0%A6%E0%B0%BF.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=te&dir=ltr",
+    "out": "meta/screenshots/te/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=%E0%B9%80%E0%B8%A5%E0%B8%B7%E0%B8%AD%E0%B8%81+%E0%B9%81%E0%B8%9B%E0%B8%A5+%E0%B8%AD%E0%B9%88%E0%B8%B2%E0%B8%99%E0%B8%95%E0%B9%88%E0%B8%AD&desc=%E0%B8%94%E0%B8%B9%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B8%AB%E0%B8%A1%E0%B8%B2%E0%B8%A2%E0%B8%82%E0%B9%89%E0%B8%B2%E0%B8%87%E0%B8%82%E0%B9%89%E0%B8%AD%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=th&dir=ltr",
+    "out": "meta/screenshots/th/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Se%C3%A7in.+%C3%87evirin.+Okumaya+devam+edin.&desc=Anlam%C4%B1+metnin+yan%C4%B1nda+g%C3%B6r%C3%BCn.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=tr&dir=ltr",
+    "out": "meta/screenshots/tr/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=%E0%B8%AD%E0%B9%88%E0%B8%B2%E0%B8%99%E0%B8%97%E0%B8%B1%E0%B9%89%E0%B8%87%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2&desc=Pro+%E0%B9%81%E0%B8%9B%E0%B8%A5%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B9%80%E0%B8%A7%E0%B9%87%E0%B8%9A%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B8%84%E0%B8%B7%E0%B8%99%E0%B8%95%E0%B9%89%E0%B8%99%E0%B8%89%E0%B8%9A%E0%B8%B1%E0%B8%9A%E0%B9%84%E0%B8%94%E0%B9%89&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=th&dir=ltr",
+    "out": "meta/screenshots/th/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=%E0%B0%B8%E0%B0%B0%E0%B1%88%E0%B0%A8+%E0%B0%B6%E0%B1%88%E0%B0%B2%E0%B0%BF%E0%B0%A8%E0%B0%BF+%E0%B0%8E%E0%B0%82%E0%B0%9A%E0%B1%81%E0%B0%95%E0%B1%8B%E0%B0%82%E0%B0%A1%E0%B0%BF&desc=Pro%E0%B0%B2%E0%B1%8B+%E0%B0%B6%E0%B1%88%E0%B0%B2%E0%B0%BF%2C+%E0%B0%90%E0%B0%9A%E0%B1%8D%E0%B0%9B%E0%B0%BF%E0%B0%95+%E0%B0%AA%E0%B1%87%E0%B0%9C%E0%B1%80+%E0%B0%B8%E0%B0%82%E0%B0%A6%E0%B0%B0%E0%B1%8D%E0%B0%AD%E0%B0%82.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=te&dir=ltr",
+    "out": "meta/screenshots/te/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=%E0%B9%80%E0%B8%A5%E0%B8%B7%E0%B8%AD%E0%B8%81%E0%B8%99%E0%B9%89%E0%B8%B3%E0%B9%80%E0%B8%AA%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B9%89%E0%B9%80%E0%B8%AB%E0%B8%A1%E0%B8%B2%E0%B8%B0&desc=Pro+%E0%B9%80%E0%B8%9E%E0%B8%B4%E0%B9%88%E0%B8%A1%E0%B8%99%E0%B9%89%E0%B8%B3%E0%B9%80%E0%B8%AA%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%9A%E0%B8%97%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B9%80%E0%B8%A7%E0%B9%87%E0%B8%9A%E0%B9%81%E0%B8%9A%E0%B8%9A%E0%B9%80%E0%B8%A5%E0%B8%B7%E0%B8%AD%E0%B8%81%E0%B9%83%E0%B8%8A%E0%B9%89&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=th&dir=ltr",
+    "out": "meta/screenshots/th/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=%E0%B0%85%E0%B0%A8%E0%B1%81%E0%B0%B5%E0%B0%BE%E0%B0%A6%E0%B0%BE%E0%B0%B2%E0%B0%A8%E0%B1%81+%E0%B0%A6%E0%B0%97%E0%B1%8D%E0%B0%97%E0%B0%B0+%E0%B0%89%E0%B0%82%E0%B0%9A%E0%B1%81%E0%B0%95%E0%B1%8B%E0%B0%82%E0%B0%A1%E0%B0%BF&desc=%E0%B0%AE%E0%B1%80+%E0%B0%A8%E0%B0%BF%E0%B0%AF%E0%B0%82%E0%B0%A4%E0%B1%8D%E0%B0%B0%E0%B0%A3%E0%B0%B2%E0%B1%8B+%E0%B0%B8%E0%B1%8D%E0%B0%A5%E0%B0%BE%E0%B0%A8%E0%B0%BF%E0%B0%95+%E0%B0%9A%E0%B0%B0%E0%B0%BF%E0%B0%A4%E0%B1%8D%E0%B0%B0.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=te&dir=ltr",
+    "out": "meta/screenshots/te/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=Sayfan%C4%B1n+tamam%C4%B1n%C4%B1+okuyun&desc=Pro+sayfalar%C4%B1+%C3%A7evirir+ve+%C3%B6zg%C3%BCn+metni+geri+getirir.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=tr&dir=ltr",
+    "out": "meta/screenshots/tr/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=%E0%B9%80%E0%B8%81%E0%B9%87%E0%B8%9A%E0%B8%84%E0%B8%B3%E0%B9%81%E0%B8%9B%E0%B8%A5%E0%B9%84%E0%B8%A7%E0%B9%89%E0%B9%83%E0%B8%81%E0%B8%A5%E0%B9%89%E0%B8%95%E0%B8%B1%E0%B8%A7&desc=%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%A7%E0%B8%B1%E0%B8%95%E0%B8%B4%E0%B9%83%E0%B8%99%E0%B9%80%E0%B8%84%E0%B8%A3%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%84%E0%B8%B8%E0%B8%93%E0%B8%88%E0%B8%B1%E0%B8%94%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%84%E0%B8%94%E0%B9%89&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=th&dir=ltr",
+    "out": "meta/screenshots/th/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=%D0%A0%D0%BE%D0%B7%D1%83%D0%BC%D1%96%D0%B9%D1%82%D0%B5+%D0%BA%D0%BE%D0%B6%D0%BD%D0%B5+%D1%81%D0%BB%D0%BE%D0%B2%D0%BE&desc=%D0%9F%D0%B5%D1%80%D0%B5%D0%BA%D0%BB%D0%B0%D0%B4%D0%B0%D0%B9%D1%82%D0%B5+%D1%82%D0%B5%D0%BA%D1%81%D1%82+%D1%96+%D0%B2%D0%B8%D0%B4%D1%96%D0%BB%D0%B5%D0%BD%D0%BD%D1%8F+%D0%B7+%D0%A8%D0%86.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=uk&dir=ltr",
+    "out": "meta/screenshots/uk/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=Do%C4%9Fru+%C3%BCslubu+se%C3%A7in&desc=Pro%2C+%C3%BCslup+ve+iste%C4%9Fe+ba%C4%9Fl%C4%B1+sayfa+ba%C4%9Flam%C4%B1+sunar.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=tr&dir=ltr",
+    "out": "meta/screenshots/tr/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=Hi%E1%BB%83u+t%E1%BB%ABng+t%E1%BB%AB&desc=D%E1%BB%8Bch+v%C4%83n+b%E1%BA%A3n+v%C3%A0+ph%E1%BA%A7n+ch%E1%BB%8Dn+b%E1%BA%B1ng+AI.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=vi&dir=ltr",
+    "out": "meta/screenshots/vi/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=%D0%92%D0%B8%D0%B4%D1%96%D0%BB%D1%8F%D0%B9%D1%82%D0%B5.+%D0%9F%D0%B5%D1%80%D0%B5%D0%BA%D0%BB%D0%B0%D0%B4%D0%B0%D0%B9%D1%82%D0%B5.+%D0%A7%D0%B8%D1%82%D0%B0%D0%B9%D1%82%D0%B5.&desc=%D0%94%D1%96%D0%B7%D0%BD%D0%B0%D0%B9%D1%82%D0%B5%D1%81%D1%8F+%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%BD%D1%8F+%D0%BF%D0%BE%D1%80%D1%83%D1%87+%D1%96%D0%B7+%D1%82%D0%B5%D0%BA%D1%81%D1%82%D0%BE%D0%BC.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=uk&dir=ltr",
+    "out": "meta/screenshots/uk/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=%C3%87evirileriniz+elinizin+alt%C4%B1nda&desc=Yerel+ge%C3%A7mi%C5%9F+sizin+denetiminizde.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=tr&dir=ltr",
+    "out": "meta/screenshots/tr/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=%D0%A7%D0%B8%D1%82%D0%B0%D0%B9%D1%82%D0%B5+%D0%B2%D1%81%D1%8E+%D1%81%D1%82%D0%BE%D1%80%D1%96%D0%BD%D0%BA%D1%83&desc=Pro+%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D0%BB%D0%B0%D0%B4%D0%B0%D1%94+%D1%81%D1%82%D0%BE%D1%80%D1%96%D0%BD%D0%BA%D0%B8+%D0%B9+%D0%B2%D1%96%D0%B4%D0%BD%D0%BE%D0%B2%D0%BB%D1%8E%D1%94+%D0%BE%D1%80%D0%B8%D0%B3%D1%96%D0%BD%D0%B0%D0%BB.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=uk&dir=ltr",
+    "out": "meta/screenshots/uk/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Ch%E1%BB%8Dn.+D%E1%BB%8Bch.+%C4%90%E1%BB%8Dc+ti%E1%BA%BFp.&desc=Xem+ngh%C4%A9a+ngay+b%C3%AAn+c%E1%BA%A1nh+v%C4%83n+b%E1%BA%A3n.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=vi&dir=ltr",
+    "out": "meta/screenshots/vi/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=%E7%90%86%E8%A7%A3%E6%AF%8F%E4%B8%80%E4%B8%AA%E8%AF%8D&desc=%E7%94%A8+AI+%E7%BF%BB%E8%AF%91%E6%96%87%E6%9C%AC%E5%92%8C%E9%80%89%E4%B8%AD%E5%86%85%E5%AE%B9%E3%80%82&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=zh-CN&dir=ltr",
+    "out": "meta/screenshots/zh_CN/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=%E9%80%89%E4%B8%AD%EF%BC%8C%E7%BF%BB%E8%AF%91%EF%BC%8C%E7%BB%A7%E7%BB%AD%E9%98%85%E8%AF%BB&desc=%E5%9C%A8%E6%96%87%E6%9C%AC%E6%97%81%E6%9F%A5%E7%9C%8B%E5%90%AB%E4%B9%89%E3%80%82&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=zh-CN&dir=ltr",
+    "out": "meta/screenshots/zh_CN/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=%D0%92%D0%B8%D0%B1%D0%B5%D1%80%D1%96%D1%82%D1%8C+%D0%B4%D0%BE%D1%80%D0%B5%D1%87%D0%BD%D0%B8%D0%B9+%D1%82%D0%BE%D0%BD&desc=Pro+%D0%B4%D0%BE%D0%B4%D0%B0%D1%94+%D1%82%D0%BE%D0%BD+%D1%96+%D0%BD%D0%B5%D0%BE%D0%B1%D0%BE%D0%B2%E2%80%99%D1%8F%D0%B7%D0%BA%D0%BE%D0%B2%D0%B8%D0%B9+%D0%BA%D0%BE%D0%BD%D1%82%D0%B5%D0%BA%D1%81%D1%82+%D1%81%D1%82%D0%BE%D1%80%D1%96%D0%BD%D0%BA%D0%B8.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=uk&dir=ltr",
+    "out": "meta/screenshots/uk/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=%C4%90%E1%BB%8Dc+to%C3%A0n+b%E1%BB%99+trang&desc=Pro+d%E1%BB%8Bch+trang+v%C3%A0+kh%C3%B4i+ph%E1%BB%A5c+b%E1%BA%A3n+g%E1%BB%91c.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=vi&dir=ltr",
+    "out": "meta/screenshots/vi/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=%E9%98%85%E8%AF%BB%E6%95%B4%E4%B8%AA%E9%A1%B5%E9%9D%A2&desc=Pro+%E7%BF%BB%E8%AF%91%E7%BD%91%E9%A1%B5%E5%B9%B6%E6%81%A2%E5%A4%8D%E5%8E%9F%E6%96%87%E3%80%82&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=zh-CN&dir=ltr",
+    "out": "meta/screenshots/zh_CN/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=%D0%9F%D0%B5%D1%80%D0%B5%D0%BA%D0%BB%D0%B0%D0%B4%D0%B8+%D0%B7%D0%B0%D0%B2%D0%B6%D0%B4%D0%B8+%D0%BF%D0%BE%D1%80%D1%83%D1%87&desc=%D0%9B%D0%BE%D0%BA%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0+%D1%96%D1%81%D1%82%D0%BE%D1%80%D1%96%D1%8F+%D0%BF%D1%96%D0%B4+%D0%B2%D0%B0%D1%88%D0%B8%D0%BC+%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D0%B5%D0%BC.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=uk&dir=ltr",
+    "out": "meta/screenshots/uk/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=Ch%E1%BB%8Dn+gi%E1%BB%8Dng+%C4%91i%E1%BB%87u+ph%C3%B9+h%E1%BB%A3p&desc=Pro+th%C3%AAm+gi%E1%BB%8Dng+%C4%91i%E1%BB%87u+v%C3%A0+ng%E1%BB%AF+c%E1%BA%A3nh+trang+t%C3%B9y+ch%E1%BB%8Dn.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=vi&dir=ltr",
+    "out": "meta/screenshots/vi/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=%E9%80%89%E6%8B%A9%E5%90%88%E9%80%82%E7%9A%84%E8%AF%AD%E6%B0%94&desc=Pro+%E6%8F%90%E4%BE%9B%E8%AF%AD%E6%B0%94%E8%B0%83%E6%95%B4%E5%92%8C%E5%8F%AF%E9%80%89%E7%BD%91%E9%A1%B5%E4%B8%8A%E4%B8%8B%E6%96%87%E3%80%82&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=zh-CN&dir=ltr",
+    "out": "meta/screenshots/zh_CN/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=Gi%E1%BB%AF+b%E1%BA%A3n+d%E1%BB%8Bch+b%C3%AAn+m%C3%ACnh&desc=L%E1%BB%8Bch+s%E1%BB%AD+c%E1%BB%A5c+b%E1%BB%99+do+b%E1%BA%A1n+qu%E1%BA%A3n+l%C3%BD.&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=vi&dir=ltr",
+    "out": "meta/screenshots/vi/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=%E7%90%86%E8%A7%A3%E6%AF%8F%E4%B8%80%E5%80%8B%E8%A9%9E&desc=%E7%94%A8+AI+%E7%BF%BB%E8%AD%AF%E6%96%87%E5%AD%97%E5%8F%8A%E9%81%B8%E5%8F%96%E5%85%A7%E5%AE%B9%E3%80%82&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=zh-TW&dir=ltr",
+    "out": "meta/screenshots/zh_TW/1.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=%E8%AE%A9%E8%AF%91%E6%96%87%E9%9A%8F%E6%89%8B%E5%8F%AF%E7%94%A8&desc=%E6%9C%AC%E5%9C%B0%E5%8E%86%E5%8F%B2%EF%BC%8C%E7%94%B1%E6%82%A8%E6%8E%8C%E6%8E%A7%E3%80%82&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=zh-CN&dir=ltr",
+    "out": "meta/screenshots/zh_CN/5.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=%E9%81%B8%E5%8F%96%E3%80%81%E7%BF%BB%E8%AD%AF%E3%80%81%E7%B9%BC%E7%BA%8C%E9%96%B1%E8%AE%80&desc=%E5%9C%A8%E6%96%87%E5%AD%97%E6%97%81%E6%9F%A5%E7%9C%8B%E5%90%AB%E7%BE%A9%E3%80%82&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=zh-TW&dir=ltr",
+    "out": "meta/screenshots/zh_TW/2.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=%E9%96%B1%E8%AE%80%E6%95%B4%E5%80%8B%E9%A0%81%E9%9D%A2&desc=Pro+%E7%BF%BB%E8%AD%AF%E7%B6%B2%E9%A0%81%E4%B8%A6%E9%82%84%E5%8E%9F%E5%8E%9F%E6%96%87%E3%80%82&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&layout=stacked&lang=zh-TW&dir=ltr",
+    "out": "meta/screenshots/zh_TW/3.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=%E9%81%B8%E6%93%87%E9%81%A9%E5%90%88%E7%9A%84%E8%AA%9E%E6%B0%A3&desc=Pro+%E6%8F%90%E4%BE%9B%E8%AA%9E%E6%B0%A3%E8%AA%BF%E6%95%B4%E5%8F%8A%E9%81%B8%E7%94%A8%E7%B6%B2%E9%A0%81%E4%B8%8A%E4%B8%8B%E6%96%87%E3%80%82&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=zh-TW&dir=ltr",
+    "out": "meta/screenshots/zh_TW/4.png",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=%E8%AE%93%E8%AD%AF%E6%96%87%E9%9A%A8%E6%89%8B%E5%8F%AF%E7%94%A8&desc=%E6%9C%AC%E6%A9%9F%E6%AD%B7%E5%8F%B2%E7%B4%80%E9%8C%84%EF%BC%8C%E7%94%B1%E6%82%A8%E6%8E%8C%E6%8E%A7%E3%80%82&brand=AI+Translator&logo=..%2Fassets%2Fbrand-mark.png&fit=contain&lang=zh-TW&dir=ltr",
+    "out": "meta/screenshots/zh_TW/5.png",
+    "width": 1280,
+    "height": 800
+  }
+]

@@ -1,0 +1,44 @@
+{
+  "appName": {
+    "message": "AI Translator – የጽሑፍና ድረ ገጽ ተርጓሚ"
+  },
+  "appDescription": {
+    "message": "በAI ጽሑፍ ይተርጉሙ፣ ታሪክንም በመሣሪያዎ ያስቀምጡ። Pro የገጽ ትርጉም፣ ቅላጼና አማራጭ አውድ ያክላል።"
+  },
+  "reviewPrompt": {
+    "message": "AI Translator ወደዱት? በChrome Web Store ደረጃ ይስጡት"
+  },
+  "reviewRate": {
+    "message": "★ ደረጃ ይስጡ"
+  },
+  "reviewDismiss": {
+    "message": "የደረጃ ጥያቄውን ዝጋ"
+  },
+  "welcomeTitle": {
+    "message": "ወደ AI Translator እንኳን ደህና መጡ"
+  },
+  "welcomeIntro": {
+    "message": "የተጻፈ ወይም የተመረጠ ጽሑፍ በAI ይተርጉሙ። Pro ድረ ገጾችንም ይተረጉማል፣ ዋናውን ጽሑፍም ይመልሳል።"
+  },
+  "welcomePin": {
+    "message": "AI Translatorን በመሣሪያ አሞሌው ላይ ያያይዙና ይክፈቱት።"
+  },
+  "welcomeSignIn": {
+    "message": "በGoogle ይግቡና የትርጉም ቋንቋዎችን ይምረጡ።"
+  },
+  "welcomeFirstResult": {
+    "message": "በብቅ ባይ መስኮቱ ጽሑፍ ይለጥፉ፣ ወይም በገጽ ላይ ጽሑፍ መርጠው የትርጉም አዶውን ይጫኑ። የገጽ ትርጉም Pro ይፈልጋል።"
+  },
+  "welcomeAllowance": {
+    "message": "Free በእያንዳንዱ የቀን መቁጠሪያ ወር 100,000 የምንጭ ቁምፊዎችና በአንድ ትርጉም እስከ 4,000 ይሰጣል። Pro በወር 2,000,000 እና በትርጉም እስከ 50,000፣ በወር US$$4.99 ወይም በዓመት US$$39.99 ያቀርባል።"
+  },
+  "welcomePrivacy": {
+    "message": "ጽሑፍ በAI ለመሰራት ወደ አገልጋዩ ይላካል። ፈጣን የምርጫ ትርጉም ሲበራ የተመረጠ ጽሑፍ በራሱ ይላካል። Pro አዲስ የገጽ ጽሑፍንም ይሰራል፤ አማራጭ አውድ እስከ 2,000 የሚታዩ ዙሪያ ቁምፊዎችን ይልካል። ታሪክ በዚህ መሣሪያ ላይ በመለያ ተለይቶ ይቀመጣል፣ ከደመና ጋር አይመሳሰልም።"
+  },
+  "welcomeOpenSettings": {
+    "message": "ምርጫዎችን ክፈት"
+  },
+  "welcomeReadPrivacy": {
+    "message": "የግላዊነት መመሪያን አንብብ"
+  }
+}

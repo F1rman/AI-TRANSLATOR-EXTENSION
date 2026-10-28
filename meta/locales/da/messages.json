@@ -1,0 +1,44 @@
+{
+  "appName": {
+    "message": "AI Translator – Oversæt tekst og websider"
+  },
+  "appDescription": {
+    "message": "Oversæt med AI, og gem lokal historik. Pro tilføjer websideoversættelse, tone og valgfri kontekst."
+  },
+  "reviewPrompt": {
+    "message": "Kan du lide AI Translator? Bedøm den i Chrome Web Store"
+  },
+  "reviewRate": {
+    "message": "★ Bedøm"
+  },
+  "reviewDismiss": {
+    "message": "Luk anmodning om bedømmelse"
+  },
+  "welcomeTitle": {
+    "message": "Velkommen til AI Translator"
+  },
+  "welcomeIntro": {
+    "message": "Oversæt indtastet eller markeret tekst med AI. Pro oversætter også websider og gendanner originalteksten."
+  },
+  "welcomePin": {
+    "message": "Fastgør AI Translator til værktøjslinjen, og åbn den."
+  },
+  "welcomeSignIn": {
+    "message": "Log ind med Google, og vælg oversættelsessprog."
+  },
+  "welcomeFirstResult": {
+    "message": "Indsæt tekst i pop op-vinduet, eller markér tekst på en side, og klik på oversættelsesikonet. Websider kræver Pro."
+  },
+  "welcomeAllowance": {
+    "message": "Free omfatter 100,000 kildetegn pr. kalendermåned og op til 4,000 pr. oversættelse. Pro omfatter 2,000,000 pr. månedlig periode og op til 50,000 pr. oversættelse for 4.99 USD/måned eller 39.99 USD/år."
+  },
+  "welcomePrivacy": {
+    "message": "Tekst sendes til serveren til AI-behandling. Aktivér øjeblikkelig oversættelse for automatisk at sende markeret tekst. Pro behandler også ny sidetekst; valgfri kontekst sender op til 2,000 synlige tegn omkring teksten. Historikken bliver på denne enhed, adskilt efter konto og uden skysynkronisering."
+  },
+  "welcomeOpenSettings": {
+    "message": "Åbn indstillinger"
+  },
+  "welcomeReadPrivacy": {
+    "message": "Læs privatlivspolitikken"
+  }
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "cap": "Razumite vsako besedo",
+    "desc": "Prevajajte besedilo in izbore z UI."
+  },
+  {
+    "cap": "Označite. Prevedite. Berite.",
+    "desc": "Pomen si oglejte ob besedilu."
+  },
+  {
+    "cap": "Preberite celotno stran",
+    "desc": "Pro prevaja strani in obnovi izvirnike."
+  },
+  {
+    "cap": "Izberite pravi ton",
+    "desc": "Pro doda ton in izbirni kontekst strani."
+  },
+  {
+    "cap": "Prevodi vedno pri roki",
+    "desc": "Lokalna zgodovina pod vašim nadzorom."
+  }
+]

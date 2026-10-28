@@ -1,0 +1,44 @@
+{
+  "appName": {
+    "message": "AI Translator – Penerjemah Teks dan Halaman Web"
+  },
+  "appDescription": {
+    "message": "Terjemahkan dengan AI dan simpan riwayat lokal. Pro menambah terjemahan halaman, nada, dan konteks opsional."
+  },
+  "reviewPrompt": {
+    "message": "Suka AI Translator? Beri ulasan di Chrome Web Store"
+  },
+  "reviewRate": {
+    "message": "★ Beri ulasan"
+  },
+  "reviewDismiss": {
+    "message": "Tutup permintaan ulasan"
+  },
+  "welcomeTitle": {
+    "message": "Selamat datang di AI Translator"
+  },
+  "welcomeIntro": {
+    "message": "Terjemahkan teks yang diketik atau dipilih dengan AI. Pro juga menerjemahkan halaman web dan memulihkan teks asli."
+  },
+  "welcomePin": {
+    "message": "Sematkan AI Translator ke bilah alat dan buka."
+  },
+  "welcomeSignIn": {
+    "message": "Masuk dengan Google dan pilih bahasa terjemahan."
+  },
+  "welcomeFirstResult": {
+    "message": "Tempel teks di popup atau pilih teks di halaman lalu klik ikon terjemahan. Terjemahan halaman memerlukan Pro."
+  },
+  "welcomeAllowance": {
+    "message": "Free mencakup 100,000 karakter sumber per bulan kalender dan hingga 4,000 per terjemahan. Pro mencakup 2,000,000 per periode bulanan dan hingga 50,000 per terjemahan, seharga US$$4.99/bulan atau US$$39.99/tahun."
+  },
+  "welcomePrivacy": {
+    "message": "Teks dikirim ke server untuk diproses AI. Pilihan instan mengirim teks terpilih secara otomatis saat diaktifkan. Pro juga memproses teks halaman yang baru muncul; konteks opsional mengirim hingga 2,000 karakter terlihat di sekitarnya. Riwayat tetap di perangkat ini, terpisah menurut akun, tanpa sinkronisasi cloud."
+  },
+  "welcomeOpenSettings": {
+    "message": "Buka preferensi"
+  },
+  "welcomeReadPrivacy": {
+    "message": "Baca kebijakan privasi"
+  }
+}

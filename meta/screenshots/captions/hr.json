@@ -1,0 +1,22 @@
+[
+  {
+    "cap": "Razumijte svaku riječ",
+    "desc": "Prevodite tekst i odabire uz AI."
+  },
+  {
+    "cap": "Odaberite. Prevedite. Čitajte dalje.",
+    "desc": "Značenje pogledajte uz tekst."
+  },
+  {
+    "cap": "Pročitajte cijelu stranicu",
+    "desc": "Pro prevodi stranice i vraća izvornike."
+  },
+  {
+    "cap": "Odaberite prikladan ton",
+    "desc": "Pro dodaje ton i neobavezni kontekst."
+  },
+  {
+    "cap": "Prijevodi uvijek pri ruci",
+    "desc": "Lokalna povijest pod vašim nadzorom."
+  }
+]

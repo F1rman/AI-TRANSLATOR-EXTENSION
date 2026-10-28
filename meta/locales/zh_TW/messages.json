@@ -1,0 +1,44 @@
+{
+  "appName": {
+    "message": "AI Translator – 文字與網頁翻譯工具"
+  },
+  "appDescription": {
+    "message": "透過 AI 翻譯文字並保留本機歷史紀錄。Pro 提供網頁翻譯、語氣調整及選用上下文。"
+  },
+  "reviewPrompt": {
+    "message": "喜歡 AI Translator 嗎？請在 Chrome Web Store 評分"
+  },
+  "reviewRate": {
+    "message": "★ 評分"
+  },
+  "reviewDismiss": {
+    "message": "關閉評分要求"
+  },
+  "welcomeTitle": {
+    "message": "歡迎使用 AI Translator"
+  },
+  "welcomeIntro": {
+    "message": "AI Translator 協助您在瀏覽器閱讀與工作時翻譯文字。將文字貼到彈出視窗、翻譯網頁上選取的內容，或使用 Pro 網頁翻譯工具，以選擇的語言閱讀支援的頁面。"
+  },
+  "welcomePin": {
+    "message": "將 AI Translator 固定至工具列並開啟彈出視窗。"
+  },
+  "welcomeSignIn": {
+    "message": "透過 Google 登入並選擇翻譯語言。"
+  },
+  "welcomeFirstResult": {
+    "message": "貼上或選取文字並翻譯。翻譯網頁需選擇 Pro，再於支援的頁面開始翻譯。"
+  },
+  "welcomeAllowance": {
+    "message": "Free 每個曆月提供 100,000 個來源文字字元，單次最多 4,000 個字元，空格也計入額度。額度於每月第一天 00:00 UTC 重設，未使用的字元額度不會遞延。 Pro 每月 US$$4.99，或每年 US$$39.99。每個訂閱月度週期提供 2,000,000 個來源文字字元，單次最多 50,000 個字元。即使按年付款，仍分別提供每月額度。"
+  },
+  "welcomePrivacy": {
+    "message": "要求翻譯的來源文字會傳送到翻譯伺服器進行 AI 處理。啟用即時選取翻譯模式後，選取的文字會自動傳送。作用中的 Pro 網頁工作階段也會傳送新出現且符合條件的頁面文字。選用上下文不包含輸入欄位、密碼或隱藏文字，也不會將網頁 HTML 當作上下文傳送。 歷史紀錄儲存在此裝置的擴充功能中，依帳戶與環境分開，不與雲端同步。可以停用記錄、刪除個別項目或全部清除。最多保留 1,000 筆或 25 MiB，必要時移除最舊的紀錄。Free 顯示最近 20 筆；單純降級方案不會刪除較舊的紀錄。"
+  },
+  "welcomeOpenSettings": {
+    "message": "開啟偏好設定"
+  },
+  "welcomeReadPrivacy": {
+    "message": "閱讀隱私權政策"
+  }
+}

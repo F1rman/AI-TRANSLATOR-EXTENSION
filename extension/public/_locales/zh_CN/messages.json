@@ -1,0 +1,44 @@
+{
+  "appName": {
+    "message": "AI Translator – 文本与网页翻译器"
+  },
+  "appDescription": {
+    "message": "用 AI 翻译文本并保留本地历史。Pro 提供网页翻译、语气调整和可选上下文。"
+  },
+  "reviewPrompt": {
+    "message": "喜欢 AI Translator？请在 Chrome Web Store 评价"
+  },
+  "reviewRate": {
+    "message": "★ 评价"
+  },
+  "reviewDismiss": {
+    "message": "关闭评价请求"
+  },
+  "welcomeTitle": {
+    "message": "欢迎使用 AI Translator"
+  },
+  "welcomeIntro": {
+    "message": "AI Translator 帮助您在浏览器中阅读和工作时翻译文本。将文字粘贴到弹出窗口、翻译网页上的选中文本，或使用 Pro 网页翻译器，以所选语言阅读支持的页面。"
+  },
+  "welcomePin": {
+    "message": "将 AI Translator 固定到工具栏并打开弹出窗口。"
+  },
+  "welcomeSignIn": {
+    "message": "通过 Google 登录并选择翻译语言。"
+  },
+  "welcomeFirstResult": {
+    "message": "粘贴或选中文本后翻译。翻译网页需选择 Pro，并在支持的页面上开始翻译。"
+  },
+  "welcomeAllowance": {
+    "message": "Free 每个自然月提供 100,000 个源文本字符，单次最多 4,000 个字符，空格也计入额度。额度于每月第一天 00:00 UTC 重置，未使用的字符额度不结转。 Pro 每月 US$$4.99，或每年 US$$39.99。每个订阅月度周期提供 2,000,000 个源文本字符，单次最多 50,000 个字符。即使按年付费，额度也按月分别提供。"
+  },
+  "welcomePrivacy": {
+    "message": "请求翻译的源文本会发送到翻译服务器进行 AI 处理。启用即时选中翻译模式后，选中文本会自动发送。活跃的 Pro 网页会话也会发送新出现且符合条件的页面文本。可选上下文不包含输入框、密码或隐藏文本，也不会将页面 HTML 作为上下文发送。 历史记录保存在此设备的扩展程序中，按账户和环境隔离，不进行云端同步。可以关闭记录、逐条删除或全部清空。最多保留 1,000 条记录或 25 MiB，必要时移除最旧记录。Free 显示最近 20 条；仅降级套餐不会删除更早的记录。"
+  },
+  "welcomeOpenSettings": {
+    "message": "打开偏好设置"
+  },
+  "welcomeReadPrivacy": {
+    "message": "阅读隐私政策"
+  }
+}

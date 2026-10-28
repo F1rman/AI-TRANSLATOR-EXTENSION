@@ -1,0 +1,898 @@
+{
+  "checkedAt": "2026-10-28T08:43:44.570485+00:00",
+  "version": "1.3.1",
+  "success": true,
+  "localesReviewed": 55,
+  "shotsReviewed": 275,
+  "scope": "Final 1.3.1 contact sheets: five localized editorial frames per locale around authentic English UI; demo transport, not live AI or native editorial sign-off.",
+  "locales": [
+    {
+      "locale": "am",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/am.png",
+      "contactSheetSha256": "a37d4520b655a06c90d8ecc32e669f4565c2615e554c06fd73ccafb6d378660e",
+      "findings": [
+        "Viewed all five current half-size frames: localized headlines and supporting sentences remain legible, with no clipped glyphs, overlapping branding or missing-script boxes observed.",
+        "Text, selection, Pro page translation, tone/context and local-history scenes retain recognizable controls and proportional authentic English UI captures.",
+        "Read-only pixel comparison confirms every contact tile matches its current full-size export; maximum mean RGB difference is 0.9096/255 after thumbnail resampling."
+      ]
+    },
+    {
+      "locale": "ar",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/ar.png",
+      "contactSheetSha256": "86d3eca3c8302c7c74c4672045914a20d5224cef2c556f72a3aa084f6896f79f",
+      "findings": [
+        "Viewed all five current half-size frames: localized headlines and supporting sentences remain legible, with no clipped glyphs, overlapping branding or missing-script boxes observed.",
+        "Text, selection, Pro page translation, tone/context and local-history scenes retain recognizable controls and proportional authentic English UI captures.",
+        "Read-only pixel comparison confirms every contact tile matches its current full-size export; maximum mean RGB difference is 0.8279/255 after thumbnail resampling.",
+        "RTL marketing copy and outer composition are readable; the embedded English interface remains unchanged. Full Arabic shots 2 and 3 were also viewed to confirm the original page scenes."
+      ]
+    },
+    {
+      "locale": "bg",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/bg.png",
+      "contactSheetSha256": "61b392431e0125f4411853ee5bd74bb31784e8c3202e0ba2e5cf479f56173188",
+      "findings": [
+        "Viewed all five current half-size frames: localized headlines and supporting sentences remain legible, with no clipped glyphs, overlapping branding or missing-script boxes observed.",
+        "Text, selection, Pro page translation, tone/context and local-history scenes retain recognizable controls and proportional authentic English UI captures.",
+        "Read-only pixel comparison confirms every contact tile matches its current full-size export; maximum mean RGB difference is 0.9308/255 after thumbnail resampling."
+      ]
+    },
+    {
+      "locale": "bn",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/bn.png",
+      "contactSheetSha256": "7bce355dc9bef194cb1ba474d9ddd5200ad17dc39d6a6913669b7ac38364eee3",
+      "findings": [
+        "Viewed all five current half-size frames: localized headlines and supporting sentences remain legible, with no clipped glyphs, overlapping branding or missing-script boxes observed.",
+        "Text, selection, Pro page translation, tone/context and local-history scenes retain recognizable controls and proportional authentic English UI captures.",
+        "Read-only pixel comparison confirms every contact tile matches its current full-size export; maximum mean RGB difference is 0.8833/255 after thumbnail resampling."
+      ]
+    },
+    {
+      "locale": "ca",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/ca.png",
+      "contactSheetSha256": "7372328cb019fd9ec45e1ad66c04fbeb5346ad089ba09a19641e77fe2fd49782",
+      "findings": [
+        "Viewed all five current half-size frames: localized headlines and supporting sentences remain legible, with no clipped glyphs, overlapping branding or missing-script boxes observed.",
+        "Text, selection, Pro page translation, tone/context and local-history scenes retain recognizable controls and proportional authentic English UI captures.",
+        "Read-only pixel comparison confirms every contact tile matches its current full-size export; maximum mean RGB difference is 0.8753/255 after thumbnail resampling."
+      ]
+    },
+    {
+      "locale": "cs",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/cs.png",
+      "contactSheetSha256": "65288375610fce16f31a8a50dd81dded44fbca95450ec31b545d7f5e939f942d",
+      "findings": [
+        "Viewed all five current half-size frames: localized headlines and supporting sentences remain legible, with no clipped glyphs, overlapping branding or missing-script boxes observed.",
+        "Text, selection, Pro page translation, tone/context and local-history scenes retain recognizable controls and proportional authentic English UI captures.",
+        "Read-only pixel comparison confirms every contact tile matches its current full-size export; maximum mean RGB difference is 0.883/255 after thumbnail resampling."
+      ]
+    },
+    {
+      "locale": "da",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/da.png",
+      "contactSheetSha256": "51cf8baade7532d77d5127d80b41f3aabdd8e26468de7e8e6c89bab2d1469ebe",
+      "findings": [
+        "Viewed all five current half-size frames: localized headlines and supporting sentences remain legible, with no clipped glyphs, overlapping branding or missing-script boxes observed.",
+        "Text, selection, Pro page translation, tone/context and local-history scenes retain recognizable controls and proportional authentic English UI captures.",
+        "Read-only pixel comparison confirms every contact tile matches its current full-size export; maximum mean RGB difference is 0.9236/255 after thumbnail resampling."
+      ]
+    },
+    {
+      "locale": "de",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/de.png",
+      "contactSheetSha256": "85aaea5353bedcb8483c96fb758364ac12eb707c2b8a65578df115cccc7c8c46",
+      "findings": [
+        "Viewed all five current half-size frames: localized headlines and supporting sentences remain legible, with no clipped glyphs, overlapping branding or missing-script boxes observed.",
+        "Text, selection, Pro page translation, tone/context and local-history scenes retain recognizable controls and proportional authentic English UI captures.",
+        "Read-only pixel comparison confirms every contact tile matches its current full-size export; maximum mean RGB difference is 0.966/255 after thumbnail resampling."
+      ]
+    },
+    {
+      "locale": "el",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/el.png",
+      "contactSheetSha256": "65fea0cb0b5ab17e28c4c743f46a623e61ef5ef3e26ef0d612fdcf61b91a30b6",
+      "findings": [
+        "Viewed all five current half-size frames: localized headlines and supporting sentences remain legible, with no clipped glyphs, overlapping branding or missing-script boxes observed.",
+        "Text, selection, Pro page translation, tone/context and local-history scenes retain recognizable controls and proportional authentic English UI captures.",
+        "Read-only pixel comparison confirms every contact tile matches its current full-size export; maximum mean RGB difference is 0.9112/255 after thumbnail resampling."
+      ]
+    },
+    {
+      "locale": "en",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/en.png",
+      "contactSheetSha256": "a1b74164a7140ed139bdaed4c48aeb6a65506e493c936458a91c36ae127a56cf",
+      "findings": []
+    },
+    {
+      "locale": "en_AU",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/en_AU.png",
+      "contactSheetSha256": "673e2720c4b7b2a85c7f5f67e7519a2456bcabcfeef67e04ab4e89340d2c0bfe",
+      "findings": [
+        "Viewed all five current half-size frames: localized headlines and supporting sentences remain legible, with no clipped glyphs, overlapping branding or missing-script boxes observed.",
+        "Text, selection, Pro page translation, tone/context and local-history scenes retain recognizable controls and proportional authentic English UI captures.",
+        "Read-only pixel comparison confirms every contact tile matches its current full-size export; maximum mean RGB difference is 0.8862/255 after thumbnail resampling.",
+        "English regional wording legitimately matches the English base set."
+      ]
+    },
+    {
+      "locale": "en_GB",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/en_GB.png",
+      "contactSheetSha256": "c0bdf9098a172562326442a52c4c669e6ef6f8941dacbe6d9fb07a71a602aa5f",
+      "findings": [
+        "Viewed all five current half-size frames: localized headlines and supporting sentences remain legible, with no clipped glyphs, overlapping branding or missing-script boxes observed.",
+        "Text, selection, Pro page translation, tone/context and local-history scenes retain recognizable controls and proportional authentic English UI captures.",
+        "Read-only pixel comparison confirms every contact tile matches its current full-size export; maximum mean RGB difference is 0.8862/255 after thumbnail resampling.",
+        "English regional wording legitimately matches the English base set."
+      ]
+    },
+    {
+      "locale": "en_US",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/en_US.png",
+      "contactSheetSha256": "1fb01b62bb59690027702d020992633acc8305414c7bd62eac02d7deaf334144",
+      "findings": [
+        "Viewed all five current half-size frames: localized headlines and supporting sentences remain legible, with no clipped glyphs, overlapping branding or missing-script boxes observed.",
+        "Text, selection, Pro page translation, tone/context and local-history scenes retain recognizable controls and proportional authentic English UI captures.",
+        "Read-only pixel comparison confirms every contact tile matches its current full-size export; maximum mean RGB difference is 0.8862/255 after thumbnail resampling.",
+        "English regional wording legitimately matches the English base set."
+      ]
+    },
+    {
+      "locale": "es",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/es.png",
+      "contactSheetSha256": "f7f5fa3de8b9d36097286287b5a1efd3ebf95c4e7756ea62614ad51fbd3eb19b",
+      "findings": [
+        "Viewed all five current half-size frames: localized headlines and supporting sentences remain legible, with no clipped glyphs, overlapping branding or missing-script boxes observed.",
+        "Text, selection, Pro page translation, tone/context and local-history scenes retain recognizable controls and proportional authentic English UI captures.",
+        "Read-only pixel comparison confirms every contact tile matches its current full-size export; maximum mean RGB difference is 0.8881/255 after thumbnail resampling."
+      ]
+    },
+    {
+      "locale": "es_419",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/es_419.png",
+      "contactSheetSha256": "8212720bacda332ad9438cac8826b9a74bf48e638a4fdd02beaf21a09a3350f0",
+      "findings": [
+        "Viewed all five current half-size frames: localized headlines and supporting sentences remain legible, with no clipped glyphs, overlapping branding or missing-script boxes observed.",
+        "Text, selection, Pro page translation, tone/context and local-history scenes retain recognizable controls and proportional authentic English UI captures.",
+        "Read-only pixel comparison confirms every contact tile matches its current full-size export; maximum mean RGB difference is 0.8881/255 after thumbnail resampling."
+      ]
+    },
+    {
+      "locale": "et",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/et.png",
+      "contactSheetSha256": "1b647ce9872f421cd8d9d5f21ee572151a6b97e019d72b7f7f4f6f3c392a7544",
+      "findings": [
+        "Viewed all five current half-size frames: localized headlines and supporting sentences remain legible, with no clipped glyphs, overlapping branding or missing-script boxes observed.",
+        "Text, selection, Pro page translation, tone/context and local-history scenes retain recognizable controls and proportional authentic English UI captures.",
+        "Read-only pixel comparison confirms every contact tile matches its current full-size export; maximum mean RGB difference is 0.8857/255 after thumbnail resampling."
+      ]
+    },
+    {
+      "locale": "fa",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/fa.png",
+      "contactSheetSha256": "309ffbe3af5cc5684f5e8e82ccbce830d1b676caf56c19f55c1594c10897bd8d",
+      "findings": [
+        "Viewed all five current half-size frames: localized headlines and supporting sentences remain legible, with no clipped glyphs, overlapping branding or missing-script boxes observed.",
+        "Text, selection, Pro page translation, tone/context and local-history scenes retain recognizable controls and proportional authentic English UI captures.",
+        "Read-only pixel comparison confirms every contact tile matches its current full-size export; maximum mean RGB difference is 0.8415/255 after thumbnail resampling.",
+        "RTL marketing copy and outer composition are readable; the embedded English interface remains unchanged. Full Arabic shots 2 and 3 were also viewed to confirm the original page scenes."
+      ]
+    },
+    {
+      "locale": "fi",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/fi.png",
+      "contactSheetSha256": "980f04187aae4a057f2a6a5727a2a7a61fde02e7a270f8626a0bd5f534ca41ab",
+      "findings": [
+        "Viewed all five current half-size frames: localized headlines and supporting sentences remain legible, with no clipped glyphs, overlapping branding or missing-script boxes observed.",
+        "Text, selection, Pro page translation, tone/context and local-history scenes retain recognizable controls and proportional authentic English UI captures.",
+        "Read-only pixel comparison confirms every contact tile matches its current full-size export; maximum mean RGB difference is 0.9097/255 after thumbnail resampling."
+      ]
+    },
+    {
+      "locale": "fil",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/fil.png",
+      "contactSheetSha256": "557823e67a16e3779f5d6215be9d138a440e838226ea9f2f3fdb4621aa9c5023",
+      "findings": [
+        "Viewed all five current half-size frames: localized headlines and supporting sentences remain legible, with no clipped glyphs, overlapping branding or missing-script boxes observed.",
+        "Text, selection, Pro page translation, tone/context and local-history scenes retain recognizable controls and proportional authentic English UI captures.",
+        "Read-only pixel comparison confirms every contact tile matches its current full-size export; maximum mean RGB difference is 0.9178/255 after thumbnail resampling."
+      ]
+    },
+    {
+      "locale": "fr",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/fr.png",
+      "contactSheetSha256": "e8f7b0e93556e0896e0567e45aec418436298b4ff1fac9006a8b6e8dc82c2e41",
+      "findings": [
+        "Viewed all five current half-size frames: localized headlines and supporting sentences remain legible, with no clipped glyphs, overlapping branding or missing-script boxes observed.",
+        "Text, selection, Pro page translation, tone/context and local-history scenes retain recognizable controls and proportional authentic English UI captures.",
+        "Read-only pixel comparison confirms every contact tile matches its current full-size export; maximum mean RGB difference is 0.9582/255 after thumbnail resampling."
+      ]
+    },
+    {
+      "locale": "gu",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/gu.png",
+      "contactSheetSha256": "d3117085740de644e06afde37207ef3481a9447a36298bf23e3873c8c74d5e6f",
+      "findings": [
+        "Viewed all five current half-size frames: localized headlines and supporting sentences remain legible, with no clipped glyphs, overlapping branding or missing-script boxes observed.",
+        "Text, selection, Pro page translation, tone/context and local-history scenes retain recognizable controls and proportional authentic English UI captures.",
+        "Read-only pixel comparison confirms every contact tile matches its current full-size export; maximum mean RGB difference is 0.8483/255 after thumbnail resampling."
+      ]
+    },
+    {
+      "locale": "he",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/he.png",
+      "contactSheetSha256": "79ec063da91e5008463854c6a21c37f17e9d87de2907391b59b33a0eda7bcc08",
+      "findings": [
+        "Viewed all five current half-size frames: localized headlines and supporting sentences remain legible, with no clipped glyphs, overlapping branding or missing-script boxes observed.",
+        "Text, selection, Pro page translation, tone/context and local-history scenes retain recognizable controls and proportional authentic English UI captures.",
+        "Read-only pixel comparison confirms every contact tile matches its current full-size export; maximum mean RGB difference is 0.8587/255 after thumbnail resampling.",
+        "RTL marketing copy and outer composition are readable; the embedded English interface remains unchanged. Full Arabic shots 2 and 3 were also viewed to confirm the original page scenes."
+      ]
+    },
+    {
+      "locale": "hi",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/hi.png",
+      "contactSheetSha256": "7c70dfc6304ef96a322718546386a6c562263cc8e5f451a35f81dfed5f0264ec",
+      "findings": [
+        "Viewed all five current half-size frames: localized headlines and supporting sentences remain legible, with no clipped glyphs, overlapping branding or missing-script boxes observed.",
+        "Text, selection, Pro page translation, tone/context and local-history scenes retain recognizable controls and proportional authentic English UI captures.",
+        "Read-only pixel comparison confirms every contact tile matches its current full-size export; maximum mean RGB difference is 0.8756/255 after thumbnail resampling."
+      ]
+    },
+    {
+      "locale": "hr",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/hr.png",
+      "contactSheetSha256": "07b08acc3d39004e19a22b40f6d50b7844476854a3ef6802f0892184a31d57fb",
+      "findings": [
+        "Viewed all five current half-size frames: localized headlines and supporting sentences remain legible, with no clipped glyphs, overlapping branding or missing-script boxes observed.",
+        "Text, selection, Pro page translation, tone/context and local-history scenes retain recognizable controls and proportional authentic English UI captures.",
+        "Read-only pixel comparison confirms every contact tile matches its current full-size export; maximum mean RGB difference is 0.901/255 after thumbnail resampling."
+      ]
+    },
+    {
+      "locale": "hu",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/hu.png",
+      "contactSheetSha256": "0dd7e4e2675bf6af4deccf47e3c3cc70a0a4ea3635c2ac32bd2a3ad5eecb7d6b",
+      "findings": [
+        "Viewed all five current half-size frames: localized headlines and supporting sentences remain legible, with no clipped glyphs, overlapping branding or missing-script boxes observed.",
+        "Text, selection, Pro page translation, tone/context and local-history scenes retain recognizable controls and proportional authentic English UI captures.",
+        "Read-only pixel comparison confirms every contact tile matches its current full-size export; maximum mean RGB difference is 0.9229/255 after thumbnail resampling."
+      ]
+    },
+    {
+      "locale": "id",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/id.png",
+      "contactSheetSha256": "e3baec21853e384cf5bfdb60a86ed0ddf0e93afe959d9f04f4685256e5d5bd11",
+      "findings": [
+        "Viewed all five current half-size frames: localized headlines and supporting sentences remain legible, with no clipped glyphs, overlapping branding or missing-script boxes observed.",
+        "Text, selection, Pro page translation, tone/context and local-history scenes retain recognizable controls and proportional authentic English UI captures.",
+        "Read-only pixel comparison confirms every contact tile matches its current full-size export; maximum mean RGB difference is 0.9005/255 after thumbnail resampling."
+      ]
+    },
+    {
+      "locale": "it",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/it.png",
+      "contactSheetSha256": "3c4775bbc8d7b3f5c88c8336b8b2567ba9a9393b32dc6132740616ba7c6a7af1",
+      "findings": [
+        "Viewed all five current half-size frames: localized headlines and supporting sentences remain legible, with no clipped glyphs, overlapping branding or missing-script boxes observed.",
+        "Text, selection, Pro page translation, tone/context and local-history scenes retain recognizable controls and proportional authentic English UI captures.",
+        "Read-only pixel comparison confirms every contact tile matches its current full-size export; maximum mean RGB difference is 0.915/255 after thumbnail resampling."
+      ]
+    },
+    {
+      "locale": "ja",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/ja.png",
+      "contactSheetSha256": "391a668d4cdf21db6b655dc90e92900fd931675fe4d77fbc491511678bd7b64c",
+      "findings": [
+        "Viewed all five current half-size frames: localized headlines and supporting sentences remain legible, with no clipped glyphs, overlapping branding or missing-script boxes observed.",
+        "Text, selection, Pro page translation, tone/context and local-history scenes retain recognizable controls and proportional authentic English UI captures.",
+        "Read-only pixel comparison confirms every contact tile matches its current full-size export; maximum mean RGB difference is 0.9099/255 after thumbnail resampling."
+      ]
+    },
+    {
+      "locale": "kn",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/kn.png",
+      "contactSheetSha256": "515ad72155a20bca7eb3ac1282cbeed40be5d738333ada16969ed9ea941485d2",
+      "findings": []
+    },
+    {
+      "locale": "ko",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/ko.png",
+      "contactSheetSha256": "4ad8caf2c3ae7c4eb4992af4c4c4cd4bf7f0ba20382e48dd2d18b0dad162075c",
+      "findings": []
+    },
+    {
+      "locale": "lt",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/lt.png",
+      "contactSheetSha256": "0778ef9663575b8ed974c45fe4312f2e41545e932294ab73c51da737b7922d7f",
+      "findings": []
+    },
+    {
+      "locale": "lv",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/lv.png",
+      "contactSheetSha256": "13bdd8bf5c90c89d4817c2f3a4bbb96ee4b6ff536a5120b80f1acf3454cc6330",
+      "findings": []
+    },
+    {
+      "locale": "ml",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/ml.png",
+      "contactSheetSha256": "cc6112200c5ff4a4e7dc707ec0e13d053e1feff9be66dcceac9b020762375248",
+      "findings": []
+    },
+    {
+      "locale": "mr",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/mr.png",
+      "contactSheetSha256": "623f96ece5a8b8a15bbac6cc628c3233c3e7badb8280f770b5caada32233271b",
+      "findings": []
+    },
+    {
+      "locale": "ms",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/ms.png",
+      "contactSheetSha256": "d91e1f994913961f2bfa6d9d1343f8fe222d63ad40223011352782178cc86cdb",
+      "findings": []
+    },
+    {
+      "locale": "nl",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/nl.png",
+      "contactSheetSha256": "46d4e070c54e2aaa5daa36a0b2fa5729707ecb622e80a7196e17c4d800c3933a",
+      "findings": []
+    },
+    {
+      "locale": "no",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/no.png",
+      "contactSheetSha256": "36419868880e57da31e4a6ed0822dea7742f22599789892e4af751a304b353e5",
+      "findings": []
+    },
+    {
+      "locale": "pl",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/pl.png",
+      "contactSheetSha256": "83526a1ce02733023fd274e901818828f4cf949cb316a80c57ee776dce73ee48",
+      "findings": []
+    },
+    {
+      "locale": "pt_BR",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/pt_BR.png",
+      "contactSheetSha256": "be76770aefd3232ce9c7c1af98edf5b9ee22cb1810f0f09589d57bad83e66146",
+      "findings": []
+    },
+    {
+      "locale": "pt_PT",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/pt_PT.png",
+      "contactSheetSha256": "7b0ede7b010c5c1b87bf3eca4a5f18d7789bbe876a73990d605ee9410811a9ce",
+      "findings": []
+    },
+    {
+      "locale": "ro",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/ro.png",
+      "contactSheetSha256": "c18392a28f0f96ca9aabe3e4e2efe5266ebf4665230e1e799f82160018d870da",
+      "findings": []
+    },
+    {
+      "locale": "ru",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/ru.png",
+      "contactSheetSha256": "a4d65ed38e548048315b50a052710ef24e14500b1eacd1c2275dd79e9e3f6f88",
+      "findings": []
+    },
+    {
+      "locale": "sk",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/sk.png",
+      "contactSheetSha256": "3b51d283fce4100d12925a6858be778ab7394e25316e3c06fe8c4faceb913f96",
+      "findings": []
+    },
+    {
+      "locale": "sl",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/sl.png",
+      "contactSheetSha256": "88f124e3be763dd7caed0e475f1ee6c470e62cf960f13d9f37ec51d0274c1b0b",
+      "findings": []
+    },
+    {
+      "locale": "sr",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/sr.png",
+      "contactSheetSha256": "a40d42436b570f77f0dcc5b4d8d2d16fdc359eb800944806b68c64c36f02820f",
+      "findings": []
+    },
+    {
+      "locale": "sv",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/sv.png",
+      "contactSheetSha256": "96f8caf4111f07d92623d441ada930442c34f85b07b9e0a58735d77f4b44c54b",
+      "findings": []
+    },
+    {
+      "locale": "sw",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/sw.png",
+      "contactSheetSha256": "1ce7626a97403dc476b54951a8acc12697170ed0cf509be0b934ac2cd8870b51",
+      "findings": []
+    },
+    {
+      "locale": "ta",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/ta.png",
+      "contactSheetSha256": "6ec6edc6392c616e446d793d0b575fd150dc1682e2f06a7bf0496bc0c77d9a60",
+      "findings": []
+    },
+    {
+      "locale": "te",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/te.png",
+      "contactSheetSha256": "13c4e7b957911abf8a6342b3c6119ace94b0ebc78294950cc242e6a31c310f36",
+      "findings": []
+    },
+    {
+      "locale": "th",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/th.png",
+      "contactSheetSha256": "14e7ef7a34cc287d69fbc8b10d876156e9f4309a052e815389edfca6159d5822",
+      "findings": []
+    },
+    {
+      "locale": "tr",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/tr.png",
+      "contactSheetSha256": "3a0d353c4ff394f904b49a0407124dd75566eb7bdb29d1cb8bb437edd5f8c7b9",
+      "findings": []
+    },
+    {
+      "locale": "uk",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/uk.png",
+      "contactSheetSha256": "a70413fbba560389529fc6497fc28311b63fa43fa20cc1829593c8bdeede1f32",
+      "findings": []
+    },
+    {
+      "locale": "vi",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/vi.png",
+      "contactSheetSha256": "7e2e142bf4182d6820f8f7d8a5df3115acb1fa89f94990e5673c5ad2716e70e2",
+      "findings": []
+    },
+    {
+      "locale": "zh_CN",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/zh_CN.png",
+      "contactSheetSha256": "862a2b3cc24918adfe0f39a0d1dd9c982754cacd20c8d4a8ed78d0065227973b",
+      "findings": []
+    },
+    {
+      "locale": "zh_TW",
+      "shotsReviewed": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "pass",
+      "contactSheet": "screenshots/inspection/zh_TW.png",
+      "contactSheetSha256": "c4d7845200137504efcf0b714d1b2c613d552ceea6e385bceb1c6e498cd5426a",
+      "findings": []
+    }
+  ],
+  "sources": [
+    "data/final-visual-a.json",
+    "data/final-visual-b.json"
+  ]
+}

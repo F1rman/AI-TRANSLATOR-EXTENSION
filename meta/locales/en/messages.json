@@ -32,7 +32,7 @@
     "message": "Paste text into the popup or select text on a webpage and click the translate icon. Page translation requires Pro."
   },
   "welcomeAllowance": {
-    "message": "Free includes 100,000 source characters per calendar month and up to 4,000 per translation. Pro includes 2,000,000 per monthly subscription window and up to 50,000 per translation, for $4.99/month or $39.99/year."
+    "message": "Free includes 100,000 source characters per calendar month and up to 4,000 per translation. Pro includes 2,000,000 per monthly subscription window and up to 50,000 per translation, for $$4.99/month or $$39.99/year."
   },
   "welcomePrivacy": {
     "message": "Translation text is sent for server-side AI processing. Instant selection sends selected text automatically when enabled. Pro page translation also processes newly appearing page text; optional page context sends up to 2,000 visible surrounding characters. Translation history stays on this device, separated by account, with no cloud sync."

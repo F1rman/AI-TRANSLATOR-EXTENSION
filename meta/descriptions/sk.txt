@@ -1,0 +1,27 @@
+AI Translator pomáha prekladať text pri čítaní a práci v prehliadači. Vložte text do vyskakovacieho okna, preložte označený úsek alebo použite Pro na čítanie podporovanej stránky vo vybranom jazyku.
+
+Prekladajte napísaný alebo vložený text. Označte text na stránke a použite ikonu prekladu alebo kontextovú ponuku. Zdrojový jazyk sa rozpozná automaticky alebo ho vyberiete ručne. Skopírujte výsledok a nájdite dokončené preklady v miestnej histórii.
+
+Free zahŕňa 100,000 zdrojových znakov za kalendárny mesiac a najviac 4,000 na preklad. Medzery sa započítavajú. Limit sa obnovuje prvý deň mesiaca o 00:00 UTC; nevyužité znaky sa neprenášajú.
+
+Free používa neutrálny tón a zobrazuje posledných 20 záznamov histórie. Na preklad a sledovanie spotreby účtu sa vyžaduje prihlásenie cez Google.
+
+Pro stojí US$4.99 mesačne alebo US$39.99 ročne a zahŕňa 2,000,000 zdrojových znakov na mesačné obdobie predplatného, najviac 50,000 na preklad. Aj ročná platba poskytuje samostatný mesačný limit.
+
+Pro prekladá podporované stránky vrátane nového textu počas aktívnej relácie. Preklad môžete pozastaviť alebo obnoviť originál. Dostupný je neutrálny, formálny, priateľský a technický tón. Voliteľne použite až 2,000 viditeľných okolitých znakov z aktuálnej stránky; zapnutie ovládate vy. Pro sprístupňuje až 1,000 miestnych záznamov histórie a prioritný rad spracovania. Čas spracovania sa môže líšiť.
+
+Limit Pro sa obnovuje mesačne od dátumu začiatku predplatného, aj pri ročnom pláne. Nevyužité znaky sa neprenášajú. Obnovenie môžete spravovať alebo zrušiť v účte; po zrušení zostáva prístup do konca zaplateného obdobia.
+
+1. Pripnite AI Translator na panel nástrojov a otvorte vyskakovacie okno.
+2. Prihláste sa cez Google a vyberte jazyky.
+3. Vložte alebo označte text a preložte ho. Na preklad stránok zvoľte Pro a spustite ho na podporovanej stránke.
+
+Zdrojový text požadovaný na preklad sa odosiela serveru na spracovanie AI. Pri zapnutom okamžitom preklade sa označený text odosiela automaticky. Aktívna relácia Pro odosiela aj vhodný nový text stránky. Voliteľný kontext vynecháva vstupné polia, heslá a skrytý text; HTML stránky sa ako kontext neodosiela.
+
+História sa uchováva v rozšírení na tomto zariadení, oddelene podľa účtu a prostredia, bez synchronizácie s cloudom. Ukladanie možno vypnúť, záznamy vymazať jednotlivo alebo všetky. Uchováva sa najviac 1,000 záznamov alebo 25 MiB; podľa potreby sa odstránia najstaršie. Free zobrazuje posledných 20; samotný prechod na nižší plán staršie záznamy nevymaže.
+
+Rozhranie je dostupné v angličtine a ukrajinčine. Interné stránky Chrome a Chrome Web Store nemožno prekladať.
+
+Súkromie: https://ai-translator-ext.web.app/privacy
+Podmienky: https://balubenko-stripe.web.app/ai-translator-terms
+Podpora: https://ai-translator-ext.web.app/support

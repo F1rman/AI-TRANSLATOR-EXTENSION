@@ -1,0 +1,44 @@
+{
+  "appName": {
+    "message": "AI Translator – Traduttore di testi e pagine web"
+  },
+  "appDescription": {
+    "message": "Traduci con l’IA e conserva la cronologia locale. Pro aggiunge pagine web, tono e contesto facoltativo."
+  },
+  "reviewPrompt": {
+    "message": "Ti piace AI Translator? Valutalo sul Chrome Web Store"
+  },
+  "reviewRate": {
+    "message": "★ Valuta"
+  },
+  "reviewDismiss": {
+    "message": "Chiudi la richiesta di valutazione"
+  },
+  "welcomeTitle": {
+    "message": "Benvenuto in AI Translator"
+  },
+  "welcomeIntro": {
+    "message": "Traduci con l’IA il testo digitato o selezionato. Pro traduce anche le pagine web e ripristina il testo originale."
+  },
+  "welcomePin": {
+    "message": "Fissa AI Translator alla barra degli strumenti e aprilo."
+  },
+  "welcomeSignIn": {
+    "message": "Accedi con Google e scegli le lingue di traduzione."
+  },
+  "welcomeFirstResult": {
+    "message": "Incolla testo nel popup oppure selezionalo su una pagina e premi l’icona di traduzione. Le pagine richiedono Pro."
+  },
+  "welcomeAllowance": {
+    "message": "Free include 100,000 caratteri di origine per mese solare e fino a 4,000 per traduzione. Pro include 2,000,000 per periodo mensile e fino a 50,000 per traduzione, a 4.99 USD/mese o 39.99 USD/anno."
+  },
+  "welcomePrivacy": {
+    "message": "Il testo viene inviato al server per l’elaborazione con IA. Se attiva, la selezione istantanea invia automaticamente il testo selezionato. Pro elabora anche il nuovo testo delle pagine; il contesto facoltativo invia fino a 2,000 caratteri visibili circostanti. La cronologia resta sul dispositivo, separata per account, senza sincronizzazione cloud."
+  },
+  "welcomeOpenSettings": {
+    "message": "Apri preferenze"
+  },
+  "welcomeReadPrivacy": {
+    "message": "Leggi l’informativa sulla privacy"
+  }
+}

@@ -1,0 +1,27 @@
+AI Translator padeda versti tekstą naršant ir dirbant naršyklėje. Įklijuokite tekstą į iškylantį langą, išverskite pažymėtą tinklalapio dalį arba naudokite Pro puslapių vertimą ir skaitykite palaikomą puslapį pasirinkta kalba.
+
+Įveskite arba įklijuokite tekstą. Tinklalapyje pažymėkite tekstą ir naudokite vertimo piktogramą arba kontekstinį meniu. Šaltinio kalba aptinkama automatiškai arba pasirenkama rankiniu būdu. Nukopijuokite rezultatą ir raskite baigtus vertimus vietinėje istorijoje.
+
+Free suteikia 100,000 pradinio teksto simbolių per kalendorinį mėnesį ir iki 4,000 simbolių vienam vertimui. Tarpai įskaičiuojami. Limitas atnaujinamas kiekvieno mėnesio pirmą dieną 00:00 UTC; nepanaudoti simboliai neperkeliami.
+
+Free naudoja neutralų toną ir rodo 20 naujausių istorijos įrašų. Norint versti ir skaičiuoti paskyros sunaudojimą, reikia prisijungti per Google.
+
+Pro kainuoja US$4.99 per mėnesį arba US$39.99 per metus. Kiekvienam mėnesiniam prenumeratos laikotarpiui skiriama 2,000,000 pradinio teksto simbolių, iki 50,000 vienam vertimui. Mokant už metus taip pat taikomi atskiri mėnesiniai limitai.
+
+Pro verčia palaikomus tinklalapius, įskaitant aktyvios sesijos metu atsirandantį naują tekstą. Vertimą galima pristabdyti arba atkurti originalą. Galimi neutralus, formalus, draugiškas ir techninis tonai. Pasirinktinai galima naudoti iki 2,000 matomų aplinkinio teksto simbolių iš dabartinio puslapio; tai valdote jūs. Pro suteikia iki 1,000 vietinės istorijos įrašų ir prioritetinę apdorojimo eilę. Apdorojimo trukmė gali skirtis.
+
+Pro limitas atnaujinamas kas mėnesį nuo prenumeratos pradžios datos, taip pat mokant už metus. Nepanaudoti simboliai neperkeliami. Paskyroje galite valdyti arba atšaukti automatinį pratęsimą; jį atšaukus prieiga galioja iki apmokėto laikotarpio pabaigos.
+
+1. Prisekite AI Translator prie įrankių juostos ir atidarykite iškylantį langą.
+2. Prisijunkite per Google ir pasirinkite vertimo kalbas.
+3. Įklijuokite arba pažymėkite tekstą ir verskite. Puslapiams versti pasirinkite Pro ir pradėkite vertimą palaikomame puslapyje.
+
+Versti pateiktas tekstas siunčiamas vertimo serveriui ir apdorojamas DI. Įjungus momentinio pažymėjimo režimą, pažymėtas tekstas siunčiamas automatiškai. Aktyvi Pro puslapio sesija taip pat siunčia naujai atsirandantį tinkamą tekstą. Pasirenkamas kontekstas neapima įvesties laukų, slaptažodžių ir paslėpto teksto; puslapio HTML kaip kontekstas nesiunčiamas.
+
+Istorija saugoma šio įrenginio plėtinyje, atskirai pagal paskyrą ir aplinką, be debesų sinchronizavimo. Įrašymą galima išjungti, įrašus ištrinti po vieną arba visus. Saugoma daugiausia 1,000 įrašų arba 25 MiB; prireikus šalinami seniausi. Free rodo naujausius 20; vien plano sumažinimas senesnių įrašų neištrina.
+
+Sąsaja prieinama anglų ir ukrainiečių kalbomis. Vidinių Chrome puslapių ir Chrome Web Store versti negalima.
+
+Privatumas: https://ai-translator-ext.web.app/privacy
+Sąlygos: https://balubenko-stripe.web.app/ai-translator-terms
+Pagalba: https://ai-translator-ext.web.app/support

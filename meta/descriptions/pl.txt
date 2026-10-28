@@ -1,0 +1,27 @@
+AI Translator pomaga tłumaczyć tekst podczas czytania i pracy w przeglądarce. Wklej tekst do okna rozszerzenia, przetłumacz zaznaczony fragment albo użyj tłumacza stron Pro, aby czytać obsługiwaną stronę w wybranym języku.
+
+Tłumacz wpisany lub wklejony tekst. Zaznacz fragment strony i użyj ikony tłumaczenia albo menu kontekstowego. Wykrywaj język źródłowy automatycznie lub wybierz go samodzielnie. Kopiuj wynik i odszukuj ukończone tłumaczenia w lokalnej historii.
+
+Free obejmuje 100,000 znaków tekstu źródłowego na miesiąc kalendarzowy i do 4,000 znaków na tłumaczenie. Spacje są wliczane. Limit odnawia się pierwszego dnia miesiąca o 00:00 UTC; niewykorzystane znaki nie przechodzą dalej.
+
+Free używa neutralnego tonu i pokazuje ostatnie 20 wpisów historii. Aby tłumaczyć i rozliczać wykorzystanie konta, trzeba zalogować się przez Google.
+
+Pro kosztuje US$4.99 miesięcznie lub US$39.99 rocznie i obejmuje 2,000,000 znaków źródłowych na miesięczny okres subskrypcji, do 50,000 na tłumaczenie. Również przy płatności rocznej przydział jest miesięczny.
+
+Pro tłumaczy obsługiwane strony, także nowy tekst pojawiający się podczas aktywnej sesji. Wstrzymuj tłumaczenie lub przywracaj oryginał. Dostępny jest ton neutralny, formalny, przyjazny i techniczny. Opcjonalnie użyj do 2,000 widocznych znaków otaczającego tekstu z bieżącej strony; samodzielnie włączasz tę funkcję. Pro zapewnia do 1,000 lokalnych wpisów historii i priorytetową kolejkę przetwarzania. Czas przetwarzania może się różnić.
+
+Przydział Pro odnawia się co miesiąc od daty rozpoczęcia subskrypcji, także w planie rocznym. Niewykorzystane znaki przepadają. Zarządzaj odnowieniem lub anuluj je na koncie; anulowanie zachowuje dostęp do końca opłaconego okresu.
+
+1. Przypnij AI Translator do paska narzędzi i otwórz okno rozszerzenia.
+2. Zaloguj się przez Google i wybierz języki.
+3. Wklej lub zaznacz tekst i przetłumacz. Aby tłumaczyć strony, wybierz Pro i uruchom tłumaczenie na obsługiwanej stronie.
+
+Tekst przekazany do tłumaczenia jest wysyłany do serwera w celu przetworzenia przez AI. Po włączeniu trybu natychmiastowego zaznaczony tekst jest wysyłany automatycznie. Aktywna sesja strony Pro wysyła też odpowiedni nowy tekst strony. Opcjonalny kontekst pomija pola formularzy, hasła i ukryty tekst; kod HTML strony nie jest wysyłany jako kontekst.
+
+Historia jest zapisywana w rozszerzeniu na tym urządzeniu, oddzielnie dla konta i środowiska, bez synchronizacji z chmurą. Można wyłączyć zapisywanie, usuwać pojedyncze wpisy lub wyczyścić wszystko. Przechowywanych jest do 1,000 wpisów lub 25 MiB; w razie potrzeby najstarsze są usuwane. Free pokazuje ostatnie 20; samo obniżenie planu nie usuwa starszych wpisów.
+
+Interfejs jest dostępny po angielsku i ukraińsku. Nie można tłumaczyć wewnętrznych stron Chrome ani Chrome Web Store.
+
+Prywatność: https://ai-translator-ext.web.app/privacy
+Warunki: https://balubenko-stripe.web.app/ai-translator-terms
+Pomoc: https://ai-translator-ext.web.app/support

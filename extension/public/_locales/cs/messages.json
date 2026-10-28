@@ -1,0 +1,44 @@
+{
+  "appName": {
+    "message": "AI Translator – Překladač textu a webových stránek"
+  },
+  "appDescription": {
+    "message": "Překládejte s AI a uchovejte místní historii. Pro přidává webové stránky, tón a volitelný kontext."
+  },
+  "reviewPrompt": {
+    "message": "Líbí se vám AI Translator? Ohodnoťte jej v Chrome Web Store"
+  },
+  "reviewRate": {
+    "message": "★ Ohodnotit"
+  },
+  "reviewDismiss": {
+    "message": "Zavřít žádost o hodnocení"
+  },
+  "welcomeTitle": {
+    "message": "Vítejte v AI Translator"
+  },
+  "welcomeIntro": {
+    "message": "Překládejte napsaný či označený text pomocí AI. Pro překládá také webové stránky a obnovuje původní text."
+  },
+  "welcomePin": {
+    "message": "Připněte AI Translator na panel nástrojů a otevřete jej."
+  },
+  "welcomeSignIn": {
+    "message": "Přihlaste se přes Google a vyberte jazyky překladu."
+  },
+  "welcomeFirstResult": {
+    "message": "Vložte text do vyskakovacího okna nebo jej označte na stránce a klikněte na ikonu překladu. Překlad stránek vyžaduje Pro."
+  },
+  "welcomeAllowance": {
+    "message": "Free nabízí 100,000 zdrojových znaků za kalendářní měsíc a až 4,000 na překlad. Pro nabízí 2,000,000 za měsíční období a až 50,000 na překlad za 4.99 USD/měsíc nebo 39.99 USD/rok."
+  },
+  "welcomePrivacy": {
+    "message": "Text se posílá na server ke zpracování AI. Zapnutý okamžitý překlad posílá označený text automaticky. Pro zpracovává i nový text na stránce; volitelný kontext posílá až 2,000 viditelných okolních znaků. Historie zůstává na tomto zařízení, oddělená podle účtu, bez synchronizace do cloudu."
+  },
+  "welcomeOpenSettings": {
+    "message": "Otevřít předvolby"
+  },
+  "welcomeReadPrivacy": {
+    "message": "Přečíst zásady ochrany soukromí"
+  }
+}
