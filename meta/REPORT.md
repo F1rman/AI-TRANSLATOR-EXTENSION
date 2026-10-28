@@ -25,6 +25,16 @@ Visual material includes the [recommended tile](promo/small-440x280.png), [marqu
 
 Free includes 100,000 source characters per UTC calendar month and up to 4,000 per request. Pro is US$4.99/month or US$39.99/year, with 2,000,000 characters per monthly anniversary window and up to 50,000 per request. Pro adds page translation, optional visible context, tones, priority processing and access to more local history. Retired image and word-package offers are omitted from current listing copy.
 
+## Saved Chrome Web Store draft
+
+On 2026-10-28, version **1.3.1** was verified in the existing [Store draft](https://chrome.google.com/webstore/devconsole/04776745-9567-4c48-8dbd-167f5b8f5745/aieamemimbcbbnmakifejomadhegogge/edit/listing). All 55 full descriptions and 275 localized screenshots were read back after a server reload. The uploaded remote thumbnails also passed image, order and localized-caption checks. Five common screenshots, the icon, small promo and marquee are saved.
+
+The seven permission explanations, single purpose, six data-use categories, three Limited Use declarations, privacy-policy URL and Google OAuth testing instructions are saved. Distribution declares optional purchases/subscriptions, retaining public visibility and all selected regions. The hosted product, privacy and support pages were updated to current Free/Pro behavior. **Submit for review is enabled; the draft has not been submitted or published.**
+
+Google OAuth uses the reviewer's verified Google account, without a separate application password. The 473-character testing field provides Free test steps and the support contact for complimentary Pro access. No shared Pro reviewer account was supplied. Optional promotional videos and an unverified official-site property are left empty.
+
+Evidence: `artifacts/store-listing-readback.json`, `artifacts/store-image-visual-validation.json`, and `artifacts/store-ui/*-readback.json`.
+
 ## Evidence and remaining owner actions
 
 Machine-check results are in [artifact validation](data/validation.json), [localized screenshot validation](data/localized-screenshots-validation.json), [visual review](data/localized-visual-review.json), [dashboard interactions](data/dashboard-validation.json), [responsive layouts](data/dashboard-responsive-validation.json), and the built/overlay audits under `audits/`. Final delivery evidence records the actual release and test outcomes; this report does not invent new test totals. Source and built-package checks distinguish installed review/welcome behavior from historical proposals.
