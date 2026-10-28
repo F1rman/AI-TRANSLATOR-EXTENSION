@@ -1,0 +1,77 @@
+{
+  "primaryKeyword": "webpage translator",
+  "names": [
+    {
+      "text": "Webpage Translator – AI Translator",
+      "keyword": "webpage translator",
+      "trademark": "clear",
+      "pattern": "Keyword – existing brand",
+      "note": "Recommended: primary phrase at the start, existing AI Translator brand retained. Generic words only; similar names exist."
+    },
+    {
+      "text": "AI Translator – Webpage Translator",
+      "keyword": "webpage translator",
+      "trademark": "clear",
+      "pattern": "Existing brand – keyword",
+      "note": "Prioritizes the existing brand; primary phrase begins at character 17 and may be truncated on narrow cards."
+    },
+    {
+      "text": "Webpage Translator: Read with AI Translator",
+      "keyword": "webpage translator",
+      "trademark": "clear",
+      "pattern": "Keyword + reading outcome + brand"
+    },
+    {
+      "text": "AI Translator: Webpage Translator & Selected Text",
+      "keyword": "webpage translator",
+      "trademark": "clear",
+      "pattern": "Brand + primary + secondary capability"
+    },
+    {
+      "text": "AI Translator",
+      "keyword": "ai translator",
+      "trademark": "clear",
+      "pattern": "Existing brand only",
+      "note": "Keeps the current package name exactly; does not target the selected primary phrase."
+    }
+  ],
+  "shortDescriptions": [
+    {
+      "text": "Use an AI webpage translator for text and pages. Translate selected text, follow new page text, and restore originals.",
+      "keyword": "webpage translator",
+      "secondaryKeyword": "translate selected text"
+    },
+    {
+      "text": "Read pages in your language with a webpage translator. Translate selected text and show the original when needed.",
+      "keyword": "webpage translator",
+      "secondaryKeyword": "translate selected text"
+    },
+    {
+      "text": "Translate text and pages with a webpage translator powered by AI. Keep links and page structure, then restore originals.",
+      "keyword": "webpage translator",
+      "secondaryKeyword": "translate text"
+    },
+    {
+      "text": "Read with an AI webpage translator. Translate text and pages with a 20,000-character daily allowance per Google account.",
+      "keyword": "webpage translator",
+      "secondaryKeyword": "translate text"
+    },
+    {
+      "text": "A webpage translator for text and pages. Sign in with Google, choose a language, and show the original when you need it.",
+      "keyword": "webpage translator",
+      "secondaryKeyword": "text and pages"
+    }
+  ],
+  "recommended": {
+    "name": 0,
+    "short": 1
+  },
+  "brandCollision": {
+    "state": "caution",
+    "note": "Existing listings use AI Translator and closely related names. Generic wording is not legal or trademark clearance. Keep the product identity, original artwork, and developer attribution distinct.",
+    "examples": [
+      "https://chromewebstore.google.com/detail/hbblhboakojbegilahlbppmmkogdgehp",
+      "https://chromewebstore.google.com/detail/jabhdcjhdlnppcpbdghnkfkdpfcfleba"
+    ]
+  }
+}

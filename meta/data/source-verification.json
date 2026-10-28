@@ -1,29 +1,30 @@
 {
-  "checkedOn": "2026-10-23",
+  "checkedOn": "2026-10-27",
   "sources": [
     {
       "url": "https://developer.chrome.com/docs/webstore/images",
       "verified": [
-        "Store screenshots1280x800 or640x400,fullbleedsquarecorners",
-        "Smalltile440x280",
-        "Marquee1400x560",
-        "Icon128PNG"
+        "A 128×128 PNG extension icon is required; square artwork normally occupies 96×96 with 16px transparent padding.",
+        "Small promo: 440×280. Marquee: 1400×560. Screenshots: 1280×800 or 640×400, with full bleed and square corners.",
+        "The icon and at least one screenshot are mandatory. Assets do not guarantee placement or rankings."
+      ]
+    },
+    {
+      "url": "https://developer.chrome.com/docs/extensions/reference/manifest/name",
+      "verified": [
+        "The plain-text extension name is limited to 75 characters."
+      ]
+    },
+    {
+      "url": "https://developer.chrome.com/docs/extensions/reference/manifest/description",
+      "verified": [
+        "The plain-text summary is limited to 132 characters."
       ]
     },
     {
       "url": "https://developer.chrome.com/docs/extensions/reference/api/i18n#locales",
       "verified": [
-        "Chrome lists55 supportedlocale codes matching skill baseline",
-        "Manifest default_locale required with_locales",
-        "Manifest __MSG_ keys enable localized metadata"
-      ]
-    },
-    {
-      "url": "https://developer.chrome.com/docs/webstore/program-policies/listing-requirements",
-      "verified": [
-        "Metadata must be accurate",
-        "No irrelevant/excessivekeywordlists or unnaturalkeywordrepetition",
-        "No fabricatedratings,testimonials or awards"
+        "Localized catalogs use _locales/CODE/messages.json. default_locale is required when _locales exists."
       ]
     }
   ],
@@ -31,8 +32,8 @@
     "workspaceWrites": "meta/ only",
     "publish": false,
     "extensionId": "aieamemimbcbbnmakifejomadhegogge",
-    "publicationState": "draft, not publicly inspectable as live listing",
+    "publicationState": "Existing owner draft context; fresh public collector result is recorded separately, not treated as a published listing.",
     "translateModeRequested": false,
-    "authLiveTest": "pending actual GoogleChrome user sign-in"
+    "marketingCaptureEvidence": "Actual current built UI with documented demo account and translation fixtures; not a live authentication or AI-quality test."
   }
 }

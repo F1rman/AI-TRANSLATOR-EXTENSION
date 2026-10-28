@@ -81,7 +81,8 @@ test('subscription UI shows character quotas, Pro controls, local history and re
     assert.deepEqual((await free.requests()).filter(request=>request.type==='billing:open').map(request=>request.payload.page),['pay','account']);
     assert.equal(await free.page.locator('.purchased-balance,.available-total,.image-account').count(),0);
     await free.page.getByRole('button',{name:'Webpage',exact:true}).click();
-    await free.page.locator('.page-card').getByRole('button',{name:'Upgrade to Pro'}).click();
+    assert.deepEqual((await free.requests()).filter(request=>request.type==='billing:open').map(request=>request.payload.page),['pay','account','pay'],'Free webpage click opens the purchase page immediately');
+    assert.equal(await free.page.locator('.page-card').count(),0,'Free stays in the current mode while the purchase page opens');
     assert.equal((await free.requests()).filter(request=>request.type==='page:start').length,0);
     await free.page.getByRole('button',{name:'History',exact:true}).click();
     await free.page.locator('summary').filter({hasText:'Saved source'}).waitFor();

@@ -1,0 +1,47 @@
+{
+  "saved": [
+    {
+      "id": "hbblhboakojbegilahlbppmmkogdgehp",
+      "name": "AI Translator",
+      "errors": []
+    },
+    {
+      "id": "gbefmodhlophhakmoecijeppjblibmie",
+      "name": "Linguist - web page translator",
+      "errors": []
+    },
+    {
+      "id": "hkelkkhcmkhbpkenoogdeomannakpilk",
+      "name": "AI Translator - Smart AI Translation (Hover, Select, Context Menu)",
+      "errors": []
+    },
+    {
+      "id": "noofnfniimcnghnkonpdlhlaeaocidbi",
+      "name": "DeepTranslate - Full Page & Bilingual Translator & AI-Powered Translation",
+      "errors": []
+    },
+    {
+      "id": "ibplnjkanclpjokhdolnendpplpjiace",
+      "name": "Simple Translate",
+      "errors": []
+    },
+    {
+      "id": "cofdbpoegempjloogbagkncekinflcnj",
+      "name": "DeepL: translate and write with AI",
+      "errors": []
+    },
+    {
+      "id": "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
+      "name": "Immersive Translate: AI Web, PDF & Video Translator",
+      "errors": [
+        "screenshots/1: not an image (text/html; charset=utf-8) at https://www.youtube.com/embed/BETAR74jd1Y?rel=0&wmode=opaque&enablejsapi=1=s1280-w1280-h800"
+      ]
+    },
+    {
+      "id": "fbimffnjoeobhjhochngikepgfejjmgj",
+      "name": "Translate Selected Text",
+      "errors": []
+    }
+  ],
+  "failures": []
+}

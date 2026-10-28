@@ -1,10 +1,10 @@
 {
   "appName": {
-    "message": "Webpage Translator – AI Translator",
+    "message": "AI Translator – Text & Webpage Translator",
     "description": "Recommended English Chrome Web Store name; retain AI Translator brand."
   },
   "appDescription": {
-    "message": "Read pages in your language with a webpage translator. Translate selected text and show the original when needed.",
+    "message": "Translate text with AI and keep local history. Pro adds webpage translation, tone and optional context.",
     "description": "Recommended English short description, maximum 132 characters."
   },
   "reviewPrompt": {
@@ -20,7 +20,7 @@
     "message": "Welcome to AI Translator"
   },
   "welcomeIntro": {
-    "message": "Translate selected text and webpage text, then show the original when you need it."
+    "message": "Translate typed or selected text with AI. Pro also translates webpages and can restore the original text."
   },
   "welcomePin": {
     "message": "Pin AI Translator to the toolbar and open it."
@@ -29,13 +29,13 @@
     "message": "Sign in with Google and choose your translation languages."
   },
   "welcomeFirstResult": {
-    "message": "Select text and click the translate icon, paste text into the popup, or start webpage translation."
+    "message": "Paste text into the popup or select text on a webpage and click the translate icon. Page translation requires Pro."
   },
   "welcomeAllowance": {
-    "message": "Free access includes 10,000 source words and five images per Google account per calendar month. Your allowance resets on the first day at 00:00 UTC."
+    "message": "Free includes 100,000 source characters per calendar month and up to 4,000 per translation. Pro includes 2,000,000 per monthly subscription window and up to 50,000 per translation, for $4.99/month or $39.99/year."
   },
   "welcomePrivacy": {
-    "message": "Requested text is sent for AI processing. Active page translation also processes new page text; instant-selection mode sends selected text automatically."
+    "message": "Translation text is sent for server-side AI processing. Instant selection sends selected text automatically when enabled. Pro page translation also processes newly appearing page text; optional page context sends up to 2,000 visible surrounding characters. Translation history stays on this device, separated by account, with no cloud sync."
   },
   "welcomeOpenSettings": {
     "message": "Open preferences"

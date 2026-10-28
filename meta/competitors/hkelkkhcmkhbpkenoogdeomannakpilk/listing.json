@@ -3,7 +3,7 @@
   "name": "AI Translator - Smart AI Translation (Hover, Select, Context Menu)",
   "rating": 5,
   "ratingCount": 9,
-  "users": 530,
+  "users": 549,
   "category": "productivity/tools",
   "summary": "Instant AI translator. Hover, select, or translate the whole page bilingually. 50+ languages, dark mode, side panel.",
   "icon": "https://lh3.googleusercontent.com/hzI1clBH_mujSxiHbNF9d1YVuaZ-Vbs0FvrLnY1VrFjZHcUreAFmE8vo7W7C6sVnp9KUxpWbOu_vk7wYmFz8tbWGHw",
@@ -58,7 +58,7 @@
     {
       "id": "fhfnfmakgcoolkaalffgdijedkdgegad",
       "name": "Swiftin - AI translator for sites, subtitles and what you type",
-      "users": null
+      "users": 9000
     },
     {
       "id": "bincmiainjofjnhchmcalkanjebghoen",
@@ -68,12 +68,7 @@
     {
       "id": "klmdchhpomppdmflgickpjopdmnbehgg",
       "name": "Linguin - AI Translator",
-      "users": 332
-    },
-    {
-      "id": "adhgifgmkblkmejdgiplocmdjbbibkip",
-      "name": "AI Translation",
-      "users": 7000
+      "users": 303
     },
     {
       "id": "ooggbaolfhebcfbdfjjlhkijileflfhi",
@@ -88,12 +83,12 @@
     {
       "id": "ianmkfjhfmjjlchjceijknakecemeope",
       "name": "TransorAI - AI Translator | Web, PDF, Images",
-      "users": 5000
+      "users": 4000
     },
     {
       "id": "edldfjnolgadoiinnmnkgpbamnkjibmb",
       "name": "Translate Workspace: AI Translator",
-      "users": 255
+      "users": 260
     },
     {
       "id": "jokgnglcgghihhbkinmjhcbjofniocca",
@@ -103,10 +98,15 @@
     {
       "id": "ecdcnaegedhdbeaiienfjajimlofocbi",
       "name": "Transync - Instant Translation & Dictionary",
-      "users": 401
+      "users": 373
+    },
+    {
+      "id": "oeklfemflcicdehnipamlkoibjcigdep",
+      "name": "AI Language Translator",
+      "users": 1000
     }
   ],
-  "retrievedAt": "2026-10-23T20:34:18.810Z",
+  "retrievedAt": "2026-10-27T20:51:30.620Z",
   "hl": "en",
   "files": {
     "screenshots": [
@@ -120,10 +120,5 @@
     "smallPromo": "promo-440x280.png",
     "marquee": "marquee-1400x560.png"
   },
-  "errors": [],
-  "researchNotes": {
-    "angle": "AI hover, selection, full-page bilingual/replace and text panel.",
-    "weakness": "530 users and9 ratings: smaller visible adoption footprint; do not claim missing core features. Screenshot is a dense browser UI without explanatory headline.",
-    "date": "2026-10-23"
-  }
+  "errors": []
 }

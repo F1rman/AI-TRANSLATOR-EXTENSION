@@ -1,84 +1,68 @@
 <!doctype html>
-<!--
-  Promo tile template. Copy to meta/promo/tile.html, then edit only the marked
-  parts. Render both sizes from the same file:
-    node <skill>/scripts/render-html.mjs --url meta/promo/tile.html --out meta/promo/small-440x280.png --width 440 --height 280
-    node <skill>/scripts/render-html.mjs --url meta/promo/tile.html --out meta/promo/marquee-1400x560.png --width 1400 --height 560
-  Sizes are in vh so type stays huge at both sizes. Layouts: body class
-  "split" (words + symbol card), "mark" (symbol above name, centred).
--->
-<html lang="en">
+<!-- Copy to meta/promo/tile.html; shared resources live in meta/assets/.
+     Default: text-free symbol. Optional editorial variant: ?layout=split.
+     Optional real icon: ?icon=../icon/brand-mark-1024.png. Edit the default SVG
+     to represent the product; do not imply features it does not have.
+     Render the same source at 440x280 and 1400x560 with render-html.mjs. -->
+<html lang="en" data-soft-flat data-theme="light">
 <head>
 <meta charset="utf-8">
-
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../assets/soft-flat.css">
 <style>
-  :root {
-    /* EDIT: take the accent from the extension icon. */
-    --accent: #946B20;
-    --accent-2: #D49422;
-    --ink: #263027;
-    --bg: #FFFEFA;
-    --bg-2: #F5F3ED;
-  }
   * { box-sizing: border-box; margin: 0; }
-  html, body { width: 100vw; height: 100vh; overflow: hidden; }
+  html, body { width: 100%; height: 100%; overflow: hidden; }
   body {
-    font-family: Inter, "Helvetica Neue", Arial, sans-serif;
-    color: var(--ink);
-    background: linear-gradient(120deg, var(--bg) 45%, var(--bg-2));
-    display: flex; align-items: center;
-    padding: 8vh 6vh;
-    gap: 6vh;
+    display: flex; align-items: center; justify-content: center; gap: 6vh;
+    padding: 8vh; color: var(--app-foreground);
+    background-color: var(--app-background);
+    font: 600 14px/1.4 var(--app-font-body);
   }
-  .words { flex: 1 1 auto; min-width: 0; }
-  h1 {
-    font-weight: 900;
-    font-size: 17.6vh;
-    line-height: 0.98;
-    letter-spacing: -0.02em;
-  }
-  h1 em { font-style: normal; color: var(--accent); }
-  .pill {
-    display: inline-flex; align-items: center; gap: 2.5vh;
-    margin-top: 6vh; padding: 3.5vh 6vh;
-    border-radius: 99vh;
-    background: var(--accent); color: #fff;
-    font-weight: 800; font-size: 8.5vh;
-  }
-  .pill svg { width: 8vh; height: 8vh; }
+  .words { display: none; min-width: 0; flex: 1 1 0; }
+  h1 { font: 600 15vh/1.05 var(--app-font-heading); letter-spacing: -.035em; overflow-wrap: normal; }
+  h1 em { font-style: normal; color: var(--app-muted); }
   .card {
-    flex: 0 0 auto;
-    width: 32vh; height: 32vh;
-    border-radius: 7vh;
-    background: #fff;
-    box-shadow: none;
-    display: grid; place-items: center;
+    flex: 0 0 auto; width: min(76vh, 76vw); height: min(76vh, 76vw);
+    display: grid; place-items: center; border-radius: var(--app-radius-card);
+    background-color: var(--app-surface-1);
   }
-  .card svg { width: 80%; height: 80%; }
-
-  body.mark { flex-direction: column; justify-content: center; gap: 4vh; background: var(--bg); }
-  body.mark .card { order: -1; box-shadow: none; background: transparent; width: 46vh; height: 46vh; }
-  body.mark .card svg { width: 100%; height: 100%; }
-  body.mark .words { flex: 0 0 auto; width: 100%; }
-  body.mark h1 { font-weight: 700; font-size: 16vh; text-align: center; }
-  body.mark h1 br { display: none; }
-  body.mark .pill { display: none; }
+  .card svg, .card img { display: block; width: 76%; height: 76%; object-fit: contain; }
+  .card svg { color: var(--app-primary); }
+  .split .words { display: block; }
+  .split .card { width: min(60vh, 34vw); height: min(60vh, 34vw); }
+  .mark { flex-direction: column; gap: 4vh; }
+  .mark .words { display: block; flex: 0 0 auto; width: 100%; }
+  .mark .card { width: 46vh; height: 46vh; }
+  .mark h1 { font-size: 12vh; text-align: center; }
+  .mark h1 br { display: none; }
 </style>
 </head>
-<!-- EDIT: class="split" or class="mark". -->
 <body class="split">
-  <div class="words"><h1>Select<br><em>And Translate</em></h1></div><div class="card"><svg viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M20 29h36M38 19v10M28 29c3 17 15 25 28 30M51 29c-4 17-17 26-31 31" stroke="#263027" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M56 79 70 43l14 36M61 67h18" stroke="#263027" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M78 16v12m-6-6h12" stroke="#D49422" stroke-width="4" stroke-linecap="round"/></svg></div>
+  <div class="words">
+    <!-- EDIT for the optional text variant: 2-5 truthful words. -->
+    <h1>Translate <br><em>with AI</em></h1>
+  </div>
+  <div class="card" aria-label="Product symbol">
+    <!-- EDIT: one flat symbol or supply the real extension icon via ?icon=. -->
+    <img src="../icon/brand-mark-1024.png" alt="AI Translator icon">
+  </div>
 <script>
-  // Keep the words as large as the frame allows: shrink only until nothing is
-  // clipped, so long translations stay whole instead of overflowing the card.
-  document.fonts.ready.then(() => {
-    const h1 = document.querySelector('h1');
-    const words = document.querySelector('.words');
-    let size = parseFloat(getComputedStyle(h1).fontSize);
-    const overflows = () => h1.scrollWidth > words.clientWidth + 1
-      || document.body.scrollHeight > innerHeight + 1;
-    while (overflows() && size > 8) h1.style.fontSize = `${size *= 0.96}px`;
+  const params = new URLSearchParams(location.search);
+  const layout = params.get('layout');
+  if (['symbol', 'split', 'mark'].includes(layout)) document.body.className = layout;
+  const theme = params.get('theme');
+  if (['light', 'dark'].includes(theme)) document.documentElement.dataset.theme = theme;
+  if (params.has('icon')) {
+    const image = Object.assign(document.createElement('img'), { src: params.get('icon'), alt: 'Extension icon' });
+    document.querySelector('.card').replaceChildren(image);
+  }
+  window.__renderReady = document.fonts.ready.then(() => {
+    if (!document.body.classList.contains('symbol')) {
+      const heading = document.querySelector('h1');
+      if (heading.scrollWidth > heading.clientWidth + 1 || document.body.scrollHeight > innerHeight + 1) {
+        window.__renderError = 'Promo headline overflows. Shorten the words; do not shrink the headline.';
+      }
+    }
   });
 </script>
 </body>

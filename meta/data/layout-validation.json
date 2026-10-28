@@ -1,83 +1,84 @@
 {
-  "checkedAt": "2026-10-24T16:36:21.327Z",
+  "checkedAt": "2026-10-28T06:24:51.840Z",
   "success": true,
   "results": [
     {
       "file": "meta/promo/small-440x280.png",
-      "title": "TranslateWeb Pages",
-      "fontSize": 50.4,
-      "lines": 2,
+      "title": "Translate with AI",
+      "fontSize": 42,
+      "lines": 0,
       "titleWithinCanvas": true,
       "missingImages": []
     },
     {
       "file": "meta/promo/marquee-1400x560.png",
-      "title": "TranslateWeb Pages",
-      "fontSize": 100.8,
-      "lines": 2,
+      "title": "Translate with AI",
+      "fontSize": 84,
+      "lines": 0,
       "titleWithinCanvas": true,
       "missingImages": []
     },
     {
       "file": "meta/promo/small-440x280-b.png",
-      "title": "SelectAnd Translate",
-      "fontSize": 49.28,
-      "lines": 3,
-      "titleWithinCanvas": true,
-      "missingImages": []
-    },
-    {
-      "file": "meta/promo/small-440x280-c.png",
-      "title": "AI TextTranslator",
-      "fontSize": 50.4,
+      "title": "Translate with AI",
+      "fontSize": 42,
       "lines": 2,
       "titleWithinCanvas": true,
       "missingImages": []
     },
     {
+      "file": "meta/promo/small-440x280-c.png",
+      "title": "Translate with AI",
+      "fontSize": 42,
+      "lines": 0,
+      "titleWithinCanvas": true,
+      "missingImages": []
+    },
+    {
       "file": "meta/screenshots/1.png",
-      "title": "Translate text with AI",
-      "fontSize": 68,
-      "lines": 1,
+      "title": "Understand every word",
+      "fontSize": 56,
+      "lines": 2,
       "titleWithinCanvas": true,
       "missingImages": []
     },
     {
       "file": "meta/screenshots/2.png",
-      "title": "Select text. Get the meaning.",
-      "fontSize": 68,
+      "title": "Select. Translate. Keep reading.",
+      "fontSize": 64,
       "lines": 1,
       "titleWithinCanvas": true,
       "missingImages": []
     },
     {
       "file": "meta/screenshots/3.png",
-      "title": "Translate pages. Keep the layout.",
-      "fontSize": 68,
+      "title": "Read the whole page",
+      "fontSize": 64,
       "lines": 1,
       "titleWithinCanvas": true,
       "missingImages": []
     },
     {
       "file": "meta/screenshots/4.png",
-      "title": "Choose your translation languages",
-      "fontSize": 68,
+      "title": "Make the tone fit",
+      "fontSize": 56,
       "lines": 1,
       "titleWithinCanvas": true,
       "missingImages": []
     },
     {
       "file": "meta/screenshots/5.png",
-      "title": "Read in light or dark",
-      "fontSize": 68,
-      "lines": 1,
+      "title": "Keep translations close",
+      "fontSize": 56,
+      "lines": 2,
       "titleWithinCanvas": true,
       "missingImages": []
     },
     {
       "file": "meta/icon/check.png",
-      "fontSize": null,
-      "lines": null,
+      "title": "One icon, every size",
+      "fontSize": 24,
+      "lines": 1,
       "titleWithinCanvas": true,
       "missingImages": []
     }

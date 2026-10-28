@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-24T16:39:09.528Z",
+  "checkedAt": "2026-10-28T06:24:28.986Z",
   "success": true,
   "tasks": 10,
   "tabs": [
@@ -37,5 +37,14 @@
   "clipboardTransport": "stubbed in disposable QA browser",
   "englishDescriptionChecked": true,
   "manualTaskPersistenceChecked": true,
+  "localeSelectionChecked": true,
+  "imageDialogFocusAndEscapeChecked": true,
+  "responsiveLayoutsChecked": 56,
+  "packageWarnings": [
+    "Locale audit: manifest.name is literal text. Use a __MSG_<key>__ value to localize this field.",
+    "Locale audit: manifest.description is literal text. Use a __MSG_<key>__ value to localize this field.",
+    "Locale audit: No _locales directory: locale coverage cannot be verified."
+  ],
+  "projectId": "320cec59-5479-4f78-91f6-50cd99bb8a1d",
   "errors": []
 }

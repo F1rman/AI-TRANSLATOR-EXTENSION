@@ -63,6 +63,9 @@ async function openBilling(page: 'pay' | 'account', sender: chrome.runtime.Messa
   if (!source || source.protocol !== 'chrome-extension:' || source.host !== chrome.runtime.id
       || !['/popup.html', '/options.html', '/image.html'].includes(source.pathname)
       || !['pay', 'account'].includes(page)) throw new ExtensionError({ code: 'INVALID_REQUEST', message: 'Open billing from AI Translator.' });
+  return openBillingPage(page);
+}
+async function openBillingPage(page: 'pay' | 'account') {
   // Always recheck at click time: the page's earlier account state can be stale.
   const account = await accountWithBilling();
   const availability = account.billingAvailability!;
@@ -158,7 +161,10 @@ async function cancelTabJobs(tabId: number, documentId?: string) {
 }
 async function startPage(tabId: number, sourceLanguage?: string, targetLanguage?: string): Promise<PageState> {
   const account = await translationAccount();
-  if (!account.features.pageTranslation) throw new ExtensionError({ code: 'PRO_REQUIRED', message: 'Page translation is available with Pro.' });
+  if (!account.features.pageTranslation) {
+    await openBillingPage('pay');
+    return pageStatus(tabId);
+  }
   const tab = await chrome.tabs.get(tabId);
   if (!tab.url || !/^https?:/.test(tab.url)) throw new ExtensionError({ code: 'UNSUPPORTED_PAGE', message: 'Open a regular website. Chrome pages and the Web Store cannot be translated.' });
   const prefs = await settings();
@@ -303,7 +309,7 @@ chrome.runtime.onInstalled.addListener(() => { void createMenus(); });
 chrome.runtime.onStartup.addListener(() => { void createMenus(); });
 chrome.contextMenus.onClicked.addListener((info, tab) => {
   if (!tab?.id) return;
-  if (info.menuItemId === 'translate-page') void startPage(tab.id).catch(() => chrome.runtime.openOptionsPage());
+  if (info.menuItemId === 'translate-page') return startPage(tab.id).catch(() => chrome.runtime.openOptionsPage());
   if (info.menuItemId === 'translate-selection' && info.selectionText) {
     const target = info.frameId === undefined ? undefined : { frameId: info.frameId };
     void chrome.tabs.sendMessage(tab.id, { type: 'selection:translate', payload: { text: info.selectionText } }, target).catch(() => chrome.runtime.openOptionsPage());

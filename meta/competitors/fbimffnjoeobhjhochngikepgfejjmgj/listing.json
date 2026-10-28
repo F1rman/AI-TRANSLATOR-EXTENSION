@@ -72,7 +72,7 @@
     {
       "id": "nnnlbcgpgpgbdhanhcdcooclbfaifabc",
       "name": "GenAI Translator",
-      "users": 508
+      "users": 516
     },
     {
       "id": "aapbdbdomjkkjkaonfhkkikfgjllcleb",
@@ -100,14 +100,14 @@
       "users": 2000
     },
     {
-      "id": "pfoflbejajgbpkmllhogfpnekjiempip",
-      "name": "Translator - Select to Translate",
-      "users": 60000
-    },
-    {
       "id": "bebmphofpgkhclocdbgomhnjcpelbenh",
       "name": "Translator, Dictionary - Accurate Translate",
       "users": 100000
+    },
+    {
+      "id": "pfoflbejajgbpkmllhogfpnekjiempip",
+      "name": "Translator - Select to Translate",
+      "users": 60000
     },
     {
       "id": "gipnlpdeieaidmmeaichnddnmjmcakoe",
@@ -115,7 +115,7 @@
       "users": 40000
     }
   ],
-  "retrievedAt": "2026-10-23T20:34:22.535Z",
+  "retrievedAt": "2026-10-27T20:51:31.931Z",
   "hl": "en",
   "files": {
     "screenshots": [
@@ -127,10 +127,5 @@
     "smallPromo": "promo-440x280.png",
     "marquee": "marquee-1400x560.png"
   },
-  "errors": [],
-  "researchNotes": {
-    "angle": "Selection-only context-menu handoff to Google Translate.",
-    "weakness": "Last store update2024-06-02; narrow workflow. AI Translator can show in-page results and whole-page mode instead of a handoff.",
-    "date": "2026-10-23"
-  }
+  "errors": []
 }

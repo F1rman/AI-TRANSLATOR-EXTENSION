@@ -1,9 +1,9 @@
 {
   "id": "noofnfniimcnghnkonpdlhlaeaocidbi",
   "name": "DeepTranslate - Full Page & Bilingual Translator & AI-Powered Translation",
-  "rating": 3.85,
-  "ratingCount": 488,
-  "users": 70000,
+  "rating": 3.89,
+  "ratingCount": 489,
+  "users": 50000,
   "category": "productivity/tools",
   "summary": "Translate web pages effortlessly with Google Translate and OpenAI. Supports quick text translation and PDF imports for translation.",
   "icon": "https://lh3.googleusercontent.com/Dx9Fo4-s_t8A-yqvtL5Jc6tA9Gsh8kl28iBdJj4C4WmZQIVOp2GN_C7kKIxJphn2rK7mXor24CqygomDplNVjjOKBQ",
@@ -42,14 +42,9 @@
       "users": 100000
     },
     {
-      "id": "adhgifgmkblkmejdgiplocmdjbbibkip",
-      "name": "AI Translation",
-      "users": 7000
-    },
-    {
       "id": "jdanedhdmcbkheljojpdcnonnbdbohng",
       "name": "autoTranslate - Translate web & PDF, Dictionary",
-      "users": 30000
+      "users": 20000
     },
     {
       "id": "gbefmodhlophhakmoecijeppjblibmie",
@@ -79,7 +74,7 @@
     {
       "id": "hnfabcchmopgohnhkcojhocneefbnffg",
       "name": "Web Translate: AI & Google Translator",
-      "users": 40000
+      "users": 30000
     },
     {
       "id": "cnailncgolnackgmidhkkifchhegijjf",
@@ -95,9 +90,14 @@
       "id": "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
       "name": "Immersive Translate: AI Web, PDF & Video Translator",
       "users": 3000000
+    },
+    {
+      "id": "bdiifdefkgmcblbcghdlonllpjhhjgof",
+      "name": "KISS Translator",
+      "users": 100000
     }
   ],
-  "retrievedAt": "2026-10-23T20:34:21.199Z",
+  "retrievedAt": "2026-10-27T20:51:31.082Z",
   "hl": "en",
   "files": {
     "screenshots": [
@@ -111,10 +111,5 @@
     "smallPromo": "promo-440x280.png",
     "marquee": "marquee-1400x560.png"
   },
-  "errors": [],
-  "researchNotes": {
-    "angle": "Full-page bilingual mode and switching between translation engines.",
-    "weakness": "3.85/5 from488 ratings; long feature-heavy name. Own product can state a simpler page/text workflow and explicit quota.",
-    "date": "2026-10-23"
-  }
+  "errors": []
 }

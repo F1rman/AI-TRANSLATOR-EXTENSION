@@ -1,48 +1,98 @@
 {
-  "kind": "copy-and-store-form-audit",
-  "date": "2026-10-23",
-  "builtManifest": "extension/dist/manifest.json",
-  "nameLengths": [
-    34,
-    34,
-    43,
-    49,
-    13
+  "date": "2026-10-27",
+  "version": "1.3.0",
+  "names": [
+    {
+      "text": "AI Translator – Text & Webpage Translator",
+      "characters": 41,
+      "within75": true
+    },
+    {
+      "text": "AI Translator – Translate Text, Read Pages",
+      "characters": 42,
+      "within75": true
+    },
+    {
+      "text": "Webpage Translator – AI Translator",
+      "characters": 34,
+      "within75": true
+    },
+    {
+      "text": "AI Translator: Selected Text & Page Translation",
+      "characters": 47,
+      "within75": true
+    },
+    {
+      "text": "AI Translator",
+      "characters": 13,
+      "within75": true
+    }
   ],
-  "shortDescriptionLengths": [
-    118,
-    113,
-    120,
-    120,
-    120
+  "shortDescriptions": [
+    {
+      "text": "Translate text with AI and keep local history. Pro adds webpage translation, tone and optional context.",
+      "characters": 103,
+      "within132": true
+    },
+    {
+      "text": "Translate selected text or paste into the popup. Upgrade to Pro for full-page translation and page context.",
+      "characters": 107,
+      "within132": true
+    },
+    {
+      "text": "AI webpage translator with a Free text plan and Pro page translation. Choose your language and restore originals.",
+      "characters": 113,
+      "within132": true
+    },
+    {
+      "text": "Read foreign-language text in your browser. Free includes 100,000 characters monthly; Pro adds page translation.",
+      "characters": 112,
+      "within132": true
+    },
+    {
+      "text": "Translate text, save local history, and choose neutral wording. Pro adds formal, friendly and technical tones.",
+      "characters": 110,
+      "within132": true
+    }
   ],
-  "nameLimit": 75,
-  "shortDescriptionLimit": 132,
-  "fullDescriptionWords": 434,
-  "primaryKeyword": "webpage translator",
-  "fullDescriptionKeywordCount": 3,
-  "markdownFound": false,
-  "recommended": {
-    "name": 0,
-    "short": 1
-  },
-  "recommendedName": "Webpage Translator – AI Translator",
-  "recommendedShortDescription": "Read pages in your language with a webpage translator. Translate selected text and show the original when needed.",
-  "exactManifestPermissionCoverage": true,
-  "missingPermissions": [],
-  "extraPermissions": [],
-  "permissionEntries": 8,
-  "unusedPermissions": [],
-  "potentiallyRedundantPermissions": [
-    "activeTab"
+  "descriptionWords": 470,
+  "primaryPhraseOccurrences": 1,
+  "plainText": true,
+  "declaredPermissions": [
+    "activeTab",
+    "contextMenus",
+    "storage",
+    "scripting",
+    "identity",
+    "webNavigation",
+    "http://*/*",
+    "https://*/*"
   ],
-  "baselineLocales": 55,
-  "packagedLocales": 0,
-  "draftLocales": [
-    "en"
+  "justifiedPermissions": [
+    "activeTab",
+    "contextMenus",
+    "storage",
+    "scripting",
+    "identity",
+    "webNavigation",
+    "http://*/*",
+    "https://*/*"
   ],
-  "translationsRequested": false,
-  "realGoogleLoginVerified": false,
-  "reviewAskImplemented": false,
-  "welcomePageImplemented": false
+  "englishDraftKeys": [
+    "appName",
+    "appDescription",
+    "reviewPrompt",
+    "reviewRate",
+    "reviewDismiss",
+    "welcomeTitle",
+    "welcomeIntro",
+    "welcomePin",
+    "welcomeSignIn",
+    "welcomeFirstResult",
+    "welcomeAllowance",
+    "welcomePrivacy",
+    "welcomeOpenSettings",
+    "welcomeReadPrivacy"
+  ],
+  "noRetiredOfferClaims": true
 }

@@ -1,8 +1,8 @@
 {
   "id": "gbefmodhlophhakmoecijeppjblibmie",
   "name": "Linguist - web page translator",
-  "rating": 4.37,
-  "ratingCount": 373,
+  "rating": 4.39,
+  "ratingCount": 375,
   "users": 200000,
   "category": "productivity/communication",
   "summary": "Web page translation, text translation, dictionary, history, custom translators, all you need to break language barriers",
@@ -90,7 +90,7 @@
     {
       "id": "jdanedhdmcbkheljojpdcnonnbdbohng",
       "name": "autoTranslate - Translate web & PDF, Dictionary",
-      "users": 30000
+      "users": 20000
     },
     {
       "id": "pbeheebcldakpkohnellphloljkaanfa",
@@ -143,7 +143,7 @@
       "users": 60000
     }
   ],
-  "retrievedAt": "2026-10-23T20:34:18.013Z",
+  "retrievedAt": "2026-10-27T20:51:30.395Z",
   "hl": "en",
   "files": {
     "screenshots": [
@@ -157,10 +157,5 @@
     "smallPromo": "promo-440x280.png",
     "marquee": null
   },
-  "errors": [],
-  "researchNotes": {
-    "angle": "All-purpose page/text translator with dictionary, history and offline translation.",
-    "weakness": "Broad feature suite and long description: opportunity for focused AI page-reading messaging, not a demonstrated feature gap.",
-    "date": "2026-10-23"
-  }
+  "errors": []
 }

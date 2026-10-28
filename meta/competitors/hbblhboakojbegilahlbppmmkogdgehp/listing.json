@@ -1,8 +1,8 @@
 {
   "id": "hbblhboakojbegilahlbppmmkogdgehp",
   "name": "AI Translator",
-  "rating": 2.7,
-  "ratingCount": 10,
+  "rating": 2.55,
+  "ratingCount": 11,
   "users": 4000,
   "category": "productivity/workflow",
   "summary": "Translate selected text into 38 languages with AI. Select text on any page or use the popup. An AI Anyone product.",
@@ -36,7 +36,7 @@
     {
       "id": "noofnfniimcnghnkonpdlhlaeaocidbi",
       "name": "DeepTranslate - Full Page & Bilingual Translator & AI-Powered Translation",
-      "users": 70000
+      "users": 50000
     },
     {
       "id": "ogjibjphoadhljaoicdnjnmgokohngcc",
@@ -46,7 +46,7 @@
     {
       "id": "lacafdjknejfmonblmedjkboknnammbb",
       "name": "Right Translator - GPT powered translation",
-      "users": 975
+      "users": 986
     },
     {
       "id": "lbkdhahlblnfljniopojjappcnbnpdok",
@@ -66,12 +66,12 @@
     {
       "id": "bnhamcnlecnkodgnpejaidbijocfpbpd",
       "name": "AI Anyone — We’ve Moved",
-      "users": 56
+      "users": 55
     },
     {
       "id": "fdobdooapahhogpamooimfeblceimdpd",
       "name": "EveryLanguage.ai - Instant Language Translator",
-      "users": 772
+      "users": 780
     },
     {
       "id": "nmoaohajaodpioogcmmjladclkanidif",
@@ -81,10 +81,10 @@
     {
       "id": "pbdekcaeombkcnkaildbphbiaainlaba",
       "name": "ChatGPT Translator",
-      "users": 7000
+      "users": 8000
     }
   ],
-  "retrievedAt": "2026-10-23T20:34:17.432Z",
+  "retrievedAt": "2026-10-27T20:51:30.543Z",
   "hl": "en",
   "files": {
     "screenshots": [
@@ -95,10 +95,5 @@
     "smallPromo": "promo-440x280.png",
     "marquee": null
   },
-  "errors": [],
-  "researchNotes": {
-    "angle": "General AI text translation; exact brand-name collision.",
-    "weakness": "2.7/5 from10 ratings; only English listed. Generic description diverts into another product; opportunity for specific task-led copy.",
-    "date": "2026-10-23"
-  }
+  "errors": []
 }

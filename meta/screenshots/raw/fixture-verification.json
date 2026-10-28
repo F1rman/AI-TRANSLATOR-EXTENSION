@@ -1,49 +1,97 @@
 {
+  "date": "2026-10-27",
+  "version": "1.3.0",
   "extensionId": "aieamemimbcbbnmakifejomadhegogge",
-  "authenticated": false,
+  "sourceHashes": {
+    "manifest.json": "f8f375d87530346d4135da793fa10f45954eed1cd7a03ed759e8e100171f8553",
+    "content.js": "4a3940ecfd375c80a614b17978740b84336c5d58e2f96cc0a8598a19fd261052",
+    "background.js": "834450f16f2762b9e6772a7aa55bbf2f259f23945c6c9f11e80e6ceabf84895e"
+  },
+  "actualBuiltUi": true,
+  "deterministicDemoTransport": true,
   "liveGoogleLoginTested": false,
   "liveAiRequest": false,
+  "demoAccountAndQuotas": true,
   "uiLanguage": "en",
-  "fixture": {
-    "reports": [
-      {
-        "sessionId": "marketing-session",
-        "status": "translating",
-        "total": 12,
-        "completed": 0,
-        "failed": 0
-      },
-      {
-        "sessionId": "marketing-session",
-        "status": "translating",
-        "total": 12,
-        "completed": 12,
-        "failed": 0
-      },
-      {
-        "sessionId": "marketing-session",
-        "status": "translating",
-        "total": 14,
-        "completed": 12,
-        "failed": 0
-      },
-      {
-        "sessionId": "marketing-session",
-        "status": "translated",
-        "total": 14,
-        "completed": 14,
-        "failed": 0
-      },
-      {
-        "sessionId": "marketing-session",
-        "status": "idle",
-        "total": 0,
-        "completed": 0,
-        "failed": 0
+  "evidence": [
+    {
+      "capture": "text-result.png",
+      "plan": "free",
+      "actualBuiltUi": true,
+      "requests": [
+        {
+          "type": "translation:submit",
+          "payload": {
+            "mode": "text",
+            "tone": "neutral",
+            "sourceLanguage": "French",
+            "targetLanguage": "English",
+            "segments": [
+              {
+                "id": "text",
+                "text": "Chaque nouvelle langue ouvre une fenêtre sur le monde."
+              }
+            ],
+            "idempotencyKey": "a6578490-fcfa-466a-bab4-ad65c844beed"
+          },
+          "ownerUid": "marketing-demo"
+        }
+      ]
+    },
+    {
+      "capture": "pro-context-options.png",
+      "plan": "pro",
+      "actualBuiltUi": true
+    },
+    {
+      "capture": "local-history-dark.png",
+      "plan": "pro",
+      "actualBuiltUi": true
+    },
+    {
+      "capture": "selection-translation.png",
+      "actualBuiltContent": true,
+      "plan": "pro"
+    },
+    {
+      "capture": "page-translated.png",
+      "actualBuiltContent": true,
+      "plan": "pro",
+      "state": {
+        "reports": [
+          {
+            "sessionId": "marketing-session",
+            "status": "translating",
+            "total": 12,
+            "completed": 0,
+            "failed": 0
+          },
+          {
+            "sessionId": "marketing-session",
+            "status": "translating",
+            "total": 12,
+            "completed": 12,
+            "failed": 0
+          },
+          {
+            "sessionId": "marketing-session",
+            "status": "translating",
+            "total": 14,
+            "completed": 12,
+            "failed": 0
+          },
+          {
+            "sessionId": "marketing-session",
+            "status": "translated",
+            "total": 14,
+            "completed": 14,
+            "failed": 0
+          }
+        ],
+        "submitted": 3,
+        "restoredTitle": "Le jardin après la pluie"
       }
-    ],
-    "submitted": 4,
-    "restoredTitle": "Le jardin après la pluie"
-  },
+    }
+  ],
   "errors": []
 }

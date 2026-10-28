@@ -1,8 +1,8 @@
 {
   "id": "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
   "name": "Immersive Translate: AI Web, PDF & Video Translator",
-  "rating": 4.55,
-  "ratingCount": 3187,
+  "rating": 4.61,
+  "ratingCount": 3204,
   "users": 3000000,
   "category": "productivity/tools",
   "summary": "Free Translate Website, Translate PDF & Epub eBook, Translate Video Subtitles in Bilingual",
@@ -20,8 +20,8 @@
     "https://lh3.googleusercontent.com/cza8kvknWDIPxOCsbV8IFA-PW3dKQOS1UsFAurHAWfHCqHGE09krInw0rdChmXAmly4Fnd6zu0_O-hv3YwXNxCL-kw"
   ],
   "marquee": "https://lh3.googleusercontent.com/QMSp0mln1zwpaG2MVF4Qq5zF68K2kQhKL9YP0yAREwh-mRSs1APxF0TxdiRZtCry3-Dq0yLbkCbG0pcE435BXU2_WQ",
-  "version": "1.34.2",
-  "updated": "2026-10-20",
+  "version": "1.34.4",
+  "updated": "2026-10-26",
   "size": "13.11MiB",
   "languages": [
     "Deutsch",
@@ -65,7 +65,7 @@
     {
       "id": "bflmgpechpeohjfomgfdkkfcbhfcjohl",
       "name": "Cubox",
-      "users": 30000
+      "users": 20000
     },
     {
       "id": "mnpdbmgpebfihcndnpgdaihnkmloclkd",
@@ -108,7 +108,7 @@
       "users": 50000
     }
   ],
-  "retrievedAt": "2026-10-23T20:34:21.936Z",
+  "retrievedAt": "2026-10-27T20:51:31.929Z",
   "hl": "en",
   "files": {
     "screenshots": [
@@ -123,10 +123,5 @@
   },
   "errors": [
     "screenshots/1: not an image (text/html; charset=utf-8) at https://www.youtube.com/embed/BETAR74jd1Y?rel=0&wmode=opaque&enablejsapi=1=s1280-w1280-h800"
-  ],
-  "researchNotes": {
-    "angle": "Large multilingual suite spanning bilingual pages, files, subtitles and images.",
-    "weakness": "Broad scope: compete through a clear single-purpose page/text promise; no general quality or privacy weakness inferred.",
-    "date": "2026-10-23"
-  }
+  ]
 }

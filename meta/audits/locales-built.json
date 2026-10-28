@@ -73,8 +73,20 @@
   "identicalToDefault": {},
   "overLimit": [],
   "problems": [
-    "manifest.name is a literal string, so the store listing cannot be translated. Use \"__MSG_<key>__\".",
-    "manifest.description is a literal string, so the store listing cannot be translated. Use \"__MSG_<key>__\".",
-    "No _locales directory: the listing is available in one language only."
-  ]
+    "manifest.name is literal text. Use a __MSG_<key>__ value to localize this field.",
+    "manifest.description is literal text. Use a __MSG_<key>__ value to localize this field.",
+    "No _locales directory: locale coverage cannot be verified."
+  ],
+  "summary": {
+    "baselineCovered": 0,
+    "missingBaseline": 55,
+    "invalidFolders": 0,
+    "localesWithMissingKeys": 0,
+    "placeholderMismatches": 0,
+    "localesWithUntranslatedValues": 0,
+    "overLimit": 0,
+    "unreadable": 0,
+    "problems": 3
+  },
+  "complete": false
 }

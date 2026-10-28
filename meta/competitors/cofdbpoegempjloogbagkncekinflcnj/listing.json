@@ -2,7 +2,7 @@
   "id": "cofdbpoegempjloogbagkncekinflcnj",
   "name": "DeepL: translate and write with AI",
   "rating": 4.52,
-  "ratingCount": 12663,
+  "ratingCount": 12669,
   "users": 4000000,
   "category": "productivity/communication",
   "summary": "Translate while you read and write with DeepL Translate, the world’s most accurate translator.",
@@ -17,9 +17,9 @@
     "https://lh3.googleusercontent.com/MvNNWhpTONn6sFRJDaQZwpBdZtydpezOGDMvg4Go7GOjND1Qtq_RUVapq0FDAzIF77pg3O6grwEVFx0E-blxj7vy"
   ],
   "marquee": null,
-  "version": "1.104.2",
-  "updated": "2026-10-19",
-  "size": "55.25MiB",
+  "version": "1.105.1",
+  "updated": "2026-10-26",
+  "size": "55.23MiB",
   "languages": [
     "Deutsch",
     "English",
@@ -100,10 +100,10 @@
     {
       "id": "noofnfniimcnghnkonpdlhlaeaocidbi",
       "name": "DeepTranslate - Full Page & Bilingual Translator & AI-Powered Translation",
-      "users": 70000
+      "users": 50000
     }
   ],
-  "retrievedAt": "2026-10-23T20:34:21.237Z",
+  "retrievedAt": "2026-10-27T20:51:31.096Z",
   "hl": "en",
   "files": {
     "screenshots": [
@@ -115,10 +115,5 @@
     "smallPromo": "promo-440x280.png",
     "marquee": null
   },
-  "errors": [],
-  "researchNotes": {
-    "angle": "Established AI translation and writing suite;4000000 store users.",
-    "weakness": "Listing reserves unlimited full-page translation and automatic translation for Pro. Own quota-limited free page mode is a concrete positioning distinction; no unlimited claim.",
-    "date": "2026-10-23"
-  }
+  "errors": []
 }

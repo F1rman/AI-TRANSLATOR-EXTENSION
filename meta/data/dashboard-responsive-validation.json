@@ -1,0 +1,1014 @@
+{
+  "checkedAt": "2026-10-28T06:24:28.986Z",
+  "success": true,
+  "layouts": [
+    {
+      "colorScheme": "light",
+      "width": 320,
+      "hash": "#tasks",
+      "overflow": false,
+      "background": "#f3f6f9",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "light",
+      "width": 320,
+      "hash": "#listing",
+      "overflow": false,
+      "background": "#f3f6f9",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "light",
+      "width": 320,
+      "hash": "#images",
+      "overflow": false,
+      "background": "#f3f6f9",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "light",
+      "width": 320,
+      "hash": "#extension",
+      "overflow": false,
+      "background": "#f3f6f9",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "light",
+      "width": 320,
+      "hash": "#competitors",
+      "overflow": false,
+      "background": "#f3f6f9",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "light",
+      "width": 320,
+      "hash": "#keywords",
+      "overflow": false,
+      "background": "#f3f6f9",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "light",
+      "width": 320,
+      "hash": "#store",
+      "overflow": false,
+      "background": "#f3f6f9",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "light",
+      "width": 390,
+      "hash": "#tasks",
+      "overflow": false,
+      "background": "#f3f6f9",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "light",
+      "width": 390,
+      "hash": "#listing",
+      "overflow": false,
+      "background": "#f3f6f9",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "light",
+      "width": 390,
+      "hash": "#images",
+      "overflow": false,
+      "background": "#f3f6f9",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "light",
+      "width": 390,
+      "hash": "#extension",
+      "overflow": false,
+      "background": "#f3f6f9",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "light",
+      "width": 390,
+      "hash": "#competitors",
+      "overflow": false,
+      "background": "#f3f6f9",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "light",
+      "width": 390,
+      "hash": "#keywords",
+      "overflow": false,
+      "background": "#f3f6f9",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "light",
+      "width": 390,
+      "hash": "#store",
+      "overflow": false,
+      "background": "#f3f6f9",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "light",
+      "width": 430,
+      "hash": "#tasks",
+      "overflow": false,
+      "background": "#f3f6f9",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "light",
+      "width": 430,
+      "hash": "#listing",
+      "overflow": false,
+      "background": "#f3f6f9",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "light",
+      "width": 430,
+      "hash": "#images",
+      "overflow": false,
+      "background": "#f3f6f9",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "light",
+      "width": 430,
+      "hash": "#extension",
+      "overflow": false,
+      "background": "#f3f6f9",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "light",
+      "width": 430,
+      "hash": "#competitors",
+      "overflow": false,
+      "background": "#f3f6f9",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "light",
+      "width": 430,
+      "hash": "#keywords",
+      "overflow": false,
+      "background": "#f3f6f9",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "light",
+      "width": 430,
+      "hash": "#store",
+      "overflow": false,
+      "background": "#f3f6f9",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "light",
+      "width": 1440,
+      "hash": "#tasks",
+      "overflow": false,
+      "background": "#f3f6f9",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "light",
+      "width": 1440,
+      "hash": "#listing",
+      "overflow": false,
+      "background": "#f3f6f9",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "light",
+      "width": 1440,
+      "hash": "#images",
+      "overflow": false,
+      "background": "#f3f6f9",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "light",
+      "width": 1440,
+      "hash": "#extension",
+      "overflow": false,
+      "background": "#f3f6f9",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "light",
+      "width": 1440,
+      "hash": "#competitors",
+      "overflow": false,
+      "background": "#f3f6f9",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "light",
+      "width": 1440,
+      "hash": "#keywords",
+      "overflow": false,
+      "background": "#f3f6f9",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "light",
+      "width": 1440,
+      "hash": "#store",
+      "overflow": false,
+      "background": "#f3f6f9",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "dark",
+      "width": 320,
+      "hash": "#tasks",
+      "overflow": false,
+      "background": "#08141e",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "dark",
+      "width": 320,
+      "hash": "#listing",
+      "overflow": false,
+      "background": "#08141e",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "dark",
+      "width": 320,
+      "hash": "#images",
+      "overflow": false,
+      "background": "#08141e",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "dark",
+      "width": 320,
+      "hash": "#extension",
+      "overflow": false,
+      "background": "#08141e",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "dark",
+      "width": 320,
+      "hash": "#competitors",
+      "overflow": false,
+      "background": "#08141e",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "dark",
+      "width": 320,
+      "hash": "#keywords",
+      "overflow": false,
+      "background": "#08141e",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "dark",
+      "width": 320,
+      "hash": "#store",
+      "overflow": false,
+      "background": "#08141e",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "dark",
+      "width": 390,
+      "hash": "#tasks",
+      "overflow": false,
+      "background": "#08141e",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "dark",
+      "width": 390,
+      "hash": "#listing",
+      "overflow": false,
+      "background": "#08141e",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "dark",
+      "width": 390,
+      "hash": "#images",
+      "overflow": false,
+      "background": "#08141e",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "dark",
+      "width": 390,
+      "hash": "#extension",
+      "overflow": false,
+      "background": "#08141e",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "dark",
+      "width": 390,
+      "hash": "#competitors",
+      "overflow": false,
+      "background": "#08141e",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "dark",
+      "width": 390,
+      "hash": "#keywords",
+      "overflow": false,
+      "background": "#08141e",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "dark",
+      "width": 390,
+      "hash": "#store",
+      "overflow": false,
+      "background": "#08141e",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "dark",
+      "width": 430,
+      "hash": "#tasks",
+      "overflow": false,
+      "background": "#08141e",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "dark",
+      "width": 430,
+      "hash": "#listing",
+      "overflow": false,
+      "background": "#08141e",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "dark",
+      "width": 430,
+      "hash": "#images",
+      "overflow": false,
+      "background": "#08141e",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "dark",
+      "width": 430,
+      "hash": "#extension",
+      "overflow": false,
+      "background": "#08141e",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "dark",
+      "width": 430,
+      "hash": "#competitors",
+      "overflow": false,
+      "background": "#08141e",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "dark",
+      "width": 430,
+      "hash": "#keywords",
+      "overflow": false,
+      "background": "#08141e",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "dark",
+      "width": 430,
+      "hash": "#store",
+      "overflow": false,
+      "background": "#08141e",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "dark",
+      "width": 1440,
+      "hash": "#tasks",
+      "overflow": false,
+      "background": "#08141e",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "dark",
+      "width": 1440,
+      "hash": "#listing",
+      "overflow": false,
+      "background": "#08141e",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "dark",
+      "width": 1440,
+      "hash": "#images",
+      "overflow": false,
+      "background": "#08141e",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "dark",
+      "width": 1440,
+      "hash": "#extension",
+      "overflow": false,
+      "background": "#08141e",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "dark",
+      "width": 1440,
+      "hash": "#competitors",
+      "overflow": false,
+      "background": "#08141e",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "dark",
+      "width": 1440,
+      "hash": "#keywords",
+      "overflow": false,
+      "background": "#08141e",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    },
+    {
+      "colorScheme": "dark",
+      "width": 1440,
+      "hash": "#store",
+      "overflow": false,
+      "background": "#08141e",
+      "missingImages": [],
+      "fonts": [
+        {
+          "family": "Manrope",
+          "status": "loaded"
+        },
+        {
+          "family": "Rubik",
+          "status": "loaded"
+        }
+      ]
+    }
+  ]
+}

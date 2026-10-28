@@ -1,42 +1,28 @@
 # AI Translator — Store material
 
-Prepared 2026-10-24. Keyword and competitor observations were collected 2026-10-23. Open [index.html](index.html) for the task dashboard and copy/download actions.
+Updated for AI Translator 1.3.0. Research and main assets were refreshed 2026-10-27; final integration was checked 2026-10-28. Open [index.html](index.html) for the offline task dashboard, copy actions and downloads. Drafts are not published Store changes.
 
-| # | Task | Delivered |
-|---|---|---|
-| 1 | SEO name | Five candidates; recommended: Webpage Translator – AI Translator. Draft only. |
-| 2 | SEO short description | Five candidates; recommended option 2. Draft only. |
-| 3 | SEO full description | English, 434 words, ready to copy. |
-| 4 | 55 locale descriptions | English description and metadata draft; 54 translations remain. Translation mode was not requested. |
-| 5 | Promo tile | Recommended 440×280, matching 1400×560 marquee, two small-tile variants. |
-| 6 | Screenshots | Five English 1280×800 images from the actual built UI using local demo data. |
-| 7 | Icon | Comparison and padding warning; optional redesign prompt. Existing icon unchanged. |
-| 8 | Localized screenshots | No localized sets prepared. |
-| 9 | Review ask | Adapted code recommendation, unapplied. |
-| 10 | Welcome page | Adapted code recommendation, unapplied. |
+| # | Task | Current status |
+| --- | --- | --- |
+| 1 | SEO name | Five options with length checks; recommendation: AI Translator – Text & Webpage Translator. Name similarity requires owner review. |
+| 2 | SEO short description | Five options with length checks and a recommended draft. |
+| 3 | SEO full description | Current English plain-text draft with exact Free/Pro pricing, character limits and privacy details. |
+| 4 | Localized descriptions | Complete English description/metadata draft. The other 54 baseline locales remain pending; translate mode was not requested. Current package has literal metadata and no `_locales`. |
+| 5 | Promo tile | Recommended text-free 440×280 tile, 1400×560 marquee and two small variants, rendered and inspected. |
+| 6 | Screenshots | Five English 1280×800 frames showing current real UI with documented demo data, rendered and inspected. |
+| 7 | Icon | Current comparison prepared; warning remains for missing transparent margin and a generic AI silhouette. Packaged icon unchanged. |
+| 8 | Localized screenshots | No localized set requested or created. |
+| 9 | Review ask | Adapted code proposal only; honest review request after five unique completed jobs, no gating or reward. |
+| 10 | Welcome page | Adapted first-install-only code proposal, preserving current menu setup; not installed. |
 
-## Recommended copy
+Current listing: [English full description](descriptions/en.txt), [name/summary choices](data/names.json), [Store form](data/dashboard.json), [English message draft](locales/en/messages.json). Review/welcome and manifest-localization proposals are in [recommendations](data/recommendations.json).
 
-Name: Webpage Translator – AI Translator
+Assets: [recommended tile](promo/small-440x280.png), [marquee](promo/marquee-1400x560.png), [screenshots 1–5](screenshots/1.png), [icon comparison](icon/check.png). Details and matching prompts: [visual report](REPORT-visuals.md). Research evidence, known fetch limits and dated competitor observations: [research report](REPORT-research.md).
 
-Short description: Read pages in your language with a webpage translator. Translate selected text and show the original when needed.
+Free includes 100,000 source characters per UTC calendar month and up to 4,000 per request. Pro is US$4.99/month or US$39.99/year, with 2,000,000 characters per monthly anniversary window and up to 50,000 per request. Pro adds page translation, optional visible page context, tones, priority processing and access to more local history. The current listing hides retired image and word-package offers.
 
-Full description: [descriptions/en.txt](descriptions/en.txt).
+Checks: [artifact validation](data/validation.json), [responsive dashboard validation](data/dashboard-responsive-validation.json), [dashboard interactions](data/dashboard-validation.json), and [locale audits](audits/locales-with-en-draft.json). Dashboard QA covers ten ordered tasks, seven tabs, exact-copy payloads, locale selection, image dialog focus/Escape, owner-mark persistence, and 56 layouts across light/dark at 320/390/430/1440px. Expected package-localization gaps remain visible instead of being marked ready.
 
-## Upload candidates
+The current English draft needs owner editorial acceptance; the remaining language drafts and native review are pending. The unpublished own listing cannot be independently read by the collector; failures and checked-result counts are preserved rather than converted into a ranking claim. One competitor video embed was not downloadable as an image. No publication, upload, install forecast or ranking guarantee is implied.
 
-- [Recommended small tile](promo/small-440x280.png), [marquee](promo/marquee-1400x560.png), [variant B](promo/small-440x280-b.png), [variant C](promo/small-440x280-c.png).
-- Screenshots: [1](screenshots/1.png), [2](screenshots/2.png), [3](screenshots/3.png), [4](screenshots/4.png), [5](screenshots/5.png).
-- [Store form](data/dashboard.json): category, single purpose, all six permissions and two host patterns.
-- [Code recommendations](data/recommendations.json), [English locale draft](locales/en/messages.json).
-
-## Evidence and status
-
-- [Copy report](REPORT-copy.md): exact source evidence, limits, retention and locale gaps.
-- [Research report](REPORT-research.md): keyword decisions, eight competitors, observation dates and source links. Demand is a heuristic, not search volume; own listing rank is unavailable for the draft item.
-- [Visual report](REPORT-visuals.md): real-UI capture method, fixture disclosure, asset inspection and icon warning. Demo screenshots do not establish live Google login or live AI quality.
-- [Artifact validation](data/validation.json), [layout validation](data/layout-validation.json), [dashboard validation](data/dashboard-validation.json). All checks passed: 16 artifact checks, ten rendered layouts, ten task rows, seven working tabs and all 58 local image references. Copy payload and manual task persistence were checked in a disposable browser; clipboard transport was stubbed for this check. [Tasks preview](dashboard-tasks.png) was rendered and visually inspected.
-
-The built manifest remains AI Translator v1.0.1 with literal English metadata and no packaged listing locales. Review and welcome code are recommendations. Dashboard checks reflect the existing package separately from prepared drafts. Real Google-account sign-in still needs its regular Chrome test recorded in the project documentation.
-
-All work is confined to `meta/`. Existing workspace changes outside it were preserved. No Store listing, extension package, backend, hosting or account was modified or published.
+Marketing writes are confined to `meta/`. Separately authorized product upgrade-navigation changes were made by the root task and are recorded in the source baseline comparison. Both current extension ZIPs exclude `meta/`.

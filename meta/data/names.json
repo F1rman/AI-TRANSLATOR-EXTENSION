@@ -2,76 +2,70 @@
   "primaryKeyword": "webpage translator",
   "names": [
     {
+      "text": "AI Translator – Text & Webpage Translator",
+      "keyword": "webpage translator",
+      "trademark": "caution",
+      "pattern": "Established brand + text and page tasks"
+    },
+    {
+      "text": "AI Translator – Translate Text, Read Pages",
+      "keyword": "ai translator",
+      "trademark": "caution",
+      "pattern": "Established brand + user outcomes"
+    },
+    {
       "text": "Webpage Translator – AI Translator",
       "keyword": "webpage translator",
-      "trademark": "clear",
-      "pattern": "Keyword – existing brand",
-      "note": "Recommended: primary phrase at the start, existing AI Translator brand retained. Generic words only; similar names exist."
+      "trademark": "caution",
+      "pattern": "Primary task + established brand"
     },
     {
-      "text": "AI Translator – Webpage Translator",
-      "keyword": "webpage translator",
-      "trademark": "clear",
-      "pattern": "Existing brand – keyword",
-      "note": "Prioritizes the existing brand; primary phrase begins at character 17 and may be truncated on narrow cards."
-    },
-    {
-      "text": "Webpage Translator: Read with AI Translator",
-      "keyword": "webpage translator",
-      "trademark": "clear",
-      "pattern": "Keyword + reading outcome + brand"
-    },
-    {
-      "text": "AI Translator: Webpage Translator & Selected Text",
-      "keyword": "webpage translator",
-      "trademark": "clear",
-      "pattern": "Brand + primary + secondary capability"
+      "text": "AI Translator: Selected Text & Page Translation",
+      "keyword": "ai translator",
+      "trademark": "caution",
+      "pattern": "Established brand + entry points"
     },
     {
       "text": "AI Translator",
       "keyword": "ai translator",
-      "trademark": "clear",
-      "pattern": "Existing brand only",
-      "note": "Keeps the current package name exactly; does not target the selected primary phrase."
+      "trademark": "caution",
+      "pattern": "Existing package brand only"
     }
   ],
   "shortDescriptions": [
     {
-      "text": "Use an AI webpage translator for text and pages. Translate selected text, follow new page text, and restore originals.",
-      "keyword": "webpage translator",
-      "secondaryKeyword": "translate selected text"
+      "text": "Translate text with AI and keep local history. Pro adds webpage translation, tone and optional context.",
+      "keyword": "translate text"
     },
     {
-      "text": "Read pages in your language with a webpage translator. Translate selected text and show the original when needed.",
-      "keyword": "webpage translator",
-      "secondaryKeyword": "translate selected text"
+      "text": "Translate selected text or paste into the popup. Upgrade to Pro for full-page translation and page context.",
+      "keyword": "translate selected text"
     },
     {
-      "text": "Translate text and pages with a webpage translator powered by AI. Keep links and page structure, then restore originals.",
-      "keyword": "webpage translator",
-      "secondaryKeyword": "translate text"
+      "text": "AI webpage translator with a Free text plan and Pro page translation. Choose your language and restore originals.",
+      "keyword": "webpage translator"
     },
     {
-      "text": "Read with an AI webpage translator. Translate text and pages with a 20,000-character daily allowance per Google account.",
-      "keyword": "webpage translator",
-      "secondaryKeyword": "translate text"
+      "text": "Read foreign-language text in your browser. Free includes 100,000 characters monthly; Pro adds page translation.",
+      "keyword": "page translation"
     },
     {
-      "text": "A webpage translator for text and pages. Sign in with Google, choose a language, and show the original when you need it.",
-      "keyword": "webpage translator",
-      "secondaryKeyword": "text and pages"
+      "text": "Translate text, save local history, and choose neutral wording. Pro adds formal, friendly and technical tones.",
+      "keyword": "translate text"
     }
   ],
   "recommended": {
     "name": 0,
-    "short": 1
+    "short": 0
   },
+  "reason": "Retains the established AI Translator identity, includes the precisely researched webpage translator phrase, and names text translation as the Free entry point. The summary clearly reserves page translation, tones and page context for Pro.",
   "brandCollision": {
     "state": "caution",
-    "note": "Existing listings use AI Translator and closely related names. Generic wording is not legal or trademark clearance. Keep the product identity, original artwork, and developer attribution distinct.",
+    "note": "Several current listings use AI Translator. Generic descriptive wording does not establish trademark clearance or a unique brand. Preserve the original icon and developer identity, and distinguish this product from similarly named listings.",
     "examples": [
       "https://chromewebstore.google.com/detail/hbblhboakojbegilahlbppmmkogdgehp",
-      "https://chromewebstore.google.com/detail/jabhdcjhdlnppcpbdghnkfkdpfcfleba"
-    ]
+      "https://chromewebstore.google.com/detail/hkelkkhcmkhbpkenoogdeomannakpilk"
+    ],
+    "verifiedAt": "2026-10-27"
   }
 }

@@ -1,0 +1,9 @@
+{
+  "projectId": "320cec59-5479-4f78-91f6-50cd99bb8a1d",
+  "notes": [
+    "Current marketing drafts target AI Translator 1.3.0 and its Free/Pro character subscriptions; they are not published Store changes.",
+    "Only the English listing and English metadata draft are refreshed in this normal run. The other 54 baseline locale descriptions remain pending; no localized screenshot set was requested.",
+    "Screenshots capture the real current extension UI with deterministic non-sensitive demo account and translation data. They do not validate live AI quality or Google sign-in.",
+    "Code recommendations remain proposals inside meta/. Separate user-authorized upgrade-navigation changes and extension builds are handled outside this marketing workflow."
+  ]
+}

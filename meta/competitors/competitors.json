@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-10-23T20:34:22.535Z",
+  "updatedAt": "2026-10-27T20:51:31.931Z",
   "competitors": [
     {
       "id": "hbblhboakojbegilahlbppmmkogdgehp",
       "name": "AI Translator",
-      "rating": 2.7,
-      "ratingCount": 10,
+      "rating": 2.55,
+      "ratingCount": 11,
       "users": 4000,
       "category": "productivity/workflow",
       "summary": "Translate selected text into 38 languages with AI. Select text on any page or use the popup. An AI Anyone product.",
@@ -39,7 +39,7 @@
         {
           "id": "noofnfniimcnghnkonpdlhlaeaocidbi",
           "name": "DeepTranslate - Full Page & Bilingual Translator & AI-Powered Translation",
-          "users": 70000
+          "users": 50000
         },
         {
           "id": "ogjibjphoadhljaoicdnjnmgokohngcc",
@@ -49,7 +49,7 @@
         {
           "id": "lacafdjknejfmonblmedjkboknnammbb",
           "name": "Right Translator - GPT powered translation",
-          "users": 975
+          "users": 986
         },
         {
           "id": "lbkdhahlblnfljniopojjappcnbnpdok",
@@ -69,12 +69,12 @@
         {
           "id": "bnhamcnlecnkodgnpejaidbijocfpbpd",
           "name": "AI Anyone — We’ve Moved",
-          "users": 56
+          "users": 55
         },
         {
           "id": "fdobdooapahhogpamooimfeblceimdpd",
           "name": "EveryLanguage.ai - Instant Language Translator",
-          "users": 772
+          "users": 780
         },
         {
           "id": "nmoaohajaodpioogcmmjladclkanidif",
@@ -84,10 +84,10 @@
         {
           "id": "pbdekcaeombkcnkaildbphbiaainlaba",
           "name": "ChatGPT Translator",
-          "users": 7000
+          "users": 8000
         }
       ],
-      "retrievedAt": "2026-10-23T20:34:17.432Z",
+      "retrievedAt": "2026-10-27T20:51:30.543Z",
       "hl": "en",
       "files": {
         "screenshots": [
@@ -98,18 +98,13 @@
         "smallPromo": "promo-440x280.png",
         "marquee": null
       },
-      "errors": [],
-      "researchNotes": {
-        "angle": "General AI text translation; exact brand-name collision.",
-        "weakness": "2.7/5 from10 ratings; only English listed. Generic description diverts into another product; opportunity for specific task-led copy.",
-        "date": "2026-10-23"
-      }
+      "errors": []
     },
     {
       "id": "gbefmodhlophhakmoecijeppjblibmie",
       "name": "Linguist - web page translator",
-      "rating": 4.37,
-      "ratingCount": 373,
+      "rating": 4.39,
+      "ratingCount": 375,
       "users": 200000,
       "category": "productivity/communication",
       "summary": "Web page translation, text translation, dictionary, history, custom translators, all you need to break language barriers",
@@ -197,7 +192,7 @@
         {
           "id": "jdanedhdmcbkheljojpdcnonnbdbohng",
           "name": "autoTranslate - Translate web & PDF, Dictionary",
-          "users": 30000
+          "users": 20000
         },
         {
           "id": "pbeheebcldakpkohnellphloljkaanfa",
@@ -250,7 +245,7 @@
           "users": 60000
         }
       ],
-      "retrievedAt": "2026-10-23T20:34:18.013Z",
+      "retrievedAt": "2026-10-27T20:51:30.395Z",
       "hl": "en",
       "files": {
         "screenshots": [
@@ -264,19 +259,14 @@
         "smallPromo": "promo-440x280.png",
         "marquee": null
       },
-      "errors": [],
-      "researchNotes": {
-        "angle": "All-purpose page/text translator with dictionary, history and offline translation.",
-        "weakness": "Broad feature suite and long description: opportunity for focused AI page-reading messaging, not a demonstrated feature gap.",
-        "date": "2026-10-23"
-      }
+      "errors": []
     },
     {
       "id": "hkelkkhcmkhbpkenoogdeomannakpilk",
       "name": "AI Translator - Smart AI Translation (Hover, Select, Context Menu)",
       "rating": 5,
       "ratingCount": 9,
-      "users": 530,
+      "users": 549,
       "category": "productivity/tools",
       "summary": "Instant AI translator. Hover, select, or translate the whole page bilingually. 50+ languages, dark mode, side panel.",
       "icon": "https://lh3.googleusercontent.com/hzI1clBH_mujSxiHbNF9d1YVuaZ-Vbs0FvrLnY1VrFjZHcUreAFmE8vo7W7C6sVnp9KUxpWbOu_vk7wYmFz8tbWGHw",
@@ -331,7 +321,7 @@
         {
           "id": "fhfnfmakgcoolkaalffgdijedkdgegad",
           "name": "Swiftin - AI translator for sites, subtitles and what you type",
-          "users": null
+          "users": 9000
         },
         {
           "id": "bincmiainjofjnhchmcalkanjebghoen",
@@ -341,12 +331,7 @@
         {
           "id": "klmdchhpomppdmflgickpjopdmnbehgg",
           "name": "Linguin - AI Translator",
-          "users": 332
-        },
-        {
-          "id": "adhgifgmkblkmejdgiplocmdjbbibkip",
-          "name": "AI Translation",
-          "users": 7000
+          "users": 303
         },
         {
           "id": "ooggbaolfhebcfbdfjjlhkijileflfhi",
@@ -361,12 +346,12 @@
         {
           "id": "ianmkfjhfmjjlchjceijknakecemeope",
           "name": "TransorAI - AI Translator | Web, PDF, Images",
-          "users": 5000
+          "users": 4000
         },
         {
           "id": "edldfjnolgadoiinnmnkgpbamnkjibmb",
           "name": "Translate Workspace: AI Translator",
-          "users": 255
+          "users": 260
         },
         {
           "id": "jokgnglcgghihhbkinmjhcbjofniocca",
@@ -376,10 +361,15 @@
         {
           "id": "ecdcnaegedhdbeaiienfjajimlofocbi",
           "name": "Transync - Instant Translation & Dictionary",
-          "users": 401
+          "users": 373
+        },
+        {
+          "id": "oeklfemflcicdehnipamlkoibjcigdep",
+          "name": "AI Language Translator",
+          "users": 1000
         }
       ],
-      "retrievedAt": "2026-10-23T20:34:18.810Z",
+      "retrievedAt": "2026-10-27T20:51:30.620Z",
       "hl": "en",
       "files": {
         "screenshots": [
@@ -393,19 +383,14 @@
         "smallPromo": "promo-440x280.png",
         "marquee": "marquee-1400x560.png"
       },
-      "errors": [],
-      "researchNotes": {
-        "angle": "AI hover, selection, full-page bilingual/replace and text panel.",
-        "weakness": "530 users and9 ratings: smaller visible adoption footprint; do not claim missing core features. Screenshot is a dense browser UI without explanatory headline.",
-        "date": "2026-10-23"
-      }
+      "errors": []
     },
     {
       "id": "noofnfniimcnghnkonpdlhlaeaocidbi",
       "name": "DeepTranslate - Full Page & Bilingual Translator & AI-Powered Translation",
-      "rating": 3.85,
-      "ratingCount": 488,
-      "users": 70000,
+      "rating": 3.89,
+      "ratingCount": 489,
+      "users": 50000,
       "category": "productivity/tools",
       "summary": "Translate web pages effortlessly with Google Translate and OpenAI. Supports quick text translation and PDF imports for translation.",
       "icon": "https://lh3.googleusercontent.com/Dx9Fo4-s_t8A-yqvtL5Jc6tA9Gsh8kl28iBdJj4C4WmZQIVOp2GN_C7kKIxJphn2rK7mXor24CqygomDplNVjjOKBQ",
@@ -444,14 +429,9 @@
           "users": 100000
         },
         {
-          "id": "adhgifgmkblkmejdgiplocmdjbbibkip",
-          "name": "AI Translation",
-          "users": 7000
-        },
-        {
           "id": "jdanedhdmcbkheljojpdcnonnbdbohng",
           "name": "autoTranslate - Translate web & PDF, Dictionary",
-          "users": 30000
+          "users": 20000
         },
         {
           "id": "gbefmodhlophhakmoecijeppjblibmie",
@@ -481,7 +461,7 @@
         {
           "id": "hnfabcchmopgohnhkcojhocneefbnffg",
           "name": "Web Translate: AI & Google Translator",
-          "users": 40000
+          "users": 30000
         },
         {
           "id": "cnailncgolnackgmidhkkifchhegijjf",
@@ -497,9 +477,14 @@
           "id": "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
           "name": "Immersive Translate: AI Web, PDF & Video Translator",
           "users": 3000000
+        },
+        {
+          "id": "bdiifdefkgmcblbcghdlonllpjhhjgof",
+          "name": "KISS Translator",
+          "users": 100000
         }
       ],
-      "retrievedAt": "2026-10-23T20:34:21.199Z",
+      "retrievedAt": "2026-10-27T20:51:31.082Z",
       "hl": "en",
       "files": {
         "screenshots": [
@@ -513,12 +498,7 @@
         "smallPromo": "promo-440x280.png",
         "marquee": "marquee-1400x560.png"
       },
-      "errors": [],
-      "researchNotes": {
-        "angle": "Full-page bilingual mode and switching between translation engines.",
-        "weakness": "3.85/5 from488 ratings; long feature-heavy name. Own product can state a simpler page/text workflow and explicit quota.",
-        "date": "2026-10-23"
-      }
+      "errors": []
     },
     {
       "id": "ibplnjkanclpjokhdolnendpplpjiace",
@@ -640,7 +620,7 @@
           "users": 7000
         }
       ],
-      "retrievedAt": "2026-10-23T20:34:21.212Z",
+      "retrievedAt": "2026-10-27T20:51:30.965Z",
       "hl": "en",
       "files": {
         "screenshots": [
@@ -654,18 +634,13 @@
         "smallPromo": "promo-440x280.png",
         "marquee": null
       },
-      "errors": [],
-      "researchNotes": {
-        "angle": "Selection button, popup and context menu; Google Translate/DeepL API support.",
-        "weakness": "4.03/5 from478 ratings; listing is brief and engine-focused. Own AI engine/context and restore workflow deserve more explicit evidence in visuals.",
-        "date": "2026-10-23"
-      }
+      "errors": []
     },
     {
       "id": "cofdbpoegempjloogbagkncekinflcnj",
       "name": "DeepL: translate and write with AI",
       "rating": 4.52,
-      "ratingCount": 12663,
+      "ratingCount": 12669,
       "users": 4000000,
       "category": "productivity/communication",
       "summary": "Translate while you read and write with DeepL Translate, the world’s most accurate translator.",
@@ -680,9 +655,9 @@
         "https://lh3.googleusercontent.com/MvNNWhpTONn6sFRJDaQZwpBdZtydpezOGDMvg4Go7GOjND1Qtq_RUVapq0FDAzIF77pg3O6grwEVFx0E-blxj7vy"
       ],
       "marquee": null,
-      "version": "1.104.2",
-      "updated": "2026-10-19",
-      "size": "55.25MiB",
+      "version": "1.105.1",
+      "updated": "2026-10-26",
+      "size": "55.23MiB",
       "languages": [
         "Deutsch",
         "English",
@@ -763,10 +738,10 @@
         {
           "id": "noofnfniimcnghnkonpdlhlaeaocidbi",
           "name": "DeepTranslate - Full Page & Bilingual Translator & AI-Powered Translation",
-          "users": 70000
+          "users": 50000
         }
       ],
-      "retrievedAt": "2026-10-23T20:34:21.237Z",
+      "retrievedAt": "2026-10-27T20:51:31.096Z",
       "hl": "en",
       "files": {
         "screenshots": [
@@ -778,18 +753,13 @@
         "smallPromo": "promo-440x280.png",
         "marquee": null
       },
-      "errors": [],
-      "researchNotes": {
-        "angle": "Established AI translation and writing suite;4000000 store users.",
-        "weakness": "Listing reserves unlimited full-page translation and automatic translation for Pro. Own quota-limited free page mode is a concrete positioning distinction; no unlimited claim.",
-        "date": "2026-10-23"
-      }
+      "errors": []
     },
     {
       "id": "bpoadfkcbjbfhfodiogcnhhhpibjhbnh",
       "name": "Immersive Translate: AI Web, PDF & Video Translator",
-      "rating": 4.55,
-      "ratingCount": 3187,
+      "rating": 4.61,
+      "ratingCount": 3204,
       "users": 3000000,
       "category": "productivity/tools",
       "summary": "Free Translate Website, Translate PDF & Epub eBook, Translate Video Subtitles in Bilingual",
@@ -807,8 +777,8 @@
         "https://lh3.googleusercontent.com/cza8kvknWDIPxOCsbV8IFA-PW3dKQOS1UsFAurHAWfHCqHGE09krInw0rdChmXAmly4Fnd6zu0_O-hv3YwXNxCL-kw"
       ],
       "marquee": "https://lh3.googleusercontent.com/QMSp0mln1zwpaG2MVF4Qq5zF68K2kQhKL9YP0yAREwh-mRSs1APxF0TxdiRZtCry3-Dq0yLbkCbG0pcE435BXU2_WQ",
-      "version": "1.34.2",
-      "updated": "2026-10-20",
+      "version": "1.34.4",
+      "updated": "2026-10-26",
       "size": "13.11MiB",
       "languages": [
         "Deutsch",
@@ -852,7 +822,7 @@
         {
           "id": "bflmgpechpeohjfomgfdkkfcbhfcjohl",
           "name": "Cubox",
-          "users": 30000
+          "users": 20000
         },
         {
           "id": "mnpdbmgpebfihcndnpgdaihnkmloclkd",
@@ -895,7 +865,7 @@
           "users": 50000
         }
       ],
-      "retrievedAt": "2026-10-23T20:34:21.936Z",
+      "retrievedAt": "2026-10-27T20:51:31.929Z",
       "hl": "en",
       "files": {
         "screenshots": [
@@ -910,12 +880,7 @@
       },
       "errors": [
         "screenshots/1: not an image (text/html; charset=utf-8) at https://www.youtube.com/embed/BETAR74jd1Y?rel=0&wmode=opaque&enablejsapi=1=s1280-w1280-h800"
-      ],
-      "researchNotes": {
-        "angle": "Large multilingual suite spanning bilingual pages, files, subtitles and images.",
-        "weakness": "Broad scope: compete through a clear single-purpose page/text promise; no general quality or privacy weakness inferred.",
-        "date": "2026-10-23"
-      }
+      ]
     },
     {
       "id": "fbimffnjoeobhjhochngikepgfejjmgj",
@@ -991,7 +956,7 @@
         {
           "id": "nnnlbcgpgpgbdhanhcdcooclbfaifabc",
           "name": "GenAI Translator",
-          "users": 508
+          "users": 516
         },
         {
           "id": "aapbdbdomjkkjkaonfhkkikfgjllcleb",
@@ -1019,14 +984,14 @@
           "users": 2000
         },
         {
-          "id": "pfoflbejajgbpkmllhogfpnekjiempip",
-          "name": "Translator - Select to Translate",
-          "users": 60000
-        },
-        {
           "id": "bebmphofpgkhclocdbgomhnjcpelbenh",
           "name": "Translator, Dictionary - Accurate Translate",
           "users": 100000
+        },
+        {
+          "id": "pfoflbejajgbpkmllhogfpnekjiempip",
+          "name": "Translator - Select to Translate",
+          "users": 60000
         },
         {
           "id": "gipnlpdeieaidmmeaichnddnmjmcakoe",
@@ -1034,7 +999,7 @@
           "users": 40000
         }
       ],
-      "retrievedAt": "2026-10-23T20:34:22.535Z",
+      "retrievedAt": "2026-10-27T20:51:31.931Z",
       "hl": "en",
       "files": {
         "screenshots": [
@@ -1046,12 +1011,7 @@
         "smallPromo": "promo-440x280.png",
         "marquee": "marquee-1400x560.png"
       },
-      "errors": [],
-      "researchNotes": {
-        "angle": "Selection-only context-menu handoff to Google Translate.",
-        "weakness": "Last store update2024-06-02; narrow workflow. AI Translator can show in-page results and whole-page mode instead of a handoff.",
-        "date": "2026-10-23"
-      }
+      "errors": []
     }
   ],
   "failures": []

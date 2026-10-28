@@ -1,0 +1,123 @@
+@font-face {
+  font-family: "Manrope";
+  src: url("fonts/Manrope.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Rubik";
+  src: url("fonts/Rubik.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300 900;
+  font-display: swap;
+}
+/*
+ * Soft Flat: вихідні токени для центральних стилів проєкту.
+ * Світла тема — резервна; явна тема: .light/.dark або data-theme на корені.
+ * Системну тему й збережений вибір підключай механізмом цільового проєкту.
+ * Local variable fonts: google/fonts/ofl/manrope and google/fonts/ofl/rubik.
+ * Font licenses are bundled in fonts/; no external font requests are needed.
+ */
+
+:root {
+  --app-font-body: "Manrope", system-ui, sans-serif;
+  --app-font-heading: "Rubik", system-ui, sans-serif;
+  --app-heading-size: 24px;
+  --app-label-size: 14px;
+  --app-caption-size: 12px;
+  --app-weight-emphasis: 600;
+
+  --app-radius-card: 20px;
+  --app-radius-control: 12px;
+  --app-space-1: 4px;
+  --app-space-2: 8px;
+  --app-space-3: 12px;
+  --app-space-4: 16px;
+  --app-page-padding: 16px;
+  --app-card-padding: 16px;
+  --app-section-gap: 12px;
+  --app-item-gap: 8px;
+  --app-touch-target: 44px;
+  --app-content-compact: 430px;
+  --app-dot-step: 18px;
+  --app-backdrop: rgb(8 20 30 / 82%);
+}
+
+:root,
+.light,
+[data-theme="light"] {
+  --app-color-scheme: light;
+  --app-background: #f3f6f9;
+  --app-surface-1: #ffffff;
+  --app-surface-2: #edf1f5;
+  --app-surface-3: #e4eaf0;
+  --app-foreground: #171a1d;
+  --app-muted: #586572;
+  --app-subtle: #5c6976;
+  --app-income: #23764f;
+  --app-expense: #b3344c;
+  --app-on-positive: #ffffff;
+  --app-on-negative: #ffffff;
+}
+
+.dark,
+[data-theme="dark"] {
+  --app-color-scheme: dark;
+  --app-background: #08141e;
+  --app-surface-1: #1b2530;
+  --app-surface-2: #25323f;
+  --app-surface-3: #344453;
+  --app-foreground: #f1f5f9;
+  --app-muted: #bac7d3;
+  --app-subtle: #a6b5c4;
+  --app-income: #75d6a7;
+  --app-expense: #ff9bae;
+  --app-on-positive: #08141e;
+  --app-on-negative: #08141e;
+}
+
+/* Похідні кольори обчислюються також на межах вкладених тем. */
+:root,
+.light,
+.dark,
+[data-theme="light"],
+[data-theme="dark"],
+[data-theme="auto"] {
+  --app-positive: var(--app-income);
+  --app-negative: var(--app-expense);
+  --app-primary: var(--app-foreground);
+  --app-on-primary: var(--app-surface-1);
+  --app-focus-color: var(--app-foreground);
+  --app-positive-soft: color-mix(in srgb, var(--app-positive) 10%, var(--app-surface-1));
+  --app-negative-soft: color-mix(in srgb, var(--app-negative) 10%, var(--app-surface-1));
+  --app-dot-color: color-mix(in srgb, var(--app-foreground) 4%, transparent);
+  --app-page-pattern: radial-gradient(circle at 1px 1px, var(--app-dot-color) 1px, transparent 0);
+}
+
+/* Only the dashboard opts into system theming. Store images stay light. */
+@media (prefers-color-scheme: dark) {
+  [data-theme="auto"] {
+    --app-color-scheme: dark;
+    --app-background: #08141e;
+    --app-surface-1: #1b2530;
+    --app-surface-2: #25323f;
+    --app-surface-3: #344453;
+    --app-foreground: #f1f5f9;
+    --app-muted: #bac7d3;
+    --app-subtle: #a6b5c4;
+    --app-income: #75d6a7;
+    --app-expense: #ff9bae;
+    --app-on-positive: #08141e;
+    --app-on-negative: #08141e;
+  }
+}
+[data-soft-flat] { color-scheme: var(--app-color-scheme); }
+[data-soft-flat] :focus-visible { outline: 3px solid var(--app-focus-color); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) {
+  [data-soft-flat] *, [data-soft-flat] *::before, [data-soft-flat] *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

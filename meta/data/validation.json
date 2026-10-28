@@ -1,70 +1,75 @@
 {
-  "checkedAt": "2026-10-24T16:38:19.813Z",
+  "checkedAt": "2026-10-28T06:25:32.639Z",
   "success": true,
-  "wordCount": 434,
+  "version": "1.3.0",
+  "wordCount": 470,
   "checks": [
     {
-      "name": "Five names and five short descriptions within Store limits",
+      "name": "Five distinct names and five distinct summaries within Store limits",
       "passed": true
     },
     {
-      "name": "Full English copy is plain text, 250–600 words, and uses primary at most four times",
+      "name": "Current English description is plain text and states current subscription limits",
       "passed": true
     },
     {
-      "name": "Store form covers every permission and host pattern",
+      "name": "Store form covers all current permissions and host patterns",
       "passed": true
     },
     {
-      "name": "promo/small-440x280.png dimensions",
+      "name": "English locale draft matches the recommended listing pair",
       "passed": true
     },
     {
-      "name": "promo/small-440x280-b.png dimensions",
+      "name": "Review and welcome recommendations are adapted code proposals",
       "passed": true
     },
     {
-      "name": "promo/small-440x280-c.png dimensions",
+      "name": "promo/small-440x280.png has exact export dimensions",
       "passed": true
     },
     {
-      "name": "promo/marquee-1400x560.png dimensions",
+      "name": "promo/small-440x280-b.png has exact export dimensions",
       "passed": true
     },
     {
-      "name": "screenshots/1.png dimensions",
+      "name": "promo/small-440x280-c.png has exact export dimensions",
       "passed": true
     },
     {
-      "name": "screenshots/2.png dimensions",
+      "name": "promo/marquee-1400x560.png has exact export dimensions",
       "passed": true
     },
     {
-      "name": "screenshots/3.png dimensions",
+      "name": "screenshots/1.png has exact export dimensions",
       "passed": true
     },
     {
-      "name": "screenshots/4.png dimensions",
+      "name": "screenshots/2.png has exact export dimensions",
       "passed": true
     },
     {
-      "name": "screenshots/5.png dimensions",
+      "name": "screenshots/3.png has exact export dimensions",
       "passed": true
     },
     {
-      "name": "Image prompts present",
+      "name": "screenshots/4.png has exact export dimensions",
       "passed": true
     },
     {
-      "name": "Missing review/welcome features have adapted code drafts",
+      "name": "screenshots/5.png has exact export dimensions",
       "passed": true
     },
     {
-      "name": "English locale draft is present; 55-locale translation not falsely claimed",
+      "name": "icon/check.png has exact export dimensions",
       "passed": true
     },
     {
-      "name": "All existing changes outside meta preserved exactly",
+      "name": "Matching prompts exist for all main promo and screenshot exports",
+      "passed": true
+    },
+    {
+      "name": "Both current live/test ZIPs exclude meta/",
       "passed": true
     }
   ],
@@ -72,56 +77,62 @@
     {
       "file": "promo/small-440x280.png",
       "width": 440,
-      "height": 280,
-      "bytes": 37461
+      "height": 280
     },
     {
       "file": "promo/small-440x280-b.png",
       "width": 440,
-      "height": 280,
-      "bytes": 39740
+      "height": 280
     },
     {
       "file": "promo/small-440x280-c.png",
       "width": 440,
-      "height": 280,
-      "bytes": 10441
+      "height": 280
     },
     {
       "file": "promo/marquee-1400x560.png",
       "width": 1400,
-      "height": 560,
-      "bytes": 161604
+      "height": 560
     },
     {
       "file": "screenshots/1.png",
       "width": 1280,
-      "height": 800,
-      "bytes": 62052
+      "height": 800
     },
     {
       "file": "screenshots/2.png",
       "width": 1280,
-      "height": 800,
-      "bytes": 113373
+      "height": 800
     },
     {
       "file": "screenshots/3.png",
       "width": 1280,
-      "height": 800,
-      "bytes": 130663
+      "height": 800
     },
     {
       "file": "screenshots/4.png",
       "width": 1280,
-      "height": 800,
-      "bytes": 82136
+      "height": 800
     },
     {
       "file": "screenshots/5.png",
       "width": 1280,
-      "height": 800,
-      "bytes": 111241
+      "height": 800
+    },
+    {
+      "file": "icon/check.png",
+      "width": 1280,
+      "height": 500
     }
-  ]
+  ],
+  "sourceScope": {
+    "marketingWrites": "meta/ only",
+    "changedSinceBaseline": [
+      "extension/src/background.ts",
+      "extension/src/ui/main.tsx",
+      "extension/tests/background.test.mjs",
+      "extension/tests/ui-browser.test.mjs"
+    ],
+    "note": "Root concurrently implemented the separately authorized Free-to-Pro navigation change and tests. These outside-meta differences are reported, not attributed to marketing."
+  }
 }

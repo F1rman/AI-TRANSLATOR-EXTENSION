@@ -118,7 +118,7 @@
       "users": 7000
     }
   ],
-  "retrievedAt": "2026-10-23T20:34:21.212Z",
+  "retrievedAt": "2026-10-27T20:51:30.965Z",
   "hl": "en",
   "files": {
     "screenshots": [
@@ -132,10 +132,5 @@
     "smallPromo": "promo-440x280.png",
     "marquee": null
   },
-  "errors": [],
-  "researchNotes": {
-    "angle": "Selection button, popup and context menu; Google Translate/DeepL API support.",
-    "weakness": "4.03/5 from478 ratings; listing is brief and engine-focused. Own AI engine/context and restore workflow deserve more explicit evidence in visuals.",
-    "date": "2026-10-23"
-  }
+  "errors": []
 }

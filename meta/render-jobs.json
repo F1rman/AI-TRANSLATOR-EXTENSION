@@ -24,40 +24,40 @@
     "height": 280
   },
   {
-    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=Translate+text+with+AI&em=with+AI&layout=",
+    "url": "meta/screenshots/frame.html?img=raw%2Ftext-result.png&cap=Understand+every+word&desc=Translate+text+and+selections+with+AI.&brand=AI+Translator&logo=..%2Fassets%2Fextension-icon.png&fit=contain",
     "out": "meta/screenshots/1.png",
     "width": 1280,
     "height": 800
   },
   {
-    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Select+text.+Get+the+meaning.&em=Get+the+meaning.&layout=wide",
+    "url": "meta/screenshots/frame.html?img=raw%2Fselection-translation.png&cap=Select.+Translate.+Keep+reading.&desc=See+the+meaning+beside+the+text.&brand=AI+Translator&logo=..%2Fassets%2Fextension-icon.png&layout=stacked",
     "out": "meta/screenshots/2.png",
     "width": 1280,
     "height": 800
   },
   {
-    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=Translate+pages.+Keep+the+layout.&em=Keep+the+layout.&layout=wide",
+    "url": "meta/screenshots/frame.html?img=raw%2Fpage-translated.png&cap=Read+the+whole+page&desc=Pro+translates+pages+and+restores+originals.&brand=AI+Translator&logo=..%2Fassets%2Fextension-icon.png&layout=stacked",
     "out": "meta/screenshots/3.png",
     "width": 1280,
     "height": 800
   },
   {
-    "url": "meta/screenshots/frame.html?img=raw%2Flanguages-options.png&cap=Choose+your+translation+languages&em=your+translation+languages&layout=settings",
+    "url": "meta/screenshots/frame.html?img=raw%2Fpro-context-options.png&cap=Make+the+tone+fit&desc=Pro+adds+tone+and+optional+page+context.&brand=AI+Translator&logo=..%2Fassets%2Fextension-icon.png&fit=contain",
     "out": "meta/screenshots/4.png",
     "width": 1280,
     "height": 800
   },
   {
-    "url": "meta/screenshots/frame.html?img=raw%2Fselection-dark.png&cap=Read+in+light+or+dark&em=light+or+dark&layout=wide+dark",
+    "url": "meta/screenshots/frame.html?img=raw%2Flocal-history-dark.png&cap=Keep+translations+close&desc=Local+history.+Yours+to+manage.&brand=AI+Translator&logo=..%2Fassets%2Fextension-icon.png&fit=contain",
     "out": "meta/screenshots/5.png",
     "width": 1280,
     "height": 800
   },
   {
-    "url": "meta/icon/check.html?icon=source128.png&c=../competitors/gbefmodhlophhakmoecijeppjblibmie/icon.png&c=../competitors/cofdbpoegempjloogbagkncekinflcnj/icon.png&c=../competitors/hkelkkhcmkhbpkenoogdeomannakpilk/icon.png&c=../competitors/ibplnjkanclpjokhdolnendpplpjiace/icon.png&c=../competitors/noofnfniimcnghnkonpdlhlaeaocidbi/icon.png&c=../competitors/bpoadfkcbjbfhfodiogcnhhhpibjhbnh/icon.png&c=../competitors/fbimffnjoeobhjhochngikepgfejjmgj/icon.png&c=../competitors/hbblhboakojbegilahlbppmmkogdgehp/icon.png",
+    "url": "meta/icon/check.html?icon=source128.png&c=..%2Fcompetitors%2Fgbefmodhlophhakmoecijeppjblibmie%2Ficon.png&c=..%2Fcompetitors%2Fcofdbpoegempjloogbagkncekinflcnj%2Ficon.png&c=..%2Fcompetitors%2Fhkelkkhcmkhbpkenoogdeomannakpilk%2Ficon.png&c=..%2Fcompetitors%2Fibplnjkanclpjokhdolnendpplpjiace%2Ficon.png&c=..%2Fcompetitors%2Fnoofnfniimcnghnkonpdlhlaeaocidbi%2Ficon.png&c=..%2Fcompetitors%2Fbpoadfkcbjbfhfodiogcnhhhpibjhbnh%2Ficon.png&c=..%2Fcompetitors%2Ffbimffnjoeobhjhochngikepgfejjmgj%2Ficon.png&c=..%2Fcompetitors%2Fhbblhboakojbegilahlbppmmkogdgehp%2Ficon.png",
     "out": "meta/icon/check.png",
     "width": 1280,
     "height": 500,
-    "wait": 1200
+    "wait": 1000
   }
 ]

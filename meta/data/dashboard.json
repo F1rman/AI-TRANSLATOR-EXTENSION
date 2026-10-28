@@ -1,14 +1,14 @@
 {
   "category": "Productivity → Tools",
-  "categoryEvidence": "4 of the 8 researched direct competitors use productivity/tools; communication 2, workflow 1, education 1. The product's single purpose is translation while reading and working on webpages.",
-  "singlePurpose": "Translate text entered, selected, or requested from a webpage, and text in a user-selected website image, into the chosen language. Page controls stop translation or restore original text; Pro image translation creates a downloadable translated PNG.",
+  "categoryEvidence": "Fresh 2026-10-27 snapshots: four of eight direct competitors use productivity/tools, two communication, one workflow and one education. Tools matches this extension’s primary translation workflow.",
+  "singlePurpose": "Translate typed or selected text and, with Pro, eligible webpage text into a chosen language. Related controls provide language detection, optional visible page context, translation tones, local translation history, and restoring original webpage text.",
   "permissions": [
     {
       "permission": "activeTab",
-      "justification": "The popup reads the current tab's selected text after the user opens the extension, and targets the current tab for user-requested translation. The implementation uses chrome.tabs.query and chrome.scripting.executeScript in src/ui/main.tsx. This access is scoped to the current tab after a user gesture.",
+      "justification": "The popup reads selected text from the current tab’s accessible frames after the user opens the extension, using chrome.tabs.query and chrome.scripting.executeScript in extension/src/ui/main.tsx. This is a real current-tab user gesture flow. Because the package also declares persistent HTTP(S) host permissions for the selection icon, activeTab may be redundant on those sites; verify a narrower permission design separately before removal.",
       "unused": false,
       "redundant": true,
-      "review": "activeTab is exercised by the current-tab selection flow, but the broad HTTP(S) host permissions already cover regular websites. It is potentially redundant in the current package; removing it requires a separate functionality check. It does not justify the broader persistent site access.",
+      "review": "Real current-tab selection flow; potentially redundant with persistent HTTP(S) access. The marketing workflow does not remove permissions.",
       "evidence": [
         "extension/src/ui/main.tsx: popup mount selection capture",
         "extension/src/background.ts: activeTabId"
@@ -16,7 +16,7 @@
     },
     {
       "permission": "contextMenus",
-      "justification": "Adds Translate selection, Translate page, and Translate image — Pro commands to the browser context menu. User-requested image translation opens a packaged extension tab and creates a translated PNG after server-side Pro verification.",
+      "justification": "Adds Translate selection and Translate page commands using createMenus and chrome.contextMenus.onClicked in extension/src/background.ts. The selection command sends the chosen text to the content script; the page command starts the Pro workflow or opens the Pro purchase page for Free access. Browser context menu entries require this API permission.",
       "unused": false,
       "evidence": [
         "extension/src/background.ts: createMenus",
@@ -25,7 +25,7 @@
     },
     {
       "permission": "storage",
-      "justification": "Stores language, theme, interface, and selection-mode preferences locally. Session storage holds the popup's text draft and pending translation request, plus active page and job ownership state so reopening the popup or restarting the service worker can continue the requested work. These settings and runtime state require extension storage rather than website storage. Image intent metadata (selected HTTP(S) image URL, languages, idempotency key and job ID) is kept in session storage for recovery. Inline image bytes and embedded URL credentials are never stored there.",
+      "justification": "Uses chrome.storage.local for language, theme, interface, selection, tone and page-context preferences, and chrome.storage.session for account/environment-scoped popup drafts, pending requests, page sessions and job ownership. These extension-wide settings and recoverable service-worker state cannot use an individual website’s storage. Completed translation history separately uses local IndexedDB, partitioned by account and environment, without cloud sync. Evidence: extension/src/background.ts settings/saveSettings/withSession, extension/src/shared/drafts.ts, and extension/src/shared/history.ts.",
       "unused": false,
       "evidence": [
         "extension/src/background.ts: settings, saveSettings, withSession",
@@ -34,7 +34,7 @@
     },
     {
       "permission": "scripting",
-      "justification": "Reads selected text from accessible frames when the user opens the popup. It also injects the packaged content.js into the requested tab if an existing tab does not yet have the content script. This enables the explicit current-tab translation action and needs chrome.scripting; no remote executable code is downloaded.",
+      "justification": "Reads selected text from accessible frames when the user opens the popup, and injects packaged content.js if an existing user-selected page lacks the content script. Evidence: extension/src/ui/main.tsx popup selection capture and extension/src/background.ts startPage fallback. chrome.scripting is needed for those dynamic operations; no remote executable code is fetched.",
       "unused": false,
       "evidence": [
         "extension/src/ui/main.tsx: chrome.scripting.executeScript selection capture",
@@ -43,7 +43,7 @@
     },
     {
       "permission": "identity",
-      "justification": "Uses chrome.identity.getAuthToken for Google sign-in, then signs in to Firebase with that credential. The verified account authorizes translations and its daily allowance. Cached tokens are cleared on sign-out. Only openid, email, and profile scopes are requested; the extension does not request access to Gmail, Drive, contacts, or other account content.",
+      "justification": "Uses chrome.identity.getAuthToken for Google sign-in and exchanges the credential for Firebase authentication. The verified account authorizes translation, tracks monthly character usage and connects subscription access. Sign-out clears cached tokens. Only openid, email and profile scopes are requested; Gmail, Drive, contacts and other account content are not requested. Evidence: extension/src/auth.ts login/logout/getIdToken and manifest.oauth2.scopes.",
       "unused": false,
       "evidence": [
         "extension/src/auth.ts: login, logout, getIdToken",
@@ -52,7 +52,7 @@
     },
     {
       "permission": "webNavigation",
-      "justification": "Enumerates frames for page translation and tracks document navigation so old translation jobs are cancelled when a tab or frame changes. New eligible frames can join an active page translation. History-state and fragment navigation end the previous translation session. The permission is used for document lifecycle and frame targeting, rather than collecting browsing history; activeTab does not provide these frame and navigation events.",
+      "justification": "Enumerates documents and frames for user-started Pro page translation and handles their lifecycle. Navigation cancels jobs tied to old documents; eligible new frames join an active page session. History-state and fragment navigation end the old session. Evidence: extension/src/background.ts startPage/changePage getAllFrames and onCommitted/onDOMContentLoaded/onHistoryStateUpdated/onReferenceFragmentUpdated. activeTab does not provide these frame and navigation events. These events are used to manage active translation, not to compile browsing history.",
       "unused": false,
       "evidence": [
         "extension/src/background.ts: startPage and changePage getAllFrames",
@@ -61,7 +61,7 @@
     },
     {
       "permission": "http://*/*",
-      "justification": "Runs the packaged content script on regular HTTP pages and their accessible HTTP frames so the selected-text icon is ready without opening the popup. When the user starts page translation, it reads eligible text, observes newly appearing text, replaces translated text, and restores originals. Translation is limited to the user's requested selection or active page session. A fixed site list would exclude the arbitrary websites the product translates; activeTab alone would require a manual activation flow and would not provide the current automatic selection-icon experience. Optional per-site access is a possible future design change, not the behavior of this package. Also downloads the image selected through Chrome’s image context menu without website cookies, after verifying Pro. The backend receives bounded file bytes rather than the website image URL.",
+      "justification": "Runs packaged content.js on ordinary HTTP webpages and accessible frames so the selected-text icon is ready on arbitrary sites. After user activation, Pro page translation reads eligible text, observes newly appearing text, replaces translations and restores originals. Optional context reads only eligible visible surrounding text. A fixed domain list would exclude arbitrary sites; activeTab alone would require manual activation before the current automatic selection-icon experience. Optional per-site permission would require a separate product-flow change. Evidence: manifest.content_scripts.matches/all_frames and extension/src/content/index.ts, dom.ts and context.ts.",
       "unused": false,
       "review": "Broad persistent site access should be justified explicitly. HTTP support is genuinely separate from HTTPS; do not claim the API itself requires HTTP.",
       "evidence": [
@@ -72,7 +72,7 @@
     },
     {
       "permission": "https://*/*",
-      "justification": "Provides the same selected-text and user-started page translation on regular HTTPS websites and accessible frames, including observing new text and restoring originals. It also permits the service worker's HTTPS calls to the translation backend and authentication services. Limiting this permission to the backend domain would prevent translating other websites. activeTab alone cannot supply the installed automatic selection icon on arbitrary pages before a toolbar or menu action; optional per-site access would be a different user flow. Also downloads the image selected through Chrome’s image context menu without website cookies, after verifying Pro. The backend receives bounded file bytes rather than the website image URL.",
+      "justification": "Provides the same selection icon, requested text translation and user-started Pro page translation on ordinary HTTPS sites and accessible frames. It also allows HTTPS requests to translation and authentication services. Backend-only host access would not support translating arbitrary websites; activeTab alone would not supply the pre-existing selection icon before a toolbar/menu action. Evidence: manifest.host_permissions/content_scripts, extension/src/content/index.ts/dom.ts/context.ts, extension/src/background.ts api, and extension/src/auth.ts. Chrome internal pages and the Web Store remain restricted.",
       "unused": false,
       "review": "The broad website requirement, rather than backend fetch alone, is the reason for this wildcard. Internal browser pages and the Chrome Web Store remain restricted.",
       "evidence": [
@@ -102,11 +102,33 @@
   "support": "https://ai-translator-ext.web.app/support",
   "developerContact": "balubenko.ink@gmail.com",
   "storeItemId": "aieamemimbcbbnmakifejomadhegogge",
-  "publicationStatus": "Existing draft item; not treated as a published listing.",
+  "publicationStatus": "Owner-supplied existing draft item, not a confirmed public listing. 2026-10-27 own-listing collection found no parsed listing; absence from search is reported only for the checked results.",
   "releaseChecks": [
-    "Complete real Google-account sign-in, sign-out, and sign-in again in regular Chrome; current evidence does not establish that this passed.",
-    "Apply any chosen listing name/description and locale manifest changes to extension source in a separate implementation task, then rebuild the package.",
-    "Review the broad host access and potentially redundant activeTab permission before submission.",
-    "Image originals/results have authenticated owner access for 24 hours and asynchronous private-bucket lifecycle cleanup. Real interactive Google sign-in is not covered by automated fixture tests."
-  ]
+    "Choose and apply listing copy in the Store dashboard; all files here are local proposals and have not been published.",
+    "Apply proposed manifest locale keys/default_locale in source separately before localized message catalogs can be packaged. The current UI dictionaries support English and Ukrainian, while manifest catalogs are absent.",
+    "Review broad persistent website access and the potentially redundant activeTab permission against the actual selection-icon workflow.",
+    "Owner should confirm current privacy and terms pages match monthly characters, recurring billing, local history and opt-in visible context before Store submission.",
+    "Run a real account sign-in/sign-out and production purchase/cancellation acceptance flow where required; deterministic marketing captures do not prove real billing acceptance."
+  ],
+  "billing": {
+    "currency": "USD",
+    "freeMonthlyCharacters": 100000,
+    "proMonthlyCharacters": 2000000,
+    "freeMaxCharactersPerTranslation": 4000,
+    "proMaxCharactersPerTranslation": 50000,
+    "proMonthlyPrice": 4.99,
+    "proAnnualPrice": 39.99,
+    "annualAllowance": "Monthly windows, not all annual characters at once",
+    "sourceEvidence": [
+      "docs/RELEASE_1.3.0.md",
+      "backend/app/limits.json",
+      "extension/src/ui/shared.tsx"
+    ]
+  },
+  "dataHandling": {
+    "transfers": "Requested text and opted-in page context go to the translation backend for server-side AI processing. Instant selection automatically sends selected text when enabled; an active page translation session processes eligible new text.",
+    "history": "Local IndexedDB; separated by account/environment, no cloud sync, maximum 1,000 entries or 25 MiB. Free shows latest 20, Pro up to 1,000. Delete, clear and disable controls are supported.",
+    "pageContext": "Pro opt-in; at most 2,000 visible surrounding characters; input fields, passwords, hidden text and HTML excluded."
+  },
+  "verifiedAt": "2026-10-27"
 }

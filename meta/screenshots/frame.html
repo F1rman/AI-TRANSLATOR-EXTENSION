@@ -1,83 +1,111 @@
 <!doctype html>
-<!--
-  Screenshot frame, 1280×800. Copy to meta/screenshots/frame.html. Each shot is
-  one caption plus one real capture, passed in the query string so one file
-  renders every shot:
-    node <skill>/scripts/render-html.mjs \
-      --url "meta/screenshots/frame.html?img=raw/popup.png&cap=Every%20video%20on%20the%20page&em=Every%20video" \
-      --out meta/screenshots/1.png --width 1280 --height 800
-  img is relative to this file. em (optional) is the part of cap to colour;
-  dir=rtl is available if screenshots are ever localized.
--->
-<html>
+<!-- Copy to meta/screenshots/frame.html; retain authentic captures in raw/.
+     Default: editorial split, copy left, enlarged UI bleeding right/bottom.
+     Query: ?img=raw/popup.png&cap=Keep%20your%20work%20together&em=your%20work
+     Optional: desc, brand, logo, theme=dark, dir=rtl, lang=uk.
+     fit=contain shows the entire capture; layout=stacked uses a centered frame.
+     Render at 1280x800. Only presentation changes; captured UI is untouched. -->
+<html lang="en" data-soft-flat data-theme="light">
 <head>
 <meta charset="utf-8">
-
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../assets/soft-flat.css">
 <style>
-  :root {
-    /* EDIT: same palette as the promo tile. */
-    --accent: #A27725;
-    --ink: #263027;
-    --bg: #F5F3ED;
-  }
   * { box-sizing: border-box; margin: 0; }
-  html, body { width: 100vw; height: 100vh; overflow: hidden; }
+  html, body { width: 100%; height: 100%; overflow: hidden; }
   body {
-    font-family: Inter, "Helvetica Neue", Arial, sans-serif;
-    background: var(--bg);
-    color: var(--ink);
-    display: flex; flex-direction: column; align-items: center;
-    padding: 6vh 5vw 0;
+    position: relative; color: var(--app-foreground);
+    background-color: var(--app-background);
+    background-image: var(--app-page-pattern);
+    background-size: var(--app-dot-step) var(--app-dot-step);
+    font: 400 14px/1.5 var(--app-font-body);
   }
-  h1 {
-    font-weight: 900; font-size: 8.5vh; line-height: 1.05;
-    letter-spacing: -0.02em; text-align: center; max-width: 100%;
-  }
-  h1 em { font-style: normal; color: var(--accent); }
+  .copy { position: absolute; inset-block-start: 18.75vh; inset-inline-start: 6.25vw; width: 37vw; }
+  h1 { font: 600 7vh/1.12 var(--app-font-heading); letter-spacing: -.025em; overflow-wrap: normal; }
+  h1 em { color: var(--app-muted); font-style: normal; }
+  .description { margin-block-start: 6vh; font: 400 3vh/1.55 var(--app-font-body); }
+  .description:empty { display: none; }
   .shot {
-    flex: 1 1 auto; min-height: 0; width: 100%;
-    display: flex; align-items: flex-start; justify-content: center;
-    padding-top: 5vh;
+    position: absolute; inset-block-start: 11.75vh; inset-inline-start: 50vw;
+    width: 58vw; height: 110vh; overflow: hidden;
+    border-start-start-radius: var(--app-radius-card);
+    background-color: var(--app-surface-1);
   }
-  /* Height-driven so a small popup is enlarged to readable size (capture it
-     with --scale 2 to stay sharp), and bleeds off the bottom so the UI reads
-     as live while the caption keeps the top of the frame. */
-  .shot img {
-    height: 112%; width: auto; max-width: 100%;
-    border-radius: 1.6vh 1.6vh 0 0;
-    box-shadow: 0 2vh 6vh rgba(38, 48, 39, .15);
-    object-fit: contain; object-position: top;
+  .shot img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: left top; }
+  [dir="rtl"] .shot img { object-position: right top; }
+  .brand {
+    position: absolute; inset-inline-start: 6.25vw; inset-block-end: 9vh;
+    display: flex; align-items: center; gap: 16px; max-width: 37vw;
+    font: 600 2.75vh/1.2 var(--app-font-heading);
   }
-body.dark { --bg:#263027; --ink:#FFFEFA; --accent:#E9BA63; }
-body.wide .shot img { width:100%;height:auto;max-width:1000px; }
-body.settings .shot img {width:900px;height:auto;max-width:100%;}
+  .brand[hidden], .brand img[hidden] { display: none; }
+  .brand img { width: 6.5vh; height: 6.5vh; flex: none; object-fit: contain; }
+  .brand span { overflow-wrap: anywhere; }
+  .contain .shot { width: 43.75vw; height: 80vh; border-radius: var(--app-radius-card); }
+  .contain .shot img { object-fit: contain; }
+  .stacked { display: flex; flex-direction: column; align-items: center; gap: 4vh; padding: 6vh 6vw; }
+  .stacked .copy { position: static; flex: none; width: 100%; text-align: center; }
+  .stacked h1 { font-size: 8vh; }
+  .stacked .description { margin: 2vh auto 0; max-width: 75%; font-size: 2.75vh; }
+  .stacked .shot { position: static; flex: 1 1 0; min-height: 0; width: 100%; height: auto; background-color: transparent; border-radius: 0; }
+  .stacked .shot img { object-fit: contain; object-position: center; }
+  .stacked .brand { position: static; flex: none; max-width: 100%; font-size: 2.25vh; }
+  .stacked .brand img { width: 4vh; height: 4vh; }
 </style>
 </head>
 <body>
-  <h1 id="cap"></h1>
-  <div class="shot"><img id="img" alt=""></div>
+  <div class="copy"><h1 id="cap"></h1><p id="desc" class="description"></p></div>
+  <div class="shot"><img id="img" alt="Actual extension interface"></div>
+  <div class="brand" id="brand" hidden><img id="logo" alt="" hidden><span id="brand-name"></span></div>
 <script>
   const params = new URLSearchParams(location.search);
   const cap = params.get('cap') ?? '';
   const em = params.get('em');
-  const h1 = document.getElementById('cap');
+  const heading = document.getElementById('cap');
+  const stacked = params.get('layout') === 'stacked';
+  if (stacked) document.body.classList.add('stacked');
+  if (params.get('fit') === 'contain') document.body.classList.add('contain');
   if (em && cap.includes(em)) {
-    const [before, after] = [cap.slice(0, cap.indexOf(em)), cap.slice(cap.indexOf(em) + em.length)];
-    const mark = document.createElement('em');
-    mark.textContent = em;
-    h1.append(before, mark, after);
-  } else {
-    h1.textContent = cap;
+    const start = cap.indexOf(em);
+    const emphasis = Object.assign(document.createElement('em'), { textContent: em });
+    heading.append(cap.slice(0, start), emphasis, cap.slice(start + em.length));
+  } else heading.textContent = cap;
+  document.getElementById('desc').textContent = params.get('desc') ?? '';
+  document.documentElement.dir = params.get('dir') === 'rtl' ? 'rtl' : 'ltr';
+  document.documentElement.lang = params.get('lang') || 'en';
+  if (['light', 'dark'].includes(params.get('theme'))) document.documentElement.dataset.theme = params.get('theme');
+  const image = document.getElementById('img');
+  if (params.get('img')) image.src = params.get('img');
+  else window.__renderError = 'Screenshot frame requires ?img= with a real interface capture.';
+  if (params.get('brand') || params.get('logo')) {
+    document.getElementById('brand').hidden = false;
+    document.getElementById('brand-name').textContent = params.get('brand') || '';
+    if (params.get('logo')) {
+      const logo = document.getElementById('logo');
+      logo.src = params.get('logo'); logo.hidden = false;
+    }
   }
-  document.documentElement.dir = params.get('dir') ?? 'ltr';
-  document.body.className = params.get('layout') ?? ''; 
-  document.getElementById('img').src = params.get('img') ?? '';
-  // Long translations shrink to one or two lines instead of pushing the UI off the frame.
-  document.fonts.ready.then(() => {
-    let size = parseFloat(getComputedStyle(h1).fontSize);
-    while (h1.offsetHeight > size * 2.3 && size > 20) h1.style.fontSize = `${size *= 0.95}px`;
-  });
+  if (!params.get('logo')) document.getElementById('logo').remove();
+  window.__renderReady = (async () => {
+    await Promise.all([document.fonts.load('600 56px Rubik'), document.fonts.load('400 24px Manrope')]);
+    await document.fonts.ready;
+    await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    const line = parseFloat(getComputedStyle(heading).lineHeight), lines = stacked ? 2 : 4;
+    const desc = document.getElementById('desc');
+    const descriptionLine = parseFloat(getComputedStyle(desc).lineHeight);
+    const copy = document.querySelector('.copy').getBoundingClientRect();
+    const brand = document.getElementById('brand').getBoundingClientRect();
+    if (!cap.trim()) window.__renderError = 'Screenshot caption is missing.';
+    else if (heading.scrollWidth > heading.clientWidth + 1 || heading.offsetHeight > line * lines + 2) {
+      window.__renderError = 'Screenshot caption exceeds ' + (stacked ? 'two' : 'four') + ' lines. Shorten the caption; the type size is intentionally fixed.';
+    } else if (desc.scrollWidth > desc.clientWidth + 1 || desc.offsetHeight > descriptionLine * 3 + 2) {
+      window.__renderError = 'Screenshot description exceeds three lines. Shorten the supporting copy.';
+    } else if (!stacked && copy.bottom > (brand.height ? brand.top - 32 : innerHeight - 48)) {
+      window.__renderError = 'Screenshot copy overlaps the brand area. Shorten the caption or description.';
+    } else if (!stacked && brand.height > innerHeight * .15) {
+      window.__renderError = 'Screenshot brand label is too long. Use a short product name.';
+    }
+  })();
 </script>
 </body>
 </html>

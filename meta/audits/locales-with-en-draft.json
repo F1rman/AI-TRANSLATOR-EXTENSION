@@ -74,9 +74,9 @@
   "identicalToDefault": {},
   "overLimit": [],
   "problems": [
-    "manifest.name is a literal string, so the store listing cannot be translated. Use \"__MSG_<key>__\".",
-    "manifest.description is a literal string, so the store listing cannot be translated. Use \"__MSG_<key>__\".",
-    "_locales exists but manifest.default_locale is missing; Chrome rejects this package."
+    "manifest.name is literal text. Use a __MSG_<key>__ value to localize this field.",
+    "manifest.description is literal text. Use a __MSG_<key>__ value to localize this field.",
+    "Localized messages require manifest.default_locale."
   ],
   "overlay": "/Users/ihorkharchyshyn/WORK/PROJECTS/AI-TRANSLATOR-EXTENSION/meta/locales",
   "summary": {
@@ -87,6 +87,7 @@
     "placeholderMismatches": 0,
     "localesWithUntranslatedValues": 0,
     "overLimit": 0,
+    "unreadable": 0,
     "problems": 3
   },
   "complete": false
